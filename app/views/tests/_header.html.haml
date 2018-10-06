@@ -1,0 +1,103 @@
+.site-header__sponsoredmatch.site-header__sponsoredmatch_type1
+  .site-header__sponsoredmatch.site-
+    .site-header__sponsoredmatch.site-header__sponsoredmatch_type1
+.header
+  .site-header.clearfix.HeaderContainer__SiteHeader-sc-1dznt2s-0.ldcZBj
+    %p.fl
+      = link_to "スペースマーケット", root_path, class: "site-header__logo"
+    %div
+      %ul.site-header__nav.sm-hide
+        %li.site-header__nav-user-name.link-black.link-borderless
+          %i.fa.fa-caret-down
+        %li
+          = link_to root_path, class: "site-header__nav-user" do
+            = image_tag "https://yononakanews.com/wp-content/uploads/2015/10/odagiri.jpg", class: "site-header__nav-user"
+        %li
+          = link_to root_path, class: "site-header__nav-message" do
+            %i.fa.fa-envelope
+        %li
+          = link_to "ヘルプ", root_path, class: "site-header__nav-help link-black link-borderless help__text"
+        %li
+          = link_to "予約", root_path, class: "site-header__nav-reservation link-black"
+        %li
+          = link_to "お気に入り", root_path, class: "site-header__nav-favorite link-black"
+        %li
+          = link_to "ホスト", root_path, class: "site-header__nav-owner link-black"
+  -#.HeaderContainer__SiteHeaderBase-sc-1dznt2s-1.kfJniR
+  -#.js-mobile-notification
+.site-main
+  .top-mv
+    %p.service-logo
+    %h1.top-information__sub
+      10052件のレンタルスペースから目的に合ったスペースをかんたん予約
+    .page__information
+      .top-menu__container
+        .container
+          %ul.row
+            %li.top-menu__list.col-xs-4
+              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=party&with_recommend=true"}
+                %img.top-menu__list-button-img{:alt => "パーティー", :src => "//cdnspacemarket.com/packs-production/images/www/icon/party_blue-284ad75134.svg"}/
+                %span.top-menu__list-button-text
+                  パーティー
+                  %span.top-menu__list-button-num 5824件
+                %i.fa.fa-angle-right.yajirusi
+
+            %li.top-menu__list.col-xs-4
+              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=class&with_recommend=true"}
+                %img.top-menu__list-button-img{:alt => "会議", :src => "//cdnspacemarket.com/packs-production/images/www/icon/class_blue-e05f553eaf.svg"}/
+                %span.top-menu__list-button-text
+                  会議
+                  %span.top-menu__list-button-num 8067件
+                %i.fa.fa-angle-right.yajirusi
+            %li.top-menu__list.col-xs-4
+              %a.top-menu__list-button.mdc-elevation--z2{:href => "https://stay.spacemarket.com/search"}
+                %img.top-menu__list-button-img{:alt => "民泊", :src => "//cdnspacemarket.com/packs-production/images/www/icon/stay_blue-e36c43aef6.svg"}/
+                %span.top-menu__list-button-text
+                  民泊
+                  %span.top-menu__list-button-num 576件
+                %i.fa.fa-angle-right.yajirusi
+        .container
+          %ul.row
+            %li.top-menu__list.top-menu__list-second.col-xs-3
+              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=photo_shoot&with_recommend=true"}
+                %img.top-menu__list-button-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/www/icon/photo_shoot_blue-9d526ca0c6.svg"}/
+                %span.top-menu__list-button-text
+                  写真撮影
+                  %span.top-menu__list-button-num 7797件
+                %i.fa.fa-angle-right.yajirusi
+            %li.top-menu__list.top-menu__list-second.col-xs-3
+              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=film_shoot&with_recommend=true"}
+                %img.top-menu__list-button-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/www/icon/film_shoot_blue-b0d90574c8.svg"}/
+                %span.top-menu__list-button-text
+                  ロケ撮影
+                  %span.top-menu__list-button-num 7566件
+                %i.fa.fa-angle-right.yajirusi
+            %li.top-menu__list.top-menu__list-second.col-xs-3
+              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=sports&with_recommend=true"}
+                %img.top-menu__list-button-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/www/icon/sports_blue-d0e5f50187.svg"}/
+                %span.top-menu__list-button-text
+                  スポーツ
+                  %span.top-menu__list-button-num 2607件
+                %i.fa.fa-angle-right.yajirusi
+            %li.top-menu__list.top-menu__list-second.col-xs-3
+              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=other"}
+                %img.top-menu__list-button-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/www/icon/other_blue-dbd2f4ef89.svg"}/
+                %span.top-menu__list-button-text その他
+              %select.w100pa.js-select__transparent{:name => "others"}
+                %option{:value => ""} 指定なし
+                %option{:value => "event"} イベント
+                %option{:value => "performance"} 演奏
+                %option{:value => "studio"} 展示会
+                %option{:value => "office"} オフィス
+                %option{:value => "wedding"} 結婚式
+      .top-menu__other-search
+        %h3.top-menu__other-ttl カテゴリーから探す
+        %ul.top-flow__list
+          %li
+            %a{:href => "/areas"} エリア
+          %li
+            %a{:href => "/capacities"} 人数
+          %li
+            %a{:href => "/space_types"} 会場タイプ
+          %li
+            %a{:href => "/amenities"} アメニティ

@@ -1,0 +1,36 @@
+$white: #fff;
+$black: #000;
+
+.top-static__banner {
+  width: 100vw;
+  height: 320px;
+  background-image: url(http://cdnspacemarket.com/packs-production/host_hero-c92a2d0619aa2d3be47091b2c3fc19a5.jpg);
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__container {
+    text-align: center;
+  }
+  &-title {
+    font-size: 34px;
+    font-weight: bold;
+    color: $white;
+    text-shadow: 0 1px 5px rgba(0,0,0,.7);
+    margin-bottom: 16px;
+  }
+  &-text {
+    font-size: 16px;
+    color: $white;
+    text-shadow: 0 1px 5px rgba(0,0,0,.7);
+  }
+  &-button {
+    display: inline-block;
+    margin-top: 40px;
+    background-color: $white;
+    color: $black;
+    padding: 13px 60px;
+  }
+}
