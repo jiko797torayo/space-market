@@ -23,8 +23,6 @@
           = link_to "お気に入り", root_path, class: "site-header__nav-favorite link-black"
         %li
           = link_to "ホスト", root_path, class: "site-header__nav-owner link-black"
-  -#.HeaderContainer__SiteHeaderBase-sc-1dznt2s-1.kfJniR
-  -#.js-mobile-notification
 .site-main
   .top-mv
     %p.service-logo
@@ -91,13 +89,15 @@
                 %option{:value => "office"} オフィス
                 %option{:value => "wedding"} 結婚式
       .top-menu__other-search
-        %h3.top-menu__other-ttl カテゴリーから探す
-        %ul.top-flow__list
-          %li
-            %a{:href => "/areas"} エリア
-          %li
-            %a{:href => "/capacities"} 人数
-          %li
-            %a{:href => "/space_types"} 会場タイプ
-          %li
-            %a{:href => "/amenities"} アメニティ
+        .top-menu__icon
+          %i.fa.fa-search
+          %h3.top-menu__other-ttl カテゴリーから探す
+          %ul.top-flow__list
+            %li
+              %a{:href => "/areas"} エリア
+            %li.left-border
+              %a{:href => "/capacities"} 人数
+            %li.left-border
+              %a{:href => "/space_types"} 会場タイプ
+            %li.left-border
+              %a{:href => "/amenities"} アメニティ
