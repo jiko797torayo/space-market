@@ -1,0 +1,83 @@
+$yellow: #f5d02c;
+
+.page__stripes {
+  border-bottom: 1px solid $grayborder;
+}
+.graybackground {
+  background-color: $graybackground
+}
+.top-regist {
+  &__inner {
+    background-color: $yellow;
+    box-sizing: content-box;
+    padding: 32px 0;
+  }
+  &__unit {
+    text-align: center;
+    max-width: 380px;
+    margin: 0 auto;
+    position: relative;
+  }
+  &__title-guide {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+  &__everyone{
+    background-color: $white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    left: -80px;
+    top: -10px;
+    line-height: 80px;
+    font-size: 14px;
+    color: $yellow;
+    font-weight: bold;
+  }
+  &__title {
+    font-size: 30px;
+    font-weight: bold;
+    &-large {
+      font-size: 48px;
+      font-weight: bold;
+    }
+    &-small {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  &__all-space {
+    background-color: $white;
+    text-align: center;
+    width: 380px;
+    padding: 8px 0;
+    margin: 5px auto;
+    border-radius: 5px;
+  }
+  &__text {
+    text-align: center;
+    margin-top: 10px;
+  }
+  &__slash {
+    font-size: 16px;
+    &-white {
+      color: $white;
+      font-size: 22px;
+      padding: 0 10px;
+    }
+  }
+  &__button_wrap {
+    height: 100px;
+    padding: 24px 0;
+    text-align: center;
+  }
+  &__button {
+    padding: 13px 100px;
+    background-color: $bluelink;
+    color: $white;
+    display: inline-block;
+  }
+}
