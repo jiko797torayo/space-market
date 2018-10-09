@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181009070347) do
+ActiveRecord::Schema.define(version: 20181009074549) do
+
+  create_table "equipment_infos", force: :cascade do |t|
+    t.integer  "postal_code",    null: false
+    t.integer  "prefecture",     null: false
+    t.integer  "city_name",      null: false
+    t.integer  "street_name",    null: false
+    t.integer  "building_name",  null: false
+    t.integer  "latitude",       null: false
+    t.integer  "longitude",      null: false
+    t.integer  "access",         null: false
+    t.integer  "phone_number",   null: false
+    t.integer  "equipment_type", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
