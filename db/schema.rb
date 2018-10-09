@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181009065813) do
+ActiveRecord::Schema.define(version: 20181009070347) do
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
@@ -60,6 +60,24 @@ ActiveRecord::Schema.define(version: 20181009065813) do
     t.index ["reservation_user_id"], name: "index_reservations_on_reservation_user_id"
     t.index ["space_id"], name: "index_reservations_on_space_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "spaces", force: :cascade do |t|
+    t.integer  "likes_count",       default: 0
+    t.integer  "host_id"
+    t.integer  "equipment_info_id"
+    t.integer  "basic_info_id"
+    t.integer  "description_id"
+    t.integer  "plan_id"
+    t.integer  "image_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["basic_info_id"], name: "index_spaces_on_basic_info_id"
+    t.index ["description_id"], name: "index_spaces_on_description_id"
+    t.index ["equipment_info_id"], name: "index_spaces_on_equipment_info_id"
+    t.index ["host_id"], name: "index_spaces_on_host_id"
+    t.index ["image_id"], name: "index_spaces_on_image_id"
+    t.index ["plan_id"], name: "index_spaces_on_plan_id"
   end
 
   create_table "users", force: :cascade do |t|
