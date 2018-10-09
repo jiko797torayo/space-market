@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181009054315) do
+ActiveRecord::Schema.define(version: 20181009065426) do
+
+  create_table "reservation_hours", force: :cascade do |t|
+    t.integer  "zero",         default: 0, null: false
+    t.integer  "one",          default: 0, null: false
+    t.integer  "two",          default: 0, null: false
+    t.integer  "three",        default: 0, null: false
+    t.integer  "four",         default: 0, null: false
+    t.integer  "five",         default: 0, null: false
+    t.integer  "six",          default: 0, null: false
+    t.integer  "seven",        default: 0, null: false
+    t.integer  "eight",        default: 0, null: false
+    t.integer  "nine",         default: 0, null: false
+    t.integer  "ten",          default: 0, null: false
+    t.integer  "eleven",       default: 0, null: false
+    t.integer  "twelve",       default: 0, null: false
+    t.integer  "thirteen",     default: 0, null: false
+    t.integer  "fourteen",     default: 0, null: false
+    t.integer  "fifteen",      default: 0, null: false
+    t.integer  "sixteen",      default: 0, null: false
+    t.integer  "seventeen",    default: 0, null: false
+    t.integer  "eighteen",     default: 0, null: false
+    t.integer  "nineteen",     default: 0, null: false
+    t.integer  "twenty",       default: 0, null: false
+    t.integer  "twenty_one",   default: 0, null: false
+    t.integer  "twenty_two",   default: 0, null: false
+    t.integer  "twenty_three", default: 0, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "reservations", force: :cascade do |t|
     t.date     "day",                 null: false
