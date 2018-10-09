@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181009084826) do
+ActiveRecord::Schema.define(version: 20181009085403) do
+
+  create_table "basic_infos", force: :cascade do |t|
+    t.integer  "capacity",                   null: false
+    t.integer  "floor_space",                null: false
+    t.integer  "date_of_starting_reception", null: false
+    t.integer  "passig_key_method",          null: false
+    t.integer  "deadline_of_reservation",    null: false
+    t.integer  "purpose_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["purpose_id"], name: "index_basic_infos_on_purpose_id"
+  end
 
   create_table "equipment_infos", force: :cascade do |t|
     t.integer  "postal_code",    null: false
