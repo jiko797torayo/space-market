@@ -15,7 +15,7 @@
 ## reservationsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|date|date|null: false|
+|day|date|null: false|
 |reservation_hours_id|integer|references :reservation_hours, foreign_key: true, index: true|
 |user_id|integer|references :user, foreign_key: true, index: true|
 |space_id|integer|references :space, foreign_key: true, index: true|
