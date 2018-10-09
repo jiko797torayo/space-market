@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181009085403) do
+ActiveRecord::Schema.define(version: 20181009085927) do
 
   create_table "basic_infos", force: :cascade do |t|
     t.integer  "capacity",                   null: false
@@ -59,6 +59,22 @@ ActiveRecord::Schema.define(version: 20181009085403) do
     t.datetime "updated_at", null: false
     t.index ["space_id"], name: "index_likes_on_space_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "purposes", force: :cascade do |t|
+    t.integer  "party",       null: false
+    t.integer  "class",       null: false
+    t.integer  "photo_shoot", null: false
+    t.integer  "film_shoot",  null: false
+    t.integer  "event",       null: false
+    t.integer  "performance", null: false
+    t.integer  "studio",      null: false
+    t.integer  "sports",      null: false
+    t.integer  "office",      null: false
+    t.integer  "wedding",     null: false
+    t.integer  "other",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "reservation_hours", force: :cascade do |t|
