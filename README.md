@@ -127,14 +127,14 @@
 |Column|Type|Options|
 |------|----|-------|
 |party|integer|null: false|
-|studio|integer|null: false|
+|class|integer|null: false|
+|photo_shoot|integer|null: false|
+|film_shoot|integer|null: false|
 |event|integer|null: false|
-|exhibition|integer|null: false|
-|office|integer|null: false|
-|meeting|integer|null: false|
-|location|integer|null: false|
 |performance|integer|null: false|
-|fitness|integer|null: false|
+|studio|integer|null: false|
+|sports|integer|null: false|
+|office|integer|null: false|
 |wedding|integer|null: false|
 |other|integer|null: false|
 ### Association
