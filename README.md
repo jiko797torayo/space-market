@@ -113,7 +113,7 @@
 ## basic_infosテーブル
 |Column|Type|Options|
 |------|----|-------|
-|capscity|integer|null: false|
+|capacity|integer|null: false|
 |floor_space|integer|null: false|
 |date_of_starting_reception|integer(enum)|null: false|
 |passig_key_method|integer(enum)|null: false|
