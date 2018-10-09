@@ -16,15 +16,15 @@
 |Column|Type|Options|
 |------|----|-------|
 |date|date|null: false|
-|lease_time_id|integer|references :lease_time, foreign_key: true|
+|reservation_hours_id|integer|references :reservation_hours, foreign_key: true, index: true|
 |user_id|integer|references :user, foreign_key: true, index: true|
 |space_id|integer|references :space, foreign_key: true, index: true|
 ### Association
 - belongs_to :user
-- belongs_to :lease_time, dependent: :destroy
-- belongs_to :spaces
+- belongs_to :reservation_hours, dependent: :destroy
+- belongs_to :space
 
-## lease_timesテーブル
+## reservation_hoursテーブル
 |Column|Type|Options|
 |------|----|-------|
 |zero|integer|null: false|
@@ -61,7 +61,7 @@
 |space_id|integer|references :space, foreign_key: true, index: true|
 ### Association
 - belongs_to :user
-- belongs_to :spaces, counter_cache: true
+- belongs_to :space, counter_cache: true
 
 ## spacesテーブル
 |Column|Type|Options|
@@ -98,7 +98,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null: false|
-|prefectures|string|null: false|
+|prefecture|string|null: false|
 |city_name|string|null: false|
 |street_name|string|null: false|
 |building_name|string||
@@ -106,7 +106,7 @@
 |longitude|float|null: false|
 |access|text||
 |phone_number|integer|null: false|
-|type|integer(enum)|null: false|
+|equipment_type|integer(enum)|null: false|
 ### Association
 - belongs_to :space
 
@@ -118,10 +118,27 @@
 |date_of_starting_reception|integer(enum)|null: false|
 |passig_key_method|integer(enum)|null: false|
 |deadline_of_reservation|integer(enum)|null: false|
-|usable_applications_id|integer|references :usable_applications, foreign_key: true, index: true|
+|purpose_id|integer|references :purpose, foreign_key: true, index: true|
 ### Association
 - belongs_to :space
-- has_many :usable_applications, dependent: :destroy
+- belongs_to :purpose, dependent: :destroy
+
+## purposesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|party|integer|null: false|
+|studio|integer|null: false|
+|event|integer|null: false|
+|exhibition|integer|null: false|
+|office|integer|null: false|
+|meeting|integer|null: false|
+|location|integer|null: false|
+|performance|integer|null: false|
+|fitness|integer|null: false|
+|wedding|integer|null: false|
+|other|integer|null: false|
+### Association
+- belongs_to :basic_info
 
 ## descriptionsテーブル
 |Column|Type|Options|
@@ -140,14 +157,14 @@
 |price_per_hour|integer|null: false|
 |price_per_day|integer|null: false|
 |reservation_approval_method|integer(enum)|null: false|
-|leaseable_days_of_the_week_id|integer|null: false, index: true|
-|leaseable_time_id|integer|null: false, index: true|
+|rental_day_id|integer|null: false, index: true|
+|rental_hour_id|integer|null: false, index: true|
 ### Association
 - belongs_to :space
-- belongs_to :leaseable_days_of_the_week, dependent: :destroy
-- belongs_to :leaseable_time, dependent: :destroy
+- belongs_to :rental_day, dependent: :destroy
+- belongs_to :rental_hour, dependent: :destroy
 
-## leaseable_days_of_the_weeksテーブル
+## rental_daysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |sunday|integer|null: false|
@@ -160,7 +177,7 @@
 ### Association
 - belongs_to :plan
 
-## leaseable_timesテーブル
+## rental_hoursテーブル
 |Column|Type|Options|
 |------|----|-------|
 |zero|integer|null: false|
