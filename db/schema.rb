@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181009085927) do
+ActiveRecord::Schema.define(version: 20181009092223) do
 
   create_table "basic_infos", force: :cascade do |t|
     t.integer  "capacity",                   null: false
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20181009085927) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["purpose_id"], name: "index_basic_infos_on_purpose_id"
+  end
+
+  create_table "descriptions", force: :cascade do |t|
+    t.string   "catch_copy",       null: false
+    t.text     "overview",         null: false
+    t.text     "about_facilities", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "equipment_infos", force: :cascade do |t|
@@ -61,6 +69,20 @@ ActiveRecord::Schema.define(version: 20181009085927) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "plans", force: :cascade do |t|
+    t.string   "name",                        null: false
+    t.text     "about_plan",                  null: false
+    t.integer  "price_per_hour",              null: false
+    t.integer  "price_per_day",               null: false
+    t.integer  "reservation_approval_method", null: false
+    t.integer  "rental_day_id"
+    t.integer  "rental_hour_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["rental_day_id"], name: "index_plans_on_rental_day_id"
+    t.index ["rental_hour_id"], name: "index_plans_on_rental_hour_id"
+  end
+
   create_table "purposes", force: :cascade do |t|
     t.integer  "party",       null: false
     t.integer  "class",       null: false
@@ -75,6 +97,47 @@ ActiveRecord::Schema.define(version: 20181009085927) do
     t.integer  "other",       null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "rental_days", force: :cascade do |t|
+    t.integer  "sunday",     null: false
+    t.integer  "monday",     null: false
+    t.integer  "tuesday",    null: false
+    t.integer  "wednesday",  null: false
+    t.integer  "thursday",   null: false
+    t.integer  "friday",     null: false
+    t.integer  "saturday",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rental_hours", force: :cascade do |t|
+    t.integer  "zero",         default: 0, null: false
+    t.integer  "one",          default: 0, null: false
+    t.integer  "two",          default: 0, null: false
+    t.integer  "three",        default: 0, null: false
+    t.integer  "four",         default: 0, null: false
+    t.integer  "five",         default: 0, null: false
+    t.integer  "six",          default: 0, null: false
+    t.integer  "seven",        default: 0, null: false
+    t.integer  "eight",        default: 0, null: false
+    t.integer  "nine",         default: 0, null: false
+    t.integer  "ten",          default: 0, null: false
+    t.integer  "eleven",       default: 0, null: false
+    t.integer  "twelve",       default: 0, null: false
+    t.integer  "thirteen",     default: 0, null: false
+    t.integer  "fourteen",     default: 0, null: false
+    t.integer  "fifteen",      default: 0, null: false
+    t.integer  "sixteen",      default: 0, null: false
+    t.integer  "seventeen",    default: 0, null: false
+    t.integer  "eighteen",     default: 0, null: false
+    t.integer  "nineteen",     default: 0, null: false
+    t.integer  "twenty",       default: 0, null: false
+    t.integer  "twenty_one",   default: 0, null: false
+    t.integer  "twenty_two",   default: 0, null: false
+    t.integer  "twenty_three", default: 0, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "reservation_hours", force: :cascade do |t|
