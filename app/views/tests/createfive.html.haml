@@ -1,0 +1,70 @@
+= render 'tests/create_header'
+.main-contents-with-hint__inner
+  .main-contents-with-hint__wrapper
+    .main-contents-with-hint__main-wrapper
+      .main-contents-with-hint__main
+        .space-info-page__title-container
+          .space-info-page__title 5 プラン
+          .space-info-page__description スペースを貸し出す際の料金プランを設定してください。
+        %div
+          //プランの名称
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "プランの名称", required: ""} 必須
+                .form-section-title__title プランの名称
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  %input{placeholder: "プランの名称", type: "text", class: "ant-input"}
+                .form-item__footer-wrapper
+                  %p.form-item__footer
+                .form-item__errors-wrapper
+          //プランの説明
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label.not-required{title: "プランの説明"} 任意
+                .form-section-title__title プランの説明
+              .form-section-title__description 
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  %textarea{placeholder: "プランの説明", class: "ant-input ant-input-area"}
+                .form-item__footer-wrapper
+                  %p.form-item__footer 例）Wi-Fi、ホワイトボード完備で会議からイベントまでご利用いただけます。その他必要な備品につきましては予約リクエスト時にお問い合わせください。
+                .form-item__errors-wrapper
+          //価格
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "価格", required: ""} 必須
+                .form-section-title__title 価格
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              %ul
+                %li.price-setting-list__list-item
+                  .price-setting-list__head
+                    .price-setting-list__title
+                      %span.price-setting-list__title-content 時間価格
+                    .price-setting-list__switch
+                      %input{type: "checkbox"}設定する
+                  .price-setting-list__content
+                    .price-setting-list__form-wrapper
+                      %span ¥
+                      .input-container__container
+                        %input{placeholder: "3000", type: "text", class: "ant-input ant-input-sm"} /時間
+                %li.price-setting-list__list-item
+                  .price-setting-list__head
+                    .price-setting-list__title
+                      %span.price-setting-list__title-content 一日価格
+                    .price-setting-list__switch
+                      %input{type: "checkbox"}設定する
+                  .price-setting-list__content
+                    .price-setting-list__form-wrapper
+                      %span ¥
+                      .input-container__container
+                        %input{placeholder: "8000", type: "text", class: "ant-input ant-input-sm"} /日
+              .form-item__errors-wrapper
+    = render 'tests/create_footer'

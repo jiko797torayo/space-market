@@ -1,0 +1,187 @@
+= render 'tests/create_header'
+.main-contents-with-hint__inner
+  .main-contents-with-hint__wrapper
+    .main-contents-with-hint__main-wrapper
+      .main-contents-with-hint__main
+        .space-info-page__title-container
+          .space-info-page__title 2 基本情報
+          .space-info-page__description
+        %div
+          //使用可能用途
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "使用可能用途", required: ""} 必須
+                .form-section-title__title 使用可能用途
+              .form-section-title__description このスペースをどのような目的に使ってよいか選択してください。複数選択可能。
+            .create-space-sections__from-wrapper
+              //FIXME CSS当ててください
+              .checkbox-list__container
+                .ant-checkbox-group
+                  %span.checkbox-list__wrapper
+                    %label.ant-checkbox-wrapper
+                      %span.ant-checkbox
+                        %input{type: "checkbox", class: "ant-checkbox-input", value: "party"}
+                        %span.ant-checkbox-inner                      
+                      %span パーティー
+                  %span.checkbox-list__wrapper
+                    %label.ant-checkbox-wrapper
+                      %span.ant-checkbox
+                        %input{type: "checkbox", class: "ant-checkbox-input", value: "class"}
+                        %span.ant-checkbox-inner 
+                      %span 会議・研修
+                  %span.checkbox-list__wrapper
+                    %label.ant-checkbox-wrapper
+                      %span.ant-checkbox
+                        %input{type: "checkbox", class: "ant-checkbox-input", value: "photo_shoot"}
+                        %span.ant-checkbox-inner 
+                      %span 写真撮影
+                  %span.checkbox-list__wrapper
+                    %label.ant-checkbox-wrapper
+                      %span.ant-checkbox
+                        %input{type: "checkbox", class: "ant-checkbox-input", value: "film_shoot"}
+                        %span.ant-checkbox-inner 
+                      %span ロケ撮影
+                  %span.checkbox-list__wrapper
+                    %label.ant-checkbox-wrapper
+                      %span.ant-checkbox
+                        %input{type: "checkbox", class: "ant-checkbox-input", value: "event"}
+                        %span.ant-checkbox-inner
+                      %span イベント
+                  %span.checkbox-list__wrapper
+                    %label.ant-checkbox-wrapper
+                      %span.ant-checkbox
+                        %input{type: "checkbox", class: "ant-checkbox-input", value: "performance"}
+                        %span.ant-checkbox-inner
+                      %span 演奏・パフォーマンス
+                  %span.checkbox-list__wrapper
+                    %label.ant-checkbox-wrapper
+                      %span.ant-checkbox
+                        %input{type: "checkbox", class: "ant-checkbox-input", value: "studio"}
+                        %span.ant-checkbox-inner
+                      %span 個展・展示会
+                  %span.checkbox-list__wrapper
+                    %label.ant-checkbox-wrapper
+                      %span.ant-checkbox
+                        %input{type: "checkbox", class: "ant-checkbox-input", value: "sports"}
+                        %span.ant-checkbox-inner
+                      %span スポーツ・フィットネス
+                  %span.checkbox-list__wrapper
+                    %label.ant-checkbox-wrapper
+                      %span.ant-checkbox
+                        %input{type: "checkbox", class: "ant-checkbox-input", value: "office"}
+                        %span.ant-checkbox-inner
+                      %span オフィス
+                  %span.checkbox-list__wrapper
+                    %label.ant-checkbox-wrapper
+                      %span.ant-checkbox
+                        %input{type: "checkbox", class: "ant-checkbox-input", value: "wedding"}
+                        %span.ant-checkbox-inner
+                      %span 結婚式
+                  %span.checkbox-list__wrapper
+                    %label.ant-checkbox-wrapper
+                      %span.ant-checkbox
+                        %input{type: "checkbox", class: "ant-checkbox-input", value: "other"}
+                        %span.ant-checkbox-inner
+                      %span その他
+          //最大収容人数
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "最大収容人数", required: ""} 必須
+                .form-section-title__title 最大収容人数
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              .parts-container
+                .parts-container__container
+                  %div
+                    .input-container__container
+                      %input{placeholder: "100", type: "text", class: "ant-input ant-input-sm"} 人
+                    .form-item__footer-wrapper
+                      %p.form-item__footer
+                    .form-item__errors-wrapper
+          //床面積
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "床面積", required: ""} 必須
+                .form-section-title__title 床面積
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  %input{placeholder: "100", type: "text", class: "ant-input ant-input-sm"} ㎡
+                .form-item__footer-wrapper
+                  %p.form-item__footer
+                .form-item__errors-wrapper
+          //鍵の受け渡し
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "鍵の受け渡し", required: ""} 必須
+                .form-section-title__title 鍵の受け渡し
+              .form-section-title__description 利用日当日の鍵の受け渡し方法を選択してください。
+            .create-space-sections__from-wrapper
+              //FIXME 選択できるようにCSS当ててください。value定義してください。
+              .radio-list__container
+                .ant-radio-group
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "xx"}
+                        %span.ant-radio-inner                      
+                      %span 対面
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "xx"}
+                        %span.ant-radio-inner 
+                      %span キーボックス
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "xx"}
+                        %span.ant-radio-inner 
+                      %span スマートロック
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "xx"}
+                        %span.ant-radio-inner 
+                      %span 予約成立後にメッセージで伝える
+            .form-item__errors-wrapper
+          //予約の締め切り
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "予約の締め切り", required: ""} 必須
+                .form-section-title__title 予約の締め切り
+              .form-section-title__description
+                利用日の何日前に予約を締め切るかを設定してください。
+                例）「利用日の7日前」に設定→ゲストが4月8日に利用したい場合、4月1日以前に予約をする必要があります。
+            .create-space-sections__from-wrapper
+              %div
+                //FIXME プルダウン設定してください
+                .input-container__container
+                  %input{placeholder: "予約の締め切り", type: "text", class: "ant-input ant-input-wd"}
+                .form-item__footer-wrapper
+                  %p.form-item__footer
+                .form-item__errors-wrapper
+          //予約の受付期間
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "電話番号", required: ""} 必須
+                .form-section-title__title 予約の受付期間
+              .form-section-title__description
+                ゲストが予約リクエストする日を起点として、利用日が何ヶ月先までの予約を受け付けるか設定してください。
+                例）「12ヶ月先まで予約を受け付ける」を設定→2018年4月1日の場合、2019年4月1日まで予約を受け付けます。
+            .create-space-sections__from-wrapper
+              %div
+                //FIXME プルダウン設定してください
+                .input-container__container
+                  %input{placeholder: "予約の受付期間", type: "text", class: "ant-input ant-input-wd"}
+                .form-item__footer-wrapper
+                  %p.form-item__footer
+                .form-item__errors-wrapper
+    = render 'tests/create_footer'
