@@ -110,6 +110,14 @@
 ### Association
 - belongs_to :space
 
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|uri|string||
+|about_image|text||
+### Association
+- belongs_to :space
+
 ## basic_infosテーブル
 |Column|Type|Options|
 |------|----|-------|
