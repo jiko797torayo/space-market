@@ -1,0 +1,227 @@
+= render 'tests/create_header'
+.main-contents-with-hint__inner
+  .main-contents-with-hint__wrapper
+    .main-contents-with-hint__main-wrapper
+      .main-contents-with-hint__main
+        .space-info-page__title-container
+          .space-info-page__title 1 施設情報
+          .space-info-page__description スペースの場所や連絡先に関する情報です。
+        %div
+          //郵便番号
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "郵便番号", required: ""} 必須
+                .form-section-title__title 郵便番号
+              .form-section-title__description ハイフンなしの半角数字。入力すると住所が自動補完されます。
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  %input{placeholder: "郵便番号", type: "text", class: "ant-input ant-input-lg"}
+                .form-item__footer-wrapper
+                  %p.form-item__footer 例）1600023
+                .form-item__errors-wrapper
+          //都道府県・市区町村
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "都道府県・市区町村", required: ""} 必須
+                .form-section-title__title 都道府県・市区町村
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              .parts-container
+                .parts-container__container
+                  %div
+                    //FIXME　都道府県プルダウンにしてください
+                    .input-container__container
+                      %input{placeholder: "都道府県", type: "text", class: "ant-input ant-input-lg"}
+                    -# .ant-select-lg.ant-select.ant-select-enabled
+                    -#   .ant-select-selection.ant-select-selection--single
+                    -#     .ant-select-selection__rendered
+                    -#     .ant-select-arrow
+                .parts-container__container
+                  %div
+                    .input-container__container
+                      %input{placeholder: "市区町村", type: "text", class: "ant-input ant-input-wd"}
+                    .form-item__footer-wrapper
+                      %p.form-item__footer 例）新宿区
+                    .form-item__errors-wrapper
+          //町名・番地
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "町名・番地", required: ""} 必須
+                .form-section-title__title 町名・番地
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  %input{placeholder: "町名・番地", type: "text", class: "ant-input ant-input-wd"}
+                .form-item__footer-wrapper
+                  %p.form-item__footer 例）西新宿6-15-1
+                .form-item__errors-wrapper
+          //ビル名・部屋番号
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label.not-required{title: "ビル名・部屋番号"} 任意
+                .form-section-title__title ビル名・部屋番号
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  %input{placeholder: "ビル名・部屋番号", type: "text", class: "ant-input ant-input-wd"}
+                .form-item__footer-wrapper
+                  %p.form-item__footer 例）ラ・トゥール新宿608号室
+                .form-item__errors-wrapper
+          //地図の設定　FIXME Googlemap導入
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "地図の設定", required: ""} 必須
+                .form-section-title__title 地図の設定
+              .form-section-title__description ドラッグ&ドロップでピンの位置を変更できます。
+            .create-space-sections__from-wrapper
+              .create-space-sections__form-item-map-wrapper
+          //アクセス
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "アクセス", required: ""} 必須
+                .form-section-title__title アクセス
+              .form-section-title__description 最寄駅からの歩き方や所要時間、高速道路の出口などを入力してください。
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  %textarea{placeholder: "アクセス", class: "ant-input ant-input-area"}
+                .form-item__footer-wrapper
+                  %p.form-item__footer 例）JR新宿駅西口より徒歩7分
+                .form-item__errors-wrapper
+          //電話番号
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "電話番号", required: ""} 必須
+                .form-section-title__title 電話番号
+              .form-section-title__description この情報は予約が確定次第ゲストに送信される利用日程表で開示されます。
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  %input{placeholder: "電話番号", type: "text", class: "ant-input ant-input-lg"}
+                .form-item__footer-wrapper
+                  %p.form-item__footer 例）09012345678
+                .form-item__errors-wrapper          
+          //施設の種類
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "施設の種類", required: ""} 必須
+                .form-section-title__title 施設の種類
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              //FIXME 選択できるようにCSS当ててください
+              .radio-list__container
+                .ant-radio-group
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "event_space"}
+                        %span.ant-radio-inner                      
+                      %span イベントスペース
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "wedding"}
+                        %span.ant-radio-inner 
+                      %span 結婚式場
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "office"}
+                        %span.ant-radio-inner 
+                      %span オフィススペース
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "hall"}
+                        %span.ant-radio-inner 
+                      %span ホール
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "meeting_space"}
+                        %span.ant-radio-inner
+                      %span 貸し会議室
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "studio"}
+                        %span.ant-radio-inner
+                      %span スタジオ
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "cafe"}
+                        %span.ant-radio-inner
+                      %span カフェ
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "restaurant"}
+                        %span.ant-radio-inner
+                      %span レストラン
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "theatre"}
+                        %span.ant-radio-inner
+                      %span 映画館
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "gallery"}
+                        %span.ant-radio-inner
+                      %span ギャラリー
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "bar"}
+                        %span.ant-radio-inner
+                      %span バー
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "sports_facilities"}
+                        %span.ant-radio-inner
+                      %span スポーツ施設
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "hotel"}
+                        %span.ant-radio-inner
+                      %span ホテル
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "residential"}
+                        %span.ant-radio-inner
+                      %span 住宅
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "warehouse"}
+                        %span.ant-radio-inner
+                      %span 倉庫
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "winaery"}
+                        %span.ant-radio-inner
+                      %span ワイナリー・蔵
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        %input{type: "radio", class: "ant-radio-input", value: "other"}
+                        %span.ant-radio-inner
+                      %span その他
+    = render 'tests/create_footer'
