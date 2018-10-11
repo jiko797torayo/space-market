@@ -87,6 +87,15 @@
                               %p
                                 ファイルを変更
                             = f.file_field :icon, class: "hidden"
+                    %p.signup-box__wrapper-form__notes
+                      ご登録前に
+                      %a.a__underline{ href: "/about/terms" }
+                        スペースマーケット利用規約
+                      をお読みください。
+                      %p
+                        %i.far.fa-square
+                        スペースマーケット利用規約に同意する
+
                     .actions
                       = f.submit "Create Account", class: 'btn'
           .signup-box.signup-box__new-account
