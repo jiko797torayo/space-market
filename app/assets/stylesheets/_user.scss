@@ -208,6 +208,18 @@
       }
     }
   }
+  .signup-box__wrapper-form__notes {
+    line-height: 1.4;
+    text-align: center;
+    a {
+      color: #4abfe6;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #4abfe6;
+      text-decoration: underline;
+    }
+  }
   .last {
     width: 50%;
     float: left;
@@ -244,6 +256,10 @@
   }
 }
 
+.fa-square {
+  color: #999999;
+  font-size: 16px;
+}
 .clearfix:after {
   clear: both;
   content: '';
