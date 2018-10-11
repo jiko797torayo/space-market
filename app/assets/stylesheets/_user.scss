@@ -170,6 +170,86 @@
   }
 }
 
+.signup-box__wrapper-form {
+  width: 400px;
+  margin: 0 auto;
+  .field {
+    padding: 0 12px;
+    margin-bottom: 10px;
+    position: relative;
+    .field-label {
+      color: #999999;
+      //color: #4abfe6;
+      font-size: 12px;
+      top: 4px;
+      visibility: visible;
+      text-align: left;
+      label {
+        position: absolute;
+        top: -0.6em;
+        line-height: 1;
+      }
+    }
+    .field-input {
+      input {
+        border: none;
+        border-bottom: 1px solid #eaeaea;
+        display: block;
+        font-size: 14px;
+        margin: 0;
+        padding: 4px 0;
+        width: 100%;
+        background: none;
+        text-align: left;
+        color: inherit;
+      }
+      input:focus {
+        outline: 0;
+      }
+    }
+  }
+  .last {
+    width: 50%;
+    float: left;
+  }
+  .first {
+    width: 50%;
+    float: right;
+  }
+  .icon {
+    border-bottom: 1px dashed rgba(0,0,0,0.12);
+    padding-bottom: 20px;
+    margin: 20px 0 20px;
+    height: 140px;
+    .prof-label {
+      font-size: 12px;
+      color: #999999;
+    }
+    .box {
+      padding-left: 255px;
+      .square {
+        width: 120px;
+        height: 116px;
+        background: #999999;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        border-radius: 3px;
+        .fa-camera {
+          font-size: 40px;
+          padding-top: 25px;
+        }
+      }
+    }
+  }
+}
+
+.clearfix:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
 //.account-page {
 //
 //  .account-page__inner {
@@ -223,28 +303,6 @@
 //    }
 //  }
 //
-//  .field {
-//    margin-bottom: 10px;
-//
-//    .field-label {
-//      padding: 10px 0;
-//      letter-spacing: 1px;
-//      font-size: 14px;
-//      font-weight: 200;
-//
-//      i {
-//        font-size: 11px;
-//      }
-//    }
-//
-//    .field-input {
-//      input {
-//        width: 100%;
-//        padding: 10px;
-//        letter-spacing: 1px;
-//      }
-//    }
-//  }
 //
 //  .btn {
 //    display: inline-block;
