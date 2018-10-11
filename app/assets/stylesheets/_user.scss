@@ -13,41 +13,18 @@
     }
   }
 }
+.page__even{
+  background: #f6f6f6;
+  .signup-head {
     text-align: center;
-    border: none;
-    border-radius: 2px;
-  }
-
-  input[type='submit'] {
-    float: left;
-    margin-top: 20px;
-    color: #fff;
-    background-color: #38aef0;
-  }
-
-  .field-label {
-
-    .field_with_errors {
+    width: calc(100vw - 40px);
+    margin: 0 20px;
+    .page-title {
+      font-weight: bold;
+      font-size: 32px;
       display: inline-block;
-      color: #d65f4c;
-      font-weight: 400;
+      margin-bottom: 24px;
     }
-  }
-
-  .field-input {
-
-    .field_with_errors {
-      position: relative;
-
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 5px;
-        background-color: #d65f4c;
       }
     }
   }
