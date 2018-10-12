@@ -6,8 +6,8 @@ class CreatePlans < ActiveRecord::Migration[5.0]
       t.integer    :price_per_hour,              null: false
       t.integer    :price_per_day,               null: false
       t.integer    :reservation_approval_method, null: false
-      t.references :rental_day,            index: true, foreign_key: true
-      t.references :rental_hour,           index: true, foreign_key: true
+      t.references :rental_day,            index: true
+      t.references :rental_hour,           index: true
       t.timestamps
     end
   end
