@@ -1,5 +1,8 @@
 # README
 
+## ER図
+https://github.com/jiko797torayo/space-market/issues/9
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
