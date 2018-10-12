@@ -269,6 +269,17 @@
   color: #fff;
   font-weight: bold;
 }
+.signup-box__existing-account {
+  margin-top: 0px;
+  font-weight: bold;
+  .signup-box__existing-account-linktxt {
+    color: #4abfe6;
+    padding-top: 1px;
+  }
+  .black {
+    color: black;
+  }
+}
 .clearfix:after {
   clear: both;
   content: '';
