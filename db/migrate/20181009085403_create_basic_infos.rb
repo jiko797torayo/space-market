@@ -6,7 +6,7 @@ class CreateBasicInfos < ActiveRecord::Migration[5.0]
       t.integer     :date_of_starting_reception, null: false
       t.integer     :passig_key_method,          null: false
       t.integer     :deadline_of_reservation,    null: false
-      t.references :purpose,              index: true, foreign_key: true
+      t.references :purpose,              index: true
       t.timestamps
     end
   end

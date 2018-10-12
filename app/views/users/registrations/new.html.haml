@@ -55,27 +55,27 @@
                         .field-input
                           = f.text_field :last_name, autofocus: true
                         .field-label
-                          = f.label "姓"
+                          = f.label "姓", { class: "field-label" }
                       .field.first
                         .field-input
                           = f.text_field :first_name
                         .field-label
-                          = f.label "名"
+                          = f.label "名", { class: "field-label" }
                     .field
                       .field-input
                         = f.email_field :email
                       .field-label
-                        = f.label "メールアドレス"
+                        = f.label "メールアドレス", { class: "field-label" }
                     .field
                       .field-input
                         = f.password_field :password, autocomplete: "off"
                       .field-label
-                        = f.label "パスワード"
+                        = f.label "パスワード", { class: "field-label" }
                     .field
                       .field-input
                         = f.password_field :password_confirmation, autocomplete: "off"
                       .field-label
-                        = f.label "パスワード（確認）"
+                        = f.label "パスワード（確認）", { class: "field-label" }
                     .field
                       .field-label.icon
                         = f.label :icon do
@@ -98,11 +98,14 @@
                       = image_tag "robot.png", style: "width:304px"
                     .actions
                       = f.submit "登録する", class: "btn"
-          .signup-box.signup-box__new-account
+          .signup-box.signup-box__existing-account
             .container
               .inner
+                %a.signup-box__existing-account-title{ href: "/i/login" }
                   すでにアカウントのお持ちの方は
+                  %span.signup-box__existing-account-linktxt
                     こちら
+                  %span.signup-box__existing-account-linktxt.black
                     ＞
           .signup-box.signup-box__biz-account
 

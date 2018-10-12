@@ -101,7 +101,7 @@
 .signup-box {
   text-align: center;
   width: calc(100vw - 40px);
-  margin: 0 20px;
+  margin: 32px 20px 0;
   .container {
     display: flex;
     justify-content: center;
@@ -169,9 +169,6 @@
   }
 }
 
-.signup-box {
-  margin-top: 32px;
-}
 .signup-box__wrapper-form {
   width: 400px;
   margin: 0 auto;
@@ -182,13 +179,14 @@
     .field-label {
       color: #999999;
       //color: #4abfe6;
+      font-weight: lighter;
       font-size: 12px;
       top: 4px;
       visibility: visible;
       text-align: left;
       label {
         position: absolute;
-        top: -0.6em;
+        top: -0.3em;
         line-height: 1;
       }
     }
@@ -236,8 +234,11 @@
     margin: 20px 0 20px;
     height: 140px;
     .prof-label {
-      font-size: 12px;
       color: #999999;
+      //color: #4abfe6;
+      font-weight: lighter;
+      font-size: 12px;
+      top: 4px;
     }
     .box {
       padding-left: 255px;
@@ -255,6 +256,7 @@
         }
       }
     }
+    .
   }
 }
 
