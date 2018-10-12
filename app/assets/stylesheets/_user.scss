@@ -24,6 +24,7 @@
     text-align: center;
     width: calc(100vw - 40px);
     margin: 0 20px;
+    padding-top: 40px;
     .page-title {
       font-weight: bold;
       font-size: 32px;
@@ -97,7 +98,6 @@
     }
   }
 }
-
 .signup-box {
   text-align: center;
   width: calc(100vw - 40px);
@@ -256,7 +256,6 @@
         }
       }
     }
-    .
   }
 }
 
@@ -264,6 +263,7 @@
   color: #999999;
   font-size: 16px;
 }
+
 .btn {
   width: 300px;
   height: 45px;
@@ -271,6 +271,7 @@
   color: #fff;
   font-weight: bold;
 }
+
 .signup-box__existing-account {
   margin-top: 0px;
   font-weight: bold;
@@ -282,10 +283,58 @@
     color: black;
   }
 }
+
 .clearfix:after {
   clear: both;
   content: '';
   display: block;
+}
+
+.signup-box__biz-account {
+  margin-top: 10px;
+  padding-bottom: 40px;
+  .container {
+    .inner {
+      position: relative;
+      margin: 0 12px;
+      display: flex;
+      padding: 30px 30px 30px 40px;
+      .description {
+        padding: 0 12px;
+        .signup-box__biz-newlabel {
+          display: inline-block;
+          background: #f5d02c;
+          color: #fff;
+          font-size: 12px;
+          letter-spacing: 1px;
+          padding: 8px 10px;
+          position: absolute;
+          top: 10px;
+          left: -15px;
+        }
+        .signup-box__title {
+          margin: 0;
+          text-align: left;
+          line-height: 1.4;
+          padding-left: 15px;
+          font-size: 15px;
+          width: 293px;
+          .signup-box__biz-account-free {
+            color: #999999;
+          }
+        }
+      }
+      .arrow {
+        line-height:42px;
+        padding-left: 40px;
+      }
+      .btn {
+        position: absolute;
+        right: 30px;
+        line-height: 30px;
+      }
+    }
+  }
 }
 
 //.account-page {
