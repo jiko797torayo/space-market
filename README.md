@@ -1,7 +1,6 @@
 # README
 
-## ER図
-[ER diagram.pdf](https://github.com/jiko797torayo/space-market/files/2471813/ER.diagram.pdf)
+## [ER図] (https://github.com/jiko797torayo/space-market/issues/9)
 
 ## usersテーブル
 |Column|Type|Options|
