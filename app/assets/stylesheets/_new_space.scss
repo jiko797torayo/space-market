@@ -60,8 +60,6 @@ $hostGreen: #60df52;
   }
 }
 .space-info-page {
-  &__title-container {
-  }
   &__title {
     font-size: 20px;
     font-weight: bold;
@@ -183,28 +181,29 @@ $hostGreen: #60df52;
     width: 100%;
     white-space: normal;
   }
-  &-inner {
-    display: block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #d9d9d9;
-    border-color: $grayBorder;
-    border-radius: 100px;
-    position: relative;
-    &-checked::after {
-      position: absolute;
-      top: 4px;
-      left: 4px;
-      width: 10px;
-      height: 10px;
-      background-color: $hostGreen;
-      border-radius: 10px;
-    }
-  }
+  //FIXME ラジオボタン工事中
+  // &-inner {
+  //   display: block;
+  //   width: 20px;
+  //   height: 20px;
+  //   border: 1px solid #d9d9d9;
+  //   border-color: $grayBorder;
+  //   border-radius: 100px;
+  //   position: relative;
+  //   &-checked::after {
+  //     position: absolute;
+  //     top: 4px;
+  //     left: 4px;
+  //     width: 10px;
+  //     height: 10px;
+  //     background-color: $hostGreen;
+  //     border-radius: 10px;
+  //   }
+  // }
 }
-input[type=radio] {
-  display: none;
-}
+// input[type=radio] {
+//   display: none;
+// }
 .float-bottom {
   &__container {
     position: fixed;
@@ -237,9 +236,6 @@ input[type=radio] {
     font-weight: bold;
     color: $white;
     border: none;
-  }
-  &__button-inner {
-
   }
 }
 .gray-btn {
@@ -302,21 +298,21 @@ input[type="file"] {
     border-top: solid 1px $grayBorder;
   }
   &__head {
-    width: 330px;
+    width: 280px;
     display: flex;
   }
   &__title {
-    width: 180px;
+    width: 100px;
   }
   &__switch {
-    width: 150px;
+    width: 100px;
   }
   &__title-content {
     font-size: 14px;
     font-weight: bold;
   }
   &__content {
-    width: 170px;
+    width: 100%;
   }
   &__form-wrapper {
     display: flex;
