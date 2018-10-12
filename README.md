@@ -15,7 +15,7 @@
 ## reservationsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|date|date|null: false|
+|day|date|null: false|
 |reservation_hours_id|integer|references :reservation_hours, foreign_key: true, index: true|
 |user_id|integer|references :user, foreign_key: true, index: true|
 |space_id|integer|references :space, foreign_key: true, index: true|
@@ -110,10 +110,18 @@
 ### Association
 - belongs_to :space
 
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|uri|string||
+|about_image|text||
+### Association
+- belongs_to :space
+
 ## basic_infosテーブル
 |Column|Type|Options|
 |------|----|-------|
-|capscity|integer|null: false|
+|capacity|integer|null: false|
 |floor_space|integer|null: false|
 |date_of_starting_reception|integer(enum)|null: false|
 |passig_key_method|integer(enum)|null: false|
@@ -127,14 +135,14 @@
 |Column|Type|Options|
 |------|----|-------|
 |party|integer|null: false|
-|studio|integer|null: false|
+|class|integer|null: false|
+|photo_shoot|integer|null: false|
+|film_shoot|integer|null: false|
 |event|integer|null: false|
-|exhibition|integer|null: false|
-|office|integer|null: false|
-|meeting|integer|null: false|
-|location|integer|null: false|
 |performance|integer|null: false|
-|fitness|integer|null: false|
+|studio|integer|null: false|
+|sports|integer|null: false|
+|office|integer|null: false|
 |wedding|integer|null: false|
 |other|integer|null: false|
 ### Association

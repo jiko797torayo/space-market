@@ -55,10 +55,10 @@
                       %span ¥
                       .input-container__container
                         %input{placeholder: "3000", type: "text", class: "ant-input ant-input-sm"} /時間
-                %li.price-setting-list__list-item
+                %li.price-setting-list__list-item.last-item 
                   .price-setting-list__head
                     .price-setting-list__title
-                      %span.price-setting-list__title-content 一日価格
+                      %span.price-setting-list__title-content一日価格
                     .price-setting-list__switch
                       %input{type: "checkbox"}設定する
                   .price-setting-list__content
@@ -67,4 +67,38 @@
                       .input-container__container
                         %input{placeholder: "8000", type: "text", class: "ant-input ant-input-sm"} /日
               .form-item__errors-wrapper
-    = render 'tests/create_footer'
+          //貸出可能な曜日・時間帯
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                .form-section-title__required-label{title: "貸出可能な曜日・時間帯", required: ""} 必須
+                .form-section-title__title 貸出可能な曜日・時間帯
+              .form-section-title__description 貸出可能な曜日と時間を設定してください。0時〜36時（翌日12時）の間で入力してください。
+            .create-space-sections__from-wrapper
+              %ul
+                %li.price-setting-list__list-item
+                  .price-setting-list__head
+                    .price-setting-list__title
+                      %span.price-setting-list__title-content 日曜日
+                    .price-setting-list__switch
+                      %input{type: "checkbox"}貸し出す
+                  .price-setting-list__content
+                    .price-setting-list__form-wrapper
+                      %span ¥
+                      .input-container__container
+                        %input{placeholder: "3000", type: "text", class: "ant-input ant-input-sm"} /時間
+
+
+
+              .form-item__errors-wrapper
+
+<form>
+<p>今日の気分は？</p>
+<select name="kibun">
+<option value="saikou">めちゃいい！！</option>
+<option value="botiboti">まあまあいい！</option>
+<option value="hutuu">普通</option>
+<option value="saiaku">最悪・・</option>
+</select></form>
+
+= render 'tests/create_footer'
