@@ -6,6 +6,5 @@ Rails.application.routes.draw do
       registrations: 'users/registrations',
       sessions:      'users/sessions',
   }
-  resources :user, only: [:index, :update, :edit]
   root 'spaces#index'
 end
