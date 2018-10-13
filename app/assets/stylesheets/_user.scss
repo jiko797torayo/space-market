@@ -176,7 +176,7 @@
   width: 400px;
   margin: 0 auto;
   .field {
-    padding: 0 12px;
+    padding: 0;
     margin-bottom: 10px;
     position: relative;
     .field-label {
@@ -189,11 +189,15 @@
       text-align: left;
       label {
         position: absolute;
-        top: -0.3em;
+        top: -0.8em;
         line-height: 1;
+      }
+      .field-label-name {
+        top: 0.2em;
       }
     }
     .field-input {
+      margin-top: 15px;
       input {
         border: none;
         border-bottom: 1px solid #eaeaea;
@@ -227,11 +231,11 @@
     }
   }
   .last {
-    width: 50%;
+    width: 47%;
     float: left;
   }
   .first {
-    width: 50%;
+    width: 47%;
     float: right;
   }
   .icon {
