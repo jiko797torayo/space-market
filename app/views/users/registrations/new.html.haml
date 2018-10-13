@@ -49,37 +49,62 @@
                   メールアドレスで新規登録
                 .signup-box__wrapper-form
                   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-                    = devise_error_messages!
-                    -#- if @user.errors.any?
-                    -#  %ul
-                    -#    - @user.errors.full_messages.each do |msg|
-                    -#      %li= msg
                     .name.clearfix
                       .field.last
                         .field-input
                           = f.text_field :last_name, autofocus: true
                         .field-label
-                          = f.label "姓", { class: "field-label" }
+                          = f.label "姓", { class: "field-label field-label-name" }
+                        - if @user.errors[:last_name].any?
+                          %ul
+                            - @user.errors.messages[:last_name].each do |msg|
+                              %li.signup-box__required-name
+                                %i.fas.fa-exclamation-circle
+                                = msg
                       .field.first
                         .field-input
                           = f.text_field :first_name
                         .field-label
-                          = f.label "名", { class: "field-label" }
-                    .field
+                          = f.label "名", { class: "field-label field-label-name" }
+                        - if @user.errors[:first_name].any?
+                          %ul
+                            - @user.errors.messages[:first_name].each do |msg|
+                              %li.signup-box__required-name
+                                %i.fas.fa-exclamation-circle
+                                = msg
+                    .field.email
                       .field-input
                         = f.email_field :email
                       .field-label
                         = f.label "メールアドレス", { class: "field-label" }
+                      - if @user.errors[:email].any?
+                        %ul
+                          - @user.errors.messages[:email].each do |msg|
+                            %li.signup-box__required
+                              %i.fas.fa-exclamation-circle
+                              = msg
                     .field
                       .field-input
                         = f.password_field :password, autocomplete: "off"
                       .field-label
                         = f.label "パスワード", { class: "field-label" }
+                      - if @user.errors[:password].any?
+                        %ul
+                          - @user.errors.messages[:password].each do |msg|
+                            %li.signup-box__required
+                              %i.fas.fa-exclamation-circle
+                              = msg
                     .field
                       .field-input
                         = f.password_field :password_confirmation, autocomplete: "off"
                       .field-label
                         = f.label "パスワード（確認）", { class: "field-label" }
+                      - if @user.errors[:password_confirmation].any?
+                        %ul
+                          - @user.errors.messages[:password_confirmation].each do |msg|
+                            %li.signup-box__required
+                              %i.fas.fa-exclamation-circle
+                              = msg
                     .field
                       .field-label.icon
                         = f.label :icon do
