@@ -177,7 +177,7 @@
   margin: 0 auto;
   .field {
     padding: 0;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     position: relative;
     .field-label {
       color: #999999;
@@ -233,10 +233,15 @@
   .last {
     width: 47%;
     float: left;
+    margin-bottom: 0;
   }
   .first {
     width: 47%;
     float: right;
+    margin-bottom: 0;
+  }
+  .email {
+    margin-top: 23px;
   }
   .icon {
     border-bottom: 1px dashed rgba(0,0,0,0.12);
@@ -400,5 +405,18 @@
     }
   }
 }
-
+.signup-box__required-name {
+  color: #e95175;
+  font-size: 12px;
+  margin-bottom: 17px;
+  line-height: 1.4;
+  text-align: left;
+}
+.signup-box__required {
+  color: #e95175;
+  font-size: 12px;
+  margin-bottom: 40px;
+  line-height: 1.4;
+  text-align: left;
+}
 
