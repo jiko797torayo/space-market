@@ -272,6 +272,45 @@
   }
 }
 
+#inner-signin {
+  padding: 0 16px;
+  .more-inner {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    .left-content {
+      width: 400px;
+      padding: 0 50px 10px;
+      border-right: 1px solid #eaeaea;
+      .signup-box__wrapper-signin {
+        margin: 0 auto;
+        .signup-box__notes-signin {
+          width: 300px;
+          margin: 0 auto;
+          text-align: left;
+        }
+      }
+    }
+    .right-content {
+      width: 400px;
+      padding: 0 50px 10px;
+      .form-signin {
+        width: 300px;
+        .signup-box__forget-password {
+          color: #4abfe6;
+          line-height: 60px;
+          &:hover {
+            text-decoration: underline solid #4abfe6;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
+
 .fa-square {
   color: #999999;
   font-size: 16px;
@@ -295,6 +334,9 @@
   .signup-box__existing-account-linktxt {
     color: #4abfe6;
     padding-top: 1px;
+    &:hover {
+      text-decoration: underline solid #4abfe6;
+    }
   }
   .black {
     color: black;
@@ -347,11 +389,12 @@
       }
       .btn {
         position: absolute;
-        right: 30px;
+        right: 55px;
         line-height: 30px;
         color: #fff;
       }
     }
   }
 }
+
 
