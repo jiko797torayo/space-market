@@ -31,7 +31,7 @@
                   外部サービスで新規登録
                 .signup-box__wrapper
                   .signup-box__wrapper-fb
-                    %a.button-facebook{ href: "/i/auth/facebook" }
+                    %a.button-facebook{ href: "/users/sign_up" }
                       %span.signup-box__sns-button
                         Facebookで登録
                   %p.signup-box__notes
@@ -39,7 +39,7 @@
                     %br.sm-hide
                     ログイン以外の目的に使われることはありません。
                     %br.sm-hide
-                    %a.a__underline{ href: "/about/terms" }
+                    %a.a__underline{ href: "https://www.spacemarket.com/about/terms" }
                       スペースマーケット利用規約
                     をお読みになり同意の上、登録へお進みください。
           .signup-box
@@ -89,7 +89,7 @@
                             = f.file_field :icon, class: "hidden"
                     %p.signup-box__wrapper-form__notes
                       ご登録前に
-                      %a.a__underline{ href: "/about/terms" }
+                      %a.a__underline{ href: "https://www.spacemarket.com/about/terms" }
                         スペースマーケット利用規約
                       をお読みください。
                       %p
@@ -101,7 +101,7 @@
           .signup-box.signup-box__existing-account
             .container
               .inner
-                %a.signup-box__existing-account-title{ href: "/i/login" }
+                %a.signup-box__existing-account-title{ href: "/users/sign_up" }
                   すでにアカウントのお持ちの方は
                   %span.signup-box__existing-account-linktxt
                     こちら
@@ -121,7 +121,7 @@
                       （無料）
                 .arrow
                   ＞
-                .btn
+                %a.btn{ href: "/users/sign_up" }
                   法人アカウント登録
 
 -##account-page.account-page
