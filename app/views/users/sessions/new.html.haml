@@ -1,21 +1,118 @@
-#account-page.account-page
-  .account-page__inner.clearfix
-    .account-page__inner--left.account-page__header
-      %h2 Log in
-      %h5 登録しているユーザーでログイン
-      = render "users/shared/links"
-    .account-page__inner--right.user-form
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .field
-          .field-label
-            = f.label :email
-          .field-input
-            = f.email_field :email, autofocus: true
-          .field
-            .field-label
-              = f.label :password
-              %i (英数字8文字以上)
-            .field-input
-              = f.password_field :password, autocomplete: "off"
-          .actions
-            = f.submit "Log in", class: 'btn'
+.breadcrumbs.link__subcolor.sm-hide
+  %ol.itemscope{ itemtype: "http://data-vocabulary.org/Breadcrumb" }
+    %li
+      %a{ href: "/", itemprop: "url" }
+        %i.ic_home
+          ホーム
+    %li.underlayer
+      %span.breadcrumbs-title{ itemprop: "title" }
+        ログイン
+
+%section#contents.page_signin
+  %section#main_contents
+    .site-main
+      .page__even.lp-page__padding
+        .page__col1
+          .signup-head
+            %h1.page-title
+              ログイン
+          .signup-box
+            .container
+              .inner
+                %h2.signup-box__title
+                  外部サービスで新規登録
+                .signup-box__wrapper
+                  .signup-box__wrapper-fb
+                    %a.button-facebook{ href: "/users/sign_up" }
+                      %span.signup-box__sns-button
+                        Facebookで登録
+                  %p.signup-box__notes
+                    Facebookを使ってスペースマーケットにログインできます。
+                    %br.sm-hide
+                    ログイン以外の目的に使われることはありません。
+                    %br.sm-hide
+                    %a.a__underline{ href: "https://www.spacemarket.com/about/terms" }
+                      スペースマーケット利用規約
+                    をお読みになり同意の上、登録へお進みください。
+          .signup-box
+            .container
+              .inner
+                %h2.signup-box__title
+                  メールアドレスで新規登録
+                .signup-box__wrapper-form
+                  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                    = devise_error_messages!
+                    .name.clearfix
+                      .field.last
+                        .field-input
+                          = f.text_field :last_name, autofocus: true
+                        .field-label
+                          = f.label "姓", { class: "field-label" }
+                      .field.first
+                        .field-input
+                          = f.text_field :first_name
+                        .field-label
+                          = f.label "名", { class: "field-label" }
+                    .field
+                      .field-input
+                        = f.email_field :email
+                      .field-label
+                        = f.label "メールアドレス", { class: "field-label" }
+                    .field
+                      .field-input
+                        = f.password_field :password, autocomplete: "off"
+                      .field-label
+                        = f.label "パスワード", { class: "field-label" }
+                    .field
+                      .field-input
+                        = f.password_field :password_confirmation, autocomplete: "off"
+                      .field-label
+                        = f.label "パスワード（確認）", { class: "field-label" }
+                    .field
+                      .field-label.icon
+                        = f.label :icon do
+                          .prof-label
+                            プロフィール画像
+                          .box
+                            .square
+                              %i.fa.fa-camera
+                              %p
+                                ファイルを変更
+                            = f.file_field :icon, class: "hidden"
+                    %p.signup-box__wrapper-form__notes
+                      ご登録前に
+                      %a.a__underline{ href: "https://www.spacemarket.com/about/terms" }
+                        スペースマーケット利用規約
+                      をお読みください。
+                      %p
+                        %i.far.fa-square
+                        スペースマーケット利用規約に同意する
+                      = image_tag "robot.png", style: "width:304px"
+                    .actions
+                      = f.submit "登録する", class: "btn"
+          .signup-box.signup-box__existing-account
+            .container
+              .inner
+                %a.signup-box__existing-account-title{ href: "/users/sign_up" }
+                  すでにアカウントのお持ちの方は
+                  %span.signup-box__existing-account-linktxt
+                    こちら
+                  %span.signup-box__existing-account-linktxt.black
+                    ＞
+          .signup-box.signup-box__biz-account
+            .container
+              .inner
+                .description
+                  %span.signup-box__biz-newlabel
+                    NEW
+                  %h2.signup-box__title
+                    ご利用料金を請求書で一括精算できる
+                    %br
+                    法人会員のご登録はこちら
+                    %span.signup-box__biz-account-free
+                      （無料）
+                .arrow
+                  ＞
+                %a.btn{ href: "/users/sign_up" }
+                  法人アカウント登録
+
