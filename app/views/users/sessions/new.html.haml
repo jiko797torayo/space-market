@@ -38,56 +38,23 @@
             .container
               .inner
                 %h2.signup-box__title
-                  メールアドレスで新規登録
+                  メールアドレスでログイン
                 .signup-box__wrapper-form
-                  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "signin" }) do |f|
                     = devise_error_messages!
-                    .name.clearfix
-                      .field.last
-                        .field-input
-                          = f.text_field :last_name, autofocus: true
-                        .field-label
-                          = f.label "姓", { class: "field-label" }
-                      .field.first
-                        .field-input
-                          = f.text_field :first_name
-                        .field-label
-                          = f.label "名", { class: "field-label" }
                     .field
                       .field-input
-                        = f.email_field :email
+                        = f.email_field :email#, class: "signin"
                       .field-label
-                        = f.label "メールアドレス", { class: "field-label" }
+                        = f.label "メールアドレス", class: "field-label"
                     .field
                       .field-input
-                        = f.password_field :password, autocomplete: "off"
+                        = f.password_field :password, autocomplete: "off"#, class: "signin"
                       .field-label
-                        = f.label "パスワード", { class: "field-label" }
-                    .field
-                      .field-input
-                        = f.password_field :password_confirmation, autocomplete: "off"
-                      .field-label
-                        = f.label "パスワード（確認）", { class: "field-label" }
-                    .field
-                      .field-label.icon
-                        = f.label :icon do
-                          .prof-label
-                            プロフィール画像
-                          .box
-                            .square
-                              %i.fa.fa-camera
-                              %p
-                                ファイルを変更
-                            = f.file_field :icon, class: "hidden"
-                    %p.signup-box__wrapper-form__notes
-                      ご登録前に
-                      %a.a__underline{ href: "https://www.spacemarket.com/about/terms" }
-                        スペースマーケット利用規約
-                      をお読みください。
-                      %p
-                        %i.far.fa-square
-                        スペースマーケット利用規約に同意する
-                      = image_tag "robot.png", style: "width:304px"
+                        = f.label "パスワード", class: "field-label"
+                    %p
+                      %i.far.fa-square
+                      ログインしたままにする。
                     .actions
                       = f.submit "登録する", class: "btn"
           .signup-box.signup-box__existing-account
