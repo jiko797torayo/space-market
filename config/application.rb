@@ -14,6 +14,7 @@ module SpaceMarket
       g.helper false
       g.test_framework false
     end
+    config.i18n.default_locale = :ja
     # Initialize configuration defaults for originally generated Rails version.
     # config.load_defaults 5.1
     # Settings in config/environments/* take precedence over those specified here.
