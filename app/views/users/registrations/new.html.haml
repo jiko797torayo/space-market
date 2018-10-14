@@ -48,7 +48,7 @@
                 %h2.signup-box__title
                   メールアドレスで新規登録
                 .signup-box__wrapper-form
-                  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                  = form_for(resource, as: resource_name, url: registration_path(resource_name), novalidate: "") do |f|
                     .name.clearfix
                       .field.last
                         .field-input
