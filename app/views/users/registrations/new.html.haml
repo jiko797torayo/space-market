@@ -115,7 +115,8 @@
                               %i.fa.fa-camera
                               %p
                                 ファイルを変更
-                            = f.file_field :icon, class: "hidden"
+                            = f.file_field :icon, class: "hidden", accept: "image/*"
+                            %img#preview
                     %p.signup-box__wrapper-form__notes
                       ご登録前に
                       %a.a__underline{ href: "https://www.spacemarket.com/about/terms" }
