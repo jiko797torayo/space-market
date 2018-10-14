@@ -26,7 +26,7 @@ class User < ApplicationRecord
   def email_validates
     if email.blank?
       errors.add(:email, "メールアドレスを入力してください。")
-    elsif email !~ /\A[a-zA-Z0-9_\#!$%&`'*+\-{|}~^\/=?\.]+@[a-zA-Z0-9][a-zA-Z0-9\.-]+\z/
+    elsif email !~ /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
       errors.add(:email, "メールアドレスは不正な値です。")
     end
   end
