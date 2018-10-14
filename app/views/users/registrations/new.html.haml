@@ -107,6 +107,7 @@
                               = msg
                     .field
                       .field-label.icon
+                        = f.file_field :icon, class: "hidden", accept: "image/*"
                         = f.label :icon do
                           .prof-label
                             プロフィール画像
@@ -115,7 +116,6 @@
                               %i.fa.fa-camera
                               %p
                                 ファイルを変更
-                              = f.file_field :icon, class: "hidden", accept: "image/*"
                               %img#preview
                     %p.signup-box__wrapper-form__notes
                       ご登録前に
