@@ -53,13 +53,13 @@
                           ログインしたままにする。
                         .actions
                           = f.submit "ログイン", class: "btn"
-                        %a.signup-box__forget-password{ href: "/users/sign_in" }
+                        %a.signup-box__forget-password{ href: "/users/sign_up" }
                           パスワードを忘れた方はこちら
           .signup-box.signup-box__existing-account
             .container-sign
               .inner
                 %a.signup-box__existing-account-title{ href: "/users/sign_up" }
-                  すでにアカウントのお持ちの方は
+                  まだアカウントをお持ちでない方は
                   %span.signup-box__existing-account-linktxt
                     こちら
                   %span.signup-box__existing-account-linktxt.black
