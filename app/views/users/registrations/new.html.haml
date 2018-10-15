@@ -123,8 +123,15 @@
                         スペースマーケット利用規約
                       をお読みください。
                       %p
-                        %i.fas.fa-check-square
+                        -#%i.fas.fa-check-square
+                        = f.check_box :accepted, {}, checked_value = "1",unchecked_value = "0"
                         スペースマーケット利用規約に同意する
+                      - if @user.errors[:accepted].any?
+                        %ul
+                          - @user.errors.messages[:accepted].each do |msg|
+                            %li.signup-box__required.signup-box__required-accepted
+                              %i.fas.fa-exclamation-circle
+                              = msg
                       = image_tag "notrobot.png", style: "width:304px"
                     .actions
                       = f.submit "登録する", class: "btn"

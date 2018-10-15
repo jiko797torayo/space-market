@@ -424,10 +424,13 @@
   text-align: left;
 }
 .signup-box__required {
-  color: #e95175;
-  font-size: 12px;
-  margin-bottom: 40px;
-  line-height: 1.4;
-  text-align: left;
+   color: #e95175;
+   font-size: 12px;
+   margin-bottom: 40px;
+   line-height: 1.4;
+   text-align: left;
+  &-accepted {
+    text-align: center;
+  }
 }
 
