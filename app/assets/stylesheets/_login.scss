@@ -1,0 +1,44 @@
+#inner-signin {
+  padding: 0 16px;
+  .more-inner {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    .left-content {
+      width: 400px;
+      padding: 0 50px 10px;
+      border-right: 1px solid $inner_frame;
+      .signup-box__wrapper-signin {
+        margin: 0 auto;
+        .signup-box__notes-signin {
+          width: 300px;
+          margin: 0 auto;
+          text-align: left;
+        }
+      }
+    }
+    .right-content {
+      width: 400px;
+      padding: 0 50px 10px;
+      .form-signin {
+        width: 300px;
+        .signup-box__forget-password {
+          color: $btn;
+          line-height: 60px;
+          &:hover {
+            text-decoration: underline solid $btn;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.signin {
+  width: 300px;
+  margin: 0 auto;
+  .field {
+    padding: 0;
+  }
+}
