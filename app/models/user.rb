@@ -3,8 +3,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable
   has_many :reservations, dependent: :destroy
   has_many :likes, dependent: :destroy
+  mount_uploader :icon, ImageUploader
 
-  # validates :first_name, presence: true
   validate :first_name_validates
   validate :last_name_validates
   validate :email_validates
