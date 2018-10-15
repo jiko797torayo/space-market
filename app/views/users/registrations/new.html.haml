@@ -16,7 +16,7 @@
           .signup-head
             %h1.page-title
               アカウント新規登録
-            .container
+            .container-sign
               %ul.signup-step
                 %li.signup-step__status1.is-current
                   新規登録
@@ -25,7 +25,7 @@
                 %li.signup-step__status2
                   メールアドレスの確認
           .signup-box
-            .container
+            .container-sign
               .inner
                 %h2.signup-box__title
                   外部サービスで新規登録
@@ -43,7 +43,7 @@
                       スペースマーケット利用規約
                     をお読みになり同意の上、登録へお進みください。
           .signup-box
-            .container
+            .container-sign
               .inner
                 %h2.signup-box__title
                   メールアドレスで新規登録
@@ -58,7 +58,7 @@
                         - if @user.errors[:last_name].any?
                           %ul
                             - @user.errors.messages[:last_name].each do |msg|
-                              %li.signup-box__required-name
+                              %li.signup-box__required.signup-box__required-name
                                 %i.fas.fa-exclamation-circle
                                 = msg
                       .field.first
@@ -69,7 +69,7 @@
                         - if @user.errors[:first_name].any?
                           %ul
                             - @user.errors.messages[:first_name].each do |msg|
-                              %li.signup-box__required-name
+                              %li.signup-box__required.signup-box__required-name
                                 %i.fas.fa-exclamation-circle
                                 = msg
                     .field.email
@@ -123,7 +123,6 @@
                         スペースマーケット利用規約
                       をお読みください。
                       %p
-                        -#%i.fas.fa-check-square
                         = f.check_box :accepted, {}, checked_value = "1",unchecked_value = "0"
                         スペースマーケット利用規約に同意する
                       - if @user.errors[:accepted].any?
@@ -136,7 +135,7 @@
                     .actions
                       = f.submit "登録する", class: "btn"
           .signup-box.signup-box__existing-account
-            .container
+            .container-sign
               .inner
                 %a.signup-box__existing-account-title{ href: "/users/sign_up" }
                   すでにアカウントのお持ちの方は
@@ -145,7 +144,7 @@
                   %span.signup-box__existing-account-linktxt.black
                     ＞
           .signup-box.signup-box__biz-account
-            .container
+            .container-sign
               .inner
                 .description
                   %span.signup-box__biz-newlabel
@@ -158,5 +157,5 @@
                       （無料）
                 .arrow
                   ＞
-                %a.btn{ href: "/users/sign_up" }
+                %a.link{ href: "/users/sign_up" }
                   法人アカウント登録
