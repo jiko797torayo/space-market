@@ -17,6 +17,14 @@
             %i.fa.fa-envelope
         %li
           = link_to "ヘルプ", root_path, class: "site-header__nav-help link-black link-borderless help__text"
+        - if user_signed_in?
+          %li
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "site-header__nav-help link-black"
+        - else
+          %li
+            = link_to "ログイン", new_user_session_path, method: :get, class: "site-header__nav-help link-black"
+          %li
+            = link_to "新規登録", new_user_registration_path, method: :get, class: "site-header__nav-help link-black"
         %li
           = link_to "予約", root_path, class: "site-header__nav-reservation link-black"
         %li
