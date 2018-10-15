@@ -18,7 +18,7 @@ feature 'user', type: :feature do
     expect(current_path).to eq root_path
   end
 
-  scenario 'sign in' do
+  scenario 'sign in & sign out' do
     visit root_path
     expect(page).to have_no_content('ログアウト')
 
@@ -28,5 +28,8 @@ feature 'user', type: :feature do
     find('input[name="commit"]').click
     expect(page).to have_content('ログアウト')
     expect(current_path).to eq root_path
+
+    click_link 'ログアウト'
+    expect(page).to have_no_content('ログアウト')
   end
 end
