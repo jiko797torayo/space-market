@@ -15,6 +15,9 @@ module SpaceMarket
       g.test_framework false
     end
     config.i18n.default_locale = :ja
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      %Q(#{html_tag}).html_safe
+    end
     # Initialize configuration defaults for originally generated Rails version.
     # config.load_defaults 5.1
     # Settings in config/environments/* take precedence over those specified here.

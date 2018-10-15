@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validate :email_validates
   validate :password_validates
   validate :password_confirmation_validates
+  validate :accepted_validates
 
   def first_name_validates
     if first_name.blank?
@@ -44,6 +45,12 @@ class User < ApplicationRecord
   def password_confirmation_validates
     if password_confirmation != password
       errors.add(:password_confirmation, 'パスワード（確認）とパスワードの入力が一致しません。')
+    end
+  end
+
+  def accepted_validates
+    if accepted == false
+      errors.add(:accepted, 'スペースマーケット利用規約を受諾してください。')
     end
   end
 end
