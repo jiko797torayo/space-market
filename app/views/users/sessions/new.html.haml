@@ -16,12 +16,8 @@
           .signup-head
             %h1.page-title
               ログイン
-          -#.signup-box
-          -#  .container
-          -#    .inner
-
           .signup-box
-            .container
+            .container-sign
               .inner#inner-signin
                 .more-inner
                   .left-content
@@ -60,7 +56,7 @@
                         %a.signup-box__forget-password{ href: "/users/sign_in" }
                           パスワードを忘れた方はこちら
           .signup-box.signup-box__existing-account
-            .container
+            .container-sign
               .inner
                 %a.signup-box__existing-account-title{ href: "/users/sign_up" }
                   すでにアカウントのお持ちの方は
@@ -69,7 +65,7 @@
                   %span.signup-box__existing-account-linktxt.black
                     ＞
           .signup-box.signup-box__biz-account
-            .container
+            .container-sign
               .inner
                 .description
                   %span.signup-box__biz-newlabel
