@@ -7,4 +7,8 @@ Rails.application.routes.draw do
       sessions:      'users/sessions',
   }
   root 'spaces#index'
+  devise_scope :user do
+    get 'i/login', to: 'users/sessions#new'
+    get 'i/sign_up', to: 'users/registrations#new'
+  end
 end
