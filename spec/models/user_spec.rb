@@ -60,6 +60,12 @@ describe User do
         user.valid?
         expect(user.errors[:password_confirmation]).to include('パスワード（確認）とパスワードの入力が一致しません。')
       end
+
+      it 'is invalid do not accepted' do
+        user = build(:user, accepted: "0")
+        user.valid?
+        expect(user.errors[:accepted]).to include('スペースマーケット利用規約を受諾してください。')
+      end
     end
   end
 

@@ -7,5 +7,6 @@ FactoryBot.define do
     icon                  { File.open("#{Rails.root}/public/images/notrobot.png") }
     password              { password }
     password_confirmation { password }
+    accepted              { "1" }
   end
 end
