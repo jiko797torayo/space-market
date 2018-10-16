@@ -172,7 +172,7 @@
     padding: 0;
     margin-bottom: 25px;
     position: relative;
-    .field-label {
+    &-label {
       color: $label;
       font-weight: lighter;
       font-size: 12px;
@@ -184,11 +184,11 @@
         top: -0.8em;
         line-height: 1;
       }
-      .field-label-name {
+      .name {
         top: 0.2em;
       }
     }
-    .field-input {
+    &-input {
       margin-top: 15px;
       input {
         border: none;
