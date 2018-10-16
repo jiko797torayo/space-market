@@ -149,6 +149,7 @@ $hostGreen: #60df52;
   &__footer {
     font-size: 11px;
     color: $gray;
+    margin-left: 10px;
   }
   &__error-wrapper {
     margin-top: 8px;
@@ -321,4 +322,13 @@ input[type="file"] {
 }
 .last-item {
   border-bottom: solid 1px $grayBorder;
+}
+input:focus, select:focus, textarea:focus {
+  outline: 0;
+}
+input:focus, select:focus, textarea:focus {
+  border: solid 1px $hostGreen;
+}
+input::placeholder {
+  color: $gray;
 }
