@@ -1,5 +1,5 @@
 .main-contents-with-hint__inner
-  .main-contents-with-hint__wrapper
+  = form_for @basic_info, html: {class: "main-contents-with-hint__wrapper"} do |f|
     .main-contents-with-hint__main-wrapper
       .main-contents-with-hint__main
         .space-info-page__title-container
@@ -10,84 +10,84 @@
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                .form-section-title__required-label{title: "使用可能用途", required: ""} 必須
+                = f.label :purpose, "必須", class: "form-section-title__required-label"
                 .form-section-title__title 使用可能用途
               .form-section-title__description このスペースをどのような目的に使ってよいか選択してください。複数選択可能。
             .create-space-sections__from-wrapper
               //FIXME CSS当ててください
-              .checkbox-list__container
+              = f.fields_for :purpose, html: {class: "checkbox-list__container"} do |p|
                 .ant-checkbox-group
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
-                        %input{type: "checkbox", class: "ant-checkbox-input", value: "party"}
+                        = p.check_box :party, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner                      
                       %span パーティー
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
-                        %input{type: "checkbox", class: "ant-checkbox-input", value: "class"}
+                        = p.check_box :meeting, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner 
                       %span 会議・研修
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
-                        %input{type: "checkbox", class: "ant-checkbox-input", value: "photo_shoot"}
+                        = p.check_box :photo_shoot, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner 
                       %span 写真撮影
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
-                        %input{type: "checkbox", class: "ant-checkbox-input", value: "film_shoot"}
+                        = p.check_box :film_shoot, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner 
                       %span ロケ撮影
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
-                        %input{type: "checkbox", class: "ant-checkbox-input", value: "event"}
+                        = p.check_box :event, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner
                       %span イベント
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
-                        %input{type: "checkbox", class: "ant-checkbox-input", value: "performance"}
+                        = p.check_box :performance, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner
                       %span 演奏・パフォーマンス
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
-                        %input{type: "checkbox", class: "ant-checkbox-input", value: "studio"}
+                        = p.check_box :studio, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner
                       %span 個展・展示会
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
-                        %input{type: "checkbox", class: "ant-checkbox-input", value: "sports"}
+                        = p.check_box :sports, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner
                       %span スポーツ・フィットネス
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
-                        %input{type: "checkbox", class: "ant-checkbox-input", value: "office"}
+                        = p.check_box :office, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner
                       %span オフィス
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
-                        %input{type: "checkbox", class: "ant-checkbox-input", value: "wedding"}
+                        = p.check_box :wedding, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner
                       %span 結婚式
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
-                        %input{type: "checkbox", class: "ant-checkbox-input", value: "other"}
+                        = p.check_box :other, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner
                       %span その他
           //最大収容人数
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                .form-section-title__required-label{title: "最大収容人数", required: ""} 必須
+                = f.label :capacity, "必須", class: "form-section-title__required-label"
                 .form-section-title__title 最大収容人数
               .form-section-title__description
             .create-space-sections__from-wrapper
@@ -95,7 +95,8 @@
                 .parts-container__container
                   %div
                     .input-container__container
-                      %input{placeholder: "100", type: "text", class: "ant-input ant-input-sm"} 人
+                      = f.text_field :capacity, placeholder: "100", class: "ant-input ant-input-sm"
+                      人
                     .form-item__footer-wrapper
                       %p.form-item__footer
                     .form-item__errors-wrapper
@@ -103,13 +104,14 @@
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                .form-section-title__required-label{title: "床面積", required: ""} 必須
+                = f.label :floor_space, "必須", class: "form-section-title__required-label"
                 .form-section-title__title 床面積
               .form-section-title__description
             .create-space-sections__from-wrapper
               %div
                 .input-container__container
-                  %input{placeholder: "100", type: "text", class: "ant-input ant-input-sm"} ㎡
+                  = f.text_field :floor_space, placeholder: "100", class: "ant-input ant-input-sm"
+                  ㎡
                 .form-item__footer-wrapper
                   %p.form-item__footer
                 .form-item__errors-wrapper
@@ -117,7 +119,7 @@
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                .form-section-title__required-label{title: "鍵の受け渡し", required: ""} 必須
+                = f.label :passing_key_method, "必須", class: "form-section-title__required-label"
                 .form-section-title__title 鍵の受け渡し
               .form-section-title__description 利用日当日の鍵の受け渡し方法を選択してください。
             .create-space-sections__from-wrapper
@@ -127,25 +129,25 @@
                   %span.radio-list__wrapper
                     %label.ant-radio-wrapper
                       %span.ant-radio
-                        %input{type: "radio", class: "ant-radio-input", value: "xx"}
+                        = f.radio_button :passig_key_method, :対面, class: "ant-radio-input"
                         %span.ant-radio-inner                      
                       %span 対面
                   %span.radio-list__wrapper
                     %label.ant-radio-wrapper
                       %span.ant-radio
-                        %input{type: "radio", class: "ant-radio-input", value: "xx"}
+                        = f.radio_button :passig_key_method, :キーボックス, class: "ant-radio-input"
                         %span.ant-radio-inner 
                       %span キーボックス
                   %span.radio-list__wrapper
                     %label.ant-radio-wrapper
                       %span.ant-radio
-                        %input{type: "radio", class: "ant-radio-input", value: "xx"}
+                        = f.radio_button :passig_key_method, :スマートロック, class: "ant-radio-input"
                         %span.ant-radio-inner 
                       %span スマートロック
                   %span.radio-list__wrapper
                     %label.ant-radio-wrapper
                       %span.ant-radio
-                        %input{type: "radio", class: "ant-radio-input", value: "xx"}
+                        = f.radio_button :passig_key_method, :予約成立後にメッセージで伝える, class: "ant-radio-input"
                         %span.ant-radio-inner 
                       %span 予約成立後にメッセージで伝える
             .form-item__errors-wrapper
@@ -153,7 +155,7 @@
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                .form-section-title__required-label{title: "予約の締め切り", required: ""} 必須
+                = f.label :deadline_of_reservation, "必須", class: "form-section-title__required-label"
                 .form-section-title__title 予約の締め切り
               .form-section-title__description
                 利用日の何日前に予約を締め切るかを設定してください。
@@ -162,13 +164,7 @@
               %div
                 //FIXME プルダウン設定してください
                 .input-container__container
-                  %select{class: "ant-input ant-input-wd"}
-                    %option{value: "利用日当日"} 利用日当日
-                    %option{value: "利用日の1日前"} 利用日の1日前
-                    %option{value: "利用日の2日前"} 利用日の2日前
-                    %option{value: "利用日の3日前"} 利用日の3日前
-                    %option{value: "利用日の7日前"} 利用日の7日前
-                    %option{value: "利用日の14日前"} 利用日の14日前
+                  = f.select :deadline_of_reservation, BasicInfo.deadline_of_reservations.keys,{}, { class: "ant-input ant-input-wd" }
                 .form-item__footer-wrapper
                   %p.form-item__footer
                 .form-item__errors-wrapper
@@ -176,7 +172,7 @@
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                .form-section-title__required-label{title: "電話番号", required: ""} 必須
+                = f.label :start_of_reservation, "必須", class: "form-section-title__required-label"
                 .form-section-title__title 予約の受付期間
               .form-section-title__description
                 ゲストが予約リクエストする日を起点として、利用日が何ヶ月先までの予約を受け付けるか設定してください。
@@ -185,12 +181,12 @@
               %div
                 //FIXME プルダウン設定してください
                 .input-container__container
-                  %select{class: "ant-input ant-input-wd"}
-                    %option{value: "3ヶ月先まで予約を受け付ける"} 3ヶ月先まで予約を受け付ける
-                    %option{value: "6ヶ月先まで予約を受け付ける"} 6ヶ月先まで予約を受け付ける
-                    %option{value: "9ヶ月先まで予約を受け付ける"} 9ヶ月先まで予約を受け付ける
-                    %option{value: "12ヶ月先まで予約を受け付ける"} 12ヶ月先まで予約を受け付ける
+                  = f.select :start_of_reservation, BasicInfo.start_of_reservations.keys,{}, { class: "ant-input ant-input-wd" }
                 .form-item__footer-wrapper
                   %p.form-item__footer
                 .form-item__errors-wrapper
-    = render 'new_space/footer'
+    .float-bottom__container
+      .float-bottom__line
+      .float-bottom__content
+        = f.submit "保存して戻る", class: "btn btn-default button-base__button-component gray-btn"
+        = f.submit "保存して進む", class: "btn btn-default button-base__button-component green-btn"
