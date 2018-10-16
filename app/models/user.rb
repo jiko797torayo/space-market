@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :likes,        dependent: :destroy
 
-  mount_uploader :icon, ImageUploader
+  mount_uploader :icon, IconUploader
 
   validates :first_name,            first_name_validation: true
   validates :last_name,             last_name_validation: true
