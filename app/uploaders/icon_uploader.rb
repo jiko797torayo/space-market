@@ -1,4 +1,4 @@
-class ImageUploader < CarrierWave::Uploader::Base
+class IconUploader < CarrierWave::Uploader::Base
   storage :file
   include CarrierWave::MiniMagick
   process resize_to_fit: [200, 200]
