@@ -1,0 +1,161 @@
+.breadcrumbs.link__subcolor.sm-hide
+  %ol.itemscope{ itemtype: "http://data-vocabulary.org/Breadcrumb" }
+    %li
+      %a{ href: "/", itemprop: "url" }
+        %i.ic_home
+          ホーム
+    %li.underlayer
+      %span.breadcrumbs-title{ itemprop: "title" }
+        新規登録
+
+%section#contents.page_signin
+  %section#main_contents
+    .site-main
+      .page__even.lp-page__padding
+        .page__col1
+          .signup-head
+            %h1.page-title
+              アカウント新規登録
+            .container-sign
+              %ul.signup-step
+                %li.signup-step__status1.is-current
+                  新規登録
+                %li.signup-step__status3
+                  登録完了
+                %li.signup-step__status2
+                  メールアドレスの確認
+          .signup-box
+            .container-sign
+              .inner
+                %h2.signup-box__title
+                  外部サービスで新規登録
+                .signup-box__wrapper
+                  .signup-box__wrapper-fb
+                    %a.button-facebook{ href: "/i/sign_up" }
+                      %span.signup-box__sns-button
+                        Facebookで登録
+                  %p.signup-box__notes
+                    Facebookを使ってスペースマーケットにログインできます。
+                    %br.sm-hide
+                    ログイン以外の目的に使われることはありません。
+                    %br.sm-hide
+                    %a.a__underline{ href: "https://www.spacemarket.com/about/terms" }
+                      スペースマーケット利用規約
+                    をお読みになり同意の上、登録へお進みください。
+          .signup-box
+            .container-sign
+              .inner
+                %h2.signup-box__title
+                  メールアドレスで新規登録
+                .signup-box__wrapper-form
+                  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { :novalidate => true }) do |f|
+                    .name.clearfix
+                      .field.last
+                        .field-input
+                          = f.text_field :last_name, autofocus: true
+                        .field-label
+                          = f.label "姓", { class: "field-label name" }
+                        - if @user.errors[:last_name].any?
+                          %ul
+                            - @user.errors.messages[:last_name].each do |msg|
+                              %li.signup-box__required.signup-box__required-name
+                                %i.fas.fa-exclamation-circle
+                                = msg
+                      .field.first
+                        .field-input
+                          = f.text_field :first_name
+                        .field-label
+                          = f.label "名", { class: "field-label name" }
+                        - if @user.errors[:first_name].any?
+                          %ul
+                            - @user.errors.messages[:first_name].each do |msg|
+                              %li.signup-box__required.signup-box__required-name
+                                %i.fas.fa-exclamation-circle
+                                = msg
+                    .field.email
+                      .field-input
+                        = f.email_field :email
+                      .field-label
+                        = f.label "メールアドレス", { class: "field-label" }
+                      - if @user.errors[:email].any?
+                        %ul
+                          - @user.errors.messages[:email].each do |msg|
+                            %li.signup-box__required
+                              %i.fas.fa-exclamation-circle
+                              = msg
+                    .field
+                      .field-input
+                        = f.password_field :password, autocomplete: "off"
+                      .field-label
+                        = f.label "パスワード", { class: "field-label" }
+                      - if @user.errors[:password].any?
+                        %ul
+                          - @user.errors.messages[:password].each do |msg|
+                            %li.signup-box__required
+                              %i.fas.fa-exclamation-circle
+                              = msg
+                    .field
+                      .field-input
+                        = f.password_field :password_confirmation, autocomplete: "off"
+                      .field-label
+                        = f.label "パスワード（確認）", { class: "field-label" }
+                      - if @user.errors[:password_confirmation].any?
+                        %ul
+                          - @user.errors.messages[:password_confirmation].each do |msg|
+                            %li.signup-box__required
+                              %i.fas.fa-exclamation-circle
+                              = msg
+                    .field
+                      .field-label.icon
+                        = f.file_field :icon, class: "hidden", accept: "image/*"
+                        = f.label :icon do
+                          .prof-label
+                            プロフィール画像
+                          .box
+                            .square
+                              %i.fa.fa-camera
+                              %p
+                                ファイルを変更
+                              %img#preview
+                    %p.signup-box__wrapper-form__notes
+                      ご登録前に
+                      %a.a__underline{ href: "https://www.spacemarket.com/about/terms" }
+                        スペースマーケット利用規約
+                      をお読みください。
+                      %p
+                        = f.check_box :accepted, {}, checked_value = "1",unchecked_value = "0"
+                        スペースマーケット利用規約に同意する
+                      - if @user.errors[:accepted].any?
+                        %ul
+                          - @user.errors.messages[:accepted].each do |msg|
+                            %li.signup-box__required.signup-box__required-accepted
+                              %i.fas.fa-exclamation-circle
+                              = msg
+                      = image_tag "notrobot.png", style: "width:304px"
+                    .actions
+                      = f.submit "登録する", class: "btn"
+          .signup-box.signup-box__existing-account
+            .container-sign
+              .inner
+                %a.signup-box__existing-account-title{ href: "/i/login" }
+                  すでにアカウントのお持ちの方は
+                  %span.signup-box__existing-account-linktxt
+                    こちら
+                  %span.signup-box__existing-account-linktxt.black
+                    ＞
+          .signup-box.signup-box__biz-account
+            .container-sign
+              .inner
+                .description
+                  %span.signup-box__biz-newlabel
+                    NEW
+                  %h2.signup-box__title
+                    ご利用料金を請求書で一括精算できる
+                    %br
+                    法人会員のご登録はこちら
+                    %span.signup-box__biz-account-free
+                      （無料）
+                .arrow
+                  ＞
+                %a.btn{ href: "/i/sign_up" }
+                  法人アカウント登録
