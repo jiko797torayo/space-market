@@ -1,0 +1,83 @@
+.breadcrumbs.link__subcolor.sm-hide
+  %ol.itemscope{ itemtype: "http://data-vocabulary.org/Breadcrumb" }
+    %li
+      %a{ href: "/", itemprop: "url" }
+        %i.ic_home
+          ホーム
+    %li.underlayer
+      %span.breadcrumbs-title{ itemprop: "title" }
+        ログイン
+
+%section#contents.page_signin
+  %section#main_contents
+    .site-main
+      .page__even.lp-page__padding
+        .page__col1
+          .signup-head
+            %h1.page-title
+              ログイン
+          .signup-box
+            .container-sign
+              .inner#inner-signin
+                .more-inner
+                  .left-content
+                    %h2.signup-box__title
+                      外部サービスで新規登録
+                    .signup-box__wrapper-signin
+                      .signup-box__wrapper-fb
+                        %a.button-facebook{ href: "/i/sign_up" }
+                          %span.signup-box__sns-button
+                            Facebookで登録
+                      %p.signup-box__notes-signin
+                        ログイン以外の目的に使われることはありません。
+                      %p.signup-box__notes-signin
+                        スペースマーケットがゲストの同意なしに投稿することはありません。
+                  .right-content
+                    %h2.signup-box__title
+                      メールアドレスでログイン
+                    .signup-box__wrapper-form.form-signin
+                      = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "signin" }) do |f|
+                        = devise_error_messages!
+                        .field
+                          .field-input
+                            = f.email_field :email
+                          .field-label
+                            = f.label "メールアドレス", class: "field-label"
+                        .field
+                          .field-input
+                            = f.password_field :password, autocomplete: "off"
+                          .field-label
+                            = f.label "パスワード", class: "field-label"
+                        %p
+                          %i.far.fa-square
+                          ログインしたままにする。
+                        .actions
+                          = f.submit "ログイン", class: "btn"
+                        %a.signup-box__forget-password{ href: "/i/sign_up" }
+                          パスワードを忘れた方はこちら
+          .signup-box.signup-box__existing-account
+            .container-sign
+              .inner
+                %a.signup-box__existing-account-title{ href: "/i/sign_up" }
+                  まだアカウントをお持ちでない方は
+                  %span.signup-box__existing-account-linktxt
+                    こちら
+                  %span.signup-box__existing-account-linktxt.black
+                    ＞
+          .signup-box.signup-box__biz-account
+            .container-sign
+              .inner
+                .description
+                  %span.signup-box__biz-newlabel
+                    NEW
+                  %h2.signup-box__title
+                    ご利用料金を請求書で一括精算できる
+                    %br
+                    法人会員のご登録はこちら
+                    %span.signup-box__biz-account-free
+                      （無料）
+                .arrow
+                  ＞
+                %a.btn{ href: "/i/sign_up" }
+                  法人アカウント登録
+
