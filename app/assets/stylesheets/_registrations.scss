@@ -1,14 +1,3 @@
-$page: #f6f6f6;
-$box: #fff;
-$current_step: #60df52;
-$inner_frame: #eaeaea;
-$facebook: #305097;
-$facebook_border: #142b5f;
-$btn: #4abfe6;
-$text: #333333;
-$label: #999999;
-$dash: #dddddd;
-
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -370,7 +359,7 @@ $dash: #dddddd;
 }
 
 .signup-box__required {
-  color: #e95175;
+  color: $required;
   font-size: 12px;
   line-height: 1.4;
   text-align: left;
