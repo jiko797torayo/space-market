@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
   belongs_to :user
-  belongs_to :reservation_hours, dependent: :destroy
+  has_one :reservation_hour, dependent: :destroy
   belongs_to :space
 end
