@@ -101,14 +101,14 @@ https://github.com/jiko797torayo/space-market/issues/9
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null: false|
-|prefecture|string|null: false|
+|prefecture|integer(enum)|null: false|
 |city_name|string|null: false|
-|street_name|string|null: false|
-|building_name|string||
+|street_name|text|null: false|
+|building_name|text||
 |latitude|float|null: false|
 |longitude|float|null: false|
-|access|text||
-|phone_number|integer|null: false|
+|access|text|null: false|
+|phone_number|string|null: false|
 |equipment_type|integer(enum)|null: false|
 ### Association
 - belongs_to :space
@@ -126,19 +126,18 @@ https://github.com/jiko797torayo/space-market/issues/9
 |------|----|-------|
 |capacity|integer|null: false|
 |floor_space|integer|null: false|
-|date_of_starting_reception|integer(enum)|null: false|
+|starting_of_reservation|integer(enum)|null: false|
 |passig_key_method|integer(enum)|null: false|
 |deadline_of_reservation|integer(enum)|null: false|
-|purpose_id|integer|references :purpose, foreign_key: true, index: true|
 ### Association
 - belongs_to :space
-- belongs_to :purpose, dependent: :destroy
+- has_many :purposes, dependent: :destroy
 
 ## purposesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |party|integer|null: false|
-|class|integer|null: false|
+|meeting|integer|null: false|
 |photo_shoot|integer|null: false|
 |film_shoot|integer|null: false|
 |event|integer|null: false|
@@ -148,6 +147,7 @@ https://github.com/jiko797torayo/space-market/issues/9
 |office|integer|null: false|
 |wedding|integer|null: false|
 |other|integer|null: false|
+|basic_info_id|integer|references :basic_info, foreign_key: true, index: true|
 ### Association
 - belongs_to :basic_info
 
