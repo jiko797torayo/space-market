@@ -10,18 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012042454) do
+ActiveRecord::Schema.define(version: 20181016061702) do
 
   create_table "basic_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "capacity",                   null: false
-    t.integer  "floor_space",                null: false
-    t.integer  "date_of_starting_reception", null: false
-    t.integer  "passig_key_method",          null: false
-    t.integer  "deadline_of_reservation",    null: false
-    t.integer  "purpose_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.index ["purpose_id"], name: "index_basic_infos_on_purpose_id", using: :btree
+    t.integer  "capacity",                null: false
+    t.integer  "floor_space",             null: false
+    t.integer  "starting_of_reservation", null: false
+    t.integer  "passig_key_method",       null: false
+    t.integer  "deadline_of_reservation", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "descriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -33,18 +31,18 @@ ActiveRecord::Schema.define(version: 20181012042454) do
   end
 
   create_table "equipment_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "postal_code",    null: false
-    t.integer  "prefecture",     null: false
-    t.integer  "city_name",      null: false
-    t.integer  "street_name",    null: false
-    t.integer  "building_name",  null: false
-    t.integer  "latitude",       null: false
-    t.integer  "longitude",      null: false
-    t.integer  "access",         null: false
-    t.integer  "phone_number",   null: false
-    t.integer  "equipment_type", null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "postal_code",                  null: false
+    t.integer  "prefecture",                   null: false
+    t.string   "city_name",                    null: false
+    t.text     "street_name",    limit: 65535, null: false
+    t.text     "building_name",  limit: 65535, null: false
+    t.float    "latitude",       limit: 24,    null: false
+    t.float    "longitude",      limit: 24,    null: false
+    t.text     "access",         limit: 65535, null: false
+    t.string   "phone_number",                 null: false
+    t.integer  "equipment_type",               null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -91,19 +89,19 @@ ActiveRecord::Schema.define(version: 20181012042454) do
   end
 
   create_table "purposes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "party",       null: false
-    t.integer  "class",       null: false
-    t.integer  "photo_shoot", null: false
-    t.integer  "film_shoot",  null: false
-    t.integer  "event",       null: false
-    t.integer  "performance", null: false
-    t.integer  "studio",      null: false
-    t.integer  "sports",      null: false
-    t.integer  "office",      null: false
-    t.integer  "wedding",     null: false
-    t.integer  "other",       null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer "party",         null: false
+    t.integer "meeting",       null: false
+    t.integer "photo_shoot",   null: false
+    t.integer "film_shoot",    null: false
+    t.integer "event",         null: false
+    t.integer "performance",   null: false
+    t.integer "studio",        null: false
+    t.integer "sports",        null: false
+    t.integer "office",        null: false
+    t.integer "wedding",       null: false
+    t.integer "other",         null: false
+    t.integer "basic_info_id", null: false
+    t.index ["basic_info_id"], name: "index_purposes_on_basic_info_id", using: :btree
   end
 
   create_table "rental_days", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -219,18 +217,4 @@ ActiveRecord::Schema.define(version: 20181012042454) do
     t.datetime "updated_at",             null: false
   end
 
-  add_foreign_key "basic_infos", "purposes"
-  add_foreign_key "likes", "spaces"
-  add_foreign_key "likes", "users"
-  add_foreign_key "plans", "rental_days"
-  add_foreign_key "plans", "rental_hours"
-  add_foreign_key "reservations", "reservation_hours"
-  add_foreign_key "reservations", "spaces"
-  add_foreign_key "reservations", "users"
-  add_foreign_key "spaces", "basic_infos"
-  add_foreign_key "spaces", "descriptions"
-  add_foreign_key "spaces", "equipment_infos"
-  add_foreign_key "spaces", "hosts"
-  add_foreign_key "spaces", "images"
-  add_foreign_key "spaces", "plans"
 end
