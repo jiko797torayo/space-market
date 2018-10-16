@@ -1,10 +1,10 @@
 class Space < ApplicationRecord
   belongs_to :host
-  belongs_to :equipment_info, dependent: :destroy
-  belongs_to :basic_info, dependent: :destroy
-  belongs_to :description, dependent: :destroy
-  belongs_to :plan, dependent: :destroy
-  has_many   :images, dependent: :destroy
-  has_many   :likes, dependent: :destroy
-  has_many   :reservations, dependent: :destroy
+  has_one :equipment_info, dependent: :destroy
+  has_one :basic_info, dependent: :destroy
+  has_one :description, dependent: :destroy
+  has_one :plan, dependent: :destroy
+  has_one :image, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 end

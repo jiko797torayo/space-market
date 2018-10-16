@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181016061702) do
+ActiveRecord::Schema.define(version: 20181016075748) do
 
   create_table "basic_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "capacity",                null: false
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20181016061702) do
     t.integer  "deadline_of_reservation", null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "space_id"
+    t.index ["space_id"], name: "index_basic_infos_on_space_id", using: :btree
   end
 
   create_table "descriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -28,6 +30,8 @@ ActiveRecord::Schema.define(version: 20181016061702) do
     t.text     "about_facilities", limit: 65535, null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "space_id"
+    t.index ["space_id"], name: "index_descriptions_on_space_id", using: :btree
   end
 
   create_table "equipment_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -43,6 +47,8 @@ ActiveRecord::Schema.define(version: 20181016061702) do
     t.integer  "equipment_type",               null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "space_id"
+    t.index ["space_id"], name: "index_equipment_infos_on_space_id", using: :btree
   end
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,6 +69,8 @@ ActiveRecord::Schema.define(version: 20181016061702) do
     t.text     "about_image", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "space_id"
+    t.index ["space_id"], name: "index_images_on_space_id", using: :btree
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -80,12 +88,10 @@ ActiveRecord::Schema.define(version: 20181016061702) do
     t.integer  "price_per_hour",                            null: false
     t.integer  "price_per_day",                             null: false
     t.integer  "reservation_approval_method",               null: false
-    t.integer  "rental_day_id"
-    t.integer  "rental_hour_id"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
-    t.index ["rental_day_id"], name: "index_plans_on_rental_day_id", using: :btree
-    t.index ["rental_hour_id"], name: "index_plans_on_rental_hour_id", using: :btree
+    t.integer  "space_id"
+    t.index ["space_id"], name: "index_plans_on_space_id", using: :btree
   end
 
   create_table "purposes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -114,6 +120,8 @@ ActiveRecord::Schema.define(version: 20181016061702) do
     t.integer  "saturday",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "plan_id"
+    t.index ["plan_id"], name: "index_rental_days_on_plan_id", using: :btree
   end
 
   create_table "rental_hours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -143,65 +151,57 @@ ActiveRecord::Schema.define(version: 20181016061702) do
     t.integer  "twenty_three", default: 0, null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "plan_id"
+    t.index ["plan_id"], name: "index_rental_hours_on_plan_id", using: :btree
   end
 
   create_table "reservation_hours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "zero",         default: 0, null: false
-    t.integer  "one",          default: 0, null: false
-    t.integer  "two",          default: 0, null: false
-    t.integer  "three",        default: 0, null: false
-    t.integer  "four",         default: 0, null: false
-    t.integer  "five",         default: 0, null: false
-    t.integer  "six",          default: 0, null: false
-    t.integer  "seven",        default: 0, null: false
-    t.integer  "eight",        default: 0, null: false
-    t.integer  "nine",         default: 0, null: false
-    t.integer  "ten",          default: 0, null: false
-    t.integer  "eleven",       default: 0, null: false
-    t.integer  "twelve",       default: 0, null: false
-    t.integer  "thirteen",     default: 0, null: false
-    t.integer  "fourteen",     default: 0, null: false
-    t.integer  "fifteen",      default: 0, null: false
-    t.integer  "sixteen",      default: 0, null: false
-    t.integer  "seventeen",    default: 0, null: false
-    t.integer  "eighteen",     default: 0, null: false
-    t.integer  "nineteen",     default: 0, null: false
-    t.integer  "twenty",       default: 0, null: false
-    t.integer  "twenty_one",   default: 0, null: false
-    t.integer  "twenty_two",   default: 0, null: false
-    t.integer  "twenty_three", default: 0, null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "zero",           default: 0, null: false
+    t.integer  "one",            default: 0, null: false
+    t.integer  "two",            default: 0, null: false
+    t.integer  "three",          default: 0, null: false
+    t.integer  "four",           default: 0, null: false
+    t.integer  "five",           default: 0, null: false
+    t.integer  "six",            default: 0, null: false
+    t.integer  "seven",          default: 0, null: false
+    t.integer  "eight",          default: 0, null: false
+    t.integer  "nine",           default: 0, null: false
+    t.integer  "ten",            default: 0, null: false
+    t.integer  "eleven",         default: 0, null: false
+    t.integer  "twelve",         default: 0, null: false
+    t.integer  "thirteen",       default: 0, null: false
+    t.integer  "fourteen",       default: 0, null: false
+    t.integer  "fifteen",        default: 0, null: false
+    t.integer  "sixteen",        default: 0, null: false
+    t.integer  "seventeen",      default: 0, null: false
+    t.integer  "eighteen",       default: 0, null: false
+    t.integer  "nineteen",       default: 0, null: false
+    t.integer  "twenty",         default: 0, null: false
+    t.integer  "twenty_one",     default: 0, null: false
+    t.integer  "twenty_two",     default: 0, null: false
+    t.integer  "twenty_three",   default: 0, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "reservation_id"
+    t.index ["reservation_id"], name: "index_reservation_hours_on_reservation_id", using: :btree
   end
 
   create_table "reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.date     "day",                 null: false
-    t.integer  "reservation_hour_id"
+    t.date     "day",        null: false
     t.integer  "user_id"
     t.integer  "space_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["reservation_hour_id"], name: "index_reservations_on_reservation_hour_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["space_id"], name: "index_reservations_on_space_id", using: :btree
     t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
   end
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "likes_count",       default: 0
+    t.integer  "likes_count", default: 0
     t.integer  "host_id"
-    t.integer  "equipment_info_id"
-    t.integer  "basic_info_id"
-    t.integer  "description_id"
-    t.integer  "plan_id"
-    t.integer  "image_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.index ["basic_info_id"], name: "index_spaces_on_basic_info_id", using: :btree
-    t.index ["description_id"], name: "index_spaces_on_description_id", using: :btree
-    t.index ["equipment_info_id"], name: "index_spaces_on_equipment_info_id", using: :btree
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["host_id"], name: "index_spaces_on_host_id", using: :btree
-    t.index ["image_id"], name: "index_spaces_on_image_id", using: :btree
-    t.index ["plan_id"], name: "index_spaces_on_plan_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
