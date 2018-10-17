@@ -5,7 +5,7 @@ class BasicInfo < ApplicationRecord
 
   validates :capacity, presence: true
   validates :floor_space, presence: true
-  validates :start_of_reservation, presence: true
+  validates :starting_of_reservation, presence: true
   validates :passig_key_method, presence: true
   validates :deadline_of_reservation, presence: true
 
