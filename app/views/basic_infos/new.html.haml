@@ -21,7 +21,7 @@
                     %label.ant-checkbox-wrapper
                       %span.ant-checkbox
                         = p.check_box :party, {}, checked_value = "1", unchecked_value = "0"
-                        %span.ant-checkbox-inner                      
+                        %span.ant-checkbox-inner
                       %span パーティー
                   %span.checkbox-list__wrapper
                     %label.ant-checkbox-wrapper
@@ -123,7 +123,7 @@
                 .form-section-title__title 鍵の受け渡し
               .form-section-title__description 利用日当日の鍵の受け渡し方法を選択してください。
             .create-space-sections__from-wrapper
-              //FIXME 選択できるようにCSS当ててください。value定義してください。
+              //FIXME CSS当ててください
               .radio-list__container
                 .ant-radio-group
                   %span.radio-list__wrapper
@@ -162,7 +162,6 @@
                 例）「利用日の7日前」に設定→ゲストが4月8日に利用したい場合、4月1日以前に予約をする必要があります。
             .create-space-sections__from-wrapper
               %div
-                //FIXME プルダウン設定してください
                 .input-container__container
                   = f.select :deadline_of_reservation, BasicInfo.deadline_of_reservations.keys,{}, { class: "ant-input ant-input-wd" }
                 .form-item__footer-wrapper
@@ -172,16 +171,15 @@
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                = f.label :start_of_reservation, "必須", class: "form-section-title__required-label"
+                = f.label :starting_of_reservation, "必須", class: "form-section-title__required-label"
                 .form-section-title__title 予約の受付期間
               .form-section-title__description
                 ゲストが予約リクエストする日を起点として、利用日が何ヶ月先までの予約を受け付けるか設定してください。
                 例）「12ヶ月先まで予約を受け付ける」を設定→2018年4月1日の場合、2019年4月1日まで予約を受け付けます。
             .create-space-sections__from-wrapper
               %div
-                //FIXME プルダウン設定してください
                 .input-container__container
-                  = f.select :start_of_reservation, BasicInfo.start_of_reservations.keys,{}, { class: "ant-input ant-input-wd" }
+                  = f.select :starting_of_reservation, BasicInfo.start_of_reservations.keys,{}, { class: "ant-input ant-input-wd" }
                 .form-item__footer-wrapper
                   %p.form-item__footer
                 .form-item__errors-wrapper
