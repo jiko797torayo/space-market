@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181016075748) do
+ActiveRecord::Schema.define(version: 20181017082254) do
 
   create_table "basic_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "capacity",                null: false
@@ -152,6 +152,8 @@ ActiveRecord::Schema.define(version: 20181016075748) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "plan_id"
+    t.integer  "start_hour",               null: false
+    t.integer  "end_hour",                 null: false
     t.index ["plan_id"], name: "index_rental_hours_on_plan_id", using: :btree
   end
 
