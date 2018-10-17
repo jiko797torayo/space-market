@@ -1,5 +1,5 @@
 .main-contents-with-hint__inner
-  .main-contents-with-hint__wrapper
+  = form_for @plan, html: {class: "main-contents-with-hint__wrapper"} do |f|
     .main-contents-with-hint__main-wrapper
       .main-contents-with-hint__main
         .space-info-page__title-container
@@ -10,13 +10,13 @@
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                .form-section-title__required-label{title: "プランの名称", required: ""} 必須
+                = f.label :name, "必須", class: "form-section-title__required-label"
                 .form-section-title__title プランの名称
               .form-section-title__description
             .create-space-sections__from-wrapper
               %div
                 .input-container__container
-                  %input{placeholder: "プランの名称", type: "text", class: "ant-input"}
+                  = f.text_field :name, placeholder: "プランの名称", class: "ant-input"
                 .form-item__footer-wrapper
                   %p.form-item__footer
                 .form-item__errors-wrapper
@@ -24,13 +24,13 @@
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                .form-section-title__required-label.not-required{title: "プランの説明"} 任意
+                = f.label :about_plan, "任意", class: "form-section-title__required-label not-required"
                 .form-section-title__title プランの説明
               .form-section-title__description 
             .create-space-sections__from-wrapper
               %div
                 .input-container__container
-                  %textarea{placeholder: "プランの説明", class: "ant-input ant-input-area"}
+                  = f.text_area :about_plan, placeholder: "プランの説明", class: "ant-input ant-input-area"
                 .form-item__footer-wrapper
                   %p.form-item__footer 例）Wi-Fi、ホワイトボード完備で会議からイベントまでご利用いただけます。その他必要な備品につきましては予約リクエスト時にお問い合わせください。
                 .form-item__errors-wrapper
@@ -38,7 +38,7 @@
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                .form-section-title__required-label{title: "価格", required: ""} 必須
+                = f.label :price_per_day, "必須", class: "form-section-title__required-label"
                 .form-section-title__title 価格
               .form-section-title__description
             .create-space-sections__from-wrapper
@@ -48,459 +48,450 @@
                     .price-setting-list__title
                       %span.price-setting-list__title-content 時間価格
                     .price-setting-list__switch
-                      %input{type: "checkbox"}設定する
+                      -# %input{type: "checkbox"}設定する
                   .price-setting-list__content
                     .price-setting-list__form-wrapper
                       %span ¥
                       .input-container__container
-                        %input{placeholder: "3000", type: "text", class: "ant-input ant-input-sm"} /時間
+                        = f.text_field :price_per_hour, placeholder: "3000", class: "ant-input ant-input-sm"
+                        %span /時間
                 %li.price-setting-list__list-item.last-item 
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content一日価格
                     .price-setting-list__switch
-                      %input{type: "checkbox"}設定する
+                      -# %input{type: "checkbox"}設定する
                   .price-setting-list__content
                     .price-setting-list__form-wrapper
                       %span ¥
                       .input-container__container
-                        %input{placeholder: "8000", type: "text", class: "ant-input ant-input-sm"} /日
+                        = f.text_field :price_per_day, placeholder: "8000", class: "ant-input ant-input-sm"
+                        %span /日
               .form-item__errors-wrapper
           //貸出可能な曜日・時間帯
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                .form-section-title__required-label{title: "貸出可能な曜日・時間帯", required: ""} 必須
+                = f.label :rental_day, "必須", class: "form-section-title__required-label"
                 .form-section-title__title 貸出可能な曜日・時間帯
               .form-section-title__description 貸出可能な曜日と時間を設定してください。0時〜36時（翌日12時）の間で入力してください。
             .create-space-sections__from-wrapper
+            = f.fields_for :rental_day do |d|
               %ul
+              = f.fields_for :rental_hour do |h|
                 %li.price-setting-list__list-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 日曜日
                     .price-setting-list__switch
-                      %input{type: "checkbox"}貸し出す
+                      = d.check_box :sunday, {}, checked_value = "1", unchecked_value = "0"
+                      貸し出す
                   .price-setting-list__content
                     .price-setting-list__form-wrapper
                       .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
-                      %span ~
+                        = h.select :start_hour, options_for_select((0..23).to_a), {}, { class: "ant-input ant-input-sm" }
+                      %span :00~
                       .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
+                        = h.select :end_hour, options_for_select((0..23).to_a), {}, { class: "ant-input ant-input-sm" }
+                      %span :00
                 %li.price-setting-list__list-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 月曜日
                     .price-setting-list__switch
-                      %input{type: "checkbox"}貸し出す
-                  .price-setting-list__content
-                    .price-setting-list__form-wrapper
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
-                      %span ~
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
+                      = d.check_box :monday, {}, checked_value = "1", unchecked_value = "0"
+                      貸し出す
+                  -# .price-setting-list__content
+                  -#   .price-setting-list__form-wrapper
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
+                  -#     %span ~
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
                 %li.price-setting-list__list-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 火曜日
                     .price-setting-list__switch
-                      %input{type: "checkbox"}貸し出す
-                  .price-setting-list__content
-                    .price-setting-list__form-wrapper
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
-                      %span ~
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
+                      = d.check_box :tuesday, {}, checked_value = "1", unchecked_value = "0"
+                      貸し出す
+                  -# .price-setting-list__content
+                  -#   .price-setting-list__form-wrapper
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
+                  -#     %span ~
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
                 %li.price-setting-list__list-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 水曜日
                     .price-setting-list__switch
-                      %input{type: "checkbox"}貸し出す
-                  .price-setting-list__content
-                    .price-setting-list__form-wrapper
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
-                      %span ~
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
+                      = d.check_box :wednesday, {}, checked_value = "1", unchecked_value = "0"
+                      貸し出す
+                  -# .price-setting-list__content
+                  -#   .price-setting-list__form-wrapper
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
+                  -#     %span ~
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
                 %li.price-setting-list__list-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 木曜日
                     .price-setting-list__switch
-                      %input{type: "checkbox"}貸し出す
-                  .price-setting-list__content
-                    .price-setting-list__form-wrapper
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
-                      %span ~
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
+                      = d.check_box :thursday, {}, checked_value = "1", unchecked_value = "0"
+                      貸し出す
+                  -# .price-setting-list__content
+                  -#   .price-setting-list__form-wrapper
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
+                  -#     %span ~
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
                 %li.price-setting-list__list-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 金曜日
                     .price-setting-list__switch
-                      %input{type: "checkbox"}貸し出す
-                  .price-setting-list__content
-                    .price-setting-list__form-wrapper
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
-                      %span ~
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
+                      = d.check_box :friday, {}, checked_value = "1", unchecked_value = "0"
+                      貸し出す
+                  -# .price-setting-list__content
+                  -#   .price-setting-list__form-wrapper
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
+                  -#     %span ~
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
                 %li.price-setting-list__list-item.last-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 土曜日
                     .price-setting-list__switch
-                      %input{type: "checkbox"}貸し出す
-                  .price-setting-list__content
-                    .price-setting-list__form-wrapper
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
-                      %span ~
-                      .input-container__container
-                        %select{class: "ant-input ant-input-sm"}
-                          %option{value: "0"} 0:00
-                          %option{value: "1"} 1:00
-                          %option{value: "2"} 2:00
-                          %option{value: "3"} 3:00
-                          %option{value: "4"} 4:00
-                          %option{value: "5"} 5:00
-                          %option{value: "6"} 6:00
-                          %option{value: "7"} 7:00
-                          %option{value: "8"} 8:00
-                          %option{value: "9"} 9:00
-                          %option{value: "10"} 10:00
-                          %option{value: "11"} 11:00
-                          %option{value: "12"} 12:00
-                          %option{value: "13"} 13:00
-                          %option{value: "14"} 14:00
-                          %option{value: "15"} 15:00
-                          %option{value: "16"} 16:00
-                          %option{value: "17"} 17:00
-                          %option{value: "18"} 18:00
-                          %option{value: "19"} 19:00
-                          %option{value: "20"} 20:00
-                          %option{value: "21"} 21:00
-                          %option{value: "22"} 22:00
-                          %option{value: "23"} 23:00
+                      = d.check_box :saturday, {}, checked_value = "1", unchecked_value = "0"
+                      貸し出す
+                  -# .price-setting-list__content
+                  -#   .price-setting-list__form-wrapper
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
+                  -#     %span ~
+                  -#     .input-container__container
+                  -#       %select{class: "ant-input ant-input-sm"}
+                  -#         %option{value: "0"} 0:00
+                  -#         %option{value: "1"} 1:00
+                  -#         %option{value: "2"} 2:00
+                  -#         %option{value: "3"} 3:00
+                  -#         %option{value: "4"} 4:00
+                  -#         %option{value: "5"} 5:00
+                  -#         %option{value: "6"} 6:00
+                  -#         %option{value: "7"} 7:00
+                  -#         %option{value: "8"} 8:00
+                  -#         %option{value: "9"} 9:00
+                  -#         %option{value: "10"} 10:00
+                  -#         %option{value: "11"} 11:00
+                  -#         %option{value: "12"} 12:00
+                  -#         %option{value: "13"} 13:00
+                  -#         %option{value: "14"} 14:00
+                  -#         %option{value: "15"} 15:00
+                  -#         %option{value: "16"} 16:00
+                  -#         %option{value: "17"} 17:00
+                  -#         %option{value: "18"} 18:00
+                  -#         %option{value: "19"} 19:00
+                  -#         %option{value: "20"} 20:00
+                  -#         %option{value: "21"} 21:00
+                  -#         %option{value: "22"} 22:00
+                  -#         %option{value: "23"} 23:00
               .form-item__errors-wrapper
-    = render 'new_space/footer'
+          //予約の承認方式
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                = f.label :reservation_approval_method, "必須", class: "form-section-title__required-label"
+                .form-section-title__title 予約の承認方式
+              .form-section-title__description 予約にホストの承認が必要かどうかを設定してください。承認なし（今すぐ予約）に設定するとゲストとのやりとりが簡単になり、予約が入りやすくなります。
+            .create-space-sections__from-wrapper
+              //FIXME CSS当ててください
+              .radio-list__container
+                .ant-radio-group
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :reservation_approval_method, :承認なし（今すぐ予約）, class: "ant-radio-input"
+                        %span.ant-radio-inner                      
+                      %span 承認なし（今すぐ予約）
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :reservation_approval_method, :承認あり, class: "ant-radio-input"
+                        %span.ant-radio-inner 
+                      %span 承認あり
+    .float-bottom__container
+      .float-bottom__line
+      .float-bottom__content
+        = f.submit "保存して戻る", class: "btn btn-default button-base__button-component gray-btn"
+        = f.submit "保存して進む", class: "btn btn-default button-base__button-component green-btn"
