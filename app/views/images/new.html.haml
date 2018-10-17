@@ -10,7 +10,7 @@
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                .form-section-title__required-label{title: "写真", required: ""} 必須
+                = f.label :image, "必須", class: "form-section-title__required-label"
                 .form-section-title__title 写真
               .form-section-title__description ゲストが実際に利用するスペース、設備等の画像を最低1枚追加してください。推奨サイズは1260x840です。ドラッグ＆ドロップで入れ替え可。クリックで拡大することができます。最大30枚まで追加できます。
             .photo-form__from-wrapper
@@ -18,22 +18,21 @@
                 %label.photo-form__add__mask
                   = fa_icon "plus", class: "icon"
                   %span 新規写真の追加
-                  = f.file_field :photos, multiple: true
+                  = f.file_field :uri
               .photo-list__container
                 %ul
                   %li.photo-list__list-item
                     .photocard__container
                       .photocard__photo
                       .photocard__text
-                        %textarea{placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"}
-                  %li.photo-list__list-item
-                    .photocard__container
-                      .photocard__photo
-                      .photocard__text
-                        %textarea{placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"}
+                        = f.text_area :about_image, placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"
+                  -# %li.photo-list__list-item
+                  -#   .photocard__container
+                  -#     .photocard__photo
+                  -#     .photocard__text
+                  -#       %textarea{placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"}
     .float-bottom__container
       .float-bottom__line
       .float-bottom__content
         = f.submit "保存して戻る", class: "btn btn-default button-base__button-component gray-btn"
         = f.submit "保存して進む", class: "btn btn-default button-base__button-component green-btn"
-
