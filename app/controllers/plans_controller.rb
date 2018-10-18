@@ -12,12 +12,6 @@ class PlansController < ApplicationController
     @plan = Plan.new(plan_params)
     @plan.space = @@space
     if @plan.save
-      if 0 <= @plan.rental_hour[:start_hour] && @plan.rental_hour[:end_hour] < 0
-        @plan.rental_hour[:zero] == 1 
-        @plan.save
-      elsif 1 <= @plan.rental_hour[:start_hour] && @plan.rental_hour[:end_hour] < 2
-        @plan.rental_hour[:one] == 1 
-        @plan.save
       end
       next_page
     else
