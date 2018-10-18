@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181017082254) do
+ActiveRecord::Schema.define(version: 20181018040116) do
 
   create_table "basic_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "capacity",                null: false
@@ -64,13 +64,14 @@ ActiveRecord::Schema.define(version: 20181017082254) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "uri"
-    t.text     "about_image", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "space_id"
-    t.index ["space_id"], name: "index_images_on_space_id", using: :btree
+  create_table "image_files", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "file",           limit: 65535
+    t.text     "about_file",     limit: 65535
+    t.integer  "status"
+    t.integer  "space_image_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["space_image_id"], name: "index_image_files_on_space_image_id", using: :btree
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -196,6 +197,13 @@ ActiveRecord::Schema.define(version: 20181017082254) do
     t.datetime "updated_at", null: false
     t.index ["space_id"], name: "index_reservations_on_space_id", using: :btree
     t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
+  end
+
+  create_table "space_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_space_images_on_space_id", using: :btree
   end
 
   create_table "spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
