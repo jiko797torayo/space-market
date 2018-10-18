@@ -17,33 +17,29 @@
               = f.fields_for :image_files do |img|
                 .photo-form__add
                   %label.photo-form__add__mask
-                    = fa_icon "plus", class: "icon"
+                    %i.fa.fa-plus.icon
                     %span 新規写真の追加
                     = img.file_field :file
                     = img.hidden_field :status, value: "main"
-                .photo-list__container
-                  %ul
-                    %li.photo-list__list-item
-                      .photocard__container
-                        .photocard__photo
-                        .photocard__text
-                          = img.text_area :about_file, placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"
-          - 4.times do |i|
+                .photocard__container
+                  .photocard__photo
+                    %img#preview0
+                  .photocard__text
+                    = img.text_area :about_file, placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"
+          - (1..4).each do |i|
             .photo-form__from-wrapper
               = f.fields_for :image_files do |img|
                 .photo-form__add
                   %label.photo-form__add__mask
-                    = fa_icon "plus", class: "icon"
+                    %i.fa.fa-plus.icon
                     %span 新規写真の追加
                     = img.file_field :file
                     = img.hidden_field :status, value: "sub"
-                .photo-list__container
-                  %ul
-                    %li.photo-list__list-item
-                      .photocard__container
-                        .photocard__photo
-                        .photocard__text
-                          = img.text_area :about_file, placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"
+                .photocard__container
+                  .photocard__photo
+                    %img{ id: "preview#{i}"}
+                  .photocard__text
+                    = img.text_area :about_file, placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"
     .float-bottom__container
       .float-bottom__line
       .float-bottom__content
