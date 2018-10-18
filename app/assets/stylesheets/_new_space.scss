@@ -260,24 +260,29 @@ $hostGreen: #60df52;
 input[type="file"] {
   display: none;
 }
-.photo-list {
-  &__container {
-    margin-top: 24px;
-  }
-  &__list-item {
-    margin-bottom: 20px;
-  }
-}
 .photocard {
   &__container {
     border: 1px solid $grayBorder;
     box-sizing: border-box;
     height: 140px;
     display: flex;
+    margin-top: 10px;
   }
   &__photo {
-    background-color: pink;
     width: 200px;
+    position: relative;
+    overflow: hidden;
+    $int: 0, 1, 2, 3, 4;
+    @each $i in $int {
+      #preview#{$i} {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
   &__text {
     width: 300px;
