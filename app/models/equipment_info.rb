@@ -1,15 +1,15 @@
 class EquipmentInfo < ApplicationRecord
   belongs_to :space
 
-  validates :postal_code, presence: true, format: { with: /\A\d{7}\z/ }
-  validates :prefecture, presence: true
-  validates :city_name, presence: true
-  validates :street_name, presence: true
+  validates :postal_code, postal_code_validation: true
+  validates :prefecture, prefecture_validation: true
+  validates :city_name, city_name_validation: true
+  validates :street_name, street_name_validation: true
   validates :latitude, presence: true
   validates :longitude, presence: true
-  validates :access, presence: true
-  validates :phone_number, presence: true, format: { with: /\A\d{10}\z|\A\d{11}\z/ } 
-  validates :equipment_type, presence: true
+  validates :access, access_validation: true
+  validates :phone_number, phone_number_validation: true
+  validates :equipment_type, equipment_type_validation: true
 
   enum prefecture: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

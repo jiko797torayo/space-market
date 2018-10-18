@@ -19,7 +19,12 @@
                   = f.text_field :postal_code, placeholder: "郵便番号", class: "ant-input ant-input-lg"
                 .form-item__footer-wrapper
                   %p.form-item__footer 例）1600023
-                .form-item__errors-wrapper
+                - if @equipment_info.errors[:postal_code].any?
+                  %ul.form-item__errors-wrapper
+                    - @equipment_info.errors.messages[:postal_code].each do |msg|
+                      %li
+                        %i.fas.fa-exclamation-circle
+                        = msg
           //都道府県・市区町村
           .create-space-sections__section
             .form-section-title__container
@@ -39,7 +44,18 @@
                       = f.text_field :city_name, placeholder: "市区町村", class: "ant-input ant-input-wd"
                     .form-item__footer-wrapper
                       %p.form-item__footer 例）新宿区
-                    .form-item__errors-wrapper
+            - if @equipment_info.errors[:prefecture].any?
+              %ul.form-item__errors-wrapper
+                - @equipment_info.errors.messages[:prefecture].each do |msg|
+                  %li
+                    %i.fas.fa-exclamation-circle
+                    = msg
+            - if @equipment_info.errors[:city_name].any?
+              %ul.form-item__errors-wrapper
+                - @equipment_info.errors.messages[:city_name].each do |msg|
+                  %li
+                    %i.fas.fa-exclamation-circle
+                    = msg
           //町名・番地
           .create-space-sections__section
             .form-section-title__container
@@ -53,7 +69,12 @@
                   = f.text_field :street_name, placeholder: "町名・番地", class: "ant-input ant-input-wd"
                 .form-item__footer-wrapper
                   %p.form-item__footer 例）西新宿6-15-1
-                .form-item__errors-wrapper
+                - if @equipment_info.errors[:street_name].any?
+                  %ul.form-item__errors-wrapper
+                    - @equipment_info.errors.messages[:street_name].each do |msg|
+                      %li
+                        %i.fas.fa-exclamation-circle
+                        = msg
           //ビル名・部屋番号
           .create-space-sections__section
             .form-section-title__container
@@ -67,7 +88,6 @@
                   = f.text_field :building_name, placeholder: "ビル名・部屋番号", class: "ant-input ant-input-wd"
                 .form-item__footer-wrapper
                   %p.form-item__footer 例）ラ・トゥール新宿608号室
-                .form-item__errors-wrapper
           //地図の設定　FIXME Googlemap導入
           .create-space-sections__section
             .form-section-title__container
@@ -92,7 +112,12 @@
                   = f.text_area :access, placeholder: "アクセス", class: "ant-input ant-input-area"
                 .form-item__footer-wrapper
                   %p.form-item__footer 例）JR新宿駅西口より徒歩7分
-                .form-item__errors-wrapper
+                - if @equipment_info.errors[:access].any?
+                  %ul.form-item__errors-wrapper
+                    - @equipment_info.errors.messages[:access].each do |msg|
+                      %li
+                        %i.fas.fa-exclamation-circle
+                        = msg
           //電話番号
           .create-space-sections__section
             .form-section-title__container
@@ -105,8 +130,13 @@
                 .input-container__container
                   = f.text_field :phone_number, placeholder: "電話番号", class: "ant-input ant-input-lg"
                 .form-item__footer-wrapper
-                  %p.form-item__footer 例）09012345678
-                .form-item__errors-wrapper          
+                  %p.form-item__footer 例）09012345678        
+                - if @equipment_info.errors[:phone_number].any?
+                  %ul.form-item__errors-wrapper
+                    - @equipment_info.errors.messages[:phone_number].each do |msg|
+                      %li
+                        %i.fas.fa-exclamation-circle
+                        = msg
           //施設の種類
           .create-space-sections__section
             .form-section-title__container
@@ -220,6 +250,12 @@
                         = f.radio_button :equipment_type, :その他, class: "ant-radio-input"
                         %span.ant-radio-inner
                       %span その他
+              - if @equipment_info.errors[:equipment_type].any?
+                %ul.form-item__errors-wrapper
+                  - @equipment_info.errors.messages[:equipment_type].each do |msg|
+                    %li
+                      %i.fas.fa-exclamation-circle
+                      = msg
     .float-bottom__container
       .float-bottom__line
       .float-bottom__content
