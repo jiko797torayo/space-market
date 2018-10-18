@@ -1,5 +1,5 @@
 class Space < ApplicationRecord
-  belongs_to :host
+  belongs_to :user
   has_one  :equipment_info, dependent: :destroy
   has_one  :basic_info, dependent: :destroy
   has_one  :description, dependent: :destroy
