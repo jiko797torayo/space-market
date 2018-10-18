@@ -1,5 +1,7 @@
 class BasicInfosController < ApplicationController
   layout 'new_space'
+
+  before_action :authenticate_user!
   
   def new
     @@space = Space.find_by(id: params[:space_id])

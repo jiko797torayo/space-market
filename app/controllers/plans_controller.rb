@@ -1,6 +1,8 @@
 class PlansController < ApplicationController
   layout 'new_space'
 
+  before_action :authenticate_user!
+
   def new
     @@space = Space.find_by(id: params[:space_id])
     @plan = Plan.new
@@ -12,7 +14,6 @@ class PlansController < ApplicationController
     @plan = Plan.new(plan_params)
     @plan.space = @@space
     if @plan.save
-      end
       next_page
     else
       render :new
