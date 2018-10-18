@@ -1,9 +1,3 @@
-$hostBlack: #333;
-$gray: #999;
-$required: #e95175;
-$grayBorder: #b3b3b3;
-$hostGreen: #60df52;
-
 .hostcolor {
   background-color: $hostBlack;
   color: $white;
@@ -151,8 +145,9 @@ $hostGreen: #60df52;
     color: $gray;
     margin-left: 10px;
   }
-  &__error-wrapper {
+  &__errors-wrapper {
     margin-top: 8px;
+    color: $required;
   }
 }
 .parts-container {
