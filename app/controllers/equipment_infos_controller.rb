@@ -1,5 +1,7 @@
 class EquipmentInfosController < ApplicationController
   layout 'new_space'
+
+  before_action :authenticate_user!
   
   def new
     @equipment_info = EquipmentInfo.new
@@ -23,6 +25,7 @@ class EquipmentInfosController < ApplicationController
   def set_space
     @space = Space.new
     @equipment_info.space = @space
+    @equipment_info.space.user_id = current_user.id 
   end
 
   def next_page
