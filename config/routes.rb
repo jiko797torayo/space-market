@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :equipment_infos
   resources :basic_infos
   resources :descriptions
-  resources :images
+  resources :space_images
   resources :plans
 
   as :user do

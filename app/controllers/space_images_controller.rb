@@ -1,15 +1,16 @@
-class ImagesController < ApplicationController
+class SpaceImagesController < ApplicationController
   layout 'new_space'
   
   def new
     @@space = Space.find_by(id: params[:space_id])
-    @image = Image.new
+    @space_image = SpaceImage.new
+    @space_image.image_files.build
   end
 
   def create
-    @image = Image.new(image_params)
-    @image.space = @@space
-    if @image.save
+    @space_image = SpaceImage.new(space_image_params)
+    @space_image.space = @@space
+    if @space_image.save
       next_page
     else
       render :new
@@ -17,8 +18,8 @@ class ImagesController < ApplicationController
   end
 
   private
-  def image_params
-    params.require(:image).permit(:uri, :about_image)
+  def space_image_params
+    params.require(:space_image).permit(image_files_attributes: [:id, :file, :about_file, :status])
   end
 
   def next_page
