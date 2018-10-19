@@ -83,6 +83,12 @@
                         = p.check_box :other, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner
                       %span その他
+                -# - if @purpose.errors.any?
+                -#   %ul.form-item__errors-wrapper
+                -#     - @purpose.errors.messages.each do |msg|
+                -#       %li
+                -#         %i.fas.fa-exclamation-circle
+                -#         = msg
           //最大収容人数
           .create-space-sections__section
             .form-section-title__container
@@ -99,7 +105,12 @@
                       人
                     .form-item__footer-wrapper
                       %p.form-item__footer
-                    .form-item__errors-wrapper
+                    - if @basic_info.errors[:capacity].any?
+                      %ul.form-item__errors-wrapper
+                        - @basic_info.errors.messages[:capacity].each do |msg|
+                          %li
+                            %i.fas.fa-exclamation-circle
+                            = msg
           //床面積
           .create-space-sections__section
             .form-section-title__container
@@ -114,7 +125,12 @@
                   ㎡
                 .form-item__footer-wrapper
                   %p.form-item__footer
-                .form-item__errors-wrapper
+                - if @basic_info.errors[:floor_space].any?
+                  %ul.form-item__errors-wrapper
+                    - @basic_info.errors.messages[:floor_space].each do |msg|
+                      %li
+                        %i.fas.fa-exclamation-circle
+                        = msg
           //鍵の受け渡し
           .create-space-sections__section
             .form-section-title__container
@@ -150,7 +166,12 @@
                         = f.radio_button :passig_key_method, :予約成立後にメッセージで伝える, class: "ant-radio-input"
                         %span.ant-radio-inner 
                       %span 予約成立後にメッセージで伝える
-            .form-item__errors-wrapper
+            - if @basic_info.errors[:passig_key_method].any?
+              %ul.form-item__errors-wrapper
+                - @basic_info.errors.messages[:passig_key_method].each do |msg|
+                  %li
+                    %i.fas.fa-exclamation-circle
+                    = msg
           //予約の締め切り
           .create-space-sections__section
             .form-section-title__container
@@ -166,7 +187,6 @@
                   = f.select :deadline_of_reservation, BasicInfo.deadline_of_reservations.keys,{}, { class: "ant-input ant-input-wd" }
                 .form-item__footer-wrapper
                   %p.form-item__footer
-                .form-item__errors-wrapper
           //予約の受付期間
           .create-space-sections__section
             .form-section-title__container
@@ -182,7 +202,6 @@
                   = f.select :starting_of_reservation, BasicInfo.start_of_reservations.keys,{}, { class: "ant-input ant-input-wd" }
                 .form-item__footer-wrapper
                   %p.form-item__footer
-                .form-item__errors-wrapper
     .float-bottom__container
       .float-bottom__line
       .float-bottom__content
