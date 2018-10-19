@@ -1,14 +1,14 @@
 class EquipmentInfo < ApplicationRecord
   belongs_to :space
 
-  validates :postal_code, postal_code_validation: true
-  validates :prefecture, prefecture_validation: true
-  validates :city_name, city_name_validation: true
-  validates :street_name, street_name_validation: true
-  validates :latitude, presence: true
-  validates :longitude, presence: true
-  validates :access, access_validation: true
-  validates :phone_number, phone_number_validation: true
+  validates :postal_code,    postal_code_validation: true
+  validates :prefecture,     prefecture_validation: true
+  validates :city_name,      city_name_validation: true
+  validates :street_name,    street_name_validation: true
+  validates :latitude,       presence: true
+  validates :longitude,      presence: true
+  validates :access,         access_validation: true
+  validates :phone_number,   phone_number_validation: true
   validates :equipment_type, equipment_type_validation: true
 
   enum prefecture: {
