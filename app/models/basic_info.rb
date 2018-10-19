@@ -3,10 +3,10 @@ class BasicInfo < ApplicationRecord
   has_one :purpose, dependent: :destroy
   accepts_nested_attributes_for :purpose
 
-  validates :capacity, presence: true
-  validates :floor_space, presence: true
+  validates :capacity,                capacity_validation: true
+  validates :floor_space,             floor_space_validation: true
+  validates :passig_key_method,       passing_key_method_validation: true
   validates :starting_of_reservation, presence: true
-  validates :passig_key_method, presence: true
   validates :deadline_of_reservation, presence: true
 
   enum passig_key_method: {
