@@ -1,7 +1,7 @@
 class Description < ApplicationRecord
   belongs_to :space
 
-  validates :catch_copy,       presence: true, length: { maximum: 64 }
-  validates :overview,         presence: true, length: { in: 10..800 }
-  validates :about_facilities, presence: true, length: { in: 10..800 }
+  validates :catch_copy,       catch_copy_validation: true
+  validates :overview,         overview_validation: true
+  validates :about_facilities, about_facilities_validation: true
 end
