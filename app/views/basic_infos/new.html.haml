@@ -83,12 +83,12 @@
                         = p.check_box :other, {}, checked_value = "1", unchecked_value = "0"
                         %span.ant-checkbox-inner
                       %span その他
-                -# - if @purpose.errors.any?
-                -#   %ul.form-item__errors-wrapper
-                -#     - @purpose.errors.messages.each do |msg|
-                -#       %li
-                -#         %i.fas.fa-exclamation-circle
-                -#         = msg
+                - if @basic_info.errors.messages.any?
+                  %ul.form-item__errors-wrapper
+                    - @basic_info.errors.messages[:"purpose.base"].each do |msg|
+                      %li
+                        %i.fas.fa-exclamation-circle
+                        = msg
           //最大収容人数
           .create-space-sections__section
             .form-section-title__container
