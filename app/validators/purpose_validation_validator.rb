@@ -4,7 +4,7 @@ class PurposeValidationValidator < ActiveModel::Validator
       record.performance, record.studio, record.sports, record.office, record.wedding, record.other]
     
     unless items.any? {|item| item == 1}
-      record.errors[:base] << "使用可能用途を入力してください。"
+      record.errors[:base] << "使用可能用途を入力してください"
     end
   end
 end
