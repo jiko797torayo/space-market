@@ -12,11 +12,15 @@ class SpaceImagesController < ApplicationController
   def create
     @space_image = SpaceImage.new(space_image_params)
     @space_image.space = @@space
-    if @space_image.save
-      next_page
-    else
-      render :new
+
+    # 0番目（メイン）のfileカラムにデータが無い場合のバリデーション 
+    upload_file = space_image_params[:image_files_attributes]["0"][:file]
+    if upload_file == nil
+      redirect_to new_space_image_path(space_id: @@space.id), notice: '画像を最低1枚選択してください' and return
     end
+    
+    @space_image.save
+    next_page
   end
 
   private
