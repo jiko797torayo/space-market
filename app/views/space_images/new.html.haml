@@ -3,7 +3,7 @@
     .main-contents-with-hint__main-wrapper
       .main-contents-with-hint__main
         .space-info-page__title-container
-          .space-info-page__title 4 写真・動画
+          .space-info-page__title 4 写真
           .space-info-page__description
         %div
           //写真
@@ -12,7 +12,7 @@
               .form-section-title__title-container
                 = f.label :image_files, "必須", class: "form-section-title__required-label"
                 .form-section-title__title 写真
-              .form-section-title__description ゲストが実際に利用するスペース、設備等の画像を最低1枚追加してください。推奨サイズは1260x840です。ドラッグ＆ドロップで入れ替え可。クリックで拡大することができます。最大30枚まで追加できます。
+              .form-section-title__description ゲストが実際に利用するスペース、設備等の画像を最低1枚追加してください。推奨サイズは1260x840です。最大5枚まで追加できます。
             .photo-form__from-wrapper
               = f.fields_for :image_files do |img|
                 .photo-form__add
@@ -23,6 +23,7 @@
                     = img.hidden_field :status, value: "main"
                 .photocard__container
                   .photocard__photo
+                    %i.fa.fa-image
                     %img#preview0
                   .photocard__text
                     = img.text_area :about_file, placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"
@@ -42,6 +43,7 @@
                     = img.hidden_field :status, value: "sub"
                 .photocard__container
                   .photocard__photo
+                    %i.fa.fa-image
                     %img{ id: "preview#{i}"}
                   .photocard__text
                     = img.text_area :about_file, placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"
