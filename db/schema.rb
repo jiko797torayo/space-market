@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181020072759) do
+ActiveRecord::Schema.define(version: 20181020122713) do
 
   create_table "basic_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "capacity",                null: false
@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 20181020072759) do
   create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                      null: false
     t.text     "about_plan",                  limit: 65535, null: false
-    t.integer  "price_per_hour",                            null: false
     t.integer  "price_per_day",                             null: false
     t.integer  "reservation_approval_method",               null: false
     t.datetime "created_at",                                null: false
