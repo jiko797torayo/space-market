@@ -267,6 +267,11 @@ input[type="file"] {
     width: 200px;
     position: relative;
     overflow: hidden;
+    text-align: center;
+    background: $label;
+    color: $box;
+    font-size: 20px;
+    padding-top: 15px;
     $int: 0, 1, 2, 3, 4;
     @each $i in $int {
       #preview#{$i} {
@@ -277,6 +282,9 @@ input[type="file"] {
         width: 100%;
         height: 100%;
       }
+    }
+    .fa-image {
+      font-size: 110px;
     }
   }
   &__text {
