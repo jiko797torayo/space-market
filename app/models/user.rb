@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :reservations, dependent: :destroy
   has_many :likes,        dependent: :destroy
+  has_many :spaces,       dependent: :destroy
 
   mount_uploader :icon, IconUploader
 
