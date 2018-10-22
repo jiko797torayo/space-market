@@ -46,9 +46,6 @@
     &-message {
       color: rgb(190, 190, 190);
       font-size: 25px;
-      i.fa.fa-envelope {
-        color: rgb(190, 190, 190);
-      }
     }
     &-favorite {
       border-left-style: solid;
@@ -75,7 +72,6 @@
     };
   }
 }
-
 .site-main {
   .top-mv {
     padding-top: 100px;
@@ -213,7 +209,7 @@
             font-weight: 700;
             vertical-align: baseline;
           }
-         ul.top-flow__list {
+          ul.top-flow__list {
             padding: 0;
             border: 0;
             display: inline-block;
