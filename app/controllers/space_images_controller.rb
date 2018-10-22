@@ -2,7 +2,6 @@ class SpaceImagesController < ApplicationController
   layout 'new_space'
 
   before_action :authenticate_user!
-  before_action :clear_flash, only: :create
   
   def new
     @@space = Space.find_by(id: params[:space_id])
@@ -44,9 +43,5 @@ class SpaceImagesController < ApplicationController
   def next_page
     redirect_to edit_space_path(@@space) if params[:commit] == "保存して戻る"
     redirect_to new_plan_path(space_id: @@space.id) if params[:commit] == "保存して進む"
-  end
-
-  def clear_flash
-    flash.delete(:alert)
   end
 end
