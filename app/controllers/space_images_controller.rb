@@ -2,6 +2,7 @@ class SpaceImagesController < ApplicationController
   layout 'new_space'
 
   before_action :authenticate_user!
+  before_action :clear_flash, only: :create
   
   def new
     @@space = Space.find_by(id: params[:space_id])
@@ -16,7 +17,7 @@ class SpaceImagesController < ApplicationController
     # 0番目（メイン）のfileカラムにデータが無い場合のバリデーション 
     upload_file = space_image_params[:image_files_attributes]["0"][:file]
     if upload_file == nil
-      redirect_to new_space_image_path(space_id: @@space.id), notice: '画像を最低1枚選択してください' and return
+      redirect_to new_space_image_path(space_id: @@space.id), alert: '画像を最低1枚選択してください' and return
     end
     
     @space_image.save
@@ -31,5 +32,9 @@ class SpaceImagesController < ApplicationController
   def next_page
     redirect_to root_path if params[:commit] == "保存して戻る"
     redirect_to new_plan_path(space_id: @@space.id) if params[:commit] == "保存して進む"
+  end
+
+  def clear_flash
+    flash.delete(:alert)
   end
 end
