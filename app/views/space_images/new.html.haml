@@ -27,11 +27,11 @@
                     %img#preview0
                   .photocard__text
                     = img.text_area :about_file, placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"
-            - if flash.any?
+            - if flash[:alert].present?
               %ul.form-item__errors-wrapper
                 %li
                   %i.fas.fa-exclamation-circle
-                  = flash[:notice]
+                  = flash[:alert]
           - (1..4).each do |i|
             .photo-form__from-wrapper
               = f.fields_for :image_files do |img|
