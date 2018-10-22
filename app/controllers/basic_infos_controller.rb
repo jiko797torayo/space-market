@@ -38,7 +38,7 @@ class BasicInfosController < ApplicationController
   end
 
   def next_page
-    redirect_to root_path if params[:commit] == "保存して戻る"
+    redirect_to edit_space_path(@@space) if params[:commit] == "保存して戻る"
     redirect_to new_description_path(space_id: @@space.id) if params[:commit] == "保存して進む"
   end
 end
