@@ -17,6 +17,16 @@ class EquipmentInfosController < ApplicationController
     end
   end
 
+  def edit
+    @equipment_info = EquipmentInfo.find(params[:id])
+  end
+
+  def update
+    equipment_info = EquipmentInfo.find(params[:id])
+    equipment_info.update(equipment_info_params) if equipment_info.space.user_id == current_user.id
+    redirect_to edit_space_path(equipment_info.space)
+  end
+
   private
   def equipment_info_params
     params.require(:equipment_info).permit(:postal_code, :prefecture, :city_name, :street_name, :building_name, :latitude, :longitude, :access, :phone_number, :equipment_type)
