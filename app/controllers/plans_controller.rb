@@ -14,10 +14,20 @@ class PlansController < ApplicationController
     @plan = Plan.new(plan_params)
     @plan.space = @@space
     if @plan.save
-      next_page
+      redirect_to edit_space_path(@@space)
     else
       render :new
     end
+  end
+
+  def edit
+    @plan = Plan.find(params[:id])
+  end
+
+  def update
+    plan = Plan.find(params[:id])
+    plan.update(plan_params) if plan.space.user_id == current_user.id
+    redirect_to edit_space_path(plan.space)
   end
 
   private
@@ -27,10 +37,5 @@ class PlansController < ApplicationController
       rental_day_attributes: [:id, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday],
       rental_hour_attributes: [:start_hour, :end_hour]
     )
-  end
-
-  def next_page
-    redirect_to root_path if params[:commit] == "保存して戻る"
-    redirect_to root_path if params[:commit] == "保存して進む"
   end
 end
