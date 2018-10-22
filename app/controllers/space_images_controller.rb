@@ -24,6 +24,18 @@ class SpaceImagesController < ApplicationController
     next_page
   end
 
+  def edit
+    @space_image = SpaceImage.find(params[:id])
+    @main_image = @space_image.image_files.main.first
+    @sub_images = @space_image.image_files.sub
+  end
+
+  def update
+    space_image = SpaceImage.find(params[:id])
+    space_image.update(space_image_params) if space_image.space.user_id == current_user.id
+    redirect_to edit_space_path(space_image.space)
+  end
+
   private
   def space_image_params
     params.require(:space_image).permit(image_files_attributes: [:id, :file, :about_file, :status])
