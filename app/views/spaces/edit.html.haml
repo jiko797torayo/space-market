@@ -18,6 +18,7 @@
           %hr.publish-feature-card__border
           .publish-feature-card__container
             %ul.edit-publish-feature__row-list
+              -# 1施設情報
               %li.edit-publish-feature__row-list-item
                 .setting-row__container
                   .setting-row__head
@@ -29,7 +30,9 @@
                         %span 未完
                   .setting-row__item-name 1 施設情報
                   .setting-row__link-text-wrapper
-                    = link_to "編集", "#"
+                    - if @space.equipment_info.present?
+                      = link_to "編集", edit_equipment_info_path(@space.equipment_info)
+              -# 2基本情報
               %li.edit-publish-feature__row-list-item
                 .setting-row__container
                   .setting-row__head
@@ -41,7 +44,11 @@
                         %span 未完
                   .setting-row__item-name 2 基本情報
                   .setting-row__link-text-wrapper
-                    = link_to "編集", "#"
+                    - if @space.basic_info.present?
+                      = link_to "編集", edit_basic_info_path(@space.basic_info)
+                    - elsif @space.equipment_info.present?
+                      = link_to "追加", new_basic_info_path(space_id: @space), class: "status-ng"
+              -# 3説明文
               %li.edit-publish-feature__row-list-item
                 .setting-row__container
                   .setting-row__head
@@ -53,7 +60,11 @@
                         %span 未完
                   .setting-row__item-name 3 説明文
                   .setting-row__link-text-wrapper
-                    = link_to "編集", "#"
+                    - if @space.description.present?
+                      = link_to "編集", edit_description_path(@space.description)
+                    - elsif @space.basic_info.present?
+                      = link_to "追加", new_description_path(space_id: @space)
+              -# 4写真
               %li.edit-publish-feature__row-list-item
                 .setting-row__container
                   .setting-row__head
@@ -65,7 +76,11 @@
                         %span 未完
                   .setting-row__item-name 4 写真
                   .setting-row__link-text-wrapper
-                    = link_to "編集", "#"
+                    - if @space.space_image.present?
+                      = link_to "編集", edit_space_image_path(@space.space_image)
+                    - elsif @space.description.present?
+                      = link_to "追加", new_space_image_path(space_id: @space)
+              -# 5プラン
               %li.edit-publish-feature__row-list-item
                 .setting-row__container
                   .setting-row__head
@@ -77,4 +92,7 @@
                         %span 未完
                   .setting-row__item-name 5 プラン
                   .setting-row__link-text-wrapper
-                    = link_to "編集", "#"                  
+                    - if @space.plan.present?
+                      = link_to "編集", edit_plan_path(@space.plan)
+                    - elsif @space.space_image.present?
+                      = link_to "追加", new_plan_path(space_id: @space)
