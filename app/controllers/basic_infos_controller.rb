@@ -19,6 +19,16 @@ class BasicInfosController < ApplicationController
     end
   end
 
+  def edit
+    @basic_info = BasicInfo.find(params[:id])
+  end
+
+  def update
+    basic_info = BasicInfo.find(params[:id])
+    basic_info.update(basic_info_params) if basic_info.space.user_id == current_user.id
+    redirect_to edit_space_path(equipment_info.space)
+  end
+
   private
   def basic_info_params
     params.require(:basic_info).permit(
