@@ -32,6 +32,10 @@
     background-size: 172px 29px;
     background-position: 5px 4px;
     text-indent: -9999px;
+    &__search {
+      @extend  .site-header__logo;
+      width: 180px;
+    }
   }
   &__nav {
     float: right;
@@ -73,6 +77,12 @@
     li:visited {
       color: rgb(51, 51, 51);
     };
+  }
+  .link-black {
+    text-decoration: none;
+    &:hover {
+      opacity: 0.6;
+    }
   }
 }
 

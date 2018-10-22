@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'search/index'
+
   # devise_for :hosts
-  devise_for :users, only:[:all],
+  devise_for :users, only: [:all],
                                controllers: {
                                   registrations: 'users/registrations',
                                   sessions:      'users/sessions'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   resources :descriptions
   resources :space_images
   resources :plans
+  resources :search, only: [:index]
 
   as :user do
     get 'i/login', to: 'users/sessions#new', as: :new_user_session
