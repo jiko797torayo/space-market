@@ -12,6 +12,7 @@ class DescriptionsController < ApplicationController
     @description = Description.new(description_params)
     @description.space = @@space
     if @description.save
+      clear_flash
       next_page
     else
       render :new
@@ -36,5 +37,9 @@ class DescriptionsController < ApplicationController
   def next_page
     redirect_to edit_space_path(@@space) if params[:commit] == "保存して戻る"
     redirect_to new_space_image_path(space_id: @@space.id) if params[:commit] == "保存して進む"
+  end
+
+  def clear_flash
+    flash.discard(:alert)
   end
 end
