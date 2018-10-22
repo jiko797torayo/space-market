@@ -1,0 +1,6 @@
+.search--condition {
+  background: $box;
+  height: 70px;
+  width: 100%;
+  @extend .search--header;
+}
