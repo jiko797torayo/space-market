@@ -34,30 +34,25 @@
 }
 .edit-publish-feature {
   &__container {
-    border: 1px solid $edit-publish-border;
-  }
-  &__row-list {
-    padding: 24px;
-    &item {
-      height: 24px;
-    }
+    border: 1px solid $card-border;
   }
 }
 .setting-row {
   &__container {
     display: flex;
-    padding-bottom: 24px;
+    padding: 12px 0;
+  }
+  &__head {
+    width: 50px;
   }
   &__status {
-    width: 50px;
-    color: $hostGreen;
-    border: 1px solid $hostGreen;
     border-radius: 3px;
     text-align: center;
+    padding: 1px 10px;
   }
   &__item-name {
     width: 300px;
-    margin-left: 12px;
+    margin-left: 20px;
     font-size: 16px;
   }
   &__link-text-wrapper {
@@ -68,10 +63,17 @@
     }
   }
 }
+.status-ok {
+  color: $hostGreen;
+  border: 1px solid $hostGreen;
+}
+.status-ng {
+  color: $required;
+  border: 1px solid $required;
+}
 .publish-feature-card {
   &__container {
     padding: 24px;
-    border-bottom: 1px solid $edit-publish-border;
   }
   &__icon-wrapper {
     width: 45px;
@@ -90,5 +92,11 @@
   &__caption {
     font-size: 12px;
     color: $gray;
+  }
+  &__border {
+    margin: 0 24px;
+    height: 1px;
+    background-color: $card-border;
+    border: none;
   }
 }
