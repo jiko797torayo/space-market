@@ -47,7 +47,7 @@
                     - if @space.basic_info.present?
                       = link_to "編集", edit_basic_info_path(@space.basic_info)
                     - elsif @space.equipment_info.present?
-                      = link_to "追加", new_basic_info_path(space_id: @space), class: "status-ng"
+                      = link_to "追加", new_basic_info_path(space_id: @space)
               -# 3説明文
               %li.edit-publish-feature__row-list-item
                 .setting-row__container
