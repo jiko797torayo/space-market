@@ -18,6 +18,16 @@ class DescriptionsController < ApplicationController
     end
   end
 
+  def edit
+    @description = Description.find(params[:id])
+  end
+
+  def update
+    description = Description.find(params[:id])
+    description.update(description_params) if description.space.user_id == current_user.id
+    redirect_to edit_space_path(description.space)
+  end
+
   private
   def description_params
     params.require(:description).permit(:catch_copy, :overview, :about_facilities)
