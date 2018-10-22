@@ -19,14 +19,15 @@
 .float-head-base {
   &__wrapper {
     background-color: $white;
-    padding: 72px 12px 16px;
+    padding: 16px 12px;
     width: 100%;
-    height: 130px;
-    top: 60px;
+    height: 74px;
+    top: 56px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    position: fixed;
   }
   &__additional-contents {
     width: 500px;

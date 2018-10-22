@@ -1,0 +1,18 @@
+.header.float-header
+  .site-header.clearfix.HeaderContainer__SiteHeader-sc-1dznt2s-0.ldcZBj.hostcolor
+    %p.fl
+      = link_to "", root_path, class: "site-header__logo"
+    %div
+      %ul.site-header__nav.sm-hide.hostcolor
+        %li
+          = link_to root_path, class: "site-header__nav-user" do
+            = image_tag "https://yononakanews.com/wp-content/uploads/2015/10/odagiri.jpg", class: "site-header__nav-user"
+        %li
+          = link_to root_path, class: "site-header__nav-message" do
+            %i.fa.fa-check.hostcolor
+        %li
+          = link_to root_path, class: "site-header__nav-message" do
+            %i.fa.fa-envelope-o.hostcolor
+        //FIXME テキストの色$whiteに変更
+        %li
+          = link_to "ヘルプ", root_path, class: "site-header__nav-help link-black link-borderless help__text"
