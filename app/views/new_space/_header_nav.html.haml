@@ -6,13 +6,14 @@
       %ul.site-header__nav.sm-hide.hostcolor
         %li
           = link_to root_path, class: "site-header__nav-user" do
-            = image_tag "https://yononakanews.com/wp-content/uploads/2015/10/odagiri.jpg", class: "site-header__nav-user"
+            - if user_signed_in?
+              = image_tag current_user.icon, class: "site-header__nav-user"
         %li
           = link_to root_path, class: "site-header__nav-message" do
             %i.fa.fa-check.hostcolor
         %li
           = link_to root_path, class: "site-header__nav-message" do
-            %i.fa.fa-envelope-o.hostcolor
+            %i.fa.fa-envelope.hostcolor
         //FIXME テキストの色$whiteに変更
         %li
           = link_to "ヘルプ", root_path, class: "site-header__nav-help link-black link-borderless help__text"
