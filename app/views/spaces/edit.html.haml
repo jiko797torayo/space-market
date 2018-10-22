@@ -15,39 +15,66 @@
             .publish-feature-card__label-container
               .publish-feature-card__title スペースの作成
               %p.publish-feature-card__caption 貸し出すスペースの紹介や注意事項、価格、写真などを登録してスペースを作成しましょう。
-          %ul.edit-publish-feature__row-list
-            %li.edit-publish-feature__row-list-item
-              .setting-row__container
-                .setting-row__status
-                  %span.status 完了
-                .setting-row__item-name 1 施設情報
-                .setting-row__link-text-wrapper
-                  = link_to "編集", "#"
-            %li.edit-publish-feature__row-list-item
-              .setting-row__container
-                .setting-row__status
-                  %span.status 完了
-                .setting-row__item-name 2 基本情報
-                .setting-row__link-text-wrapper
-                  = link_to "編集", "#"
-            %li.edit-publish-feature__row-list-item
-              .setting-row__container
-                .setting-row__status
-                  %span.status 完了
-                .setting-row__item-name 3 説明文
-                .setting-row__link-text-wrapper
-                  = link_to "編集", "#"
-            %li.edit-publish-feature__row-list-item
-              .setting-row__container
-                .setting-row__status
-                  %span.status 完了
-                .setting-row__item-name 4 写真
-                .setting-row__link-text-wrapper
-                  = link_to "編集", "#"
-            %li.edit-publish-feature__row-list-item
-              .setting-row__container
-                .setting-row__status
-                  %span.status 完了
-                .setting-row__item-name 5 プラン
-                .setting-row__link-text-wrapper
-                  = link_to "編集", "#"                  
+          %hr.publish-feature-card__border
+          .publish-feature-card__container
+            %ul.edit-publish-feature__row-list
+              %li.edit-publish-feature__row-list-item
+                .setting-row__container
+                  .setting-row__head
+                    - if @space.equipment_info.present?
+                      .setting-row__status.status-ok
+                        %span 完了
+                    - else 
+                      .setting-row__status.status-ng
+                        %span 未完
+                  .setting-row__item-name 1 施設情報
+                  .setting-row__link-text-wrapper
+                    = link_to "編集", "#"
+              %li.edit-publish-feature__row-list-item
+                .setting-row__container
+                  .setting-row__head
+                    - if @space.basic_info.present?
+                      .setting-row__status.status-ok
+                        %span 完了
+                    - else 
+                      .setting-row__status.status-ng
+                        %span 未完
+                  .setting-row__item-name 2 基本情報
+                  .setting-row__link-text-wrapper
+                    = link_to "編集", "#"
+              %li.edit-publish-feature__row-list-item
+                .setting-row__container
+                  .setting-row__head
+                    - if @space.description.present?
+                      .setting-row__status.status-ok
+                        %span 完了
+                    - else 
+                      .setting-row__status.status-ng
+                        %span 未完
+                  .setting-row__item-name 3 説明文
+                  .setting-row__link-text-wrapper
+                    = link_to "編集", "#"
+              %li.edit-publish-feature__row-list-item
+                .setting-row__container
+                  .setting-row__head
+                    - if @space.space_image.present?
+                      .setting-row__status.status-ok
+                        %span 完了
+                    - else 
+                      .setting-row__status.status-ng
+                        %span 未完
+                  .setting-row__item-name 4 写真
+                  .setting-row__link-text-wrapper
+                    = link_to "編集", "#"
+              %li.edit-publish-feature__row-list-item
+                .setting-row__container
+                  .setting-row__head
+                    - if @space.plan.present?
+                      .setting-row__status.status-ok
+                        %span 完了
+                    - else 
+                      .setting-row__status.status-ng
+                        %span 未完
+                  .setting-row__item-name 5 プラン
+                  .setting-row__link-text-wrapper
+                    = link_to "編集", "#"                  
