@@ -1,0 +1,53 @@
+.main-contents
+  .main-contents__contents
+    .flow-header__container
+      %h2.flow-header__title スペース掲載
+      .flow-header__description スペースの情報を登録して、スペースを掲載することができます。スペースの編集はいつでも可能です。
+    .status-page__container
+      .status-page__message-wrapper
+        .message__container
+          %span.message__text スペースの作成が完了しました！
+      .status-page__card
+        .edit-publish-feature__container
+          .publish-feature-card__container
+            .publish-feature-card__icon-wrapper
+              %i.fa.fa-home.icon
+            .publish-feature-card__label-container
+              .publish-feature-card__title スペースの作成
+              %p.publish-feature-card__caption 貸し出すスペースの紹介や注意事項、価格、写真などを登録してスペースを作成しましょう。
+          %ul.edit-publish-feature__row-list
+            %li.edit-publish-feature__row-list-item
+              .setting-row__container
+                .setting-row__status
+                  %span.status 完了
+                .setting-row__item-name 1 施設情報
+                .setting-row__link-text-wrapper
+                  = link_to "編集", "#"
+            %li.edit-publish-feature__row-list-item
+              .setting-row__container
+                .setting-row__status
+                  %span.status 完了
+                .setting-row__item-name 2 基本情報
+                .setting-row__link-text-wrapper
+                  = link_to "編集", "#"
+            %li.edit-publish-feature__row-list-item
+              .setting-row__container
+                .setting-row__status
+                  %span.status 完了
+                .setting-row__item-name 3 説明文
+                .setting-row__link-text-wrapper
+                  = link_to "編集", "#"
+            %li.edit-publish-feature__row-list-item
+              .setting-row__container
+                .setting-row__status
+                  %span.status 完了
+                .setting-row__item-name 4 写真
+                .setting-row__link-text-wrapper
+                  = link_to "編集", "#"
+            %li.edit-publish-feature__row-list-item
+              .setting-row__container
+                .setting-row__status
+                  %span.status 完了
+                .setting-row__item-name 5 プラン
+                .setting-row__link-text-wrapper
+                  = link_to "編集", "#"                  
