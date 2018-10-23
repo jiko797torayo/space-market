@@ -2,6 +2,7 @@ class SpaceImagesController < ApplicationController
   layout 'new_space'
 
   before_action :authenticate_user!
+  before_action :check_current_user, only: [:edit, :update]
   
   def new
     @@space = Space.find_by(id: params[:space_id])
@@ -30,12 +31,20 @@ class SpaceImagesController < ApplicationController
   end
 
   def update
-    space_image = SpaceImage.find(params[:id])
-    space_image.update(space_image_params) if space_image.space.user_id == current_user.id
-    redirect_to edit_space_path(space_image.space)
+    @space_image = SpaceImage.find(params[:id])
+    if @space_image.update(space_image_params)
+      redirect_to edit_space_path(@space_image.space)
+    else
+      render :edit
+    end
   end
 
   private
+  def check_current_user
+    space_image = SpaceImage.find(params[:id])
+    render_404 unless space_image.space.user_id == current_user.id
+  end
+
   def space_image_params
     params.require(:space_image).permit(image_files_attributes: [:id, :file, :about_file, :status])
   end
