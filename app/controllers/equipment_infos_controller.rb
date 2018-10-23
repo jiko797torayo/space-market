@@ -3,6 +3,7 @@ class EquipmentInfosController < ApplicationController
 
   before_action :authenticate_user!
   before_action :check_current_user, only: [:edit, :update]
+  before_action :set_equipment_info, only: [:edit, :update]
 
   def new
     @equipment_info = EquipmentInfo.new
@@ -19,11 +20,11 @@ class EquipmentInfosController < ApplicationController
   end
 
   def edit
-    @equipment_info = EquipmentInfo.find(params[:id])
+    set_equipment_info
   end
 
   def update
-    @equipment_info = EquipmentInfo.find(params[:id])
+    set_equipment_info
     if @equipment_info.update(equipment_info_params)
       redirect_to edit_space_path(@equipment_info.space)
     else
@@ -32,9 +33,14 @@ class EquipmentInfosController < ApplicationController
   end
 
   private
+
   def check_current_user
     equipment_info = EquipmentInfo.find(params[:id])
     render_404 unless equipment_info.space.user_id == current_user.id
+  end
+
+  def set_equipment_info
+    @equipment_info = EquipmentInfo.find(params[:id])
   end
 
   def equipment_info_params

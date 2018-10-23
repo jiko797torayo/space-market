@@ -3,6 +3,7 @@ class BasicInfosController < ApplicationController
 
   before_action :authenticate_user!
   before_action :check_current_user, only: [:edit, :update]
+  before_action :set_basic_info, only: [:edit, :update]
   
   def new
     @@space = Space.find_by(id: params[:space_id])
@@ -21,11 +22,11 @@ class BasicInfosController < ApplicationController
   end
 
   def edit
-    @basic_info = BasicInfo.find(params[:id])
+    set_basic_info
   end
 
   def update
-    @basic_info = BasicInfo.find(params[:id])
+    set_basic_info
     if @basic_info.update(basic_info_params)
       redirect_to edit_space_path(@basic_info.space)
     else
@@ -34,9 +35,14 @@ class BasicInfosController < ApplicationController
   end
 
   private
+
   def check_current_user
     basic_info = BasicInfo.find(params[:id])
     render_404 unless basic_info.space.user_id == current_user.id
+  end
+
+  def set_basic_info
+    @basic_info = BasicInfo.find(params[:id])
   end
 
   def basic_info_params
