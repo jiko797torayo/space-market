@@ -1,1 +1,3 @@
 .search--result
+  - @spaces.each do |space|
+    = image_tag(space.space_image.image_files.main.first.file)
