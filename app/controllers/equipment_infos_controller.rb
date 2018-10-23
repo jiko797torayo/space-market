@@ -2,7 +2,8 @@ class EquipmentInfosController < ApplicationController
   layout 'new_space'
 
   before_action :authenticate_user!
-  
+  before_action :check_current_user, only: [:edit, :update]
+
   def new
     @equipment_info = EquipmentInfo.new
   end
@@ -22,12 +23,20 @@ class EquipmentInfosController < ApplicationController
   end
 
   def update
-    equipment_info = EquipmentInfo.find(params[:id])
-    equipment_info.update(equipment_info_params) if equipment_info.space.user_id == current_user.id
-    redirect_to edit_space_path(equipment_info.space)
+    @equipment_info = EquipmentInfo.find(params[:id])
+    if @equipment_info.update(equipment_info_params)
+      redirect_to edit_space_path(@equipment_info.space)
+    else
+      render :edit
+    end
   end
 
   private
+  def check_current_user
+    equipment_info = EquipmentInfo.find(params[:id])
+    render_404 unless equipment_info.space.user_id == current_user.id
+  end
+
   def equipment_info_params
     params.require(:equipment_info).permit(:postal_code, :prefecture, :city_name, :street_name, :building_name, :latitude, :longitude, :access, :phone_number, :equipment_type)
   end

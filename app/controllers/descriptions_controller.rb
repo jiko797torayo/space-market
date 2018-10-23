@@ -2,6 +2,7 @@ class DescriptionsController < ApplicationController
   layout 'new_space'
 
   before_action :authenticate_user!
+  before_action :check_current_user, only: [:edit, :update]
   
   def new
     @@space = Space.find_by(id: params[:space_id])
@@ -24,12 +25,20 @@ class DescriptionsController < ApplicationController
   end
 
   def update
-    description = Description.find(params[:id])
-    description.update(description_params) if description.space.user_id == current_user.id
-    redirect_to edit_space_path(description.space)
+    @description = Description.find(params[:id])
+    if @description.update(description_params)
+      redirect_to edit_space_path(@description.space)
+    else
+      render :edit
+    end
   end
 
   private
+  def check_current_user
+    description = Description.find(params[:id])
+    render_404 unless description.space.user_id == current_user.id
+  end
+
   def description_params
     params.require(:description).permit(:catch_copy, :overview, :about_facilities)
   end
