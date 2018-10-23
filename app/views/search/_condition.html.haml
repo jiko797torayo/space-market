@@ -1,2 +1,29 @@
 .search--condition
-
+  = form_for('/spaces/search', method: :get) do |f|
+    .search--condition--field
+      .search--condition--field--input.search--condition--field--input__prefecture
+        = select_tag :prefecture_key, options_for_select(EquipmentInfo.prefectures.keys, selected: '東京都'), { class: "search--condition--field--input--selector" }
+        %span.selectbar
+        = f.label "都道府県", { class: "field-label" }
+    .search--condition--field
+      .search--condition--field--input.search--condition--field--input__prefecture
+        = text_field_tag :price_min_key, params[:price_min_key], { placeholder: "", class: "search--condition--field--input--text" }
+        %span.selectbar
+        = f.label "最低価格", { class: "field-label" }
+    .search--condition--field
+      .search--condition--field--input.search--condition--field--input__prefecture
+        = text_field_tag :price_max_key, params[:price_max_key], { placeholder: "", class: "search--condition--field--input--text" }
+        %span.selectbar
+        = f.label "最高価格", { class: "field-label" }
+    .search--condition--field
+      .search--condition--field--input.search--condition--field--input__prefecture
+        = text_field_tag :capacity_key, params[:capacity], { placeholder: "", class: "search--condition--field--input--text" }
+        %span.selectbar
+        = f.label "人数", { class: "field-label" }
+    .search--condition--field
+      .search--condition--field--input.search--condition--field--input__prefecture
+        = select_tag :approval_method_key, options_for_select(Plan.reservation_approval_methods.keys, selected: '承認なし（今すぐ予約）'), { class: "search--condition--field--input--selector" }
+        %span.selectbar
+        = f.label "承認方式", { class: "field-label" }
+    .search--condition--field
+      = submit_tag "詳細検索", { class: "btn btn__condition"}

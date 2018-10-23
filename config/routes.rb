@@ -8,15 +8,15 @@ Rails.application.routes.draw do
                                   sessions:      'users/sessions'
                                 }
   root 'spaces#index'
-
-  resources :spaces
+  resources :search do
+    get :search, on: :collection
+  end
   resources :equipment_infos
   resources :basic_infos
   resources :descriptions
   resources :space_images
   resources :plans
-  resources :search, only: [:index]
-
+  # get 'search/index/', to: 'search#index'
   as :user do
     get 'i/login', to: 'users/sessions#new', as: :new_user_session
     post 'i/login', to: 'users/sessions#create', as: :user_session
