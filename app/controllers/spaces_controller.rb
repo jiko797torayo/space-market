@@ -9,6 +9,7 @@ class SpacesController < ApplicationController
   end
 
   private
+
   def check_current_user
     space = Space.find(params[:id])
     render_404 unless space.user_id == current_user.id
