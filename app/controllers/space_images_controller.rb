@@ -3,7 +3,7 @@ class SpaceImagesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :check_current_user, only: [:edit, :update]
-  
+ 
   def new
     @@space = Space.find_by(id: params[:space_id])
     @space_image = SpaceImage.new
