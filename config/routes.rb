@@ -21,4 +21,7 @@ Rails.application.routes.draw do
     get 'i/sign_up', to: 'users/registrations#new', as: :new_user_registration
     post 'i/sign_up', to: 'users/registrations#create', as: :user_registration
   end
+
+  get '*path', controller: 'application', action: 'render_404'
+
 end
