@@ -1,3 +1,44 @@
-.search--result
-  - @spaces.each do |space|
-    = image_tag(space.space_image.image_files.main.first.file)
+-#.search--result
+-#  - @spaces.each do |space|
+-#    = image_tag(space.space_image.image_files.main.first.file)
+.site-main.site-main__result
+  .page__stripes.top-page__padding
+    .search-list__head-title
+      スペース検索結果
+      %span
+        = "#{@spaces.length}件"
+    .container.top-container
+      .top-units__container
+        .row
+          - @spaces.each.with_index(1) do |space, rank|
+            //1位のカードここから//
+            .col-xs-6
+              %a.a__top-units{:href => "#"}
+                .md-top-units
+                  .md-top-units__image
+                    = image_tag(space.space_image.image_files.main.first.file, class: "md-top-units__image-pict")
+                    %p.md-top-units__item-price
+                      %span.md-top-units__item-per
+                        ¥
+                        = space.plan.price_per_day
+                      %span.md-top-units__item-per /日
+                      %span.md-top-units__price-icon
+                        - if space.plan.reservation_approval_method == "承認なし（今すぐ予約）"
+                          = fa_icon "bolt", class: "md-top-units__item-instant"
+                        = fa_icon "certificate", class: "md-top-units__item-top-host"
+                        = fa_icon "arrow-down", class: "md-top-units__item-icon-discount"
+                  .md-top-units__body
+                    .md-top-units__body-inner
+                      %h3.md-top-units__body-title
+                        = space.description.catch_copy
+                      %ul.md-top-units__body-info
+                        %li.md-top-units__body-info__capacity
+                          = fa_icon "user", class: "md-top-units__body-info__icon"
+                          = space.basic_info.capacity
+                        %li.md-top-units__body-info__prefecture
+                          = fa_icon "map-marker", class: "md-top-units__body-info__icon"
+                          = space.equipment_info.prefecture
+                      %p.md-top-units__body-access
+                        = space.equipment_info.access
+  .google-map
+    GoogleMAP導入予定
