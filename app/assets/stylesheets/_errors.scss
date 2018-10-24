@@ -15,4 +15,10 @@
   &__image {
     margin-bottom: 80px;
   }
+  &__button {
+    padding: 13px 100px;
+    background-color: $bluelink;
+    color: white;
+    display: inline-block;
+  }
 }
