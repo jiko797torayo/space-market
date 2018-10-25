@@ -7,92 +7,86 @@
   &--field {
     padding: 8px 12px 0;
     float: left;
+    &--input {
+      position: relative;
+      width: 208px;
+      text-align: center;
+      -webkit-appearance: none;
+      &:after {
+        position: absolute;
+        top: 18px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        padding: 0;
+        content: '';
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid $btn;
+        pointer-events: none;
+      }
+      &--selector, &--text {
+        position: relative;
+        font-family: inherit;
+        background-color: transparent;
+        width: 208px;
+        padding: 10px 10px 10px 0;
+        font-size: 14px;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0, 0.3);
+        outline: none;
+        &:focus ~ .selectbar {
+          &:before, &:after {
+            width: 50%;
+          }
+        }
+      }
+      &--selector {
+        -webkit-appearance: none;
+        :focus {
+          outline: none;
+          border-bottom: 1px solid rgba(0,0,0, 0);
+        }
+      }
+      .field-label {
+        color: $btn;
+        font-size: 12px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 0;
+        top: -10px;
+        transition: 0.2s ease all;
+      }
+      .selectbar {
+        position: relative;
+        display: block;
+        width: 100%;
+        &:before, &:after {
+          content: '';
+          height: 2px;
+          width: 0;
+          bottom: 0;
+          position: absolute;
+          background: $btn;
+          transition: 0.2s ease all;
+        }
+        &:before {
+          left: 50%;
+        }
+        &:after {
+          right: 50%;
+        }
+      }
+    }
+    .btn__condition {
+      width: 116px;
+      height: 42px;
+      margin-left: 50px;
+    }
   }
-}
-
-.search--condition--field--input {
-  position: relative;
-  width: 208px;
-  text-align: center;
-}
-.search--condition--field--input--selector, .search--condition--field--input--text {
-  position: relative;
-  font-family: inherit;
-  background-color: transparent;
-  width: 208px;
-  padding: 10px 10px 10px 0;
-  font-size: 14px;
-  border-radius: 0;
-  border: none;
-  border-bottom: 1px solid rgba(0,0,0, 0.3);
-  outline: none;
-}
-.search--condition--field--input--selector:focus {
-  outline: none;
-  border-bottom: 1px solid rgba(0,0,0, 0);
-}
-.search--condition--field--input, .search--condition--field--input--selector {
-  appearance: none;
-  -webkit-appearance: none;
-}
-.search--condition--field--input select::-ms-expand {
-  display: none;
-}
-.search--condition--field--input:after {
-  position: absolute;
-  top: 18px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  padding: 0;
-  content: '';
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid $btn;
-  pointer-events: none;
-}
-.field-label {
-  color: $btn;
-  font-size: 12px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 0;
-  top: -10px;
-  transition: 0.2s ease all;
-}
-.selectbar {
-  position: relative;
-  display: block;
-  width: 100%;
-}
-.selectbar:before, .selectbar:after {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 1px;
-  position: absolute;
-  background: $btn;
-  transition: 0.2s ease all;
-}
-.selectbar:before {
-  left: 50%;
-}
-.selectbar:after {
-  right: 50%;
-}
-.search--condition--field--input--selector:focus ~ .selectbar:before, .search--condition--field--input--selector:focus ~ .selectbar:after,
-.search--condition--field--input--text:focus ~ .selectbar:before, .search--condition--field--input--text:focus ~ .selectbar:after
-{
-  width: 50%;
-}
-
-.btn__condition {
-  width: 116px;
-  height: 42px;
-  margin-left: 50px;
-}
-
-.search--condition--hidden-field {
-  display: none;
+  &--hidden-field {
+    display: none;
+  }
 }
