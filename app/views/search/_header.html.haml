@@ -25,23 +25,23 @@
           .search--header--type__nav
             その他
             %i.fas.fa-caret-down
-            %select.search--header--type__nav--selector{ name: "others" }
+            %select.search--header--type__nav--selector{ name: "others", onChange: "location.href=value;" }
               %option{ value: "blank" }
-              %option{ value: "film_shoot" }
+              %option{ value: "/search/search?purpose=film_shoot" }
                 ロケ撮影
-              %option{ value: "studio" }
+              %option{ value: "/search/search?purpose=studio" }
                 展示会
-              %option{ value: "performance" }
+              %option{ value: "/search/search?purpose=performance" }
                 演奏
-              %option{ value: "sports" }
+              %option{ value: "/search/search?purpose=sports" }
                 スポーツ
-              %option{ value: "office" }
+              %option{ value: "/search/search?purpose=office" }
                 オフィス
-              %option{ value: "wedding" }
+              %option{ value: "/search/search?purpose=wedding" }
                 結婚式
-              %option{ value: "event" }
+              %option{ value: "/search/search?purpose=event" }
                 イベント
-              %option{ value: "other" }
+              %option{ value: "/search/search?purpose=other" }
                 その他
     %div
       %ul.site-header__nav.sm-hide
