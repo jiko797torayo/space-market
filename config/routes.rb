@@ -8,6 +8,7 @@ Rails.application.routes.draw do
                                   sessions:      'users/sessions'
                                 }
   root 'spaces#index'
+  resources :spaces
   resources :search do
     get :search, on: :collection
   end

@@ -36,6 +36,7 @@ class SearchController < ApplicationController
     purposes.each do |purpose|
       if request.url.include?("purpose_key=#{purpose}")
         @spaces = @spaces.joins(basic_info: [:purpose]).where("#{purpose} = ?", 1).page(params[:page]).per(20)
+        @exit_purpose_key = purpose
         gon.purpose_key = purpose
       end
     end
