@@ -8,23 +8,10 @@ class Space < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :reservations, dependent: :destroy
 
-  def self.search_party_spaces
-    joins(basic_info: [:purpose]).where('party = ?', 1).order('likes_count DESC')
-  end
-
-  def self.search_meeting_spaces
-    joins(basic_info: [:purpose]).where('meeting = ?', 1).order('likes_count DESC')
-  end
-
-  def self.search_photo_shoot_spaces
-    joins(basic_info: [:purpose]).where('photo_shoot = ?', 1).order('likes_count DESC')
-  end
-
-  def self.search_film_shoot_spaces
-    joins(basic_info: [:purpose]).where('film_shoot = ?', 1).order('likes_count DESC') 
-  end
-
-  def self.search_sports_spaces
-    joins(basic_info: [:purpose]).where('sports = ?', 1).order('likes_count DESC')
-  end
+  scope :search_party_spaces,  -> { joins(basic_info: [:purpose]).where('party = ?', 1).order('likes_count DESC') }
+  scope :search_meeting_spaces, -> { joins(basic_info: [:purpose]).where('meeting = ?', 1).order('likes_count DESC') }
+  scope :search_photo_shoot_spaces, -> { joins(basic_info: [:purpose]).where('photo_shoot = ?', 1).order('likes_count DESC') }
+  scope :search_film_shoot_spaces, -> { joins(basic_info: [:purpose]).where('film_shoot = ?', 1).order('likes_count DESC') }
+  scope :search_sports_spaces, -> { joins(basic_info: [:purpose]).where('sports = ?', 1).order('likes_count DESC') }
 end
+
