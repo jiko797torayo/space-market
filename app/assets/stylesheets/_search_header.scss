@@ -36,6 +36,14 @@
         top: 10px;
         left: 0;
         opacity: 0;
+        &__main {
+          position: absolute;
+          top: 20px;
+          left: 11px;
+          width: 254px;
+          height: 80px;
+          opacity: 0;
+        }
       }
     }
   }

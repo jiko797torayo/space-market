@@ -2,7 +2,7 @@
   = form_for('/spaces/search', method: :get) do |f|
     .search--condition--field
       .search--condition--field--input.search--condition--field--input__prefecture
-        = select_tag :prefecture_key, options_for_select(EquipmentInfo.prefectures.keys, selected: '東京都'), { class: "search--condition--field--input--selector" }
+        = select_tag :prefecture_key, options_for_select(EquipmentInfo.prefectures.keys), class: "search--condition--field--input--selector", include_blank: true
         %span.selectbar
         = f.label "都道府県", { class: "field-label" }
     .search--condition--field
