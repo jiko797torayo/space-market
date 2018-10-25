@@ -5,13 +5,13 @@
   .float-head-base__additional-contents
     .float-head-room-create-flow__flow-arrows-container
       %ul.flow-arrows__container
-        %li.flow-arrows__flow-arrow
-          = link_to '1 施設情報 ＞', class: 'flow-arrows__flow-arrow-active' 
-        %li.flow-arrows__flow-arrow
-          = link_to '＞ 2 基本情報 ＞', class: 'flow-arrows__flow-arrow-active'
-        %li.flow-arrows__flow-arrow
-          = link_to '＞ 3 説明文 ＞', class: 'flow-arrows__flow-arrow-active'
-        %li.flow-arrows__flow-arrow
-          = link_to '＞ 4 写真 ＞', class: 'flow-arrows__flow-arrow-active'
-        %li.flow-arrows__flow-arrow
-          = link_to '＞ 5 プラン ＞', class: 'flow-arrows__flow-arrow-active'
+        %li.flow-arrows__flow-arrow.step-one.active
+          1 施設情報 
+        %li.flow-arrows__flow-arrow.step-two
+          2 基本情報
+        %li.flow-arrows__flow-arrow.step-three
+          3 説明文
+        %li.flow-arrows__flow-arrow.step-four
+          4 写真
+        %li.flow-arrows__flow-arrow.step-five
+          5 プラン
