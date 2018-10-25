@@ -2,4 +2,4 @@
   .container
     %h3 今すぐ会員登録して、スペースを貸し借りしてみよう
     %p たったの1分でかんたん登録。もちろん無料です。
-    %a.mod-banner__button{:href => "/i/sign_up"} 新規登録（無料）
+    = link_to "新規登録（無料）", new_user_registration_path, class: "mod-banner"
