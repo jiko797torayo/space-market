@@ -79,5 +79,11 @@ $yellow: #f5d02c;
     background-color: $bluelink;
     color: $white;
     display: inline-block;
+    border-radius: 3px;
+    &:hover {
+      color: $white;
+      text-decoration: none;
+      opacity: 0.6;
+    }
   }
 }
