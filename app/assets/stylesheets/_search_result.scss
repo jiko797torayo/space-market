@@ -1,15 +1,9 @@
-.search--result {
-  background: $box;
-  height: 100vh;
-  width: 100%;
-}
-
 .site-main__result {
   width: 100vw;
   .page__stripes {
     height: calc(100vh - 118px);
     overflow: scroll;
-    width: 918px;
+    width: 898px;
     float: left;
     padding: 0;
     margin: 0 15px;
@@ -25,12 +19,13 @@
       }
     }
     .top-container {
-      width: 888px;
+      width: 898px;
       padding: 0px;
       .top-units__container {
-        width: 888px;
         .row {
+          width: 898px;
           padding-top: 20px;
+          margin: 0;
           .col-xs-6 {
             padding-bottom: 15px;
             .md-top-units {
@@ -39,7 +34,7 @@
                 width: 432px;
                 height: 288px;
                 &-pict {
-                  width: 429px;
+                  width: 420px;
                   height: 288px;
                   object-fit: cover;
                 }
