@@ -7,7 +7,9 @@ Rails.application.routes.draw do
                                 }
   root 'spaces#index'
 
-  resources :spaces
+  resources :spaces do
+    resources :reservations, only:[:new, :create, :show]
+  end
   resources :equipment_infos
   resources :basic_infos
   resources :descriptions
