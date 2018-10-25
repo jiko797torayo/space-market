@@ -48,3 +48,15 @@
     }
   }
 }
+
+.nav-highlight {
+  font-weight: bold;
+  border-bottom: 2px solid $btn;
+}
+
+.nav-others__title {
+  display: inline-block;
+  width: 96px;
+  height: 48px;
+  line-height: 48px;
+}
