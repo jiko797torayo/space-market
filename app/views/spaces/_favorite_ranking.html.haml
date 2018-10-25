@@ -4,10 +4,9 @@
       .top-title__container.clearfix
         %h2.top-title
           お気に入り
-        -# %a.pc-hide_sm-show.top-more__area-link{:href => "#"} すべて見る
       .top-units__container
         .row
-          - @spaces.each.with_index(1) do |space, rank|
+          - @favorite_spaces.each.with_index(1) do |space, rank|
             //カードここから//
             .col-xs-4
               %a.a__top-units{:href => "#"}
