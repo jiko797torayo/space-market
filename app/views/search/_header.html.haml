@@ -6,42 +6,43 @@
     %div
       %ul.search--header--type
         %li
-          = link_to root_path do
-            .search--header--type__nav
+          = link_to search_search_index_path(params: { purpose_key: 'party' }) do
+            .search--header--type__nav.search--header--type__nav__party
               パーティー
         %li
-          = link_to root_path do
-            .search--header--type__nav
+          = link_to search_search_index_path(params: { purpose_key: 'meeting' }) do
+            .search--header--type__nav.search--header--type__nav__meeting
               会議
         %li
-          = link_to root_path do
-            .search--header--type__nav
+          = link_to search_search_index_path(params: { purpose_key: 'photo_shoot' }) do
+            .search--header--type__nav.search--header--type__nav__photo_shoot
               写真撮影
         %li
           = link_to root_path do
-            .search--header--type__nav
+            .search--header--type__nav.search--header--type__nav__stay
               民泊
         %li
-          .search--header--type__nav
-            その他
-            %i.fas.fa-caret-down
+          .search--header--type__nav.nav-others
+            %span.nav-others__title
+              その他
+              %i.fas.fa-caret-down
             %select.search--header--type__nav--selector{ name: "others", onChange: "location.href=value;" }
               %option{ value: "blank" }
-              %option{ value: "/search/search?purpose=film_shoot" }
+              %option{ value: "/search/search?purpose_key=film_shoot" }
                 ロケ撮影
-              %option{ value: "/search/search?purpose=studio" }
+              %option{ value: "/search/search?purpose_key=studio" }
                 展示会
-              %option{ value: "/search/search?purpose=performance" }
+              %option{ value: "/search/search?purpose_key=performance" }
                 演奏
-              %option{ value: "/search/search?purpose=sports" }
+              %option{ value: "/search/search?purpose_key=sports" }
                 スポーツ
-              %option{ value: "/search/search?purpose=office" }
+              %option{ value: "/search/search?purpose_key=office" }
                 オフィス
-              %option{ value: "/search/search?purpose=wedding" }
+              %option{ value: "/search/search?purpose_key=wedding" }
                 結婚式
-              %option{ value: "/search/search?purpose=event" }
+              %option{ value: "/search/search?purpose_key=event" }
                 イベント
-              %option{ value: "/search/search?purpose=other" }
+              %option{ value: "/search/search?purpose_key=other" }
                 その他
     %div
       %ul.site-header__nav.sm-hide
