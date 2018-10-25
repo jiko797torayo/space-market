@@ -1,0 +1,69 @@
+
+.reserve-next {
+  .fa.fa-chevron-down {
+  }
+  fieldset {
+    .reserve-subtitle {
+    }
+    .js-monthly-table__container.reserve-card.sm-hide__guteter {
+      .reserve-card__inner {
+        padding: 16px;
+        .reserve-card__inner__calendar {
+          .reserve-period__header {
+            .reserve-period__header-navi {
+              color: rgb(74, 191, 230);
+              font-size: 36px;
+              .fa.fa-angle-left {
+                float: left;
+              }
+            }
+            .reserve-period__title {
+              text-align: center;
+              .reserve-period__title-month {
+              }
+            }
+            .reserve-period__header-navi {
+
+              .fa.fa-angle-right {
+                float:right;
+                position: absolute;
+                top: 40px;
+                right: 20px;
+              }
+            }
+          }
+          .js-monthly-table.reserve-period__calendar.dashboard-calendar__table {
+            border: 1px solid rgb(179, 179, 180);
+            tbody {
+              tr {
+                th.is-holiday {
+                  background-color: rgb(208, 209, 207);
+                }
+                th {
+                  width: 100px;
+                  background-color: rgb(237, 237, 237);
+                  text-align: center;
+                  .dashboard-calendar__cell-wrap {
+                  }
+                }
+              }
+              td {
+                border: 1px solid rgb(179, 179, 180);
+                .dashboard-calendar__date {
+                }
+                .reserve-period__calendar-content {
+                  width: 77px;
+                  height: 40px;
+                  margin: 8px 10px 7px;
+                  .reserve-period__calendar-done {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+ }
