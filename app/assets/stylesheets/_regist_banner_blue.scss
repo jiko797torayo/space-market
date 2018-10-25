@@ -28,6 +28,9 @@
       border-bottom-color: rgb(48, 172, 214);
       text-decoration: none;
       border-radius: 3px;
+      &:hover {
+        opacity: 0.9;
+      }
     }
   }
 }

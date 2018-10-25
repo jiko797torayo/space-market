@@ -13,4 +13,4 @@
         %span.top-regist__slash おトクにスペースを借りてみよう！
         %span.top-regist__slash-white ／
     .top-regist__button_wrap
-      %a.btn.btn-default.top-regist__button 新規アカウント登録はこちら
+      = link_to "新規アカウント登録はこちら", new_user_registration_path, class: "top-regist__button"
