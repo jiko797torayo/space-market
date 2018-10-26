@@ -25,6 +25,7 @@ gem 'mini_magick'
 gem 'devise'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'kaminari'
 gem 'gon'
 
 group :development, :test do

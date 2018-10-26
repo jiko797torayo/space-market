@@ -1,0 +1,76 @@
+.search--header
+  .header
+  .site-header.clearfix.HeaderContainer__SiteHeader-sc-1dznt2s-0.ldcZBj
+    %p.fl
+      = link_to "スペースマーケット", root_path, class: "site-header__logo"
+    %div
+      %ul.search--header--type
+        %li
+          = link_to search_search_index_path(params: { purpose_key: 'party' }) do
+            .search--header--type__nav.search--header--type__nav__party
+              パーティー
+        %li
+          = link_to search_search_index_path(params: { purpose_key: 'meeting' }) do
+            .search--header--type__nav.search--header--type__nav__meeting
+              会議
+        %li
+          = link_to search_search_index_path(params: { purpose_key: 'photo_shoot' }) do
+            .search--header--type__nav.search--header--type__nav__photo_shoot
+              写真撮影
+        %li
+          = link_to root_path do
+            .search--header--type__nav.search--header--type__nav__stay
+              民泊
+        %li
+          .search--header--type__nav.nav-others
+            %span.nav-others__title
+              その他
+              %i.fas.fa-caret-down
+            %select.search--header--type__nav--selector{ name: "others", onChange: "location.href=value;" }
+              %option{ value: "blank" }
+              %option{ value: "/search/search?purpose_key=film_shoot" }
+                ロケ撮影
+              %option{ value: "/search/search?purpose_key=studio" }
+                展示会
+              %option{ value: "/search/search?purpose_key=performance" }
+                演奏
+              %option{ value: "/search/search?purpose_key=sports" }
+                スポーツ
+              %option{ value: "/search/search?purpose_key=office" }
+                オフィス
+              %option{ value: "/search/search?purpose_key=wedding" }
+                結婚式
+              %option{ value: "/search/search?purpose_key=event" }
+                イベント
+              %option{ value: "/search/search?purpose_key=other" }
+                その他
+    %div
+      %ul.site-header__nav.sm-hide
+        %li.site-header__nav-user-name.link-black.link-borderless
+          %i.fa.fa-caret-down
+        %li
+          = link_to root_path, class: "site-header__nav-user link-black" do
+            - if user_signed_in?
+              = image_tag current_user.icon, class: "site-header__nav-user link-black"
+            -#= image_tag "https://yononakanews.com/wp-content/uploads/2015/10/odagiri.jpg", class: "site-header__nav-user"
+        %li
+          = link_to root_path, class: "site-header__nav-message link-black" do
+            %i.fa.fa-envelope
+        %li
+          = link_to "ヘルプ", root_path, class: "site-header__nav-help link-black link-borderless help__text"
+        - if user_signed_in?
+          %li
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "site-header__nav-logout link-black"
+        - else
+          %li
+            = link_to "ログイン", new_user_session_path, method: :get, class: "site-header__nav-login link-black"
+          %li
+            = link_to "新規登録", new_user_registration_path, method: :get, class: "site-header__nav-signup link-black"
+        %li
+          = link_to "予約", root_path, class: "site-header__nav-reservation link-black"
+        %li
+          = link_to "お気に入り", root_path, class: "site-header__nav-favorite link-black"
+        %li
+          = link_to "ホスト", root_path, class: "site-header__nav-owner link-black"
+        %li
+          = link_to "空きスペースを掲載する", new_equipment_info_path, class: "site-header__nav-owner link-black"
