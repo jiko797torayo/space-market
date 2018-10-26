@@ -15,13 +15,10 @@ class SpacesController < ApplicationController
 
   def edit
     render layout: 'new_space'
-    set_space
   end
 
   def update
-    set_space
-    @space.status = 1
-    if @space.save
+    if @space.update!(status: 1)
       redirect_to edit_space_path(@space)
     else
       render :edit
