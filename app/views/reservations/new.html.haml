@@ -1,0 +1,109 @@
+= render 'spaces/other_header'
+= form_for @reservation, url: { controller: :reservations, action: :create } do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :space_id, value: @space.id
+  = f.hidden_field :day, value: "", id: "reserve-day"
+  .site-main
+    .page__even
+      .container
+        .row
+          .col-sm-12.col-md-4.sm-hide.side-fixed
+            #sticky-wrapper.sticky-wrapper
+              .space-side{:style => "width: 345.984px;"}
+                .site-sidebar
+                  %h2.site-sidebar__headline 選択中のスペース
+                  %a{:href => "#{}"}
+                    .reserve-sidebar__space
+                      .reserve-sidebar__space-img
+                        = image_tag(@space.space_image.image_files.main.first.file)
+                      .reserve-sidebar__space-text
+                        %h3.reserve-sidebar__space-title #{@space.description.catch_copy}
+                  %h2.site-sidebar__headline 現在の入力状況
+                  .js-reservation-submit-card.site-sidebar__inner
+                    %dl.reserve-situation
+                      .reserve-date
+                        %dt 利用期間
+                        %dd 利用期間を選択して下さい
+
+                    = f.submit "予約リクエストへ進む", id: "button", class: "button-disabled button-blue"
+                    %p.reserve-situation__nocharged-yet ※まだ請求は発生しません。
+          %div
+            .col-sm-12.col-md-8
+              %h1.reserve-title 空き状況の確認／予約リクエスト
+              %fieldset
+                %legend.reserve-subtitle プランを選択
+                .reserve-card.sm-hide__guteter
+                  .reserve-card__inner.reserve-plan__content.clearfix
+                    .reserve-plan__price
+                      .reserve-plan__price-number
+                        ￥ #{@space.plan.price_per_day}
+                        %span.reserve-plan__price-utility
+                          \/
+                          日
+                          〜
+                    .reserve-plan__name
+                      %div#plan-radio__29299{:name => "plan_id", :type => "radio", :value => "29299"}/
+                      %label.service-radio.reserve-plan__name-radio.reserve-plan__name-radio{:for => "plan-radio__29299"}
+                        %span.reserve-plan__title 基本プラン
+                    .reserve-plan__features
+                      %ul.reserve-plan__features-reserve
+                        %li
+                          %i.fas.fa-bolt.reserve-plan__features-reserve-direct-icon
+                          今すぐ予約OK
+                      %ul.reserve-plan__features-discount
+                    .reserve-plan__notes
+                      %p.reserve-plan__notes-text WIFIやプロジェクター、ホワイトボードなど室内の備品については全て無料で利用可能です。
+                %span
+                  .reserve-next
+                    %i.fa.fa-chevron-down
+                    %fieldset
+                      %legend.reserve-subtitle 利用タイプを選択
+                      .reserve-card.sm-hide__guteter
+                        .reserve-card__inner.reserve-type
+                          %p.reserve-type__button
+                            %input#reserve-type__radio--daily-29299.reserve-type__button-radio{:name => "is_hourly", :type => "hidden", :value => "0"}/
+                            %label.reserve-type__button-label{:for => "reserve-type__radio--daily-29299"}
+                              1日価格
+                              %span.reserve-type__price
+                                ￥#{@space.plan.price_per_day}
+                                \/
+                                日
+                                〜
+                      %input{:name => "rent_type", :type => "hidden", :value => "1"}/
+
+                  .reserve-next
+                    .fa.fa-chevron-down
+                    %fieldset
+                      %legend.reserve-subtitle 利用期間
+                      .js-monthly-table__container.reserve-card.sm-hide__guteter{:style => "position: relative;"}
+                        .reserve-card__inner.clearfix
+                          #calendar
+
+                  .reserve-next
+                    %i.fa.fa-chevron-down
+                    .js-reservation-submit-card.reserve-card.sm-hide__guteter
+                      .reserve-card__inner.reserve-payment.clearfix
+
+                        %dl.reserve-situation.reserve-payment__main
+                          .reserve-payment__notify
+                            = f.submit "予約リクエストへ進む", id: "button", class: "button-disabled button-blue reserve-payment__notify-button"
+                            %p.reserve-situation__nocharged-yet ※まだ請求は発生しません。
+                          .reserve-date.bottom
+                            %dt 利用期間
+                            %dd.reserve-payment__disable
+                              .reserve-payment__disable-text 利用期間を選択してください
+                              .reserve-payment__price
+
+                        .reserve-payment__notes
+                          %p.reserve-payment__notes-text
+                            「予約リクエスト」を送信し、ホストが内容を確認後「承認」すると予約成立となります。
+                            %br/
+                            予約完了までのご利用の流れは
+                            %a.a__underline{:href => "/about/how_it_works", :target => "_blank"} こちら
+                            から確認いただけます。
+                          %p.reserve-payment__notes-text
+                            見積書の発行は
+                            %a.a__underline{:href => "#"} こちら
+                            。印刷、またはPDFに保存してお使いいただけます。
+
+

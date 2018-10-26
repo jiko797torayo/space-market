@@ -1,0 +1,42 @@
+= render 'spaces/other_header'
+
+.site-main
+  .page__even
+    .container
+      .row
+        .complet-contents
+          .complet-contents__message-box
+            .complet-contents__message
+              %h2 予約リクエストを送信しました
+            .complet-contents__message-info
+              %p これで予約成立となります。ご利用日に予約したスペースまでお越しください。
+              %p.bold 予約成立後には請求が発生します
+          .complet-contents__cancel-info
+            %p※予約成立後のゲストキャンセルはキャンセル料が発生します。詳しくはこちら。
+
+        .reservation-result
+          .reservation-result__contents
+            .reservation-result__left-content
+              .reservation-result__image-box
+                = image_tag(@space.space_image.image_files.main.first.file)
+              .reservation-result__space-info
+                .reservation-result__message-box
+                  %p #{@space.description.catch_copy}
+
+            .reservation-result__right-content
+              .reservation-result__info
+                .reservation-result__info__period.border-bottom
+                  %p.result-info__left 利用期間
+                  %p.result-info__right #{@reserve.day}
+                .reservation-result__info__plan.border-bottom
+                  %p.result-info__left プラン料金
+                  %p.result-info__right ￥#{@space.plan.price_per_day}
+                .reservation-result__info__address.border-bottom
+                  %p.result-info__left アクセス
+                  %div
+                    %p.result-info__right #{@space.equipment_info.access}
+                .reservation-result__info__price.border-bottom
+                  %p.result-info__left 料金
+                  %p.result-info__right ￥#{@space.plan.price_per_day}
+              .reservation-result__top-btn
+                = link_to "トップページへ", root_path
