@@ -1,5 +1,8 @@
 class SpacesController < ApplicationController
-  before_action :check_current_user, only: :edit
+  layout 'new_space'
+
+  before_action :check_current_user, only: [:edit, :update]
+  before_action :set_space, only: [:edit, :update]
   
   def index
     @party_spaces = Space.party.by_likes_count.limit(3)
@@ -12,7 +15,17 @@ class SpacesController < ApplicationController
   end
 
   def edit
-    @space = Space.find(params[:id])
+    set_space
+  end
+
+  def update
+    set_space
+    @space.status = 1
+    if @space.save
+      redirect_to edit_space_path(@space)
+    else
+      render :edit
+    end
   end
 
   private
@@ -20,5 +33,9 @@ class SpacesController < ApplicationController
   def check_current_user
     space = Space.find(params[:id])
     render_404 unless space.user_id == current_user.id
+  end
+
+  def set_space
+    @space = Space.find(params[:id])
   end
 end

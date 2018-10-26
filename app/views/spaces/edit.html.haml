@@ -24,10 +24,10 @@
                   .setting-row__head
                     - if @space.equipment_info.present?
                       .setting-row__status.status-ok
-                        %span 完了
+                        %span.status 完了
                     - else 
                       .setting-row__status.status-ng
-                        %span 未完
+                        %span.status 未完
                   .setting-row__item-name 1 施設情報
                   .setting-row__link-text-wrapper
                     - if @space.equipment_info.present?
@@ -38,10 +38,10 @@
                   .setting-row__head
                     - if @space.basic_info.present?
                       .setting-row__status.status-ok
-                        %span 完了
+                        %span.status 完了
                     - else 
                       .setting-row__status.status-ng
-                        %span 未完
+                        %span.status 未完
                   .setting-row__item-name 2 基本情報
                   .setting-row__link-text-wrapper
                     - if @space.basic_info.present?
@@ -54,10 +54,10 @@
                   .setting-row__head
                     - if @space.description.present?
                       .setting-row__status.status-ok
-                        %span 完了
+                        %span.status 完了
                     - else 
                       .setting-row__status.status-ng
-                        %span 未完
+                        %span.status 未完
                   .setting-row__item-name 3 説明文
                   .setting-row__link-text-wrapper
                     - if @space.description.present?
@@ -70,10 +70,10 @@
                   .setting-row__head
                     - if @space.space_image.present?
                       .setting-row__status.status-ok
-                        %span 完了
+                        %span.status 完了
                     - else 
                       .setting-row__status.status-ng
-                        %span 未完
+                        %span.status 未完
                   .setting-row__item-name 4 写真
                   .setting-row__link-text-wrapper
                     - if @space.space_image.present?
@@ -86,13 +86,22 @@
                   .setting-row__head
                     - if @space.plan.present?
                       .setting-row__status.status-ok
-                        %span 完了
+                        %span.status 完了
                     - else 
                       .setting-row__status.status-ng
-                        %span 未完
+                        %span.status 未完
                   .setting-row__item-name 5 プラン
                   .setting-row__link-text-wrapper
                     - if @space.plan.present?
                       = link_to "編集", edit_plan_path(@space.plan)
                     - elsif @space.space_image.present?
                       = link_to "追加", new_plan_path(space_id: @space)
+    .status-page__bottom
+      .status-page__bottom__text__container
+        - if @space.status == 0
+          .status-page__bottom__text__inner 必要な情報をすべて入力すると審査に申請することができます。
+      .status-page__bottom__button__container
+        - if @space.status == 0 
+          = button_to "掲載審査", space_path(@space), method: :patch, class: "status-page__bottom__button__inner btn", id: "publish-btn", disabled: true
+        - if @space.status == 1
+          .status-page__bottom__button__inner.published 掲載中です
