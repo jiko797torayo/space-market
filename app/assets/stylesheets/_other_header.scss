@@ -1,0 +1,120 @@
+.site-header__sponsoredmatch.site-header__sponsoredmatch_type1 {
+  height: 60px;
+  padding: 0px 15px;
+  background: linear-gradient(90deg,#c3eb25 0,#86d542 30%,#2cbc6c);
+  .site-header__sponsoredmatch.site-header__sponsoredmatch_type1 {
+    background: none;
+    margin: 0 auto;
+    width: 450px;
+    .site-header__sponsoredmatch.site-header__sponsoredmatch_type1 {
+      height: 60px;
+    }
+  }
+}
+.other-header {
+  height: 46px;
+  .site-header {
+    background-color: transparent;
+    border-bottom: none;
+    display: flex;
+    div {
+      min-width: 200px;
+      max-width: 500px;
+      .fl {
+        width: 34px;
+      }
+    }
+    &__logo {
+      display: block;
+      width: 180px;
+      height: 34px;
+      margin: 6px;
+      background: url("//cdnspacemarket.com/packs-production/logo-97ba15ef372a4d1fd3134bd49ea9f558.svg") no-repeat;
+      background-size: 172px 29px;
+      background-position: 5px 4px;
+      text-indent: -9999px;
+    }
+    .site-header__category {
+      height: 46px;
+      line-height: 46px;
+      width: 500px;
+      .site-header__search-menu-item {
+        display: block;
+        position: relative;
+        float: left;
+        margin: 0 8px;
+        a {
+          padding: 16px 8px;
+          color: rgb(51, 51, 51);
+          font-weight: 400;
+        }
+        .fa.fa-caret-down {
+          color: #4abfe6;
+        }
+        .CategorySearchHeader__SelectBox-mctj7e-0 {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          height: 46px;
+          width: 76px;
+          border: none;
+          background-color: rgba(255, 0, 0, 0);
+          position: absolute;
+          top: 0;
+        }
+      }
+    }
+    .site-header--float {
+        position: absolute;
+        right: 0px;
+      &__nav {
+        height: 46px;
+        margin-right: 12px;
+        line-height: 46px;
+        &-user {
+          height: 30px;
+          width: 30px;
+          border-radius: 34px;
+        }
+        &-message {
+          color: rgb(190, 190, 190);
+          font-size: 25px;
+          i.fa.fa-envelope {
+            color: rgb(190, 190, 190);
+          }
+        }
+      }
+      &-favorite {
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-left-color: rgb(234, 234, 234);
+        padding-top: 4px;
+        padding-left: 16px;
+      }
+      li {
+        display: block;
+        position: relative;
+        float: right;
+        margin: 0 8px;
+        a {
+          color: rgb(51, 51, 51);
+          font-weight: 400;
+        }
+      }
+      li:link {
+        color: rgb(51, 51, 51);
+      }
+      li:visited {
+        color: rgb(51, 51, 51);
+      };
+    }
+  }
+}
+.site-main {
+  .Breadcrumbs-sc-1qbqhcr-0 {
+      ol {
+    display: flex;
+    font-size: 10px;
+    }
+  }
+}

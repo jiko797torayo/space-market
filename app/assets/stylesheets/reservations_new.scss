@@ -1,0 +1,324 @@
+.site-main {
+  .page__even {
+    background: #f6f6f6;
+    border-bottom: 1px solid #eaeaea;
+    padding: 32px 0px;
+    .container {
+      padding: 0px 12px;
+      margin: 0 auto;
+      .row {
+        .col-sm-12.col-md-4.sm-hide.side-fixed {
+          padding: 0px 12px;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 10px;
+          #sticky-wrapper.sticky-wrapper {
+            .space-side {
+              .site-sidebar {
+                width: 345px;
+                max-height: 416px;
+                background-color: rgb(255, 255, 255);
+                border: 1px solid #eaeaea;
+                &__headline {
+                  padding: 16px 18px;
+                  margin: 0px;
+                  background-color: rgb(238, 238, 238);
+                  border-bottom: 1px solid rgb(208, 209, 207);
+                  font-size: 13px;
+                  font-weight: 700;
+                }
+                a {
+                  .reserve-sidebar__space {
+                    padding: 16px 18px;
+                    width: 345px;
+                    height: 115px;
+                    border-bottom: 1px solid rgb(208, 209, 207);
+                    .reserve-sidebar__space-img {
+                      height: 80px;
+                      width: 80px;
+                      line-height:13px;
+                      float:left;
+                      img {
+                        height: 80px;
+                        width: 80px;
+                      }
+                    }
+                    .reserve-sidebar__space-text {
+                      margin-left: 96px;
+                      .reserve-sidebar__space-title {
+                        font-size: 14px;
+                        line-height:19.6px;
+                        margin-top: 0px;
+                      }
+                    }
+                  }
+                }
+                .js-reservation-submit-card.site-sidebar__inner {
+                  padding: 16px 18px;
+                  .reserve-situation {
+                    margin-bottom: 16px;
+
+                    .reserve-date {
+                      min-height: 40px;
+                      width: 100%;
+                      padding-bottom: 10px;
+                      dt {
+                        font-size: 13px;
+                        font-weight: 400;
+                        float: left;
+                      }
+                      dd {
+                        font-size: 15px;
+                        float: right;
+                        width: 177px;
+                      }
+                    }
+                    .reserve-price {
+                      border-top: 1px dashed #ddd;
+                      padding-top: 10px;
+                      height: 40px;
+                      dt {
+                        font-size: 13px;
+                        font-weight: 400;
+                        float: left;
+                      }
+                      dd {
+                        font-size: 15px;
+                        float: right;
+                        width: 177px;
+                      }
+                    }
+                  }
+                  .button-disabled.button-blue {
+                    padding: 15px 0px;
+                    width: 307px;
+                    display: block;
+                    background-color: rgb(238, 238, 238);
+                    border: 1px solid rgb(225, 225, 225);
+                    border-radius: 3px;
+                    text-align: center;
+                    color: rgb(153, 153, 153);
+                    font-size: 16px;
+                    font-weight: 500;
+                  }
+                  .reserve-situation__nocharged-yet {
+                    font-size: 11px;
+                    color: rgb(153, 153, 153);
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .col-sm-12.col-md-8 {
+          .reserve-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 32px;
+          }
+          fieldset {
+            .reserve-subtitle {
+              font-size: 16px;
+              font-weight: bold;
+              margin-bottom: 8px;
+              display: block;
+              border: none;
+            }
+          }
+          .reserve-card {
+            border: 1px solid rgb(225, 225, 225);
+            border-radius: 3px;
+            background-color: rgb(255, 255, 255);
+            &__inner.reserve-plan__content{
+              padding: 16px;
+              border: 1px solid #eeeeee;
+              .reserve-plan__price {
+                float: right;
+                text-align: right;
+                .reserve-plan__price-number {
+                  font-weight: bold;
+                  color: #fff;
+                  background: #333333;
+                  padding: 8px 12px;
+                  border-radius: 3px;
+                  display: inline-block;
+                  font-size: 16px;
+                  margin-left: 8px;
+                  .reserve-plan__price-utility {
+                    font-weight: normal;
+                    font-size: 11px;
+                  }
+                }
+              }
+              .reserve-plan__name {
+                padding-top: 3px;
+                overflow: hidden;
+                #plan-radio__29299 {
+                }
+                .service-radio.reserve-plan__name-radio.reserve-plan__name-radio {
+                  .reserve-plan__title {
+                    font-size: 16px;
+                    font-weight: bold;
+                    line-height: 1.4;
+                  }
+                }
+              }
+              .reserve-plan__features {
+                font-size: 11px;
+                margin-top: 10px;
+                .reserve-plan__features-reserve {
+                  margin-bottom: 8px;
+                  li {
+                    margin-right: 3px;
+                    padding: 3px 5px 2px 2px;
+                    border-radius: 3px;
+                    display: inline-block;
+                    border: 1px solid #f2d42b;
+                    height: 19px;
+                    .fa-bolt{
+                      color: #f2d42b;
+                    }
+                  }
+                }
+                .reserve-plan__features-discount {
+                }
+              }
+              .reserve-plan__notes {
+                font-size: 13px;
+                margin-top: 12px;
+                padding: 12px;
+                line-height: 1.5;
+                border: solid 1px #eaeaea;
+                .reserve-plan__notes-text {
+                  margin-bottom: 0px;
+                  font-size: 13px;
+                  line-height: 19.5px;
+                }
+              }
+            }
+          }
+          .reserve-next {
+            background-color: #f6f6f6;
+            .fa-chevron-down{
+              display: block;
+              color: rgb(221, 221, 221);
+              font-size: 30px;
+              text-align: center;
+              margin:0 auto;
+              font-weight: 900;
+              height:60px;
+            }
+            fieldset {
+              background-color: #f6f6f6;
+              .reserve-subtitle {
+                margin-bottom: 8px;
+                font-size: 16px;
+              }
+              .reserve-card.sm-hide__guteter {
+                .reserve-card__inner.reserve-type {
+                  padding: 16px;
+                  border: 1px solid #eeeeee;
+                  .reserve-type__button {
+                    display: block;
+                    width: 50%;
+                    margin: 0 auto;
+                    .reserve-type__button-label {
+                      padding: 8px 0px;
+                      border: 2px solid #60df52;
+                      border-radius: 3px;
+                      text-align: center;
+                      cursor: pointer;
+                      font-size: 16px;
+                      color: #60df52;
+                      width: 95%;
+                      .reserve-type__price {
+                        display: block;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .reserve-card.sm-hide__guteter {
+            border: none;
+            .reserve-card__inner.reserve-payment.clearfix {
+              padding: 32px 16px;
+              border: 1px solid #eeeeee;
+              .reserve-situation.reserve-payment__main {
+                min-height: 60px;
+                .reserve-payment__notify {
+                    float: right;
+                    margin-top: 0px;
+                    .button-disabled.button-blue.reserve-payment__notify-button {
+                      background-color: rgb(238, 238, 238);
+                      border: 1px solid rgb(225, 225, 225);
+                      border-radius: 3px;
+                      padding: 16px 40px;
+                      display: inline-block;
+                      color: rgb(153, 153, 153);
+                      font-size: 18px;
+                    }
+                    .reserve-situation__nocharged-yet {
+                      margin: 0;
+                      padding: 8px 0px;
+                      text-align: center;
+                      font-size: 11px;
+                      color: rgb(153, 153, 153);
+                    }
+                  }
+                .reserve-date.bottom {
+                  margin-bottom: 10px;
+                  display: flex;
+                  dt {
+                    width: 160px;
+                    font-size: 16px;
+                    font-weight: 400;
+                  }
+                  dd {
+                    font-size: 20px;
+                  }
+                }
+                .reserve-price {
+                  border-top: 1px dashed #ddd;
+                  padding-top: 10px;
+                  display: flex;
+                  max-width: 400px;
+                  dt {
+                    font-weight: 500;
+                  }
+                  dd {
+                    padding-left: 90px;
+                    font-size: 20px;
+                  }
+                }
+                .reserve-payment__disable {
+                  width: 100%;
+                  .reserve-payment__disable-text {
+                    float: left;
+                    font-size: 18px;
+                    font-weight: 700;
+                  }
+                  .reserve-payment__price {
+                    float: left;
+                  }
+                }
+              }
+              .reserve-payment__notes {
+                .reserve-payment__notes-text {
+                  font-size: 13px;
+                  color: rgb(160, 160, 160);
+                  margin: 0;
+                  .a__underline {
+                    color: rgb(74, 191, 230);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
