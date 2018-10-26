@@ -43,10 +43,10 @@ $(document).on('turbolinks:load', function() {
       // クリックされた日付を取得
       var date = (date.format())
       // クリックした日の色変更
-      if ($(this).hasClass('fc-disabled-day')) {}
-      else if ($(this).hasClass('checked')) {
+      if ($(this).hasClass('checked')) {
         $(this).removeClass('checked');
         removeForm();
+      } else if ($(this).hasClass('fc-disabled-day')) { $.noop
       } else {
         $('.fc-day').removeClass('checked'),$(this).addClass('checked')
       }
