@@ -15,7 +15,7 @@
                 .form-section-title__title 写真
               .form-section-title__description ゲストが実際に利用するスペース、設備等の画像を最低1枚追加してください。推奨サイズは1260x840です。最大5枚まで追加できます。
             .photo-form__from-wrapper
-              = f.fields_for :image_files do |img|
+              = f.fields_for :image_files, @main_image do |img|
                 .photo-form__add
                   %label.photo-form__add__mask
                     %i.fa.fa-plus.icon
@@ -24,18 +24,17 @@
                     = img.hidden_field :status, value: "main"
                 .photocard__container
                   .photocard__photo
-                    %i.fa.fa-image
-                    %img#preview0
+                    = image_tag(@main_image.file, id: "preview0")
                   .photocard__text
-                    = img.text_area :about_file, placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"
+                    = img.text_area :about_file, class: "photocard__text__textarea"
             - if flash[:alert].present?
               %ul.form-item__errors-wrapper
                 %li
                   %i.fas.fa-exclamation-circle
                   = flash[:alert]
-          - (1..4).each do |i|
+          - @sub_images.each.with_index(1) do |sub, i|
             .photo-form__from-wrapper
-              = f.fields_for :image_files do |img|
+              = f.fields_for :image_files, sub do |img|
                 .photo-form__add
                   %label.photo-form__add__mask
                     %i.fa.fa-plus.icon
@@ -44,12 +43,10 @@
                     = img.hidden_field :status, value: "sub"
                 .photocard__container
                   .photocard__photo
-                    %i.fa.fa-image
-                    %img{ id: "preview#{i}"}
+                    = image_tag(sub.file, id: "preview#{i}")
                   .photocard__text
-                    = img.text_area :about_file, placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"
+                    = img.text_area :about_file, class: "photocard__text__textarea"
     .float-bottom__container
       .float-bottom__line
       .float-bottom__content
-        = f.submit "保存して戻る", class: "btn btn-default button-base__button-component gray-btn"
-        = f.submit "保存して進む", class: "btn btn-default button-base__button-component green-btn"
+        = f.submit "保存", class: "btn btn-default button-base__button-component green-btn"

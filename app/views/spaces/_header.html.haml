@@ -13,10 +13,9 @@
           = link_to root_path, class: "site-header__nav-user" do
             - if user_signed_in?
               = image_tag current_user.icon, class: "site-header__nav-user"
-            -#= image_tag "https://yononakanews.com/wp-content/uploads/2015/10/odagiri.jpg", class: "site-header__nav-user"
         %li
           = link_to root_path, class: "site-header__nav-message" do
-            %i.fa.fa-envelope
+            %i.fa.fa-envelope{style: "color:lightgray;"}
         %li
           = link_to "ヘルプ", root_path, class: "site-header__nav-help link-black link-borderless help__text"
         - if user_signed_in?
@@ -45,7 +44,7 @@
         .container
           %ul.row
             %li.top-menu__list.col-xs-4
-              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=party&with_recommend=true"}
+              = link_to search_search_index_path(params: { purpose_key: 'party' }), class: "top-menu__list-button mdc-elevation--z2" do
                 %img.top-menu__list-button-img{:alt => "パーティー", :src => "//cdnspacemarket.com/packs-production/images/www/icon/party_blue-284ad75134.svg"}/
                 %span.top-menu__list-button-text
                   パーティー
@@ -53,14 +52,14 @@
                 %i.fa.fa-angle-right.yajirusi
 
             %li.top-menu__list.col-xs-4
-              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=class&with_recommend=true"}
+              = link_to search_search_index_path(params: { purpose_key: 'meeting' }), class: "top-menu__list-button mdc-elevation--z2" do
                 %img.top-menu__list-button-img{:alt => "会議", :src => "//cdnspacemarket.com/packs-production/images/www/icon/class_blue-e05f553eaf.svg"}/
                 %span.top-menu__list-button-text
                   会議
                   %span.top-menu__list-button-num 8067件
                 %i.fa.fa-angle-right.yajirusi
             %li.top-menu__list.col-xs-4
-              %a.top-menu__list-button.mdc-elevation--z2{:href => "https://stay.spacemarket.com/search"}
+              = link_to root_path, class: "top-menu__list-button mdc-elevation--z2" do
                 %img.top-menu__list-button-img{:alt => "民泊", :src => "//cdnspacemarket.com/packs-production/images/www/icon/stay_blue-e36c43aef6.svg"}/
                 %span.top-menu__list-button-text
                   民泊
@@ -69,37 +68,42 @@
         .container
           %ul.row
             %li.top-menu__list.top-menu__list-second.col-xs-3
-              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=photo_shoot&with_recommend=true"}
+              = link_to search_search_index_path(params: { purpose_key: 'photo_shoot' }), class: "top-menu__list-button mdc-elevation--z2" do
                 %img.top-menu__list-button-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/www/icon/photo_shoot_blue-9d526ca0c6.svg"}/
                 %span.top-menu__list-button-text
                   写真撮影
                   %span.top-menu__list-button-num 7797件
                 %i.fa.fa-angle-right.yajirusi
             %li.top-menu__list.top-menu__list-second.col-xs-3
-              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=film_shoot&with_recommend=true"}
+              = link_to search_search_index_path(params: { purpose_key: 'film_shoot' }), class: "top-menu__list-button mdc-elevation--z2" do
                 %img.top-menu__list-button-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/www/icon/film_shoot_blue-b0d90574c8.svg"}/
                 %span.top-menu__list-button-text
                   ロケ撮影
                   %span.top-menu__list-button-num 7566件
                 %i.fa.fa-angle-right.yajirusi
             %li.top-menu__list.top-menu__list-second.col-xs-3
-              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=sports&with_recommend=true"}
+              = link_to search_search_index_path(params: { purpose_key: 'sports' }), class: "top-menu__list-button mdc-elevation--z2" do
                 %img.top-menu__list-button-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/www/icon/sports_blue-d0e5f50187.svg"}/
                 %span.top-menu__list-button-text
                   スポーツ
                   %span.top-menu__list-button-num 2607件
                 %i.fa.fa-angle-right.yajirusi
             %li.top-menu__list.top-menu__list-second.col-xs-3
-              %a.top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=other"}
+              .top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=other"}
                 %img.top-menu__list-button-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/www/icon/other_blue-dbd2f4ef89.svg"}/
                 %span.top-menu__list-button-text その他
-              %select.w100pa.js-select__transparent{:name => "others"}
-                %option{:value => ""} 指定なし
-                %option{:value => "event"} イベント
-                %option{:value => "performance"} 演奏
-                %option{:value => "studio"} 展示会
-                %option{:value => "office"} オフィス
-                %option{:value => "wedding"} 結婚式
+                %select.search--header--type__nav--selector__main{ name: "others", onChange: "location.href=value;" }
+                  %option{ value: "blank" }
+                  %option{ value: "/search/search?purpose_key=event" }
+                    イベント
+                  %option{ value: "/search/search?purpose_key=performance" }
+                    演奏
+                  %option{ value: "/search/search?purpose_key=studio" }
+                    展示会
+                  %option{ value: "/search/search?purpose_key=office" }
+                    オフィス
+                  %option{ value: "/search/search?purpose_key=wedding" }
+                    結婚式
       .top-menu__other-search
         .top-menu__icon
           %i.fa.fa-search
