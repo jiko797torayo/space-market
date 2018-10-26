@@ -98,10 +98,10 @@
                       = link_to "追加", new_plan_path(space_id: @space)
     .status-page__bottom
       .status-page__bottom__text__container
-        - if @space.status == 0
+        - if @space.status == "draft"
           .status-page__bottom__text__inner 必要な情報をすべて入力すると審査に申請することができます。
       .status-page__bottom__button__container
-        - if @space.status == 0 
+        - if @space.status == "draft"
           = button_to "掲載審査", space_path(@space), method: :patch, class: "status-page__bottom__button__inner btn", id: "publish-btn", disabled: true
-        - if @space.status == 1
+        - if @space.status == "published"
           .status-page__bottom__button__inner.published 掲載中です

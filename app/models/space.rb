@@ -14,4 +14,6 @@ class Space < ApplicationRecord
   scope :film_shoot, -> { joins(basic_info: [:purpose]).where('film_shoot = ?', 1) }
   scope :sports, -> { joins(basic_info: [:purpose]).where('sports = ?', 1) }
   scope :by_likes_count, -> { order('likes_count DESC') }
+
+  enum status: %i(draft published)
 end
