@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   resources :descriptions
   resources :space_images
   resources :plans
-  # get 'search/index/', to: 'search#index'
   as :user do
     get 'i/login', to: 'users/sessions#new', as: :new_user_session
     post 'i/login', to: 'users/sessions#create', as: :user_session
