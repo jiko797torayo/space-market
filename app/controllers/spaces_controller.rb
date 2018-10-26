@@ -19,7 +19,6 @@ class SpacesController < ApplicationController
   end
 
   def update
-    render layout: 'new_space'
     set_space
     @space.status = 1
     if @space.save
