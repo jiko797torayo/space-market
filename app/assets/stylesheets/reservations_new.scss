@@ -19,7 +19,7 @@
                 max-height: 416px;
                 background-color: rgb(255, 255, 255);
                 border: 1px solid #eaeaea;
-                .site-sidebar__headline {
+                &__headline {
                   padding: 16px 18px;
                   margin: 0px;
                   background-color: rgb(238, 238, 238);
@@ -130,7 +130,7 @@
             border: 1px solid rgb(225, 225, 225);
             border-radius: 3px;
             background-color: rgb(255, 255, 255);
-            .reserve-card__inner.reserve-plan__content{
+            &__inner.reserve-plan__content{
               padding: 16px;
               border: 1px solid #eeeeee;
               .reserve-plan__price {
