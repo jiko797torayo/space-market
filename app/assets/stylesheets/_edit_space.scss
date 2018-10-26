@@ -22,7 +22,7 @@
 }
 .status-page {
   &__container {
-    margin-top: 80px;
+    margin-top: 40px;
   }
   &__message-wrapper {
     background-color: $greenBackground;
@@ -31,6 +31,46 @@
     padding: 16px;
     margin-bottom: 20px;
   }
+  &__bottom {
+    margin-top: 20px;
+    padding: 10px;
+    &__text {
+      &__container {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    &__button {
+      &__inner {
+        background-color: $card-border;
+        margin-top: 20px;
+        color: $white;
+        height: 50px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        width: 100%;
+        &:hover, &:focus {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+#publish-btn {
+  outline: none;
+  &:active, &:focus {
+    border: none;
+  }
+}
+.to-publish {
+  background-color: $required;
+}
+.published {
+  background-color: $hostGreen;
+  line-height: 50px;
 }
 .edit-publish-feature {
   &__container {
