@@ -1,0 +1,76 @@
+.site-main__result {
+  width: 100vw;
+  .page__stripes {
+    height: calc(100vh - 118px);
+    overflow: scroll;
+    width: 898px;
+    float: left;
+    padding: 0;
+    margin: 0 15px;
+    border-bottom: none;
+    .search-list__head-title {
+      font-size: 20px;
+      font-weight: bold;
+      padding-top: 20px;
+      padding-left: 13px;
+      span {
+        font-size: 14px;
+        color: $label;
+      }
+    }
+    .top-container {
+      width: 898px;
+      padding: 0px;
+      .top-units__container {
+        .row {
+          width: 898px;
+          padding-top: 20px;
+          margin: 0;
+          .col-xs-6 {
+            padding-bottom: 15px;
+            .md-top-units {
+              &__image {
+                position: relative;
+                width: 432px;
+                height: 288px;
+                &-pict {
+                  width: 420px;
+                  height: 288px;
+                  object-fit: cover;
+                }
+              }
+              &__body {
+                .md-top-units__body {
+                  &-title {
+                    font-weight: lighter;
+                    margin-bottom: 5px;
+                  }
+                  &-info {
+                    font-size: 11px;
+                    margin-bottom: 5px;
+                  }
+                  &-access {
+                    font-size: 10px;
+                    margin-bottom: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .pagination {
+      padding-left: 13px;
+    }
+  }
+  .google-map {
+    width: 492px;
+    height: calc(100vh - 118px);
+    line-height: calc(100vh - 118px);
+    background: $current_step;
+    text-align: center;
+    color: $box;
+    float: right;
+  }
+}

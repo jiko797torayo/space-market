@@ -32,6 +32,10 @@
     background-size: 172px 29px;
     background-position: 5px 4px;
     text-indent: -9999px;
+    &__search {
+      @extend  .site-header__logo;
+      width: 180px;
+    }
   }
   &__nav {
     float: right;
@@ -71,6 +75,12 @@
       color: rgb(51, 51, 51);
     };
   }
+  .link-black {
+    text-decoration: none;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }
 .site-main {
   .top-mv {
@@ -103,10 +113,10 @@
               padding: 0px 12px;
               height: 100px;
               width: 369px;
-              &:hover {
-                opacity: 0.6;
-              }
-              a.top-menu__list-button.mdc-elevation--z2 {
+              .top-menu__list-button.mdc-elevation--z2 {
+                &:hover {
+                  opacity: 0.6;
+                }
                 background-color:rgb(246, 246, 246);
                 box-shadow:rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
                 color:rgb(74, 191, 230);
@@ -153,10 +163,10 @@
               padding: 0px 12px;
               height: 100px;
               width: 276.5px;
-              &:hover {
-                opacity: 0.6;
-              }
-              a.top-menu__list-button.mdc-elevation--z2 {
+              .top-menu__list-button.mdc-elevation--z2 {
+                &:hover {
+                  opacity: 0.6;
+                }
                 background-color:rgb(246, 246, 246);
                 box-shadow:rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
                 color:rgb(74, 191, 230);
