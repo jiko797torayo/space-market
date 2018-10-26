@@ -1,5 +1,4 @@
 class SpacesController < ApplicationController
-  layout 'new_space'
 
   before_action :check_current_user, only: [:edit, :update]
   before_action :set_space, only: [:edit, :update]
@@ -15,10 +14,12 @@ class SpacesController < ApplicationController
   end
 
   def edit
+    render layout: 'new_space'
     set_space
   end
 
   def update
+    render layout: 'new_space'
     set_space
     @space.status = 1
     if @space.save
