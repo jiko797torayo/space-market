@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function() {
   function appendForm(date) {
     $('#reserve-day').val(date);
       $('.button-disabled.button-blue').css({'background-color':'#4abfe6','color':'#FFF'});
-       $('.button-disabled.button-blue').prop('disabled', false);
+        $('.button-disabled.button-blue').prop('disabled', false);
   };
 
   function appendDay(date) {
@@ -60,15 +60,15 @@ $(document).on('turbolinks:load', function() {
 
   // 予約できない曜日を表示
   $(function not_wday(){
-   $.each(gon.not_weekday, function(index, wday) {
-    $(wday).addClass('fc-disabled-day')
-   });
+    $.each(gon.not_weekday, function(index, wday) {
+      $(wday).addClass('fc-disabled-day')
+    });
   });
   // 別の月に移動した時に予約できない曜日を表示
   $('.fc-button').click(function click_not_wday() {
-   $.each(gon.not_weekday, function(index, wday) {
-    $(wday).addClass('fc-disabled-day')
-   });
+    $.each(gon.not_weekday, function(index, wday) {
+      $(wday).addClass('fc-disabled-day')
+    });
   });
   // 予約できない日を表示
   $(function not_day() {
