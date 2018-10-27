@@ -22,7 +22,7 @@
         = label_tag 'field-label', '人数'
     .search--condition--field
       .search--condition--field--input.search--condition--field--input__prefecture
-        = select_tag :approval_method_key, options_for_select(Plan.reservation_approval_methods.keys, selected: "#{@exit_approval_method_key}"), class: 'search--condition--field--input--selector', include_blank: true
+        = select_tag :approval_method_key, options_for_select(Plan.reservation_approval_methods, selected: "#{@exit_approval_method_key}"), class: 'search--condition--field--input--selector', include_blank: true
         %span.selectbar
         = label_tag 'field-label', '承認方式'
     .search--condition--hidden-field
