@@ -5,10 +5,9 @@ class SearchController < ApplicationController
 
   def search
     @spaces = Space.all.page(params[:page]).per(20)
-    pref = EquipmentInfo.prefectures.select{|n| n == params[:prefecture_key]}.values[0]
     appr = Plan.reservation_approval_methods.select{|n| n == params[:approval_method_key]}.values[0]
     parameter_keys = [
-                      [:prefecture_key,      :equipment_info,          'prefecture LIKE(?)',              pref                          ],
+                      [:prefecture_key,      :equipment_info,          'prefecture LIKE(?)',              params[:prefecture_key]       ],
                       [:price_min_key,       :plan,                    'price_per_day > ?',               params[:price_min_key]        ],
                       [:price_max_key,       :plan,                    'price_per_day < ?',               params[:price_max_key]        ],
                       [:capacity_key,        :basic_info,              'capacity >= ?',                   params[:capacity_key]         ],
