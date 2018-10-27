@@ -15,7 +15,7 @@ class SearchController < ApplicationController
                      ]
     parameter_keys.each do |parameter_key|
       unless params[parameter_key[0]].blank?
-        @spaces = @spaces.joins(parameter_key[1]).where(parameter_key[2], parameter_key[3]).page(params[:page]).per(20)
+        @spaces = @spaces.joins(parameter_key[1]).where(parameter_key[2], parameter_key[3])
         instance_variable_set("@exit_#{ parameter_key[0].to_s }", params[parameter_key[0]])
       end
     end
@@ -23,7 +23,7 @@ class SearchController < ApplicationController
     purposes = %w(party meeting photo_shoot film_shoot event performance studio sports office wedding other)
     purposes.each do |purpose|
       if request.url.include?("purpose_key=#{purpose}")
-        @spaces = @spaces.joins(basic_info: [:purpose]).where("#{purpose} = ?", 1).page(params[:page]).per(20)
+        @spaces = @spaces.joins(basic_info: [:purpose]).where("#{purpose} = ?", 1)
         @exit_purpose_key = purpose
         gon.purpose_key = purpose
       end
