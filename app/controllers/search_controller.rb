@@ -4,15 +4,8 @@ class SearchController < ApplicationController
   end
 
   def search
-    @spaces = Space.all.page(params[:page]).per(20)
-    parameter_keys = [
-                      [:prefecture_key,      :equipment_info,          'prefecture LIKE(?)',              params[:prefecture_key]       ],
-                      [:price_min_key,       :plan,                    'price_per_day > ?',               params[:price_min_key]        ],
-                      [:price_max_key,       :plan,                    'price_per_day < ?',               params[:price_max_key]        ],
-                      [:capacity_key,        :basic_info,              'capacity >= ?',                   params[:capacity_key]         ],
-                      [:approval_method_key, :plan,                    'reservation_approval_method = ?', params[:approval_method_key]  ],
-                      [:purpose_key,         {basic_info: [:purpose]}, "#{params[:purpose_key]} = ?",     1                             ]
-                     ]
+    @spaces = Space.prefecture_key(params[:prefecture_key]).price_min_key(params[:price_min_key]).price_max_key(params[:price_max_key]).capacity_key(params[:capacity_key]).approval_method_key(params[:approval_method_key]).purpose_key(params[:purpose_key]).page(params[:page]).per(20)
+    parameter_keys = [:prefecture_key, :price_min_key, :price_max_key, :capacity_key, :approval_method_key, :purpose_key]
     parameter_keys.each do |parameter_key|
       unless params[parameter_key[0]].blank?
         @spaces = @spaces.joins(parameter_key[1]).where(parameter_key[2], parameter_key[3])
