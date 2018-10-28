@@ -4,7 +4,7 @@ class SearchController < ApplicationController
   end
 
   def search
-    @spaces = Space.prefecture_key(params[:prefecture_key]).price_min_key(params[:price_min_key]).price_max_key(params[:price_max_key]).capacity_key(params[:capacity_key]).approval_method_key(params[:approval_method_key]).purpose_key(params[:purpose_key]).page(params[:page]).per(20)
+    @spaces = Space.prefecture_key(params[:prefecture_key]).price_min_key(params[:price_min_key]).price_max_key(params[:price_max_key]).capacity_key(params[:capacity_key]).approval_method_key(params[:approval_method_key]).page(params[:page]).per(20)
     parameter_keys = [:prefecture_key, :price_min_key, :price_max_key, :capacity_key, :approval_method_key, :purpose_key]
     parameter_keys.each do |parameter_key|
       unless params[parameter_key[0]].blank?
@@ -13,8 +13,7 @@ class SearchController < ApplicationController
       end
     end
 
-    purposes = %w(party meeting photo_shoot film_shoot event performance studio sports office wedding other)
-    purposes.each do |purpose|
+    Purpose.column_names.each do |purpose|
       if request.url.include?("purpose_key=#{purpose}")
         @spaces = @spaces.joins(basic_info: [:purpose]).where("#{purpose} = ?", 1)
         @exit_purpose_key = purpose
