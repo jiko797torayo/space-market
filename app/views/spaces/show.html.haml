@@ -1,0 +1,537 @@
+= render 'other_header'
+
+.site-main
+  .site-main{:itemscope => "", :itemtype => "#"}
+    .space-head__img
+      %a{:href => "#"}
+        = image_tag(@space.space_image.image_files.main.first.file)
+      %a.button-whiteblue.space-head__showimage{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"} 写真を見る
+      #myModal.modal.fade{:role => "dialog"}
+        .modal-dialog
+          / Modal content
+          #myCarousel.carousel.slide{"data-ride" => "carousel"}
+            / Indicators
+            %ol.carousel-indicators
+              %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+              %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+              %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+              %li{"data-slide-to" => "3", "data-target" => "#myCarousel"}
+              %li{"data-slide-to" => "4", "data-target" => "#myCarousel"}
+            / Wrapper for slides
+            .carousel-inner{:role => "listbox"}
+              .item.active
+                = image_tag(@space.space_image.image_files.main.first.file)
+              - @sub_images.each.with_index(1) do |sub, i|
+                .item
+                  = image_tag(sub.file)
+
+            / Left and right controls
+            %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel", :role => "button"}
+              %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+              %span.sr-only Previous
+            %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel", :role => "button"}
+              %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+              %span.sr-only Next
+
+
+    %div
+      .space-detail
+        .wrapper
+          .contents
+            .row
+              .space-detail__head
+                %div
+                  %h1.space-head__title{:itemprop => "name"} #{@space.description.catch_copy}
+                  %ul.space-head__list.link__subcolor
+                    %li.space-head__list-star
+                      %span
+                        %a
+                          %i.fa.fa-star.mr2.is-checked
+                          %i.fa.fa-star.mr2.is-checked
+                          %i.fa.fa-star.mr2.is-checked
+                          %i.fa.fa-star.mr2.is-checked
+                          %i.fa.fa-star.mr2.is-default
+                          / review件数
+                        %a.space-head__list-number{:href => "#"} 67件
+                    %li.space-head__list-user
+                      %i.fa.fa-user.mr5
+                      %a{:href => "#"} 〜#{@space.basic_info.capacity}人
+                    %li.space-head__list-map
+                      %i.fa.fa-map-marker.mr5
+                      %a{:href => "#"} #{@space.equipment_info.prefecture}#{@space.equipment_info.city_name}
+                    %li.space-head__list-tag
+                      %i.fa.fa-tag.mr5
+                      %a{:href => "#"} #{@space.equipment_info.equipment_type}
+                      / ここからサイドバー
+              .side-fixed
+                %div
+                  %div
+                  .space-side--fixed
+                    .space-side
+                      .space-side__box.clearfix
+                        %ul.space__reserveinfo.space-side__reserveinfo
+                          %li.space__reserveinfo-item.space__reserveinfo-now
+                            %i.fa.fa-bolt.fa-lg.icon-direct.mr5>
+                            今すぐ予約OK
+                            %span.mod-evaluate__help
+                              %i.fa.fa-question-circle.mod-evaluate__question
+                              %span.mod-tooltip.mod-evaluate__help-tooltip
+                                %span.baloon.baloon-top.user-detail-baloon
+                                  %span.baloon-inner
+                        .space-side__money
+
+                          %p
+                            %strong> ￥#{@space.plan.price_per_day}
+                            ～
+                            %strong> ￥#{@space.plan.price_per_day}
+                            \/日
+                          %p.space-side__point-available{"data-reactid" => "479"}
+                            %span.space-side__point-value{"data-reactid" => "480"}> 1,000円分
+                            のポイントが利用可能
+                          %ul.space-side__note
+                            %li
+                              %i.fas.fa-coins>
+                              5%ポイント付与(10月末利用分まで2%増量中)
+                          .space-side__request-area
+                            = link_to "空き状況の確認/予約リクエスト", new_space_path , class: "btn__large btn__style bg_blue"
+                          %ul.space-side__buttons.clearfix.sm-hide
+                            %li
+                              .space-side__buttons-list
+                                %a.space-side__buttons-favorite{:href => ""}
+                                  %i.fa.fa-heart>
+                                  お気に入り
+                                  %span.space-side__buttons-fav__count (481)
+                            %li.space-side__buttons-fav__select
+                              .space-side__buttons-list
+                                %a.space-side__buttons-select{:href => "#"}
+                                  %i.fa.fa-caret-down
+                            %li.space-side__buttons-share
+                              .space-side__buttons-list
+                                %a.space-side__button-share{:href => "#"}
+                                  %i.fa.fa-share-alt>
+                                  シェア
+                                .space-side__share-tooltip
+                        .clearfix
+                          .space-side__owner-area
+                            .space-side__owner-eval
+                              .space-side__owner-eval-innner.row
+                                .space-side__owner-eval-innner-list.col-xs-4
+                                  %h4.mod-evaluate__title
+                                    予約
+                                    %span.mod-evaluate__help
+                                      %i.fa.fa-question-circle.mod-evaluate__question
+                                  .mod-evaluate__value
+                                    %img.mod-evaluate__value-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/common/evaluate_good-20ad032536.png"}/
+                                    %span.mod-evaluate__value-text しやすい
+                                .space-side__owner-eval-innner-list.col-xs-4
+                                  %h4.mod-evaluate__title 返答率(1日以内)
+                                  .mod-evaluate__value
+                                    %img.mod-evaluate__value-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/common/evaluate_good-20ad032536.png"}/
+                                    %span.mod-evaluate__value-text 99.5%
+                                .space-side__owner-eval-innner-list.col-xs-4
+                                  %h4.mod-evaluate__title 返答時間
+                                  .mod-evaluate__value
+                                    %img.mod-evaluate__value-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/common/evaluate_good-20ad032536.png"}/
+                                    %span.mod-evaluate__value-text 数時間以内
+            .space-main.page__space-detail
+              %dl.space-headnote.sm-hide
+                %dt.space-headnote__title 広さ
+                %dd.space-headnote__item #{@space.basic_info.floor_space}㎡
+                %dt.space-headnote__title 収容人数
+                %dd.space-headnote__item 〜#{@space.basic_info.capacity}人
+            %section.space-main__section
+              %h2.space-main__headline スペースについて
+              %div{:itemprop => "description"}
+                .space-expandable
+                  .space-expandable__area
+                    .PreWrap-je2l9m-0.eKVBBP
+                      = simple_format(@space.description.overview)
+                  %p.space-expandable__link
+                    %a.a__underline{:href => "#"}
+                      続きを読む
+                      %i.fa.fa-angle-down.ml5
+            %section.space-main__section
+              %h2.space-main__headline 設備・サービス
+              %div{:itemprop => "description"}
+                .space-expandable
+                  .space-expandable__area
+                    .PreWrap-je2l9m-0.eKVBBP
+                      = simple_format(@space.description.about_facilities)
+                  %p.space-expandable__link
+                    %a.a__underline{:href => "#"}
+                      続きを読む
+                      %i.fa.fa-angle-down.ml5
+                      / ここから画像
+            %section.space-main__section
+              .row-change__4.sm-hide.DetailPhotos__RowChangedBox-sc-8x04cx-4.iORvhO
+                .col-xs-12.col-sm-6.space-main__photo-1
+                  .sc-8x04cx-0-DetailPhotos__Thumbnail-gwaKry.cePUcS
+                    %a{:href => "#", :target => "_blank"}
+                      %picture
+                        %img.subImages{:src => "#{@space.space_image.image_files.main.first.file}"}/
+
+                .col-xs-12.col-md-6.sm-hide
+                  .mb8.sc-8x04cx-0-DetailPhotos__Thumbnail-gGFLOq.dWTMzZ
+                    %a{:href => "#", :target => "_blank"}
+                      %picture
+                      - if @sub_images[0].file
+                        = image_tag(@sub_images[0].file, class: "subImages")
+
+                  .sc-8x04cx-0-DetailPhotos__Thumbnail-gGFLOq.dWTMzZ
+                    %a{:href => "#", :target => "_blank"}
+                      %picture
+                      - if @sub_images[1].file
+                        = image_tag(@sub_images[1].file, class: "subImages")
+
+              .DetailPhotos__RowChangedBox-sc-8x04cx-4.iORvhO
+                .col-xs-12.col-md-4
+                  .sc-8x04cx-0-DetailPhotos__Thumbnail-sHjMC.bAeWjN
+                    %a{:href => "#", :target => "_blank"}
+                      %picture
+                      - if @sub_images[2].file
+                        = image_tag(@sub_images[2].file, class: "subImages")
+
+                .col-xs-12.col-md-4
+                  .sc-8x04cx-0-DetailPhotos__Thumbnail-sHjMC.bAeWjN
+                    %a{:href => "#", :target => "_blank"}
+                      %picture
+                      -if @sub_images[3]
+                        = image_tag(@sub_images[3].file, class: "subImages")
+
+                .col-xs-12.col-md-4
+                  .sc-8x04cx-0-DetailPhotos__Thumbnail-sHjMC.bAeWjN
+                    %a{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+                      %picture
+                      - if @sub_images[4]
+                        = image_tag(@sub_images[4].file, class: "subImages")
+
+                      .DetailPhotos__PhotoViewMore-sc-8x04cx-1.KUuKa
+                        .DetailPhotos__ViewMoreText-sc-8x04cx-3.eVLLML
+                          %i{class: @sub_images[4] ? "fa fa-camera" : "fa fa-camera skyblue" }
+                          %p.skyblueすべての写真を見る
+                          / ここから使用用途割合
+            %section.space-main__section.clearfix.space-main__usage
+              %h2.space-main__headline このスペースはこんな用途で使われています
+              %ul
+                %li.space-main__usage-list
+                  %p.space-main__usage-name 会議・研修
+                  .progress
+                    .progress-bar.progress-bar-info{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "76", :role => "progressbar", :style => "width:76%"}
+                  %p.space-main__usage-per 76％
+                %li.space-main__usage-list
+                  %p.space-main__usage-name イベント
+                  .progress
+                    .progress-bar.progress-bar-info{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "76", :role => "progressbar", :style => "width:10%"}
+                  %p.space-main__usage-per 10％
+                %li.space-main__usage-list
+                  %p.space-main__usage-name その他
+                  .progress
+                    .progress-bar.progress-bar-info{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "76", :role => "progressbar", :style => "width:6%"}
+
+                  %p.space-main__usage-per 6％
+                %li.space-main__usage-list
+                  %p.space-main__usage-name 写真撮影
+                  .progress
+                    .progress-bar.progress-bar-info{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "76", :role => "progressbar", :style => "width:5%"}
+                  %p.space-main__usage-per 5％
+                  / ここからマップ
+            %section.space-main__section-big.pace-main__maparea.sm-hide
+              %h2.space-main__headline-big.sm-hide アクセス
+              .space-main__map
+                .EmbeddedMap__Container-sc-4lm01h-0.lggilP
+                  %iframe.EmbeddedMap__MapFrame-sc-4lm01h-1.bJrQZW{:height => "450", :width => "715"}
+              .space-main__access
+                %h2.space-main__access-title 住所
+                %p.space-main__access-content #{@space.equipment_info.prefecture}#{@space.equipment_info.city_name}#{@space.equipment_info.street_name}
+                %h2.space-main__access-title アクセス
+                .PreWrap-je2l9m-0.eKVBBP
+                  %p.space-main__access-content
+                    = @space.equipment_info.access
+                %p.space-main__access-link
+                  %a{:href => "#", :target => "_blank"}
+                    %i.fa.fa-map.mr5>
+                    GoogleMapで場所を確認する
+          .space-main
+            %section.space-main__section-big.space-main__planarea
+              %h2.space-main__headline-big プラン一覧
+              .space-plan
+                %ul.space-plan__list
+                  %li.space-plan__item
+                    %h3.space-plan__title #{@space.plan.name}
+                    %ul.space__reserveinfo.space-plan__reserveinfo
+                      %li.space__reserveinfo-now.space__reserveinfo-item
+                        %i.fa.fa-bolt.fa-lg.icon-direct.mr5>
+                        今すぐ予約OK
+                        %span.mod-evaluate__help
+                          %i.fa.fa-question-circle.mod-evaluate__question
+                    %ul.space-plan__info
+                      %li.space-plan__info-item.space-plan__info-time
+                        %i.far.fa-clock>
+                        最低利用時間1時間〜
+                    %p.space-plan__description #{@space.plan.about_plan}
+                    %p.space-plan__link
+                      %a.space-plan__link-button{:href => "#"}
+                        %i.fa.fa-angle-right.mr3>
+                        このプランで予約する
+                %div
+                .space-plan__option
+                  %h3.space-plan__op-title オプション追加料金
+            .bottom__request-area.pc-hide__sm-show
+              %a.btn__large.btn__style.bg_blue{:href => "#"}
+            %section.space-expandable.space-plan__amenity
+              %h3.space-main__headline-big アメニティ
+              .space-expandable__area
+                .space-expandable__area-text
+                  %ul.row
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.dnGRNY
+                      %i.icon.icon-spm-tables
+                      テーブル
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.dnGRNY
+                      %i.icon.icon-spm-chairs>
+                      椅子
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.dnGRNY
+                      %i.icon.icon-spm-projector>
+                      プロジェクター
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-parking>
+                      駐車場
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.dnGRNY
+                      %i.icon.icon-spm-wifi>
+                      WIFI
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.dnGRNY
+                      %i.icon.icon-spm-whiteboard>
+                      ホワイトボード
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-printer>
+                      プリンター
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-kitchen_facilities>
+                      キッチン設備
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-kitchen_equipment>
+                      調理機材
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-tv>
+                      テレビ
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-lockers>
+                      ロッカー
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-catering_services>
+                      ケータリング
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-bar>
+                      バー
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-sound_system>
+                      音響設備
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-mirrors>
+                      ミラー
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-showers>
+                      シャワー
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-changing_room>
+                      更衣室
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.dnGRNY
+                      %i.icon.icon-spm-lighting_equipment>
+                      照明設備
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-photography_equipment>
+                      写真撮影機材
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-film_equipment>
+                      動画撮影機材
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-public_transportation>
+                      公共交通機関
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.dnGRNY
+                      %i.icon.icon-spm-toilet>
+                      トイレ
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-refrigerator>
+                      冷蔵庫
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.dnGRNY
+                      %i.icon.icon-spm-power_equipment>
+                      電源
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.dnGRNY
+                      %i.icon.icon-spm-air_conditioner>
+                      冷暖房
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.dnGRNY
+                      %i.icon.icon-spm-restaurant>
+                      周辺に飲食店
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.dnGRNY
+                      %i.icon.icon-spm-market>
+                      スーパー/コンビニ
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-accessibility>
+                      バリアフリー
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-drinking>
+                      飲酒可
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-pet>
+                      ペット可
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-child>
+                      子連れ可
+                    %li.col-xs-6.col-md-4.DetailAmenities__AmenityItem-sc-6rr7s4-0.ftKqyf
+                      %i.icon.icon-spm-smoking>
+                      喫煙可
+              %p.space-expandable__link
+                %a.a__underline{:href => "#"}
+                  続きを読む
+                  %i.fa.fa-angle-down.ml5
+            %section.space-main__section-big
+              %h2.space-main__headline-big レビュー
+              %ul.mod-review__head{:itemprop => "aggregateRating", :itemscope => "", :itemtype => "http://schema.org/AggregateRating"}
+                %li.mod-review__head-star
+                  %span.ReputationStar__StarIconWrapper-sc-1mfd4yz-0.TocKy
+                    %a.ReputationStar__Star-sc-1mfd4yz-3.jOgxfq
+                      %i.fa.fa-star.ReputationStar__StarIcon-sc-1mfd4yz-1.gtGJNd
+                    %a.ReputationStar__Star-sc-1mfd4yz-3.jOgxfq
+                      %i.fa.fa-star.ReputationStar__StarIcon-sc-1mfd4yz-1.gtGJNd
+                    %a.ReputationStar__Star-sc-1mfd4yz-3.jOgxfq
+                      %i.fa.fa-star.ReputationStar__StarIcon-sc-1mfd4yz-1.gtGJNd
+                    %a.ReputationStar__Star-sc-1mfd4yz-3.jOgxfq
+                      %i.fa.fa-star.ReputationStar__StarIcon-sc-1mfd4yz-1.gtGJNd
+                    %a.ReputationStar__Star-sc-1mfd4yz-3.jOgxfq
+                      %i.fa.fa-star.ReputationStar__StarIcon-sc-1mfd4yz-1.dKrvFl
+                %li.mod-review__head-rating{:itemprop => "ratingValue"} 4.37
+                %li.relative{:itemprop => "reviewCount"}
+                  %a.space-head__list-number{:href => "#"} 67件すべて読む
+              .mod-review__box
+                .mod-review__line.clearfix.bd-n
+                  %a{:href => "#"}
+                    %img.is-hover.mod-review__guest-icon{:alt => "", :href => ""}/
+                  .mod-review__box-head{:itemprop => "review", :itemscope => "", :itemtype => "http://schema.org/Review"}
+                    %h3.mod-review__guest-name.link__subcolor{:itemprop => "author", :itemscope => "", :itemtype => "http://schema.org/Person"}
+                      %a{:href => "#"}
+                        %span{:itemprop => "name"} K.A
+                    %ul.mod-review__list
+                      %li 2018年9月23日実施
+                      %li
+                        利用目的：
+                        %a{:href => "#"} 会議・研修
+                  .mod-review__box-text
+                    %p 綺麗で気に入っています。また利用させていただきます。
+                .mod-review__line.clearfix.bd-n
+                  %a{:href => "#"}
+                    %img.is-hover.mod-review__guest-icon{:alt => "", :src => "https://cdnspacemarket.com/uploads/users/223646/eb651c3b9ce2e219c0dddc396fc27d38.jpeg"}/
+                  .mod-review__box-head{:itemprop => "review", :itemscope => "", :itemtype => "http://schema.org/Review"}
+                    %h3.mod-review__guest-name.link__subcolor{:itemprop => "author", :itemscope => "", :itemtype => "http://schema.org/Person"}
+                      %a{:href => "#"}
+                        %span{:itemprop => "name"} Takahisa Fujiwara
+                    %ul.mod-review__list
+                      %li 2018年9月21日実施
+                      %li
+                        利用目的：
+                        %a{:href => "#"} イベント
+                  .mod-review__box-text
+                    %p 勉強会に使用させていただきました。人数が上限に逹しておりましたが、必要十分な広さと設備で良かったと思います。トイレにもハンドープがありますと、より良いかと思います。洗面台にはハンドープがあることに気づきませんでした。両方あると嬉しいです。
+                .mod-review__line.clearfix.bd-n
+                  %a{:href => "#"}
+                    %img.is-hover.mod-review__guest-icon{:alt => "", :src => "https://cdnspacemarket.com/images/api/default_user.png"}/
+                  .mod-review__box-head{:itemprop => "review", :itemscope => "", :itemtype => "http://schema.org/Review"}
+                    %h3.mod-review__guest-name.link__subcolor{:itemprop => "author", :itemscope => "", :itemtype => "http://schema.org/Person"}
+                      %a{:href => "#"}
+                        %span{:itemprop => "name"} 桐原 美晴
+                    %ul.mod-review__list
+                      %li 2018年9月21日実施
+                      %li
+                        利用目的：
+                        %a{:href => "https://www.spacemarket.com/event_types/class"} 会議・研修
+                  .mod-review__box-text
+                    %p
+                      スペースをお貸しいただき、ありがとうございました！
+                      とても清潔で、会議にはもってこいでした。機会があればまたお借りしたいと思います。
+              %p.ta-r
+                %a{:href => "#"}
+                  レビューをもっと見る
+                  %i.fa.fa-angle-right.ml10
+            %section.space-main__section-big.space-main__hostarea
+              %h2.space-main__headline-big 管理者
+              .space-main__host
+                .mod-host__icon-inner
+                  %a{:href => "#"}
+                    %img.is-hover.space-main__host-icon{:alt => "TOKYO24", :src => "https://cdnspacemarket.com/uploads/owners/4812/7bd75c34389fe7166ff0ce3bf167a94a.jpg?fit=crop&width=500&height=500&bg-color=9c9c9c"}/
+                .space-main__host-info
+                  .space-main__host-namearea
+                    %h3.space-main__host-name.link__subcolor.mr10{:itemprop => "legalName"}
+                      %a{:href => "https://www.spacemarket.com/owners/tokyo24"} TOKYO24
+                    %p.space-main__host-date
+                      登録日
+                      %span.space-main__host-date-days 2017/06/21
+                  %p.space-main__host-text
+                    管理しているお部屋は頻繁に清掃を行っており清潔です。
+                    どうぞ快適にご利用下さいませ。
+                  %p.space-main__host-more
+                    %a{:href => "#"} ホストについてもっと詳しく
+              .space-main__authentication
+                %img.space-main__authentication-icon{:alt => "スペースマーケット認証マーク", :src => "//cdnspacemarket.com/packs-production/images/www/common/confirm-1c6ae829c8.svg"}/
+                %p.space-main__authentication-headline スペースマーケットによって認証されたホストです。
+    .page__even.space-main__attention
+      .wrapper
+        .contents
+          %section.space-main__section-big
+            %h2.space-main__headline-big
+              注意事項
+              %span.space-main__attention-sub ※ご予約の際は必ずお読みください
+            %dl.space-main__attention-info
+              %dt 後片付け・ゴミについて
+              %dd
+                ※※ゴミは必ずお持ち帰り下さい。※※
+                清掃時にゴミを発見した場合は別途クリーニング料を頂戴します。
+              %dt 飲食について
+              %dd
+                飲食持ち込み可能ですが、会議室内にゴミ箱は置いておりません。
+                その為必ずゴミは持ち帰るようにお願い致します。
+                また必ず現状回復をお願い致します。
+                清掃時にゴミを発見した場合は別途クリーニング料を頂戴します。
+                また、アルコールの持ち込みも禁止です。
+              %dt お支払い方法
+              %dd
+                %ul.space-main__payment
+                  %li
+                    クレジットカード
+                    .cards-lineup
+                      .cards-lineup
+                        %img{:alt => "Visa", :src => "//cdnspacemarket.com/packs-production/images/www/common/card_visa-a089993c44.png"}/
+                        %img{:alt => "MasterCard", :src => "//cdnspacemarket.com/packs-production/images/www/common/card_master-60810095ea.png"}/
+                        %img{:alt => "JCB", :src => "//cdnspacemarket.com/packs-production/images/www/common/card_jcb-fec5f9748d.png"}/
+                        %img{:alt => "American Express", :src => "//cdnspacemarket.com/packs-production/images/www/common/card_amex-94148abedc.png"}/
+                        %img{:alt => "Diners Club", :src => "//cdnspacemarket.com/packs-production/images/www/common/card_diners-caa18a4480.png"}/
+                        %img{:alt => "Discover", :src => "//cdnspacemarket.com/packs-production/images/www/common/card_discover-d18cc33a57.png"}/
+                  %li
+                    銀行振込（後払い）
+                    %span.space-main__payment-attention ※法人利用のみ
+                %a{:href => "https://help.spacemarket.com/hc/ja/articles/217748737", :target => "_blank"} 決済方法について詳細はこちら
+              %dt キャンセル料金
+              %dd
+                予約がホストにより承認された後にキャンセルする場合は必ず所定の料金がかかります。キャンセル料金について詳しくはこちらをご確認ください。
+                %br/
+                %a{:href => "https://www.spacemarket.com/spaces/tokyo24-shibuya2/rooms/cFTFaqJL0EiPHDd4/cancel_policy"} キャンセルポリシー
+              %dt 注意事項
+              %dd
+                %a{:href => "https://www.spacemarket.com/spaces/tokyo24-shibuya2/rooms/cFTFaqJL0EiPHDd4/terms"} ゲスト規約
+                %br/
+                %a{:href => "https://help.spacemarket.com/hc/ja/articles/218429038", :target => "_blank"} 請求書について
+              %dt お問い合わせ
+              %dd
+                %a{:href => "#"} スペースへのお問い合わせ
+              %dt 利用可能な用途
+              %dd.none-border
+                %ul.attention-info__list
+                  %li
+                    %a{:href => "#"} 会議・研修
+                  %li
+                    %a{:href => "#"} 写真撮影
+                  %li
+                    %a{:href => "#"} イベント
+                  %li
+                    %a{:href => "#"} 個展・展示会
+                  %li
+                    %a{:href => "#"} オフィス
+                  %li
+                    %a{:href => "#"} その他
