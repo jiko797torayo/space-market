@@ -7,6 +7,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'user', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %script{:crossorigin => "anonymous", :defer => "defer", :integrity => "sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9", :src => "https://use.fontawesome.com/releases/v5.1.0/js/all.js"}
+    %script{async: true, defer: true, src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC34tbIgHyvUZesgfZJ1ORRRk2N3e87ITo&callback=initMap", type: "text/javascript"}
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"}
   %body
     = yield

@@ -30,5 +30,8 @@ class SearchController < ApplicationController
         gon.purpose_key = purpose
       end
     end
+    @map = EquipmentInfo.where(space_id: 1)[0]
+    gon.space_latitude = @map.latitude
+    gon.space_longitude = @map.longitude
   end
 end
