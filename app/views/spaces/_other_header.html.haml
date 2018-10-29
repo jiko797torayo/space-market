@@ -1,65 +1,66 @@
-.site-header__sponsoredmatch.site-header__sponsoredmatch_type1
-  .site-header__sponsoredmatch.site-
-    .site-header__sponsoredmatch.site-header__sponsoredmatch_type1
-.other-header
-  .site-header.clearfix.HeaderContainer__SiteHeader-sc-1dznt2s-0.ldcZBj
-    %div
-      %p.fl
-        = link_to "スペースマーケット", root_path, class: "site-header__logo"
-    %div
-      %ul.site-header__category
-        %li.site-header__search-menu-item
-          %a.site-header__search-menu-button{:href => "#"} パーティー
-        %li.site-header__search-menu-item
-          %a.site-header__search-menu-button{:href => "#"} 会議
-        %li.site-header__search-menu-item
-          %a.site-header__search-menu-button{:href => "#"} 写真撮影
-        %li.site-header__search-menu-item
-          %a.site-header__search-menu-button{:href => "#"} 民泊
-        %li.site-header__search-menu-item.site-header__search-menu-item-others
-          %a.site-header__search-menu-button{:href => "#"} その他
-          %i.fa.fa-caret-down
-          %select.CategorySearchHeader__SelectBox-mctj7e-0.jkvhPY{:name => "others"}
-            %option{:value => ""}
-            %option{:value => "film_shoot"} ロケ撮影
-            %option{:value => "studio"} 展示会
-            %option{:value => "performance"} 演奏
-            %option{:value => "sports"} スポーツ
-            %option{:value => "office"} オフィス
-            %option{:value => "wedding"} 結婚式
-            %option{:value => "event"} イベント
-            %option{:value => "other"} その他
-    .site-header--float
-      %ul.site-header__nav.sm-hide
-        %li.site-header__nav-user-name.link-black.link-borderless
-          %i.fa.fa-caret-down
-        %li
-          = link_to root_path, class: "site-header__nav-user" do
-            = image_tag current_user.icon, class: "site-header__nav-user"
-        %li
-          = link_to root_path, class: "site-header__nav-message" do
-            %i.fa.fa-envelope
-        %li
-          = link_to "ヘルプ", root_path, class: "site-header__nav-help link-black link-borderless help__text"
-        %li
-          = link_to "予約", root_path, class: "site-header__nav-reservation link-black"
-        %li
-          = link_to "お気に入り", root_path, class: "site-header__nav-favorite link-black"
-        %li
-          = link_to "ホスト", root_path, class: "site-header__nav-owner link-black"
+.site-other-header
+  .site-header__sponsoredmatch.site-header__sponsoredmatch_type1
+    .site-header__sponsoredmatch.site-
+      .site-header__sponsoredmatch.site-header__sponsoredmatch_type1
+  .other-header
+    .site-header.clearfix.HeaderContainer__SiteHeader-sc-1dznt2s-0.ldcZBj
+      %div
+        %p.fl
+          = link_to "スペースマーケット", root_path, class: "site-header__logo"
+      %div
+        %ul.site-header__category
+          %li.site-header__search-menu-item
+            %a.site-header__search-menu-button{:href => "#"} パーティー
+          %li.site-header__search-menu-item
+            %a.site-header__search-menu-button{:href => "#"} 会議
+          %li.site-header__search-menu-item
+            %a.site-header__search-menu-button{:href => "#"} 写真撮影
+          %li.site-header__search-menu-item
+            %a.site-header__search-menu-button{:href => "#"} 民泊
+          %li.site-header__search-menu-item.site-header__search-menu-item-others
+            %a.site-header__search-menu-button{:href => "#"} その他
+            %i.fa.fa-caret-down
+            %select.CategorySearchHeader__SelectBox-mctj7e-0.jkvhPY{:name => "others"}
+              %option{:value => ""}
+              %option{:value => "film_shoot"} ロケ撮影
+              %option{:value => "studio"} 展示会
+              %option{:value => "performance"} 演奏
+              %option{:value => "sports"} スポーツ
+              %option{:value => "office"} オフィス
+              %option{:value => "wedding"} 結婚式
+              %option{:value => "event"} イベント
+              %option{:value => "other"} その他
+      .site-header--float
+        %ul.site-header__nav.sm-hide
+          %li.site-header__nav-user-name.link-black.link-borderless
+            %i.fa.fa-caret-down
+          %li
+            = link_to root_path, class: "site-header__nav-user" do
+              = image_tag current_user.icon, class: "site-header__nav-user"
+          %li
+            = link_to root_path, class: "site-header__nav-message" do
+              %i.fa.fa-envelope
+          %li
+            = link_to "ヘルプ", root_path, class: "site-header__nav-help link-black link-borderless help__text"
+          %li
+            = link_to "予約", root_path, class: "site-header__nav-reservation link-black"
+          %li
+            = link_to "お気に入り", root_path, class: "site-header__nav-favorite link-black"
+          %li
+            = link_to "ホスト", root_path, class: "site-header__nav-owner link-black"
 
-.site-main
-  .Breadcrumbs-sc-1qbqhcr-0.dsvKPy
-    %ol{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
-      %li.Breadcrumbs__BreadcrumbsItem-sc-1qbqhcr-1.bTNhRS
-        %a.Breadcrumbs__BreadcrumbsItemLink-sc-1qbqhcr-2.gDRZcs{:href => "/"}
-          %span トップ &nbsp; > &nbsp;
-      %li.Breadcrumbs__BreadcrumbsItem-sc-1qbqhcr-1.bTNhRS
-        %a.Breadcrumbs__BreadcrumbsItemLink-sc-1qbqhcr-2.gDRZcs{:href => "#"}
-          %span #{@space.equipment_info.prefecture} &nbsp; > &nbsp;
-      %li.Breadcrumbs__BreadcrumbsItem-sc-1qbqhcr-1.bTNhRS
-        %a.Breadcrumbs__BreadcrumbsItemLink-sc-1qbqhcr-2.gDRZcs{:href => "#"}
-          %span #{@space.description.catch_copy} &nbsp; > &nbsp;
-      %li.Breadcrumbs__BreadcrumbsItem-sc-1qbqhcr-1.bTNhRS
-        %span #{@space.description.catch_copy}
+  .site-main
+    .Breadcrumbs-sc-1qbqhcr-0.dsvKPy
+      %ol{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+        %li.Breadcrumbs__BreadcrumbsItem-sc-1qbqhcr-1.bTNhRS
+          %a.Breadcrumbs__BreadcrumbsItemLink-sc-1qbqhcr-2.gDRZcs{:href => "/"}
+            %span トップ &nbsp; > &nbsp;
+        %li.Breadcrumbs__BreadcrumbsItem-sc-1qbqhcr-1.bTNhRS
+          %a.Breadcrumbs__BreadcrumbsItemLink-sc-1qbqhcr-2.gDRZcs{:href => "#"}
+            %span #{@space.equipment_info.prefecture} &nbsp; > &nbsp;
+        %li.Breadcrumbs__BreadcrumbsItem-sc-1qbqhcr-1.bTNhRS
+          %a.Breadcrumbs__BreadcrumbsItemLink-sc-1qbqhcr-2.gDRZcs{:href => "#"}
+            %span #{@space.description.catch_copy} &nbsp; > &nbsp;
+        %li.Breadcrumbs__BreadcrumbsItem-sc-1qbqhcr-1.bTNhRS
+          %span #{@space.description.catch_copy}
 
