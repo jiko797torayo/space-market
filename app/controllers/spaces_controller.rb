@@ -1,8 +1,8 @@
 class SpacesController < ApplicationController
 
   before_action :check_current_user, only: [:edit, :update]
-  before_action :set_space, only: [:edit, :update]
-  
+  before_action :set_space, only: [:edit, :update, :show]
+
   def index
     @party_spaces = Space.published.party.by_likes_count.limit(3)
     @meeting_spaces = Space.published.meeting.by_likes_count.limit(3)
@@ -30,6 +30,10 @@ class SpacesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show
+    @sub_images = @space.space_image.image_files.sub
   end
 
   private
