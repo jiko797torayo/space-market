@@ -12,7 +12,9 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to action: 'show', id: @reservation.id
     else
+      flash[:notice] = "過去の日付は予約できません"
       redirect_to action: 'new'
+
     end
   end
 

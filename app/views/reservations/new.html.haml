@@ -77,7 +77,9 @@
                       %legend.reserve-subtitle 利用期間
                       .js-monthly-table__container.reserve-card.sm-hide__guteter{:style => "position: relative;"}
                         .reserve-card__inner.clearfix
-                          #calendar
+                        - if flash[:notice]
+                          = flash[:notice]
+                        #calendar
 
                   .reserve-next
                     %i.fa.fa-chevron-down
