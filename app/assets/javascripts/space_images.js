@@ -1,4 +1,5 @@
-$(document).on("turbolinks:load", function() {
+$(document).on('turbolinks:load', function() {
+//画像追加画面
   $('#space_image_image_files_attributes_0_file').on('change', function (e) {
     //ファイルサイズ超過時のアラート
     var size_in_megabytes = this.files[0].size/1024/1024;
@@ -9,8 +10,8 @@ $(document).on("turbolinks:load", function() {
       //プレビュー
       var reader = new FileReader();
       reader.onload = function (e) {
-        $("#preview0").empty();
-        $("#preview0").attr('src', e.target.result);
+        $('#preview0').empty();
+        $('#preview0').attr('src', e.target.result);
       };
       reader.readAsDataURL(e.target.files[0]);
       //カードを表示
@@ -28,8 +29,8 @@ $(document).on("turbolinks:load", function() {
     } else {
       var reader = new FileReader();
       reader.onload = function (e) {
-        $("#preview1").empty();
-        $("#preview1").attr('src', e.target.result);
+        $('#preview1').empty();
+        $('#preview1').attr('src', e.target.result);
       };
       reader.readAsDataURL(e.target.files[0]);
       $('#photocard1').removeClass('hidden');
@@ -44,8 +45,8 @@ $(document).on("turbolinks:load", function() {
     } else {
       var reader = new FileReader();
       reader.onload = function (e) {
-        $("#preview2").empty();
-        $("#preview2").attr('src', e.target.result);
+        $('#preview2').empty();
+        $('#preview2').attr('src', e.target.result);
       };
       reader.readAsDataURL(e.target.files[0]);
       $('#photocard2').removeClass('hidden');
@@ -60,8 +61,8 @@ $(document).on("turbolinks:load", function() {
     } else {
       var reader = new FileReader();
       reader.onload = function (e) {
-        $("#preview3").empty();
-        $("#preview3").attr('src', e.target.result);
+        $('#preview3').empty();
+        $('#preview3').attr('src', e.target.result);
       };
       reader.readAsDataURL(e.target.files[0]);
       $('#photocard3').removeClass('hidden');
@@ -76,8 +77,8 @@ $(document).on("turbolinks:load", function() {
     } else {
       var reader = new FileReader();
       reader.onload = function (e) {
-        $("#preview4").empty();
-        $("#preview4").attr('src', e.target.result);
+        $('#preview4').empty();
+        $('#preview4').attr('src', e.target.result);
       };
       reader.readAsDataURL(e.target.files[0]);
       $('#photocard4').removeClass('hidden');
