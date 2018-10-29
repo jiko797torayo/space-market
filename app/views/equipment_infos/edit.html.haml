@@ -1,0 +1,263 @@
+= render 'new_space/header_float'
+.main-contents-with-hint__inner
+  = form_for @equipment_info, html: { class: "main-contents-with-hint__wrapper" }  do |f|
+    .main-contents-with-hint__main-wrapper
+      .main-contents-with-hint__main
+        .space-info-page__title-container
+          .space-info-page__title 1 施設情報
+          .space-info-page__description スペースの場所や連絡先に関する情報です。
+        %div
+          //郵便番号
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                = f.label :postal_code, "必須", class: "form-section-title__required-label"
+                .form-section-title__title 郵便番号
+              .form-section-title__description ハイフンなしの半角数字。入力すると住所が自動補完されます。
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  = f.text_field :postal_code, placeholder: "郵便番号", class: "ant-input ant-input-lg"
+                .form-item__footer-wrapper
+                  %p.form-item__footer 例）1600023
+                - if @equipment_info.errors[:postal_code].any?
+                  %ul.form-item__errors-wrapper
+                    - @equipment_info.errors.messages[:postal_code].each do |msg|
+                      %li
+                        %i.fas.fa-exclamation-circle
+                        = msg
+          //都道府県・市区町村
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                = f.label :prefecture, "必須", class: "form-section-title__required-label"
+                .form-section-title__title 都道府県・市区町村
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              .parts-container
+                .parts-container__container
+                  %div
+                    .input-container__container
+                      = f.select :prefecture, EquipmentInfo.prefectures.keys, { include_blank: true }, { class: "ant-input ant-input-lg" }
+                .parts-container__container
+                  %div
+                    .input-container__container
+                      = f.text_field :city_name, placeholder: "市区町村", class: "ant-input ant-input-wd"
+                    .form-item__footer-wrapper
+                      %p.form-item__footer 例）新宿区
+            - if @equipment_info.errors[:prefecture].any?
+              %ul.form-item__errors-wrapper
+                - @equipment_info.errors.messages[:prefecture].each do |msg|
+                  %li
+                    %i.fas.fa-exclamation-circle
+                    = msg
+            - if @equipment_info.errors[:city_name].any?
+              %ul.form-item__errors-wrapper
+                - @equipment_info.errors.messages[:city_name].each do |msg|
+                  %li
+                    %i.fas.fa-exclamation-circle
+                    = msg
+          //町名・番地
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                = f.label :street_name, "必須", class: "form-section-title__required-label"
+                .form-section-title__title 町名・番地
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  = f.text_field :street_name, placeholder: "町名・番地", class: "ant-input ant-input-wd"
+                .form-item__footer-wrapper
+                  %p.form-item__footer 例）西新宿6-15-1
+                - if @equipment_info.errors[:street_name].any?
+                  %ul.form-item__errors-wrapper
+                    - @equipment_info.errors.messages[:street_name].each do |msg|
+                      %li
+                        %i.fas.fa-exclamation-circle
+                        = msg
+          //ビル名・部屋番号
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                = f.label :building_name, "任意", class: "form-section-title__required-label not-required"
+                .form-section-title__title ビル名・部屋番号
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  = f.text_field :building_name, placeholder: "ビル名・部屋番号", class: "ant-input ant-input-wd"
+                .form-item__footer-wrapper
+                  %p.form-item__footer 例）ラ・トゥール新宿608号室
+          //地図の設定　FIXME Googlemap導入
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                = f.label :latitude, "必須", class: "form-section-title__required-label"
+                .form-section-title__title 地図の設定
+              .form-section-title__description ドラッグ&ドロップでピンの位置を変更できます。
+            .create-space-sections__from-wrapper
+              = f.text_field :latitude, value: 35.6618, class: "ant-input ant-input-wd"
+              = f.text_field :longitude, value: 139.7041, class: "ant-input ant-input-wd"
+              .create-space-sections__form-item-map-wrapper
+          //アクセス
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                = f.label :access, "必須", class: "form-section-title__required-label"
+                .form-section-title__title アクセス
+              .form-section-title__description 最寄駅からの歩き方や所要時間、高速道路の出口などを入力してください。
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  = f.text_area :access, placeholder: "アクセス", class: "ant-input ant-input-area"
+                .form-item__footer-wrapper
+                  %p.form-item__footer 例）JR新宿駅西口より徒歩7分
+                - if @equipment_info.errors[:access].any?
+                  %ul.form-item__errors-wrapper
+                    - @equipment_info.errors.messages[:access].each do |msg|
+                      %li
+                        %i.fas.fa-exclamation-circle
+                        = msg
+          //電話番号
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                = f.label :phone_number, "必須", class: "form-section-title__required-label"
+                .form-section-title__title 電話番号
+              .form-section-title__description この情報は予約が確定次第ゲストに送信される利用日程表で開示されます。
+            .create-space-sections__from-wrapper
+              %div
+                .input-container__container
+                  = f.text_field :phone_number, placeholder: "電話番号", class: "ant-input ant-input-lg"
+                .form-item__footer-wrapper
+                  %p.form-item__footer 例）09012345678        
+                - if @equipment_info.errors[:phone_number].any?
+                  %ul.form-item__errors-wrapper
+                    - @equipment_info.errors.messages[:phone_number].each do |msg|
+                      %li
+                        %i.fas.fa-exclamation-circle
+                        = msg
+          //施設の種類
+          .create-space-sections__section
+            .form-section-title__container
+              .form-section-title__title-container
+                = f.label :equipment_type, "必須", class: "form-section-title__required-label"
+                .form-section-title__title 施設の種類
+              .form-section-title__description
+            .create-space-sections__from-wrapper
+              //FIXME 選択できるようにCSS当ててください
+              .radio-list__container
+                .ant-radio-group
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :イベントスペース, class: "ant-radio-input"
+                        %span.ant-radio-inner                      
+                      %span イベントスペース
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :結婚式場, class: "ant-radio-input"
+                        %span.ant-radio-inner 
+                      %span 結婚式場
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :オフィススペース, class: "ant-radio-input"
+                        %span.ant-radio-inner 
+                      %span オフィススペース
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :ホール, class: "ant-radio-input"
+                        %span.ant-radio-inner 
+                      %span ホール
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :貸し会議室, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span 貸し会議室
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :スタジオ, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span スタジオ
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :カフェ, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span カフェ
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :レストラン, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span レストラン
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :映画館, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span 映画館
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :ギャラリー, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span ギャラリー
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :バー, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span バー
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :スポーツ施設, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span スポーツ施設
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :ホテル, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span ホテル
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :住宅, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span 住宅
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :倉庫, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span 倉庫
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :ワイナリー・蔵, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span ワイナリー・蔵
+                  %span.radio-list__wrapper
+                    %label.ant-radio-wrapper
+                      %span.ant-radio
+                        = f.radio_button :equipment_type, :その他, class: "ant-radio-input"
+                        %span.ant-radio-inner
+                      %span その他
+              - if @equipment_info.errors[:equipment_type].any?
+                %ul.form-item__errors-wrapper
+                  - @equipment_info.errors.messages[:equipment_type].each do |msg|
+                    %li
+                      %i.fas.fa-exclamation-circle
+                      = msg
+    .float-bottom__container
+      .float-bottom__line
+      .float-bottom__content
+        = f.submit "保存", class: "btn btn-default button-base__button-component green-btn"

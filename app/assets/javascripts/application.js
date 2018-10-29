@@ -14,4 +14,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require moment
+//= require fullcalendar
+//= require fullcalendar/locale-all
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $('#calendar').fullCalendar({});
+});

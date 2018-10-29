@@ -23,6 +23,10 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'kaminari'
+gem 'gon'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

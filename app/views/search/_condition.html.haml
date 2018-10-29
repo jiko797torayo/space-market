@@ -1,0 +1,31 @@
+.search--condition
+  = form_tag search_search_index_path, method: :get do
+    .search--condition--field
+      .search--condition--field--input.search--condition--field--input__prefecture
+        = select_tag :prefecture_key, options_for_select(EquipmentInfo.prefectures, selected: "#{@exit_prefecture_key}"), class: 'search--condition--field--input--selector', include_blank: true
+        %span.selectbar
+        = label_tag 'field-label', '都道府県'
+    .search--condition--field
+      .search--condition--field--input.search--condition--field--input__prefecture
+        = text_field_tag :price_min_key, params[:price_min_key], placeholder: '', class: 'search--condition--field--input--text', value: "#{@exit_price_min_key}"
+        %span.selectbar
+        = label_tag 'field-label', '最低価格'
+    .search--condition--field
+      .search--condition--field--input.search--condition--field--input__prefecture
+        = text_field_tag :price_max_key, params[:price_max_key], placeholder: '', class: 'search--condition--field--input--text', value: "#{@exit_price_max_key}"
+        %span.selectbar
+        = label_tag 'field-label', '最高価格'
+    .search--condition--field
+      .search--condition--field--input.search--condition--field--input__prefecture
+        = text_field_tag :capacity_key, params[:capacity_key], placeholder: '', class: 'search--condition--field--input--text', value: "#{@exit_capacity_key}"
+        %span.selectbar
+        = label_tag 'field-label', '人数'
+    .search--condition--field
+      .search--condition--field--input.search--condition--field--input__prefecture
+        = select_tag :approval_method_key, options_for_select(Plan.reservation_approval_methods, selected: "#{@exit_approval_method_key}"), class: 'search--condition--field--input--selector', include_blank: true
+        %span.selectbar
+        = label_tag 'field-label', '承認方式'
+    .search--condition--hidden-field
+      = text_field_tag :purpose_key, params[:purpose_key], placeholder: '', class: 'search--condition--field--input--text', value: "#{@exit_purpose_key}"
+    .search--condition--field
+      = submit_tag '詳細検索', class: 'btn btn__condition'

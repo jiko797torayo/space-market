@@ -1,0 +1,107 @@
+.main-contents
+  .main-contents__contents
+    .flow-header__container
+      %h2.flow-header__title スペース掲載
+      .flow-header__description スペースの情報を登録して、スペースを掲載することができます。スペースの編集はいつでも可能です。
+    .status-page__container
+      .status-page__message-wrapper
+        .message__container
+          %span.message__text スペースの作成が完了しました！
+      .status-page__card
+        .edit-publish-feature__container
+          .publish-feature-card__container
+            .publish-feature-card__icon-wrapper
+              %i.fa.fa-home.icon
+            .publish-feature-card__label-container
+              .publish-feature-card__title スペースの作成
+              %p.publish-feature-card__caption 貸し出すスペースの紹介や注意事項、価格、写真などを登録してスペースを作成しましょう。
+          %hr.publish-feature-card__border
+          .publish-feature-card__container
+            %ul.edit-publish-feature__row-list
+              -# 1施設情報
+              %li.edit-publish-feature__row-list-item
+                .setting-row__container
+                  .setting-row__head
+                    - if @space.equipment_info.present?
+                      .setting-row__status.status-ok
+                        %span.status 完了
+                    - else 
+                      .setting-row__status.status-ng
+                        %span.status 未完
+                  .setting-row__item-name 1 施設情報
+                  .setting-row__link-text-wrapper
+                    - if @space.equipment_info.present?
+                      = link_to "編集", edit_equipment_info_path(@space.equipment_info)
+              -# 2基本情報
+              %li.edit-publish-feature__row-list-item
+                .setting-row__container
+                  .setting-row__head
+                    - if @space.basic_info.present?
+                      .setting-row__status.status-ok
+                        %span.status 完了
+                    - else 
+                      .setting-row__status.status-ng
+                        %span.status 未完
+                  .setting-row__item-name 2 基本情報
+                  .setting-row__link-text-wrapper
+                    - if @space.basic_info.present?
+                      = link_to "編集", edit_basic_info_path(@space.basic_info)
+                    - elsif @space.equipment_info.present?
+                      = link_to "追加", new_basic_info_path(space_id: @space)
+              -# 3説明文
+              %li.edit-publish-feature__row-list-item
+                .setting-row__container
+                  .setting-row__head
+                    - if @space.description.present?
+                      .setting-row__status.status-ok
+                        %span.status 完了
+                    - else 
+                      .setting-row__status.status-ng
+                        %span.status 未完
+                  .setting-row__item-name 3 説明文
+                  .setting-row__link-text-wrapper
+                    - if @space.description.present?
+                      = link_to "編集", edit_description_path(@space.description)
+                    - elsif @space.basic_info.present?
+                      = link_to "追加", new_description_path(space_id: @space)
+              -# 4写真
+              %li.edit-publish-feature__row-list-item
+                .setting-row__container
+                  .setting-row__head
+                    - if @space.space_image.present?
+                      .setting-row__status.status-ok
+                        %span.status 完了
+                    - else 
+                      .setting-row__status.status-ng
+                        %span.status 未完
+                  .setting-row__item-name 4 写真
+                  .setting-row__link-text-wrapper
+                    - if @space.space_image.present?
+                      = link_to "編集", edit_space_image_path(@space.space_image)
+                    - elsif @space.description.present?
+                      = link_to "追加", new_space_image_path(space_id: @space)
+              -# 5プラン
+              %li.edit-publish-feature__row-list-item
+                .setting-row__container
+                  .setting-row__head
+                    - if @space.plan.present?
+                      .setting-row__status.status-ok
+                        %span.status 完了
+                    - else 
+                      .setting-row__status.status-ng
+                        %span.status 未完
+                  .setting-row__item-name 5 プラン
+                  .setting-row__link-text-wrapper
+                    - if @space.plan.present?
+                      = link_to "編集", edit_plan_path(@space.plan)
+                    - elsif @space.space_image.present?
+                      = link_to "追加", new_plan_path(space_id: @space)
+    .status-page__bottom
+      .status-page__bottom__text__container
+        - if @space.status == "draft"
+          .status-page__bottom__text__inner 必要な情報をすべて入力すると審査に申請することができます。
+      .status-page__bottom__button__container
+        - if @space.status == "draft"
+          = button_to "掲載審査", space_path(@space), method: :patch, class: "status-page__bottom__button__inner btn", id: "publish-btn", disabled: true
+        - if @space.status == "published"
+          .status-page__bottom__button__inner.published 掲載中です

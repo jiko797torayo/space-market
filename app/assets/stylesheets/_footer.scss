@@ -41,7 +41,7 @@ width: 100%;
   margin: 0 auto;
   .container {
     padding: 0px 15px;
-    max-height: 1170px;
+    margin: 0 auto;
     .site-footer__nav-header {
       padding-bottom: 24px;
       margin-bottom: 24px;
@@ -201,5 +201,11 @@ width: 100%;
     .site-footer__language_menu {
       float: right;
     }
+  }
+}
+footer {
+  a:hover {
+    opacity: 0.8;
+    text-decoration: none;
   }
 }
