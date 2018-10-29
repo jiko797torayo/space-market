@@ -3,6 +3,7 @@ class Reservation < ApplicationRecord
   has_one :reservation_hour, dependent: :destroy
   belongs_to :space
 
-  validates :day,        presence: true
+
+  validates :day, uniqueness: {scope: :space_id}, presence: true, day_validation: true
 end
 
