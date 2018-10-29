@@ -1,11 +1,18 @@
 $(document).on('turbolinks:load', function() {
+  // 初期状態ではサブミットできないように
+  $('.button-disabled.button-blue').prop('disabled', true);
 
+  // 日にち貸しボタンの色変更
+  $('.reserve-type__button-label').click(function() {
+    $(this).css({'background-color':'#60df52', 'color':'#fff'});
+  })
+  // formにクリックされた日付を入力
   function appendForm(date) {
     $('#reserve-day').val(date);
       $('.button-disabled.button-blue').css({'background-color':'#4abfe6','color':'#FFF'});
         $('.button-disabled.button-blue').prop('disabled', false);
   };
-
+  // リザルトにクリックされた日付と値段を入力
   function appendDay(date) {
     var html = `<div class="reserve-price">
                   <dt>料金</dt>
@@ -28,8 +35,47 @@ $(document).on('turbolinks:load', function() {
       $(".reserve-date > dd").append("利用期間を選択して下さい");
       $(".reserve-situation > .reserve-price").remove();
     }
-  }
+  };
+  // 選択された日の色を維持する
+  function keepChecked(){
+    var formVal = $('#reserve-day').val();
+    var checkedDay = $(`[data-date="${formVal}"]`)
+    checkedDay.addClass('checked')
+  };
 
+  // 予約できない曜日を表示
+  function not_wday(){
+    $.each(gon.not_weekday, function(index, wday) {
+      $(wday).addClass('fc-disabled-day')
+    });
+  };
+
+  // 予約できない日を表示
+  function not_day() {
+    $.each(gon.not_day, function(index, not_day) {
+      $(not_day).addClass('fc-disabled-day')
+    });
+  };
+  // 今日の日付を取得
+  function setToday() {
+    var dt = new Date();
+    var y = dt.getFullYear();
+    var m = ("00" + (dt.getMonth()+1)).slice(-2);
+    var d = ("00" + dt.getDate()).slice(-2);
+    var today = y + "-" + m + "-" + d;
+    return today;
+  };
+  // 過去の日付をクリックできないようにする
+  function pastDay(){
+    var today = setToday()
+    var allDay = $('.fc-day')
+    $.each(allDay, function(index, day){
+      if ($(day).data('date') < today )
+        $(day).addClass('fc-disabled-day')
+    })
+  };
+
+  // カレンダー基本設定
   $('#calendar').fullCalendar({
     header: {
     left: 'prev',
@@ -46,7 +92,7 @@ $(document).on('turbolinks:load', function() {
       if ($(this).hasClass('checked')) {
         $(this).removeClass('checked');
         removeForm();
-      } else if ($(this).hasClass('fc-disabled-day')) { $.noop
+      } else if ($(this).hasClass('fc-disabled-day')) {
       } else {
         $('.fc-day').removeClass('checked'),$(this).addClass('checked')
       }
@@ -55,36 +101,13 @@ $(document).on('turbolinks:load', function() {
         appendDay(date)
         appendForm(date)
       };
+    },
+    viewRender: function() {
+      keepChecked()
+      not_wday()
+      not_day()
+      pastDay()
     }
   });
-
-  // 予約できない曜日を表示
-  $(function not_wday(){
-    $.each(gon.not_weekday, function(index, wday) {
-      $(wday).addClass('fc-disabled-day')
-    });
-  });
-  // 別の月に移動した時に予約できない曜日を表示
-  $('.fc-button').click(function click_not_wday() {
-    $.each(gon.not_weekday, function(index, wday) {
-      $(wday).addClass('fc-disabled-day')
-    });
-  });
-  // 予約できない日を表示
-  $(function not_day() {
-    $.each(gon.not_day, function(index, not_day) {
-      $(not_day).addClass('fc-disabled-day')
-    });
-  });
-  // 別の月に移動した時に予約できない日を表示
-  $('.fc-button').click(function click_not_day() {
-    $.each(gon.not_day, function(index, not_day) {
-      $(not_day).addClass('fc-disabled-day')
-    });
-  });
-
-  $('.reserve-type__button-label').click(function() {
-    $(this).css({'background-color':'#60df52', 'color':'#fff'});
-  })
 
 });
