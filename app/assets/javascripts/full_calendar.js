@@ -16,7 +16,7 @@ $(document).on('turbolinks:load', function() {
   function appendDay(date) {
     var html = `<div class="reserve-price">
                   <dt>料金</dt>
-                  <dd>￥${gon.price}</dd>
+                  <dd>￥${gon.price.toLocaleString()}</dd>
                 </div>`
     $(".reserve-date > dd").empty();
     $(".reserve-date > dd").append(date);

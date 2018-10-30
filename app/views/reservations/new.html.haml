@@ -36,7 +36,7 @@
                   .reserve-card__inner.reserve-plan__content.clearfix
                     .reserve-plan__price
                       .reserve-plan__price-number
-                        ￥ #{@space.plan.price_per_day}
+                        ￥ #{number_with_delimiter(@space.plan.price_per_day)}
                         %span.reserve-plan__price-utility
                           \/
                           日
@@ -65,7 +65,7 @@
                             %label.reserve-type__button-label{:for => "reserve-type__radio--daily-29299"}
                               1日価格
                               %span.reserve-type__price
-                                ￥#{@space.plan.price_per_day}
+                                ￥#{number_with_delimiter(@space.plan.price_per_day)}
                                 \/
                                 日
                                 〜
