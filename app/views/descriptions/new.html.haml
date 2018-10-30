@@ -68,5 +68,5 @@
       .float-bottom__line
       .float-bottom__content
         = f.hidden_field :space_id, value: @space_id
-        = f.submit "保存して戻る", class: "btn btn-default button-base__button-component gray-btn"
-        = f.submit "保存して進む", class: "btn btn-default button-base__button-component green-btn"
+        = f.submit "保存して戻る", class: "btn btn-default button-base__button-component gray-btn", id: "submit-btn"
+        = f.submit "保存して進む", class: "btn btn-default button-base__button-component green-btn", id: "submit-btn"
