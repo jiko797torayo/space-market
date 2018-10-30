@@ -19,30 +19,31 @@
                 .photo-form__add
                   %label.photo-form__add__mask
                     %i.fa.fa-plus.icon
-                    %span 新規写真の追加
-                    = img.file_field :file
+                    %span 写真の追加・変更
+                    = img.file_field :file, accept: 'image/jpeg,image/jpg,image/png'
                     = img.hidden_field :status, value: "main"
-                .photocard__container
+                .photocard__container#photocard0.hidden
                   .photocard__photo
                     %i.fa.fa-image
                     %img#preview0
+                  .cover-photo-status カバー写真
                   .photocard__text
                     = img.text_area :about_file, placeholder: "閑静なオフィス街にあるビル内の施設です。", class: "photocard__text__textarea"
             - if flash[:alert].present?
               %ul.form-item__errors-wrapper
                 %li
                   %i.fas.fa-exclamation-circle
-                  = flash[:alert]
+                  = flash[:alert]             
           - (1..4).each do |i|
             .photo-form__from-wrapper
               = f.fields_for :image_files do |img|
-                .photo-form__add
+                .photo-form__add.hidden{ id: "add#{i}"}
                   %label.photo-form__add__mask
                     %i.fa.fa-plus.icon
-                    %span 新規写真の追加
-                    = img.file_field :file
+                    %span 写真の追加・変更
+                    = img.file_field :file, accept: 'image/jpeg,image/jpg,image/png'
                     = img.hidden_field :status, value: "sub"
-                .photocard__container
+                .photocard__container.hidden{ id: "photocard#{i}"}
                   .photocard__photo
                     %i.fa.fa-image
                     %img{ id: "preview#{i}"}
@@ -51,5 +52,6 @@
     .float-bottom__container
       .float-bottom__line
       .float-bottom__content
+        = f.hidden_field :space_id, value: @space_id
         = f.submit "保存して戻る", class: "btn btn-default button-base__button-component gray-btn"
         = f.submit "保存して進む", class: "btn btn-default button-base__button-component green-btn"

@@ -15,3 +15,4 @@ Rails.application.config.assets.precompile << 'user.css'
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 # Rails.application.config.assets.precompile += %w( *.js )
+Rails.application.config.assets.precompile += %w( new_space.js )

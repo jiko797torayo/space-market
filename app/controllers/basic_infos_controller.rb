@@ -6,30 +6,29 @@ class BasicInfosController < ApplicationController
   before_action :set_basic_info, only: [:edit, :update]
   
   def new
-    @@space = Space.find_by(id: params[:space_id])
+    @space_id = params[:space_id]
     @basic_info = BasicInfo.new
     @basic_info.build_purpose
   end
 
   def create
     @basic_info = BasicInfo.new(basic_info_params)
-    @basic_info.space = @@space
     if @basic_info.save
       next_page
     else
+      set_space_id
       render :new
     end
   end
 
   def edit
-    set_basic_info
   end
 
   def update
-    set_basic_info
     if @basic_info.update(basic_info_params)
       redirect_to edit_space_path(@basic_info.space)
     else
+      set_space_id
       render :edit
     end
   end
@@ -47,13 +46,17 @@ class BasicInfosController < ApplicationController
 
   def basic_info_params
     params.require(:basic_info).permit(
-      :capacity, :floor_space, :starting_of_reservation, :passig_key_method, :deadline_of_reservation,
+      :capacity, :floor_space, :starting_of_reservation, :passig_key_method, :deadline_of_reservation, :space_id,
       purpose_attributes: [:id, :party, :meeting, :photo_shoot, :film_shoot, :event, :performance, :studio, :sports, :office, :wedding, :other]
     )
   end
 
+  def set_space_id
+    @space_id = params[:basic_info][:space_id]
+  end
+
   def next_page
-    redirect_to edit_space_path(@@space) if params[:commit] == "保存して戻る"
-    redirect_to new_description_path(space_id: @@space.id) if params[:commit] == "保存して進む"
+    redirect_to edit_space_path(@basic_info.space_id) if params[:commit] == "保存して戻る"
+    redirect_to new_description_path(space_id: @basic_info.space_id) if params[:commit] == "保存して進む"
   end
 end

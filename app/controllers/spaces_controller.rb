@@ -1,8 +1,8 @@
 class SpacesController < ApplicationController
 
-  before_action :check_current_user, only: [:edit, :update]
   before_action :set_space, only: [:edit, :update]
-  
+  before_action :check_current_user, only: [:edit, :update]
+
   def index
     @party_spaces = Space.published.party.by_likes_count.limit(3)
     @meeting_spaces = Space.published.meeting.by_likes_count.limit(3)
@@ -29,6 +29,19 @@ class SpacesController < ApplicationController
       redirect_to edit_space_path(@space)
     else
       render :edit
+    end
+  end
+
+  def show
+    if Space.find(params[:id]).published?
+      @space = Space.published.find(params[:id])
+      if @space.space_image.image_files.sub.present?
+        @sub_images = @space.space_image.image_files.sub
+      else
+        @sub_images = []
+      end
+    else
+      render_404
     end
   end
 

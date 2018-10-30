@@ -6,7 +6,7 @@ class PlansController < ApplicationController
   before_action :set_plan, only: [:edit, :update]
 
   def new
-    @@space = Space.find_by(id: params[:space_id])
+    @space_id = params[:space_id]
     @plan = Plan.new
     @plan.build_rental_day
     @plan.build_rental_hour
@@ -14,23 +14,22 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.new(plan_params)
-    @plan.space = @@space
     if @plan.save
-      redirect_to edit_space_path(@@space)
+      redirect_to edit_space_path(@plan.space_id)
     else
+      set_space_id
       render :new
     end
   end
 
   def edit
-    set_plan
   end
 
   def update
-    set_plan
     if @plan.update(plan_params)
-      redirect_to edit_space_path(@plan.space)
+      redirect_to edit_space_path(@plan.space_id)
     else
+      set_space_id
       render :edit
     end
   end
@@ -48,9 +47,13 @@ class PlansController < ApplicationController
 
   def plan_params
   params.require(:plan).permit(
-    :name, :about_plan, :price_per_hour, :price_per_day, :reservation_approval_method,
+    :name, :about_plan, :price_per_hour, :price_per_day, :reservation_approval_method, :space_id,
     rental_day_attributes: [:id, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday],
     rental_hour_attributes: [:start_hour, :end_hour]
   )
+  end
+
+  def set_space_id
+    @space_id = params[:plan][:space_id]
   end
 end

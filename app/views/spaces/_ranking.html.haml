@@ -9,7 +9,7 @@
           - spaces.each.with_index(1) do |space, rank|
             //カードここから//
             .col-xs-4
-              %a.a__top-units{:href => "#"}
+              = link_to space_path(id: space.id), class: "a__top-units" do
                 .md-top-units
                   .md-top-units__image
                     .top-units-ranking.units-ranking.units-ranking__icon{class: "units-ranking__no#{rank}"}
