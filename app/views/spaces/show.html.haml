@@ -174,13 +174,13 @@
                   .mb8.sc-8x04cx-0-DetailPhotos__Thumbnail-gGFLOq.dWTMzZ
                     %a{:href => "#", :target => "_blank"}
                       %picture
-                      - if @sub_images[0].file
+                      - if @sub_images[0]
                         = image_tag(@sub_images[0].file, class: "subImages")
 
                   .sc-8x04cx-0-DetailPhotos__Thumbnail-gGFLOq.dWTMzZ
                     %a{:href => "#", :target => "_blank"}
                       %picture
-                      - if @sub_images[1].file
+                      - if @sub_images[1]
                         = image_tag(@sub_images[1].file, class: "subImages")
 
               .DetailPhotos__RowChangedBox-sc-8x04cx-4.iORvhO
@@ -188,7 +188,7 @@
                   .sc-8x04cx-0-DetailPhotos__Thumbnail-sHjMC.bAeWjN
                     %a{:href => "#", :target => "_blank"}
                       %picture
-                      - if @sub_images[2].file
+                      - if @sub_images[2]
                         = image_tag(@sub_images[2].file, class: "subImages")
 
                 .col-xs-12.col-md-4
