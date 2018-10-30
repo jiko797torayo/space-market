@@ -35,8 +35,10 @@ class SpacesController < ApplicationController
   def show
     if Space.find(params[:id]).published?
       @space = Space.published.find(params[:id])
-      if @space.space_image.image_files.sub
+      if @space.space_image.image_files.sub.present?
         @sub_images = @space.space_image.image_files.sub
+      else
+        @sub_images = []
       end
     else
       render_404
