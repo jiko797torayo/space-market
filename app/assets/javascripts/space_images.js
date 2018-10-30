@@ -40,6 +40,7 @@ $(document).on('turbolinks:load', function() {
 
   $('#space_image_image_files_attributes_2_file').on('change', function (e) {
     if (size_in_megabytes > 5) {
+      var size_in_megabytes = this.files[0].size/1024/1024;
       alert('ファイルサイズは1枚につき5MBまでです。');
       $('input[type=file]').val('');
     } else {
@@ -56,6 +57,7 @@ $(document).on('turbolinks:load', function() {
 
   $('#space_image_image_files_attributes_3_file').on('change', function (e) {
     if (size_in_megabytes > 5) {
+      var size_in_megabytes = this.files[0].size/1024/1024;
       alert('ファイルサイズは1枚につき5MBまでです。');
       $('input[type=file]').val('');
     } else {
@@ -72,6 +74,7 @@ $(document).on('turbolinks:load', function() {
 
   $('#space_image_image_files_attributes_4_file').on('change', function (e) {
     if (size_in_megabytes > 5) {
+      var size_in_megabytes = this.files[0].size/1024/1024;
       alert('ファイルサイズは1枚につき5MBまでです。');
       $('input[type=file]').val('');
     } else {
