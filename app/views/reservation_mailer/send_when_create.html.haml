@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h2
+      #{@user.last_name + " " + @user.first_name}
+      様
+    %p
+      こんにちは！ #{@user.last_name + " " + @user.first_name}さん
+    %p
+      予約が完了しました。ご利用日に予約したスペースまでお越しください。
+    %p
+      予約スペース：
+      = @reservation.space.description.catch_copy
+      %br
+      利用期間：
+      = @reservation.day
+    %p
+      ====================
+      %br
+      スペースマーケット
+      %br
+      http://52.68.162.244/
+      %br
+      ====================
