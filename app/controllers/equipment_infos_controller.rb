@@ -20,11 +20,9 @@ class EquipmentInfosController < ApplicationController
   end
 
   def edit
-    set_equipment_info
   end
 
   def update
-    set_equipment_info
     if @equipment_info.update(equipment_info_params)
       redirect_to edit_space_path(@equipment_info.space)
     else
