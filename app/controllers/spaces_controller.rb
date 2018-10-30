@@ -11,6 +11,13 @@ class SpacesController < ApplicationController
     @sports_spaces = Space.published.sports.by_likes_count.limit(3)
     #いいね機能を実装後に修正する
     @favorite_spaces = Space.published.all.limit(3)
+    #各目的別スペース登録数
+    @spaces_count = Space.published.length
+    @party_spaces_count = Space.published.party.length
+    @meeting_spaces_count = Space.published.meeting.length
+    @photo_shoot_spaces_count = Space.published.photo_shoot.length
+    @film_shoot_spaces_count = Space.published.film_shoot.length
+    @sports_spaces_count = Space.published.sports.length
   end
 
   def edit

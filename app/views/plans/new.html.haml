@@ -165,4 +165,5 @@
     .float-bottom__container
       .float-bottom__line
       .float-bottom__content
-        = f.submit "保存", class: "btn btn-default button-base__button-component green-btn", id: "submit-btn"
+        = f.hidden_field :space_id, value: @space_id
+        = f.submit "保存", class: "btn btn-default button-base__button-component green-btn"
