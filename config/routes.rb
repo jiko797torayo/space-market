@@ -8,7 +8,8 @@ Rails.application.routes.draw do
                                   sessions:      'users/sessions'
                                 }
   root 'spaces#index'
-  
+
+  resources :users, only: [:show]
   resources :spaces do
     resources :reservations, only:[:new, :create, :show]
   end
