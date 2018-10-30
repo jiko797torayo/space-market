@@ -26,7 +26,7 @@
                   .md-top-units__body
                     .md-top-units__body-inner
                       %h3.md-top-units__body-title
-                        = space.description.catch_copy
+                        = space.description.catch_copy.truncate(30)
                       %ul.md-top-units__body-info
                         %li.md-top-units__body-info__capacity
                           = fa_icon "user", class: "md-top-units__body-info__icon"
@@ -35,7 +35,7 @@
                           = fa_icon "map-marker", class: "md-top-units__body-info__icon"
                           = space.equipment_info.prefecture
                       %p.md-top-units__body-access
-                        = space.equipment_info.access
+                        = space.equipment_info.access.truncate(42)
     = paginate(@spaces)
   .google-map
     GoogleMAP導入予定
