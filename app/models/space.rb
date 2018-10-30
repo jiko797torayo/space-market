@@ -8,6 +8,8 @@ class Space < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :reservations, dependent: :destroy
 
+  validates :status, space_status_validation: true, on: :update
+
   scope :published, -> { where(published: true) }
   scope :party,  -> { joins(basic_info: [:purpose]).where('party = ?', 1) }
   scope :meeting, -> { joins(basic_info: [:purpose]).where('meeting = ?', 1) }
