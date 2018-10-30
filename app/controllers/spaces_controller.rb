@@ -1,7 +1,7 @@
 class SpacesController < ApplicationController
 
-  before_action :check_current_user, only: [:edit, :update]
   before_action :set_space, only: [:edit, :update, :show]
+  before_action :check_current_user, only: [:edit, :update]
 
   def index
     @party_spaces = Space.published.party.by_likes_count.limit(3)
