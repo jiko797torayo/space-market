@@ -30,13 +30,13 @@
                   %p.result-info__right #{@reserve.day}
                 .reservation-result__info__plan.border-bottom
                   %p.result-info__left プラン料金
-                  %p.result-info__right ￥#{@space.plan.price_per_day}
+                  %p.result-info__right ￥#{number_with_delimiter(@space.plan.price_per_day)}
                 .reservation-result__info__address.border-bottom
                   %p.result-info__left アクセス
                   %div
                     %p.result-info__right #{@space.equipment_info.access}
                 .reservation-result__info__price.border-bottom
                   %p.result-info__left 料金
-                  %p.result-info__right ￥#{@space.plan.price_per_day}
+                  %p.result-info__right ￥#{number_with_delimiter(@space.plan.price_per_day)}
               .reservation-result__top-btn
                 = link_to "トップページへ", root_path
