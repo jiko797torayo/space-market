@@ -301,6 +301,9 @@
 input[type="file"] {
   display: none;
 }
+.hidden {
+  display: none;
+}
 .photocard {
   &__container {
     border: 1px solid $grayBorder;
@@ -308,6 +311,7 @@ input[type="file"] {
     height: 140px;
     display: flex;
     margin-top: 10px;
+    position: relative;
   }
   &__photo {
     width: 200px;
@@ -342,6 +346,18 @@ input[type="file"] {
       border: none;
     }
   }
+}
+.cover-photo-status {
+  background-color: $white;
+  border: solid 1px $hostGreen;
+  border-radius: 3px;
+  color: $hostGreen;
+  text-align: center;
+  font-size: 10px;
+  padding: 6px 12px;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
 }
 .price-setting-list {
   &__list-item {
@@ -383,6 +399,12 @@ input:focus, select:focus, textarea:focus {
 input:focus, select:focus, textarea:focus {
   border: solid 1px $hostGreen;
 }
-input::placeholder {
+input::placeholder, textarea::placeholder {
   color: $gray;
+}
+#submit-btn {
+  outline: none;
+  &:active, &:focus {
+    border: none;
+  }
 }
