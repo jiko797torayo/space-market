@@ -25,11 +25,18 @@
     margin-top: 40px;
   }
   &__message-wrapper {
-    background-color: $greenBackground;
-    border: 1px solid $hostGreen;
-    border-radius: 3px;
-    padding: 16px;
     margin-bottom: 20px;
+    .message__container {
+      padding: 16px;
+      background-color: $greenBackground;
+      border: 1px solid $hostGreen;
+      border-radius: 3px;
+    }
+    .message-alert {
+      background-color: $white;
+      border: 1px solid $required;
+      color: $required;
+    }
   }
   &__bottom {
     margin-top: 20px;
