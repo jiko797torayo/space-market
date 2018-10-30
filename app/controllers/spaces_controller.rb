@@ -1,6 +1,6 @@
 class SpacesController < ApplicationController
 
-  before_action :set_space, only: [:edit, :update, :show]
+  before_action :set_space, only: [:edit, :update]
   before_action :check_current_user, only: [:edit, :update]
 
   def index
@@ -33,7 +33,14 @@ class SpacesController < ApplicationController
   end
 
   def show
-    @sub_images = @space.space_image.image_files.sub
+    if Space.find(params[:id]).published?
+      @space = Space.published.find(params[:id])
+      if @space.space_image.image_files.sub
+        @sub_images = @space.space_image.image_files.sub
+      end
+    else
+      render_404
+    end
   end
 
   private
