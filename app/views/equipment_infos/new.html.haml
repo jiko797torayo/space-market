@@ -17,7 +17,7 @@
             .create-space-sections__from-wrapper
               %div
                 .input-container__container
-                  = f.text_field :postal_code, placeholder: "郵便番号", class: "ant-input ant-input-lg"
+                  = f.text_field :postal_code, placeholder: "郵便番号", class: "ant-input ant-input-lg", id: "postal_code"
                 .form-item__footer-wrapper
                   %p.form-item__footer 例）1600023
                 - if @equipment_info.errors[:postal_code].any?
@@ -38,11 +38,11 @@
                 .parts-container__container
                   %div
                     .input-container__container
-                      = f.select :prefecture, EquipmentInfo.prefectures.keys, { include_blank: true }, { class: "ant-input ant-input-lg" }
+                      = f.select :prefecture, EquipmentInfo.prefectures.keys, { include_blank: true }, { class: "ant-input ant-input-lg", id: "prefecture"}
                 .parts-container__container
                   %div
                     .input-container__container
-                      = f.text_field :city_name, placeholder: "市区町村", class: "ant-input ant-input-wd"
+                      = f.text_field :city_name, placeholder: "市区町村", class: "ant-input ant-input-wd", id: "city_name"
                     .form-item__footer-wrapper
                       %p.form-item__footer 例）新宿区
             - if @equipment_info.errors[:prefecture].any?
@@ -67,7 +67,7 @@
             .create-space-sections__from-wrapper
               %div
                 .input-container__container
-                  = f.text_field :street_name, placeholder: "町名・番地", class: "ant-input ant-input-wd"
+                  = f.text_field :street_name, placeholder: "町名・番地", class: "ant-input ant-input-wd", id: "street_name"
                 .form-item__footer-wrapper
                   %p.form-item__footer 例）西新宿6-15-1
                 - if @equipment_info.errors[:street_name].any?

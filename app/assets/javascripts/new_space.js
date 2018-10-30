@@ -5,3 +5,4 @@
 //= require breadcrumbs
 //= require space_images
 //= require edit_space
+//= require jpostal
