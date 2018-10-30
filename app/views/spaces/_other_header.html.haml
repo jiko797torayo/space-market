@@ -32,22 +32,23 @@
               %option{:value => "other"} その他
       .site-header--float
         %ul.site-header__nav.sm-hide
-          %li.site-header__nav-user-name.link-black.link-borderless
-            %i.fa.fa-caret-down
-          %li
-            = link_to root_path, class: "site-header__nav-user" do
-              = image_tag current_user.icon, class: "site-header__nav-user"
-          %li
-            = link_to root_path, class: "site-header__nav-message" do
-              %i.fa.fa-envelope
-          %li
-            = link_to "ヘルプ", root_path, class: "site-header__nav-help link-black link-borderless help__text"
-          %li
-            = link_to "予約", root_path, class: "site-header__nav-reservation link-black"
-          %li
-            = link_to "お気に入り", root_path, class: "site-header__nav-favorite link-black"
-          %li
-            = link_to "ホスト", root_path, class: "site-header__nav-owner link-black"
+          - if user_signed_in?
+            %li.site-header__nav-user-name.link-black.link-borderless
+              %i.fa.fa-caret-down
+            %li
+              = link_to root_path, class: "site-header__nav-user" do
+                = image_tag current_user.icon, class: "site-header__nav-user"
+            %li
+              = link_to root_path, class: "site-header__nav-message" do
+                %i.fa.fa-envelope
+            %li
+              = link_to "ヘルプ", user_path(current_user), class: "site-header__nav-help link-black link-borderless help__text"
+            %li
+              = link_to "予約", root_path, class: "site-header__nav-reservation link-black"
+            %li
+              = link_to "お気に入り", root_path, class: "site-header__nav-favorite link-black"
+            %li
+              = link_to "ホスト", user_path(current_user), class: "site-header__nav-owner link-black"
 
   .site-main
     .Breadcrumbs-sc-1qbqhcr-0.dsvKPy
