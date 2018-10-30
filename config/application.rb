@@ -15,5 +15,6 @@ module SpaceMarket
       %Q(#{html_tag}).html_safe
     end
     config.autoload_paths += Dir["#{config.root}/app/validators"]
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end

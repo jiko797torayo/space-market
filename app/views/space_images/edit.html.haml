@@ -19,8 +19,8 @@
                 .photo-form__add
                   %label.photo-form__add__mask
                     %i.fa.fa-plus.icon
-                    %span 新規写真の追加
-                    = img.file_field :file
+                    %span 写真の追加・変更
+                    = img.file_field :file, accept: 'image/jpeg,image/jpg,image/png'
                     = img.hidden_field :status, value: "main"
                 .photocard__container
                   .photocard__photo
@@ -35,11 +35,11 @@
           - @sub_images.each.with_index(1) do |sub, i|
             .photo-form__from-wrapper
               = f.fields_for :image_files, sub do |img|
-                .photo-form__add
+                .photo-form__add{ id: "add#{i}"}
                   %label.photo-form__add__mask
                     %i.fa.fa-plus.icon
-                    %span 新規写真の追加
-                    = img.file_field :file
+                    %span 写真の追加・変更
+                    = img.file_field :file, accept: 'image/jpeg,image/jpg,image/png'
                     = img.hidden_field :status, value: "sub"
                 .photocard__container
                   .photocard__photo
@@ -49,4 +49,4 @@
     .float-bottom__container
       .float-bottom__line
       .float-bottom__content
-        = f.submit "保存", class: "btn btn-default button-base__button-component green-btn"
+        = f.submit "保存", class: "btn btn-default button-base__button-component green-btn", id: "submit-btn"
