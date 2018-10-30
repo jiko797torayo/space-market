@@ -5,9 +5,9 @@
     %title SpaceMarket
     = Gon::Base.render_data
     = csrf_meta_tags
-    = stylesheet_link_tag    'user', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'search', 'data-turbolinks-track': 'reload'
-    %script{async: true, defer: true, src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC34tbIgHyvUZesgfZJ1ORRRk2N3e87ITo&callback=initMap", type: "text/javascript"}
+    = stylesheet_link_tag    'user', media: 'all'
+    = javascript_include_tag 'search'
+    %script{async: true, defer: true, src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC34tbIgHyvUZesgfZJ1ORRRk2N3e87ITo&callback=initMap", type: "text/javascript" }
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"}
   %body
     = yield
