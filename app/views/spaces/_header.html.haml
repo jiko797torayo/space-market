@@ -38,7 +38,7 @@
   .top-mv
     %p.service-logo
     %h1.top-information__sub
-      10052件のレンタルスペースから目的に合ったスペースをかんたん予約
+      = "#{@spaces_count}件のレンタルスペースから目的に合ったスペースをかんたん予約"
     .page__information
       .top-menu__container
         .container
@@ -48,7 +48,8 @@
                 %img.top-menu__list-button-img{:alt => "パーティー", :src => "//cdnspacemarket.com/packs-production/images/www/icon/party_blue-284ad75134.svg"}/
                 %span.top-menu__list-button-text
                   パーティー
-                  %span.top-menu__list-button-num 5824件
+                  %span.top-menu__list-button-num
+                    = "#{@party_spaces_count}件"
                 %i.fa.fa-angle-right.yajirusi
 
             %li.top-menu__list.col-xs-4
@@ -56,14 +57,15 @@
                 %img.top-menu__list-button-img{:alt => "会議", :src => "//cdnspacemarket.com/packs-production/images/www/icon/class_blue-e05f553eaf.svg"}/
                 %span.top-menu__list-button-text
                   会議
-                  %span.top-menu__list-button-num 8067件
+                  %span.top-menu__list-button-num
+                    = "#{@meeting_spaces_count}件"
                 %i.fa.fa-angle-right.yajirusi
             %li.top-menu__list.col-xs-4
               = link_to root_path, class: "top-menu__list-button mdc-elevation--z2" do
                 %img.top-menu__list-button-img{:alt => "民泊", :src => "//cdnspacemarket.com/packs-production/images/www/icon/stay_blue-e36c43aef6.svg"}/
                 %span.top-menu__list-button-text
                   民泊
-                  %span.top-menu__list-button-num 576件
+                  %span.top-menu__list-button-num 0件
                 %i.fa.fa-angle-right.yajirusi
         .container
           %ul.row
@@ -72,21 +74,24 @@
                 %img.top-menu__list-button-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/www/icon/photo_shoot_blue-9d526ca0c6.svg"}/
                 %span.top-menu__list-button-text
                   写真撮影
-                  %span.top-menu__list-button-num 7797件
+                  %span.top-menu__list-button-num
+                    = "#{@photo_shoot_spaces_count}件"
                 %i.fa.fa-angle-right.yajirusi
             %li.top-menu__list.top-menu__list-second.col-xs-3
               = link_to search_search_index_path(params: { purpose_key: 'film_shoot' }), class: "top-menu__list-button mdc-elevation--z2" do
                 %img.top-menu__list-button-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/www/icon/film_shoot_blue-b0d90574c8.svg"}/
                 %span.top-menu__list-button-text
                   ロケ撮影
-                  %span.top-menu__list-button-num 7566件
+                  %span.top-menu__list-button-num
+                    = "#{@film_shoot_spaces_count}件"
                 %i.fa.fa-angle-right.yajirusi
             %li.top-menu__list.top-menu__list-second.col-xs-3
               = link_to search_search_index_path(params: { purpose_key: 'sports' }), class: "top-menu__list-button mdc-elevation--z2" do
                 %img.top-menu__list-button-img{:alt => "", :src => "//cdnspacemarket.com/packs-production/images/www/icon/sports_blue-d0e5f50187.svg"}/
                 %span.top-menu__list-button-text
                   スポーツ
-                  %span.top-menu__list-button-num 2607件
+                  %span.top-menu__list-button-num
+                    = "#{@sports_spaces_count}件"
                 %i.fa.fa-angle-right.yajirusi
             %li.top-menu__list.top-menu__list-second.col-xs-3
               .top-menu__list-button.mdc-elevation--z2{:href => "/search?event_type=other"}

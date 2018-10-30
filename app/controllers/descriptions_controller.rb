@@ -6,30 +6,29 @@ class DescriptionsController < ApplicationController
   before_action :set_description, only: [:edit, :update]
 
   def new
-    @@space = Space.find_by(id: params[:space_id])
+    @space_id = params[:space_id]
     @description = Description.new
   end
 
   def create
     @description = Description.new(description_params)
-    @description.space = @@space
     if @description.save
       clear_flash
       next_page
     else
+      set_space_id
       render :new
     end
   end
 
   def edit
-    set_description
   end
 
   def update
-    set_description
     if @description.update(description_params)
       redirect_to edit_space_path(@description.space)
     else
+      set_space_id
       render :edit
     end
   end
@@ -46,12 +45,16 @@ class DescriptionsController < ApplicationController
   end
 
   def description_params
-    params.require(:description).permit(:catch_copy, :overview, :about_facilities)
+    params.require(:description).permit(:catch_copy, :overview, :about_facilities, :space_id)
+  end
+
+  def set_space_id
+    @space_id = params[:description][:space_id]
   end
 
   def next_page
-    redirect_to edit_space_path(@@space) if params[:commit] == "保存して戻る"
-    redirect_to new_space_image_path(space_id: @@space.id) if params[:commit] == "保存して進む"
+    redirect_to edit_space_path(@description.space_id) if params[:commit] == "保存して戻る"
+    redirect_to new_space_image_path(space_id: @description.space_id) if params[:commit] == "保存して進む"
   end
 
   def clear_flash
