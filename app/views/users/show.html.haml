@@ -1,0 +1,46 @@
+= render 'search/header'
+
+.site-main
+  .page__even
+    .container
+      .row
+        .toggle
+          %a.toggle-button
+            %p.reserve.check 予約一覧
+            %p.userSpace  あなたのスペース一覧
+
+        .reservation-list
+          .reservation-list__head-container
+            .reservation-list__title
+              %p 予約一覧
+          - @reservations.each do |reservation|
+            .reservation-list__contents-container
+              .reservation-list__content
+                .reservation-list__image
+                  = image_tag(reservation.space.space_image.image_files.main.first.file)
+                .reservation-list__info
+                  .reservation-list__info__date
+                    .reservation-list__info__left-text
+                      %p ご利用日
+                    .reservation-list__info__right-text
+                      %p #{reservation.day}
+                  .reservation-list__info__space-info
+                    .reservation-list__info__space-copy
+                      %p #{reservation.space.description.catch_copy}
+
+        .user-space.none
+          .user-space__head
+            .user-space__title
+              %p あなたのスペース一覧
+          - @spaces.each do |space|
+            .user-space__contents
+              .user-space__content
+                .user-space__content__image
+                  = image_tag(space.space_image.image_files.main.first.file)
+                .user-space__content__info
+                  .user-space__conatent__info__space-info
+                    .user-space__content__info__space-copy
+                      %p #{space.description.catch_copy}
+                  .space-edit
+                    = link_to "スペース情報の編集", edit_space_path, class: 'space-edit__button'
+
