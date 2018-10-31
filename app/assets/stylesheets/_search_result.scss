@@ -65,60 +65,70 @@
       padding-left: 13px;
     }
   }
-  #map {
-    height: calc(100vh - 118px);
+  .map-content {
     width: 501px;
-  }
-  .select-space {
-    height: 142px;
-    width: 512px;
-    background: $box;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 9;
-    display: flex;
-    &--image {
-      &__pic {
-        width: 142px;
-        height: 142px;
-        object-fit: cover;
-      }
+    float: right;
+    position: relative;
+    #map {
+      height: calc(100vh - 118px);
+      width: 501px;
     }
-    &--description{
-      &--body-title {
-        display: inline-block;
-        height: 65px;
-        width: 355px;
-        font-size: 14px;
-        padding-left: 9px;
-        padding-top: 20px;
-        margin-bottom: 10px;
-      }
-      &--blank {
-        height: 10px;
-      }
-      &--price {
-        width: 320px;
-        background-color: #000;
-        color: white;
-        box-sizing: content-box;
-        height: 20px;
-        padding: 8px;
-        margin-left: 12px;
-        font-size: 16px;
-        border-radius: 5px;
-        text-align: center;
-        position: absolute;
-        bottom: 0;
-        &__item-instant {
-          color: yellow;
+    .select-space {
+      height: 142px;
+      width: 512px;
+      background: $box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9;
+      display: flex;
+      &:hover {
+        & > .select-space--image, & > .select-space--description {
+          opacity: 0.6;
         }
-        &__item-top-host {
-          color: yellow;
+      }
+      &--image {
+        &__pic {
+          width: 142px;
+          height: 142px;
+          object-fit: cover;
         }
-        &__item-icon-discount {
-          color: red;
+      }
+      &--description{
+        &--body-title {
+          display: inline-block;
+          height: 65px;
+          width: 355px;
+          font-size: 14px;
+          padding-left: 9px;
+          padding-top: 20px;
+          margin-bottom: 10px;
+        }
+        &--blank {
+          height: 10px;
+        }
+        &--price {
+          width: 320px;
+          background-color: #000;
+          color: white;
+          box-sizing: content-box;
+          height: 20px;
+          padding: 8px;
+          margin-left: 12px;
+          font-size: 16px;
+          border-radius: 5px;
+          text-align: center;
+          position: absolute;
+          bottom: 0;
+          &__item-instant {
+            color: yellow;
+          }
+          &__item-top-host {
+            color: yellow;
+          }
+          &__item-icon-discount {
+            color: red;
+          }
         }
       }
     }

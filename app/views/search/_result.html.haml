@@ -37,21 +37,24 @@
                       %p.md-top-units__body-access
                         = space.equipment_info.access.truncate(42)
     = paginate(@spaces)
-  #map
+  .map-content
+    #map
     - @spaces.each do |space|
-      .select-space.hidden{class: "select-space#{@spaces.index(space)}"}
-        .select-space--image
-          = image_tag(space.space_image.image_files.main.first.file, class: "select-space--image__pic")
-        .select-space--description
-          %span.select-space--description--body-title
-            = space.description.catch_copy
-          %p.select-space--description--price
-            %span.select-space--description--price-per
-              ¥
-              = space.plan.price_per_day
-            %span /日
-            %span
-              - if space.plan.reservation_approval_method == "承認なし（今すぐ予約）"
-                = fa_icon "bolt", class: "select-space--description--price__item-instant"
-              = fa_icon "certificate", class: "select-space--description--price__item-top-host"
-              = fa_icon "arrow-down", class: "select-space--description--price__item-icon-discount"
+      = link_to space_path(id: space.id)  do
+        .select-space.hidden{class: "select-space#{@spaces.index(space)}"}
+          .select-space--image
+            = image_tag(space.space_image.image_files.main.first.file, class: "select-space--image__pic")
+          .select-space--description
+            %span.select-space--description--body-title
+              = space.description.catch_copy
+            %p.select-space--description--price
+              %span.select-space--description--price-per
+                ¥
+                = space.plan.price_per_day
+              %span /日
+              %span
+                - if space.plan.reservation_approval_method == "承認なし（今すぐ予約）"
+                  = fa_icon "bolt", class: "select-space--description--price__item-instant"
+                = fa_icon "certificate", class: "select-space--description--price__item-top-host"
+                = fa_icon "arrow-down", class: "select-space--description--price__item-icon-discount"
+

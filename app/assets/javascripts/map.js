@@ -30,5 +30,7 @@ function initMap() {
 // マーカーにクリックイベントを追加
 function markerEvent(i) {
   marker[i].addListener('click', function() { // マーカーをクリックしたとき
+    $('.select-space').not('.hidden').addClass('hidden');
+    $(`.select-space${i}`).removeClass('hidden');
   });
 }
