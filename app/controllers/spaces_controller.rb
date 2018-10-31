@@ -1,7 +1,12 @@
 class SpacesController < ApplicationController
 
+<<<<<<< HEAD
   before_action :set_space, only: [:edit, :update]
   before_action :check_current_user, only: [:edit, :update]
+=======
+  before_action :set_space, except: [:index, :show]
+  before_action :check_current_user, except: [:index, :show]
+>>>>>>> origin/master
 
   def index
     @party_spaces = Space.published.party.by_likes_count.limit(3)
@@ -45,6 +50,12 @@ class SpacesController < ApplicationController
     else
       render_404
     end
+  end
+
+
+  def destroy
+    @space.destroy
+    redirect_to user_path(current_user)
   end
 
   private
