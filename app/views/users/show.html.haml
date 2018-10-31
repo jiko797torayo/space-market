@@ -38,9 +38,11 @@
                 .user-space__content__image
                   = image_tag(space.space_image.image_files.main.first.file)
                 .user-space__content__info
-                  .user-space__conatent__info__space-info
+                  .user-space__content__info__space-info
                     .user-space__content__info__space-copy
                       %p #{space.description.catch_copy}
-                  .space-edit
-                    = link_to "スペース情報の編集", edit_space_path, class: 'space-edit__button'
-
+                  .user-space__content__info__buttons
+                    .space-edit
+                      = link_to "スペース情報の編集", edit_space_path(space), class: 'space-edit__button'
+                    .space-destroy
+                      = link_to "スペース情報の削除", space_path(space), method: :delete, class: 'space-destroy__button', data: {confirm: "本当に削除しますか？"}
