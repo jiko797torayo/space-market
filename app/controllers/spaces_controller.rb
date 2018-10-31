@@ -34,6 +34,7 @@ class SpacesController < ApplicationController
   end
 
   def show
+    clear_notice
     if Space.find(params[:id]).published?
       @space = Space.published.find(params[:id])
       if @space.space_image.image_files.sub.present?
@@ -55,5 +56,9 @@ class SpacesController < ApplicationController
 
   def set_space
     @space = Space.find(params[:id])
+  end
+
+  def clear_notice
+    flash.discard(:notice)
   end
 end
