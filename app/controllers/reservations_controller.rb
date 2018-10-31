@@ -11,11 +11,11 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reserve_params)
     if @reservation.save
-      redirect_to action: 'show', id: @reservation.id
       ReservationMailer.send_when_create(@reservation.user, @reservation).deliver
+      redirect_to action: 'show', id: @reservation.id and return
     else
       flash[:notice] = "過去の日付は予約できません"
-      redirect_to action: 'new'
+      redirect_to action: 'new' and return
 
     end
   end
