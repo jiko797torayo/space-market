@@ -5,8 +5,7 @@
     %title SpaceMarket
     = Gon::Base.render_data
     = csrf_meta_tags
-    = stylesheet_link_tag    'user', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'search', 'data-turbolinks-track': 'reload'
-    %script{:crossorigin => "anonymous", :defer => "defer", :integrity => "sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9", :src => "https://use.fontawesome.com/releases/v5.1.0/js/all.js"}
+    = stylesheet_link_tag    'user', media: 'all'
+    = javascript_include_tag 'search'
   %body
     = yield

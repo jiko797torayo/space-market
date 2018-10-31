@@ -2,7 +2,6 @@ var map;
 var marker = [];
 //各スペースの経度緯度情報を格納
 var markerData = [];
-console.log(gon.space_latitude.length);
 for (var i = 0; i < gon.space_latitude.length; i++){
   markerData.push({
     lat: gon.space_latitude[i],
