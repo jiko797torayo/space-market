@@ -5,8 +5,14 @@
       .flow-header__description スペースの情報を登録して、スペースを掲載することができます。スペースの編集はいつでも可能です。
     .status-page__container
       .status-page__message-wrapper
-        .message__container
-          %span.message__text スペースの作成が完了しました！
+        - if flash.any?
+          .message__container.message-alert
+            %span.message__text
+              = flash[:alert]
+        - else
+          .message__container
+            %span.message__text
+              スペースの作成が完了しました！
       .status-page__card
         .edit-publish-feature__container
           .publish-feature-card__container
