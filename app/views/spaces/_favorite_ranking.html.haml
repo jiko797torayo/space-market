@@ -19,7 +19,7 @@
                     %p.md-top-units__item-price
                       %span.md-top-units__item-per
                         ¥
-                        = space.plan.price_per_day
+                        = number_with_delimiter(space.plan.price_per_day)
                       %span.md-top-units__item-per /日
                       %span.md-top-units__price-icon
                         - if space.plan.reservation_approval_method == "承認なし（今すぐ予約）"
@@ -29,7 +29,7 @@
                   .md-top-units__body
                     .md-top-units__body-inner
                       %h3.md-top-units__body-title
-                        = space.description.catch_copy
+                        = space.description.catch_copy.truncate(26)
                       %ul.md-top-units__body-info
                         %li
                           = fa_icon "user", class: "md-top-units__body-info__icon"

@@ -81,9 +81,9 @@
                         .space-side__money
 
                           %p
-                            %strong> ￥#{@space.plan.price_per_day}
+                            %strong> ￥#{number_with_delimiter(@space.plan.price_per_day)}
                             ～
-                            %strong> ￥#{@space.plan.price_per_day}
+                            %strong> ￥#{number_with_delimiter(@space.plan.price_per_day)}
                             \/日
                           %p.space-side__point-available{"data-reactid" => "479"}
                             %span.space-side__point-value{"data-reactid" => "480"}> 1,000円分
