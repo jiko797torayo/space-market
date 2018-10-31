@@ -11,8 +11,14 @@ class SearchController < ApplicationController
     end
     gon.purpose_key = request.url.scan(/purpose_key=([a-z_]+)/).join
 
-    @map = EquipmentInfo.where(space_id: 1)[0]
-    gon.space_latitude = @map.latitude
-    gon.space_longitude = @map.longitude
+    #map.jsに検索結果に表示されているスペースの経度・緯度を渡す
+    i = 0
+    gon.space_latitude = []
+    gon.space_longitude = []
+    while i < EquipmentInfo.where(space_id: @spaces.ids).length
+      gon.space_latitude << EquipmentInfo.where(space_id: @spaces.ids)[i].latitude
+      gon.space_longitude << EquipmentInfo.where(space_id: @spaces.ids)[i].longitude
+      i += 1
+    end
   end
 end

@@ -64,20 +64,7 @@
       padding-left: 13px;
     }
   }
-  .google-map {
-    width: 492px;
+  #map {
     height: calc(100vh - 118px);
-    line-height: calc(100vh - 118px);
-    background: $current_step;
-    text-align: center;
-    color: $box;
-    float: right;
-    #map {
-      height: 400px;
-      margin-left:auto;
-      margin-right:auto;
-      text-align:left;
-      width: 80%;
-    }
   }
 }
