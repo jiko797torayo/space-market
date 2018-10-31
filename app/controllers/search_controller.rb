@@ -10,5 +10,9 @@ class SearchController < ApplicationController
       instance_variable_set("@exit_#{ parameter_key.to_s }", params[parameter_key]) if params[parameter_key].present?
     end
     gon.purpose_key = request.url.scan(/purpose_key=([a-z_]+)/).join
+
+    @map = EquipmentInfo.where(space_id: 1)[0]
+    gon.space_latitude = @map.latitude
+    gon.space_longitude = @map.longitude
   end
 end
