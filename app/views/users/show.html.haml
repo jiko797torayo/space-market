@@ -6,10 +6,10 @@
       .row
         .toggle
           %a.toggle-button
-            %p.reserve.check 予約一覧
-            %p.userSpace  あなたのスペース一覧
+            %p.userSpace.check  あなたのスペース一覧
+            %p.reserve 予約一覧
 
-        .reservation-list
+        .reservation-list.none
           .reservation-list__head-container
             .reservation-list__title
               %p 予約一覧
@@ -21,14 +21,14 @@
                 .reservation-list__info
                   .reservation-list__info__date
                     .reservation-list__info__left-text
-                      %p ご利用日
+                      %p ご利用日:
                     .reservation-list__info__right-text
                       %p #{reservation.day}
                   .reservation-list__info__space-info
                     .reservation-list__info__space-copy
                       %p #{reservation.space.description.catch_copy}
 
-        .user-space.none
+        .user-space
           .user-space__head
             .user-space__title
               %p あなたのスペース一覧
@@ -36,11 +36,22 @@
             .user-space__contents
               .user-space__content
                 .user-space__content__image
-                  = image_tag(space.space_image.image_files.main.first.file)
+                  - if space.space_image
+                    = image_tag(space.space_image.image_files.main.first.file)
+                  - else
+                    = image_tag("spesma3.png")
                 .user-space__content__info
                   .user-space__conatent__info__space-info
                     .user-space__content__info__space-copy
+                    - if space.description
                       %p #{space.description.catch_copy}
+                  .user-space__content__info__space-address
+                    .space-address__left
+                      %p 住所 :
+                    .space-address__right
+                      %p #{space.equipment_info.prefecture}#{space.equipment_info.city_name}#{space.equipment_info.street_name}
+                      - if space.equipment_info.building_name
+                        #{space.equipment_info.building_name}
                   .space-edit
                     = link_to "スペース情報の編集", edit_space_path, class: 'space-edit__button'
 

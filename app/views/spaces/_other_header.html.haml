@@ -44,11 +44,9 @@
             %li
               = link_to "ヘルプ", user_path(current_user), class: "site-header__nav-help link-black link-borderless help__text"
             %li
-              = link_to "予約", root_path, class: "site-header__nav-reservation link-black"
-            %li
               = link_to "お気に入り", root_path, class: "site-header__nav-favorite link-black"
             %li
-              = link_to "ホスト", user_path(current_user), class: "site-header__nav-owner link-black"
+              = link_to "マイページ", user_path(current_user), class: "site-header__nav-owner link-black"
 
   .site-main
     .Breadcrumbs-sc-1qbqhcr-0.dsvKPy
