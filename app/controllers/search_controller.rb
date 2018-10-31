@@ -12,9 +12,10 @@ class SearchController < ApplicationController
     gon.purpose_key = request.url.scan(/purpose_key=([a-z_]+)/).join
 
     #map.jsに検索結果に表示されているスペースの経度・緯度を渡す
-    i = 0
+    gon.map_key = ENV["MAP_KEY"]
     gon.space_latitude = []
     gon.space_longitude = []
+    i = 0
     while i < EquipmentInfo.where(space_id: @spaces.ids).length
       gon.space_latitude << EquipmentInfo.where(space_id: @spaces.ids)[i].latitude
       gon.space_longitude << EquipmentInfo.where(space_id: @spaces.ids)[i].longitude
