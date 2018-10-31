@@ -1,3 +1,15 @@
+function loadScript(url){
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = url;
+  script.async = true;
+  script.defer = true;
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+loadScript(`https://maps.googleapis.com/maps/api/js?key=${ gon.map_key }&callback=initMap`);
+loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js');
+
 var map;
 var marker = [];
 //各スペースの経度緯度情報を格納
