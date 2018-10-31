@@ -56,7 +56,21 @@
 
 .nav-others__title {
   display: inline-block;
+  position: relative;
   width: 96px;
   height: 48px;
   line-height: 48px;
+  &:after {
+    position: absolute;
+    top: 22px;
+    right: 1px;
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $btn;
+    pointer-events: none;
+  }
 }

@@ -10,5 +10,12 @@ class SearchController < ApplicationController
       instance_variable_set("@exit_#{ parameter_key.to_s }", params[parameter_key]) if params[parameter_key].present?
     end
     gon.purpose_key = request.url.scan(/purpose_key=([a-z_]+)/).join
+
+    #map.jsに検索結果に表示されているスペースの経度・緯度を渡す
+    gon.map_key = ENV["MAP_KEY"]
+    gon.markerData = []
+    @spaces.each do |space|
+      gon.markerData << { lat: space.equipment_info.latitude, lng: space.equipment_info.longitude }
+    end
   end
 end
