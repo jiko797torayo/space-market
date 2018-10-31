@@ -12,13 +12,13 @@ loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js');
 var map;
 var marker = [];
 //各スペースの経度緯度情報を格納
-var markerData = [];
-for (var i = 0; i < gon.space_latitude.length; i++){
-  markerData.push({
-    lat: gon.space_latitude[i],
-    lng: gon.space_longitude[i],
-  });
-}
+var markerData = gon.markerData;
+// for (var i = 0; i < gon.space_latitude.length; i++){
+//   markerData.push({
+//     lat: gon.space_latitude[i],
+//     lng: gon.space_longitude[i],
+//   });
+// }
 
 function initMap() {
   // 地図の作成

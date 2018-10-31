@@ -13,13 +13,9 @@ class SearchController < ApplicationController
 
     #map.jsに検索結果に表示されているスペースの経度・緯度を渡す
     gon.map_key = ENV["MAP_KEY"]
-    gon.space_latitude = []
-    gon.space_longitude = []
-    i = 0
-    while i < EquipmentInfo.where(space_id: @spaces.ids).length
-      gon.space_latitude << EquipmentInfo.where(space_id: @spaces.ids)[i].latitude
-      gon.space_longitude << EquipmentInfo.where(space_id: @spaces.ids)[i].longitude
-      i += 1
+    gon.markerData = []
+    @spaces.each do |space|
+      gon.markerData << { lat: space.equipment_info.latitude, lng: space.equipment_info.longitude }
     end
   end
 end
