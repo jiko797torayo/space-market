@@ -27,6 +27,7 @@ class SpacesController < ApplicationController
   def update
     begin
       @space.update!(status: 1)
+      redirect_to edit_space_path(@space)
     rescue ActiveRecord::RecordInvalid => e
       logger.error e
       redirect_to edit_space_path(@space), alert: '未入力の情報があります'
