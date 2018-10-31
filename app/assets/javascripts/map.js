@@ -1,11 +1,3 @@
-function loadScript() {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
-    'callback=initialize';
-  document.body.appendChild(script);
-}
-
 var map;
 var marker = [];
 //各スペースの経度緯度情報を格納
@@ -39,7 +31,8 @@ function initMap() {
 // マーカーにクリックイベントを追加
 function markerEvent(i) {
   marker[i].addListener('click', function() { // マーカーをクリックしたとき
-    console.log(marker[i]);
+    $('.select-space').not('.hidden').addClass('hidden');
+    $(`.select-space${i}`).removeClass('hidden');
   });
 }
 
