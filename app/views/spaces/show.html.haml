@@ -107,9 +107,10 @@
                                   %i.fa.fa-caret-down
                             %li.space-side__buttons-share
                               .space-side__buttons-list
-                                %a.space-side__button-share{:href => "#"}
-                                  %i.fa.fa-share-alt>
-                                  シェア
+                                -# %a.space-side__button-share
+                                -#   %i.fa.fa-share-alt
+                                -#   シェア
+                                %a.twitter-share-button{"data-size" => "large", "data-hashtags" => "スペースマーケット", "data-show-count" => "false", "data-text" => "おすすめのスペースを見つけました！【#{@space.description.catch_copy}】", :href => "https://twitter.com/share?ref_src=twsrc%5Etfw"}
                                 .space-side__share-tooltip
                         .clearfix
                           .space-side__owner-area
