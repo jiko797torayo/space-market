@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   // 要素の高さを取得
   var siteHeaderH = $('.site-other-header').height();
   var topImageH   = $('.space-head__img').height();
