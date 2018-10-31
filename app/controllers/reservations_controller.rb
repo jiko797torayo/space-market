@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_space
   def new
     @space = Space.find(params[:space_id])
@@ -11,6 +12,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reserve_params)
     if @reservation.save
       redirect_to action: 'show', id: @reservation.id
+      ReservationMailer.send_when_create(@reservation.user, @reservation).deliver
     else
       flash[:notice] = "過去の日付は予約できません"
       redirect_to action: 'new'

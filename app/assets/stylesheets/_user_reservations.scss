@@ -1,0 +1,137 @@
+.none {
+  display: none;
+}
+.current {
+  display: block;
+}
+
+.pagination {
+  display: flex;
+}
+
+.check {
+  color: #60df52;
+  font-size: 16px;
+}
+
+.toggle {
+  text-align: center;
+  height:30px;
+  margin: 40px;
+  .toggle-button {
+    padding:13px;
+    background-color: #FFF;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    font-size:12px;
+    cursor: pointer;
+    color: #808080;
+    p {
+      display: inline-block;
+    }
+  }
+  .toggle-button:hover {
+    background-color: rgba(128,128,128,0.1);
+  }
+}
+
+.space-edit {
+  padding: 10px;
+  position: absolute;
+  bottom: 120px;
+  text-align: center;
+  line-height: 60px;
+  .space-edit__button {
+    display: block;
+    height: 60px;
+    width: 200px;
+    border: 1px solid #60df52;
+    border-radius: 3px;
+    color: #60df52;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+
+.reservation-list {
+  margin: 20px 180px;
+  &__head-container {
+    height: 60px;
+    margin: 10 auto;
+  }
+  &__title {
+    p {
+      font-size:30px;
+      font-weight: 600;
+    }
+  }
+  &__content {
+    display: flex;
+  }
+  &__image {
+    height: 270px;
+    width: 400px;
+    margin-bottom: 130px;
+    img {
+      width: 400px;
+      object-fit: contain;
+    }
+  }
+  &__info {
+    padding-left: 40px;
+    &__date{
+      padding: 10px;
+      height: 40px;
+      display: flex;
+      p {
+        font-size: 18px;
+      }
+    }
+    &__left-text {
+      padding-right: 0px;
+      width: 100px;
+    }
+    &__right-text {
+    }
+
+    &__space-info {
+      padding: 10px;
+    }
+  }
+}
+
+.user-space {
+  margin: 20px 180px;
+  &__head {
+    height: 60px;
+    margin: 10 auto;
+    p {
+      font-size: 30px;
+      font-weight: 600;
+    }
+  }
+  &__content {
+    display: flex;
+    &__image {
+      height: 270px;
+      width: 400px;
+      margin-bottom: 130px;
+      img {
+        width: 400px;
+        object-fit: contain;
+      }
+    }
+
+    &__info {
+      padding: 16px;
+      position: relative;
+      &__space-info {
+        padding-left: 40px;
+      }
+      &__space-copy {
+        font-size: 16px;
+      }
+    }
+  }
+}
