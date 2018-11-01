@@ -7,7 +7,6 @@
       .top-units__container
         .row
           - spaces.each.with_index(1) do |space, rank|
-            //カードここから//
             .col-xs-4
               = link_to space_path(id: space.id), class: "a__top-units" do
                 .md-top-units
@@ -38,4 +37,5 @@
                           = fa_icon "map-marker", class: "md-top-units__body-info__icon"
                           = space.equipment_info.prefecture
       .sm-hide.top-more__area
-        %a.top-more__area-link{:href => "#"} #{title}で利用できるスペースをすべて見る >
+        = link_to "#{title}で利用できるスペースをすべて見る >", search_search_index_path(params: { purpose_key: "#{purpose_key}" }), class: "top-more__area-link"
+
