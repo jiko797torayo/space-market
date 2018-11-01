@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  $('#postal_code').on('change', function() {
+  $('#postal_code').on('keyup', function() {
     $(this).jpostal({
       postcode : [
         '#postal_code'
