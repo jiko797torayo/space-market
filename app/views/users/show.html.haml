@@ -20,7 +20,7 @@
                   - if reservation.space.space_image
                     = image_tag(reservation.space.space_image.image_files.main.first.file, class: "preview")
                   - else
-                    = image_tag("spesma3.png")
+                    = image_tag("spesma3.png", class: "preview")
                 .user-space__content__info
                   .user-space__content__info__space-info
                     .user-space__content__info__space-copy
@@ -42,7 +42,7 @@
                   - if space.space_image
                     = image_tag(space.space_image.image_files.main.first.file, class: "preview")
                   - else
-                    = image_tag("spesma3.png")
+                    = image_tag("spesma3.png", class: "preview")
                 .user-space__content__info
                   .user-space__content__info__space-info
                     .user-space__content__info__space-copy
