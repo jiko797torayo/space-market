@@ -100,6 +100,7 @@
               = f.text_field :latitude, value: 35.6618, class: "ant-input ant-input-wd"
               = f.text_field :longitude, value: 139.7041, class: "ant-input ant-input-wd"
               .create-space-sections__form-item-map-wrapper
+                = image_tag("koujityu.png")
           //アクセス
           .create-space-sections__section
             .form-section-title__container
@@ -131,7 +132,7 @@
                 .input-container__container
                   = f.text_field :phone_number, placeholder: "電話番号", class: "ant-input ant-input-lg"
                 .form-item__footer-wrapper
-                  %p.form-item__footer 例）09012345678        
+                  %p.form-item__footer 例）09012345678
                 - if @equipment_info.errors[:phone_number].any?
                   %ul.form-item__errors-wrapper
                     - @equipment_info.errors.messages[:phone_number].each do |msg|
@@ -153,25 +154,25 @@
                     %label.ant-radio-wrapper
                       %span.ant-radio
                         = f.radio_button :equipment_type, :イベントスペース, class: "ant-radio-input"
-                        %span.ant-radio-inner                      
+                        %span.ant-radio-inner
                       %span イベントスペース
                   %span.radio-list__wrapper
                     %label.ant-radio-wrapper
                       %span.ant-radio
                         = f.radio_button :equipment_type, :結婚式場, class: "ant-radio-input"
-                        %span.ant-radio-inner 
+                        %span.ant-radio-inner
                       %span 結婚式場
                   %span.radio-list__wrapper
                     %label.ant-radio-wrapper
                       %span.ant-radio
                         = f.radio_button :equipment_type, :オフィススペース, class: "ant-radio-input"
-                        %span.ant-radio-inner 
+                        %span.ant-radio-inner
                       %span オフィススペース
                   %span.radio-list__wrapper
                     %label.ant-radio-wrapper
                       %span.ant-radio
                         = f.radio_button :equipment_type, :ホール, class: "ant-radio-input"
-                        %span.ant-radio-inner 
+                        %span.ant-radio-inner
                       %span ホール
                   %span.radio-list__wrapper
                     %label.ant-radio-wrapper

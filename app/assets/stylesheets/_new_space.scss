@@ -199,7 +199,10 @@
   &__form-item-map-wrapper {
     width: 500px;
     height: 300px;
-    background-color: skyblue;
+    img {
+      max-height: 300px;
+      max-width: 500px;
+    }
   }
 }
 .form-section-title {
