@@ -57,6 +57,7 @@
     margin-bottom: 130px;
     img {
       width: 400px;
+      height: 270px;
       object-fit: contain;
     }
   }
@@ -95,18 +96,21 @@
   }
   &__content {
     display: flex;
+
     &__image {
       height: 270px;
       width: 400px;
       margin-bottom: 130px;
+      background-color: #fff;
       img {
         width: 400px;
+        height: 270px;
         object-fit: contain;
       }
     }
 
     &__info {
-      padding: 16px;
+      padding: 16px 0px 0px 40px;
       position: relative;
       &__space-info {
         padding-left: 40px;
@@ -114,6 +118,14 @@
       &__space-copy {
         font-size: 16px;
       }
+      &__space-address {
+        display: flex;
+        margin-top: 40px;
+        .space-address__left {
+          font-size: 16px;
+          font-weight: 500;
+          padding-right: 30px;
+        }
       &__buttons {
         position: absolute;
         bottom: 120px;
