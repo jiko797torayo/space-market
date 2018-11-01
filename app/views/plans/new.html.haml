@@ -32,7 +32,7 @@
               .form-section-title__title-container
                 = f.label :about_plan, "任意", class: "form-section-title__required-label not-required"
                 .form-section-title__title プランの説明
-              .form-section-title__description 
+              .form-section-title__description
             .create-space-sections__from-wrapper
               %div
                 .input-container__container
@@ -49,7 +49,7 @@
               .form-section-title__description
             .create-space-sections__from-wrapper
               %ul
-                %li.price-setting-list__list-item.last-item 
+                %li.price-setting-list__list-item.last-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content一日価格
@@ -89,50 +89,65 @@
                     .price-setting-list__title
                       %span.price-setting-list__title-content 日曜日
                     .price-setting-list__switch
-                      = d.check_box :sunday, {checked: true}, checked_value = "1", unchecked_value = "0"
-                      貸し出す
+                      %label.switch__label
+                        = d.check_box :sunday, {checked: true, class: "switch__input"}, checked_value = "1", unchecked_value = "0"
+                        %span.switch__content
+                        %span.switch__circle
+
                 %li.price-setting-list__list-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 月曜日
                     .price-setting-list__switch
-                      = d.check_box :monday, {checked: true}, checked_value = "1", unchecked_value = "0"
-                      貸し出す
+                      %label.switch__label
+                        = d.check_box :monday, {checked: true, class: "switch__input"}, checked_value = "1", unchecked_value = "0"
+                        %span.switch__content
+                        %span.switch__circle
                 %li.price-setting-list__list-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 火曜日
                     .price-setting-list__switch
-                      = d.check_box :tuesday, {checked: true}, checked_value = "1", unchecked_value = "0"
-                      貸し出す
+                      %label.switch__label
+                        = d.check_box :tuesday, {checked: true, class: "switch__input"}, checked_value = "1", unchecked_value = "0"
+                        %span.switch__content
+                        %span.switch__circle
                 %li.price-setting-list__list-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 水曜日
                     .price-setting-list__switch
-                      = d.check_box :wednesday, {checked: true}, checked_value = "1", unchecked_value = "0"
-                      貸し出す
+                      %label.switch__label
+                        = d.check_box :wednesday, {checked: true, class: "switch__input"}, checked_value = "1", unchecked_value = "0"
+                        %span.switch__content
+                        %span.switch__circle
                 %li.price-setting-list__list-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 木曜日
                     .price-setting-list__switch
-                      = d.check_box :thursday, {checked: true}, checked_value = "1", unchecked_value = "0"
-                      貸し出す
+                      %label.switch__label
+                        = d.check_box :thursday, {checked: true, class: "switch__input"}, checked_value = "1", unchecked_value = "0"
+                        %span.switch__content
+                        %span.switch__circle
                 %li.price-setting-list__list-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 金曜日
                     .price-setting-list__switch
-                      = d.check_box :friday, {checked: true}, checked_value = "1", unchecked_value = "0"
-                      貸し出す
+                      %label.switch__label
+                        = d.check_box :friday, {checked: true, class: "switch__input"}, checked_value = "1", unchecked_value = "0"
+                        %span.switch__content
+                        %span.switch__circle
                 %li.price-setting-list__list-item.last-item
                   .price-setting-list__head
                     .price-setting-list__title
                       %span.price-setting-list__title-content 土曜日
                     .price-setting-list__switch
-                      = d.check_box :saturday, {checked: true}, checked_value = "1", unchecked_value = "0"
-                      貸し出す
+                      %label.switch__label
+                        = d.check_box :saturday, {checked: true, class: "switch__input"}, checked_value = "1", unchecked_value = "0"
+                        %span.switch__content
+                        %span.switch__circle
           //予約の承認方式
           .create-space-sections__section
             .form-section-title__container
@@ -148,13 +163,13 @@
                     %label.ant-radio-wrapper
                       %span.ant-radio
                         = f.radio_button :reservation_approval_method, :承認なし（今すぐ予約）, class: "ant-radio-input"
-                        %span.ant-radio-inner                      
+                        %span.ant-radio-inner
                       %span 承認なし（今すぐ予約）
                   %span.radio-list__wrapper
                     %label.ant-radio-wrapper
                       %span.ant-radio
                         = f.radio_button :reservation_approval_method, :承認あり, class: "ant-radio-input"
-                        %span.ant-radio-inner 
+                        %span.ant-radio-inner
                       %span 承認あり
                 - if @plan.errors[:reservation_approval_method].any?
                   %ul.form-item__errors-wrapper
