@@ -41,7 +41,7 @@
                   - else
                     = image_tag("spesma3.png")
                 .user-space__content__info
-                  .user-space__conatent__info__space-info
+                  .user-space__content__info__space-info
                     .user-space__content__info__space-copy
                     - if space.description
                       %p #{space.description.catch_copy}
@@ -52,6 +52,8 @@
                       %p #{space.equipment_info.prefecture}#{space.equipment_info.city_name}#{space.equipment_info.street_name}
                       - if space.equipment_info.building_name
                         #{space.equipment_info.building_name}
-                  .space-edit
-                    = link_to "スペース情報の編集", edit_space_path, class: 'space-edit__button'
-
+                  .user-space__content__info__buttons
+                    .space-edit
+                      = link_to "スペース情報の編集", edit_space_path(space), class: 'space-edit__button'
+                    .space-destroy
+                      = link_to "スペース情報の削除", space_path(space), method: :delete, class: 'space-destroy__button', data: {confirm: "本当に削除しますか？"}

@@ -35,24 +35,6 @@
   }
 }
 
-.space-edit {
-  padding: 10px;
-  position: absolute;
-  bottom: 120px;
-  text-align: center;
-  line-height: 60px;
-  .space-edit__button {
-    display: block;
-    height: 60px;
-    width: 200px;
-    border: 1px solid #60df52;
-    border-radius: 3px;
-    color: #60df52;
-    font-size: 16px;
-    font-weight: 600;
-  }
-}
-
 
 .reservation-list {
   margin: 20px 180px;
@@ -144,7 +126,37 @@
           font-weight: 500;
           padding-right: 30px;
         }
+      &__buttons {
+        position: absolute;
+        bottom: 120px;
+        display: flex;
       }
     }
   }
 }
+.space-edit, .space-destroy {
+  padding: 10px;
+  text-align: center;
+  line-height: 60px;
+  .space-edit__button {
+    display: block;
+    height: 60px;
+    width: 200px;
+    border: 1px solid #60df52;
+    border-radius: 3px;
+    color: #60df52;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .space-destroy__button {
+    display: block;
+    height: 60px;
+    width: 200px;
+    border: 1px solid $required;
+    border-radius: 3px;
+    color: $required;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
