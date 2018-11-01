@@ -43,6 +43,10 @@ class SpacesController < ApplicationController
       else
         @sub_images = []
       end
+      gon.map_key = ENV["MAP_KEY"]
+      gon.markerData = []
+      gon.markerData << { lat: @space.equipment_info.latitude, lng: @space.equipment_info.longitude }
+      render :layout => 'space_show'
     else
       render_404
     end
