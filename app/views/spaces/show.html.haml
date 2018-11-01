@@ -21,9 +21,11 @@
             .carousel-inner{:role => "listbox"}
               .item.active
                 = image_tag(@space.space_image.image_files.main.first.file)
+                %p.modal-text #{@space.space_image.image_files.main.first.about_file}
               - @sub_images.each.with_index(1) do |sub, i|
                 .item
                   = image_tag(sub.file)
+                  %p.modal-text #{sub.about_file}
 
             / Left and right controls
             %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel", :role => "button"}
@@ -52,16 +54,16 @@
                           %i.fa.fa-star.mr2.is-checked
                           %i.fa.fa-star.mr2.is-default
                           / review件数
-                        %a.space-head__list-number{:href => "#"} 67件
+                        %a.space-head__list-number 67件
                     %li.space-head__list-user
                       %i.fa.fa-user.mr5
-                      %a{:href => "#"} 〜#{@space.basic_info.capacity}人
+                      %a 〜#{@space.basic_info.capacity}人
                     %li.space-head__list-map
                       %i.fa.fa-map-marker.mr5
-                      %a{:href => "#"} #{@space.equipment_info.prefecture}#{@space.equipment_info.city_name}
+                      %a #{@space.equipment_info.prefecture}#{@space.equipment_info.city_name}
                     %li.space-head__list-tag
                       %i.fa.fa-tag.mr5
-                      %a{:href => "#"} #{@space.equipment_info.equipment_type}
+                      %a #{@space.equipment_info.equipment_type}
                       / ここからサイドバー
               .side-fixed
                 %div
@@ -70,14 +72,15 @@
                     .space-side
                       .space-side__box.clearfix
                         %ul.space__reserveinfo.space-side__reserveinfo
-                          %li.space__reserveinfo-item.space__reserveinfo-now
-                            %i.fa.fa-bolt.fa-lg.icon-direct.mr5>
-                            今すぐ予約OK
-                            %span.mod-evaluate__help
-                              %i.fa.fa-question-circle.mod-evaluate__question
-                              %span.mod-tooltip.mod-evaluate__help-tooltip
-                                %span.baloon.baloon-top.user-detail-baloon
-                                  %span.baloon-inner
+                          - if @space.plan.reservation_approval_method == "承認なし（今すぐ予約）"
+                            %li.space__reserveinfo-item.space__reserveinfo-now
+                              %i.fa.fa-bolt.fa-lg.icon-direct.mr5>
+                              今すぐ予約OK
+                              %span.mod-evaluate__help
+                                %i.fa.fa-question-circle.mod-evaluate__question
+                                %span.mod-tooltip.mod-evaluate__help-tooltip
+                                  %span.baloon.baloon-top.user-detail-baloon
+                                    %span.baloon-inner
                         .space-side__money
 
                           %p
@@ -85,25 +88,25 @@
                             ～
                             %strong> ￥#{number_with_delimiter(@space.plan.price_per_day)}
                             \/日
-                          %p.space-side__point-available{"data-reactid" => "479"}
-                            %span.space-side__point-value{"data-reactid" => "480"}> 1,000円分
+                          %p.space-side__point-available
+                            %span.space-side__point-value> 1,000円分
                             のポイントが利用可能
                           %ul.space-side__note
                             %li
                               %i.fas.fa-coins>
-                              5%ポイント付与(10月末利用分まで2%増量中)
+                              5%ポイント付与
                           .space-side__request-area
                             = link_to "空き状況の確認/予約リクエスト", new_space_reservation_path(@space.id) , class: "btn__large btn__style bg_blue"
                           %ul.space-side__buttons.clearfix.sm-hide
                             %li
                               .space-side__buttons-list
-                                %a.space-side__buttons-favorite{:href => ""}
+                                %a.space-side__buttons-favorite
                                   %i.fa.fa-heart>
                                   お気に入り
                                   %span.space-side__buttons-fav__count (481)
                             %li.space-side__buttons-fav__select
                               .space-side__buttons-list
-                                %a.space-side__buttons-select{:href => "#"}
+                                %a.space-side__buttons-select
                                   %i.fa.fa-caret-down
                             %li.space-side__buttons-share
                               .space-side__buttons-list
@@ -144,10 +147,6 @@
                   .space-expandable__area
                     .PreWrap-je2l9m-0.eKVBBP
                       = simple_format(@space.description.overview)
-                  %p.space-expandable__link
-                    %a.a__underline{:href => "#"}
-                      続きを読む
-                      %i.fa.fa-angle-down.ml5
             %section.space-main__section
               %h2.space-main__headline 設備・サービス
               %div{:itemprop => "description"}
@@ -155,28 +154,25 @@
                   .space-expandable__area
                     .PreWrap-je2l9m-0.eKVBBP
                       = simple_format(@space.description.about_facilities)
-                  %p.space-expandable__link
-                    %a.a__underline{:href => "#"}
-                      続きを読む
-                      %i.fa.fa-angle-down.ml5
+
                       / ここから画像
             %section.space-main__section
               .row-change__4.sm-hide.DetailPhotos__RowChangedBox-sc-8x04cx-4.iORvhO
                 .col-xs-12.col-sm-6.space-main__photo-1
                   .sc-8x04cx-0-DetailPhotos__Thumbnail-gwaKry.cePUcS
-                    %a{:href => "#", :target => "_blank"}
+                    %a
                       %picture
                         %img.subImages{:src => "#{@space.space_image.image_files.main.first.file}"}/
 
                 .col-xs-12.col-md-6.sm-hide
-                  .mb8.sc-8x04cx-0-DetailPhotos__Thumbnail-gGFLOq.dWTMzZ
-                    %a{:href => "#", :target => "_blank"}
+                  .sc-8x04cx-0-DetailPhotos__Thumbnail-gGFLOq.dWTMzZ
+                    %a
                       %picture
                       - if @sub_images[0]
                         = image_tag(@sub_images[0].file, class: "subImages")
 
                   .sc-8x04cx-0-DetailPhotos__Thumbnail-gGFLOq.dWTMzZ
-                    %a{:href => "#", :target => "_blank"}
+                    %a
                       %picture
                       - if @sub_images[1]
                         = image_tag(@sub_images[1].file, class: "subImages")
@@ -184,14 +180,14 @@
               .DetailPhotos__RowChangedBox-sc-8x04cx-4.iORvhO
                 .col-xs-12.col-md-4
                   .sc-8x04cx-0-DetailPhotos__Thumbnail-sHjMC.bAeWjN
-                    %a{:href => "#", :target => "_blank"}
+                    %a
                       %picture
                       - if @sub_images[2]
                         = image_tag(@sub_images[2].file, class: "subImages")
 
                 .col-xs-12.col-md-4
                   .sc-8x04cx-0-DetailPhotos__Thumbnail-sHjMC.bAeWjN
-                    %a{:href => "#", :target => "_blank"}
+                    %a
                       %picture
                       -if @sub_images[3]
                         = image_tag(@sub_images[3].file, class: "subImages")
@@ -207,6 +203,7 @@
                         .DetailPhotos__ViewMoreText-sc-8x04cx-3.eVLLML
                           %i{class: @sub_images[4] ? "fa fa-camera" : "fa fa-camera skyblue" }
                           %p.skyblueすべての写真を見る
+
                           / ここから使用用途割合
             %section.space-main__section.clearfix.space-main__usage
               %h2.space-main__headline このスペースはこんな用途で使われています
@@ -239,13 +236,13 @@
                 #map
               .space-main__access
                 %h2.space-main__access-title 住所
-                %p.space-main__access-content #{@space.equipment_info.prefecture}#{@space.equipment_info.city_name}#{@space.equipment_info.street_name}
+                %p.space-main__access-content #{@space.equipment_info.prefecture}#{@space.equipment_info.city_name}#{@space.equipment_info.street_name}#{@space.equipment_info.building_name}
                 %h2.space-main__access-title アクセス
                 .PreWrap-je2l9m-0.eKVBBP
                   %p.space-main__access-content
                     = @space.equipment_info.access
                 %p.space-main__access-link
-                  %a{:href => "#", :target => "_blank"}
+                  %a
                     %i.fa.fa-map.mr5>
                     GoogleMapで場所を確認する
           .space-main
@@ -256,25 +253,27 @@
                   %li.space-plan__item
                     %h3.space-plan__title #{@space.plan.name}
                     %ul.space__reserveinfo.space-plan__reserveinfo
-                      %li.space__reserveinfo-now.space__reserveinfo-item
-                        %i.fa.fa-bolt.fa-lg.icon-direct.mr5>
-                        今すぐ予約OK
-                        %span.mod-evaluate__help
-                          %i.fa.fa-question-circle.mod-evaluate__question
+                      .blank-box
+                        - if @space.plan.reservation_approval_method == "承認なし（今すぐ予約）"
+                          %li.space__reserveinfo-now.space__reserveinfo-item
+                            %i.fa.fa-bolt.fa-lg.icon-direct.mr5>
+                            今すぐ予約OK
+                            %span.mod-evaluate__help
+                            %i.fa.fa-question-circle.mod-evaluate__question
                     %ul.space-plan__info
                       %li.space-plan__info-item.space-plan__info-time
                         %i.far.fa-clock>
                         最低利用時間1時間〜
-                    %p.space-plan__description #{@space.plan.about_plan}
+                    - if @space.plan.about_plan.present?
+                      %p.space-plan__description #{@space.plan.about_plan}
                     %p.space-plan__link
-                      %a.space-plan__link-button{:href => "#"}
-                        %i.fa.fa-angle-right.mr3>
-                        このプランで予約する
-                %div
-                .space-plan__option
-                  %h3.space-plan__op-title オプション追加料金
+                      %i.fa.fa-angle-right.mr3
+                      = link_to "このプランで予約する", new_space_reservation_path(@space.id)
+
+
+
             .bottom__request-area.pc-hide__sm-show
-              %a.btn__large.btn__style.bg_blue{:href => "#"}
+              %a.btn__large.btn__style.bg_blue
             %section.space-expandable.space-plan__amenity
               %h3.space-main__headline-big アメニティ
               .space-expandable__area
@@ -377,7 +376,7 @@
                       %i.icon.icon-spm-smoking>
                       喫煙可
               %p.space-expandable__link
-                %a.a__underline{:href => "#"}
+                %a.a__underline
                   続きを読む
                   %i.fa.fa-angle-down.ml5
             %section.space-main__section-big
@@ -397,66 +396,66 @@
                       %i.fa.fa-star.ReputationStar__StarIcon-sc-1mfd4yz-1.dKrvFl
                 %li.mod-review__head-rating{:itemprop => "ratingValue"} 4.37
                 %li.relative{:itemprop => "reviewCount"}
-                  %a.space-head__list-number{:href => "#"} 67件すべて読む
+                  %a.space-head__list-number 67件すべて読む
               .mod-review__box
                 .mod-review__line.clearfix.bd-n
-                  %a{:href => "#"}
+                  %a
                     %img.is-hover.mod-review__guest-icon{:alt => "", :href => ""}/
                   .mod-review__box-head{:itemprop => "review", :itemscope => "", :itemtype => "http://schema.org/Review"}
                     %h3.mod-review__guest-name.link__subcolor{:itemprop => "author", :itemscope => "", :itemtype => "http://schema.org/Person"}
-                      %a{:href => "#"}
+                      %a
                         %span{:itemprop => "name"} K.A
                     %ul.mod-review__list
                       %li 2018年9月23日実施
                       %li
                         利用目的：
-                        %a{:href => "#"} 会議・研修
+                        %a 会議・研修
                   .mod-review__box-text
                     %p 綺麗で気に入っています。また利用させていただきます。
                 .mod-review__line.clearfix.bd-n
-                  %a{:href => "#"}
+                  %a
                     %img.is-hover.mod-review__guest-icon{:alt => "", :src => "https://cdnspacemarket.com/uploads/users/223646/eb651c3b9ce2e219c0dddc396fc27d38.jpeg"}/
                   .mod-review__box-head{:itemprop => "review", :itemscope => "", :itemtype => "http://schema.org/Review"}
                     %h3.mod-review__guest-name.link__subcolor{:itemprop => "author", :itemscope => "", :itemtype => "http://schema.org/Person"}
-                      %a{:href => "#"}
+                      %a
                         %span{:itemprop => "name"} Takahisa Fujiwara
                     %ul.mod-review__list
                       %li 2018年9月21日実施
                       %li
                         利用目的：
-                        %a{:href => "#"} イベント
+                        %a イベント
                   .mod-review__box-text
                     %p 勉強会に使用させていただきました。人数が上限に逹しておりましたが、必要十分な広さと設備で良かったと思います。トイレにもハンドープがありますと、より良いかと思います。洗面台にはハンドープがあることに気づきませんでした。両方あると嬉しいです。
                 .mod-review__line.clearfix.bd-n
-                  %a{:href => "#"}
+                  %a
                     %img.is-hover.mod-review__guest-icon{:alt => "", :src => "https://cdnspacemarket.com/images/api/default_user.png"}/
                   .mod-review__box-head{:itemprop => "review", :itemscope => "", :itemtype => "http://schema.org/Review"}
                     %h3.mod-review__guest-name.link__subcolor{:itemprop => "author", :itemscope => "", :itemtype => "http://schema.org/Person"}
-                      %a{:href => "#"}
+                      %a
                         %span{:itemprop => "name"} 桐原 美晴
                     %ul.mod-review__list
                       %li 2018年9月21日実施
                       %li
                         利用目的：
-                        %a{:href => "https://www.spacemarket.com/event_types/class"} 会議・研修
+                        %a 会議・研修
                   .mod-review__box-text
                     %p
                       スペースをお貸しいただき、ありがとうございました！
                       とても清潔で、会議にはもってこいでした。機会があればまたお借りしたいと思います。
               %p.ta-r
-                %a{:href => "#"}
+                %a
                   レビューをもっと見る
                   %i.fa.fa-angle-right.ml10
             %section.space-main__section-big.space-main__hostarea
               %h2.space-main__headline-big 管理者
               .space-main__host
                 .mod-host__icon-inner
-                  %a{:href => "#"}
-                    %img.is-hover.space-main__host-icon{:alt => "TOKYO24", :src => "https://cdnspacemarket.com/uploads/owners/4812/7bd75c34389fe7166ff0ce3bf167a94a.jpg?fit=crop&width=500&height=500&bg-color=9c9c9c"}/
+                  %a
+                    %img.is-hover.space-main__host-icon{:alt => "hosto", :src => "#{@space.user.icon}"}/
                 .space-main__host-info
                   .space-main__host-namearea
-                    %h3.space-main__host-name.link__subcolor.mr10{:itemprop => "legalName"}
-                      %a{:href => "https://www.spacemarket.com/owners/tokyo24"} TOKYO24
+                    %h3.space-main__host-name.link__subcolor.mr10
+                      %a #{@space.user.first_name} #{@space.user.last_name}
                     %p.space-main__host-date
                       登録日
                       %span.space-main__host-date-days 2017/06/21
@@ -464,7 +463,7 @@
                     管理しているお部屋は頻繁に清掃を行っており清潔です。
                     どうぞ快適にご利用下さいませ。
                   %p.space-main__host-more
-                    %a{:href => "#"} ホストについてもっと詳しく
+                    %a ホストについてもっと詳しく
               .space-main__authentication
                 %img.space-main__authentication-icon{:alt => "スペースマーケット認証マーク", :src => "//cdnspacemarket.com/packs-production/images/www/common/confirm-1c6ae829c8.svg"}/
                 %p.space-main__authentication-headline スペースマーケットによって認証されたホストです。
@@ -503,32 +502,32 @@
                   %li
                     銀行振込（後払い）
                     %span.space-main__payment-attention ※法人利用のみ
-                %a{:href => "https://help.spacemarket.com/hc/ja/articles/217748737", :target => "_blank"} 決済方法について詳細はこちら
+                %a 決済方法について詳細はこちら
               %dt キャンセル料金
               %dd
                 予約がホストにより承認された後にキャンセルする場合は必ず所定の料金がかかります。キャンセル料金について詳しくはこちらをご確認ください。
                 %br/
-                %a{:href => "https://www.spacemarket.com/spaces/tokyo24-shibuya2/rooms/cFTFaqJL0EiPHDd4/cancel_policy"} キャンセルポリシー
+                %a キャンセルポリシー
               %dt 注意事項
               %dd
-                %a{:href => "https://www.spacemarket.com/spaces/tokyo24-shibuya2/rooms/cFTFaqJL0EiPHDd4/terms"} ゲスト規約
+                %a ゲスト規約
                 %br/
-                %a{:href => "https://help.spacemarket.com/hc/ja/articles/218429038", :target => "_blank"} 請求書について
+                %a 請求書について
               %dt お問い合わせ
               %dd
-                %a{:href => "#"} スペースへのお問い合わせ
+                %a スペースへのお問い合わせ
               %dt 利用可能な用途
               %dd.none-border
                 %ul.attention-info__list
                   %li
-                    %a{:href => "#"} 会議・研修
+                    %a 会議・研修
                   %li
-                    %a{:href => "#"} 写真撮影
+                    %a 写真撮影
                   %li
-                    %a{:href => "#"} イベント
+                    %a イベント
                   %li
-                    %a{:href => "#"} 個展・展示会
+                    %a 個展・展示会
                   %li
-                    %a{:href => "#"} オフィス
+                    %a オフィス
                   %li
-                    %a{:href => "#"} その他
+                    %a その他

@@ -9,7 +9,7 @@ class ImageFileUploader < CarrierWave::Uploader::Base
   end
 
   process resize_to_fit: [1260, 840]
-  
+
   # 拡張子のバリデーション
   def extension_white_list
     %w(.jpg .jpeg .png)

@@ -1,3 +1,4 @@
+
 .switch__label {
   width: 37px;
   position: relative;
@@ -199,7 +200,12 @@
   &__form-item-map-wrapper {
     width: 500px;
     height: 300px;
-    background-color: skyblue;
+    margin-top: 10px;
+    img {
+      max-height: 300px;
+      max-width: 500px;
+      background-color: #FFFFCC;
+    }
   }
 }
 .form-section-title {
@@ -247,7 +253,7 @@
   width: 100%;
   height: 40px;
   padding: 6px 11px;
-  margin: 0 10px;
+  margin: 0 0px;
   &-lg, &-lg {
     width: 150px;
   }

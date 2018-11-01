@@ -1,4 +1,4 @@
-= render 'spaces/other_header'
+= render 'search/header'
 = form_for @reservation, url: { controller: :reservations, action: :create } do |f|
   = f.hidden_field :user_id, value: current_user.id
   = f.hidden_field :space_id, value: @space.id
@@ -12,7 +12,7 @@
               .space-side{:style => "width: 345.984px;"}
                 .site-sidebar
                   %h2.site-sidebar__headline 選択中のスペース
-                  %a{:href => "#{}"}
+                  = link_to space_path(id: @space.id) do
                     .reserve-sidebar__space
                       .reserve-sidebar__space-img
                         = image_tag(@space.space_image.image_files.main.first.file)
@@ -77,8 +77,6 @@
                       %legend.reserve-subtitle 利用期間
                       .js-monthly-table__container.reserve-card.sm-hide__guteter{:style => "position: relative;"}
                         .reserve-card__inner.clearfix
-                        - if flash[:notice]
-                          = flash[:notice]
                         #calendar
 
                   .reserve-next
@@ -101,11 +99,11 @@
                             「予約リクエスト」を送信し、ホストが内容を確認後「承認」すると予約成立となります。
                             %br/
                             予約完了までのご利用の流れは
-                            %a.a__underline{:href => "/about/how_it_works", :target => "_blank"} こちら
+                            %a.a__underline こちら
                             から確認いただけます。
                           %p.reserve-payment__notes-text
                             見積書の発行は
-                            %a.a__underline{:href => "#"} こちら
+                            %a.a__underline こちら
                             。印刷、またはPDFに保存してお使いいただけます。
 
 
