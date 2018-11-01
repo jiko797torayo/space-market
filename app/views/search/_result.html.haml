@@ -9,7 +9,7 @@
         .row
           - @spaces.each.with_index(1) do |space, rank|
             .col-xs-6
-              = link_to space_path(id: space.id), class: "a__top-units", data: { "turbolinks" => false } do
+              = link_to space_path(id: space.id), { data: { "turbolinks" => false } }, { class: "a__top-units" } do
                 .md-top-units
                   .md-top-units__image
                     = image_tag(space.space_image.image_files.main.first.file, class: "md-top-units__image-pict")
@@ -40,7 +40,7 @@
   .map-content
     #map
     - @spaces.each do |space|
-      = link_to space_path(id: space.id)  do
+      = link_to space_path(id: space.id), { data: { "turbolinks" => false }} do
         .select-space.hidden{class: "select-space#{@spaces.index(space)}"}
           .select-space--image
             = image_tag(space.space_image.image_files.main.first.file, class: "select-space--image__pic")
