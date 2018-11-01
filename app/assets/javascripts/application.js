@@ -17,6 +17,7 @@
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/locale-all
+//= require preview-image
 //= require full_calendar
 //= require toggle_button
 //= require twitter_widgets
