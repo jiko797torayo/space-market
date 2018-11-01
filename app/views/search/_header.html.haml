@@ -66,8 +66,8 @@
             = link_to "新規登録", new_user_registration_path, method: :get, class: "site-header__nav-signup link-black"
         - if user_signed_in?
           %li
-            = link_to "マイページ", user_path(current_user), class: "site-header__nav-reservation link-black"
+            = link_to "マイページ", user_path(current_user), class: "site-header__nav-reservation link-black", data: { "turbolinks" => false }
           %li
             = link_to "お気に入り", "", class: "site-header__nav-favorite link-black"
           %li
-            = link_to "空きスペースを掲載する", new_equipment_info_path, class: "site-header__nav-owner link-black"
+            = link_to "空きスペースを掲載する", new_equipment_info_path, class: "site-header__nav-owner link-black", data: { "turbolinks" => false }
