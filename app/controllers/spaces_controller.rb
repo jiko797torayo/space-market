@@ -4,13 +4,13 @@ class SpacesController < ApplicationController
   before_action :check_current_user, except: [:index, :show]
 
   def index
-    @party_spaces = Space.published.party.by_likes_count.limit(3)
-    @meeting_spaces = Space.published.meeting.by_likes_count.limit(3)
-    @photo_shoot_spaces = Space.published.photo_shoot.by_likes_count.limit(3)
-    @film_shoot_spaces = Space.published.film_shoot.by_likes_count.limit(3)
-    @sports_spaces = Space.published.sports.by_likes_count.limit(3)
+    @party_spaces = Space.published.party.by_likes_count.limit(3).order('id DESC')
+    @meeting_spaces = Space.published.meeting.by_likes_count.limit(3).order('id DESC')
+    @photo_shoot_spaces = Space.published.photo_shoot.by_likes_count.limit(3).order('id DESC')
+    @film_shoot_spaces = Space.published.film_shoot.by_likes_count.limit(3).order('id DESC')
+    @sports_spaces = Space.published.sports.by_likes_count.limit(3).order('id DESC')
     #いいね機能を実装後に修正する
-    @favorite_spaces = Space.published.all.limit(3)
+    @favorite_spaces = Space.published.all.limit(3).order('id DESC')
     #各目的別スペース登録数
     @spaces_count = Space.published.length
     @party_spaces_count = Space.published.party.length
