@@ -96,16 +96,14 @@
   }
   &__content {
     display: flex;
-
     &__image {
-      height: 270px;
-      width: 400px;
+      //height: 270px;
+      //width: 400px;
       margin-bottom: 130px;
-      background-color: #fff;
-      img {
+      .preview {
         width: 400px;
         height: 270px;
-        object-fit: contain;
+        object-fit: cover;
       }
     }
 

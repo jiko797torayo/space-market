@@ -37,7 +37,7 @@
               .user-space__content
                 .user-space__content__image
                   - if space.space_image
-                    = image_tag(space.space_image.image_files.main.first.file)
+                    = image_tag(space.space_image.image_files.main.first.file, class: "preview")
                   - else
                     = image_tag("spesma3.png")
                 .user-space__content__info
