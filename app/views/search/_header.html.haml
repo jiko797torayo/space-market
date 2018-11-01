@@ -54,7 +54,7 @@
             -#= image_tag "https://yononakanews.com/wp-content/uploads/2015/10/odagiri.jpg", class: "site-header__nav-user"
         %li
           = link_to root_path, class: "site-header__nav-message link-black" do
-            %i.fa.fa-envelope
+            %i.fa.fa-envelope{style: "color:lightgray;"}
         %li
           = link_to "ヘルプ", root_path, class: "site-header__nav-help link-black link-borderless help__text"
         - if user_signed_in?
