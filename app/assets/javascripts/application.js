@@ -17,8 +17,11 @@
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/locale-all
-//= require_tree .
-
+//= require full_calendar
+//= require toggle_button
+//= require twitter_widgets
+//= require init-fontawesome
+//= require side-fixed
 $(document).on('turbolinks:load', function() {
   $('#calendar').fullCalendar({});
 });
