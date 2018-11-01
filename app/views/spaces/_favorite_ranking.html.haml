@@ -9,7 +9,7 @@
           - @favorite_spaces.each.with_index(1) do |space, rank|
             //カードここから//
             .col-xs-4
-              = link_to space_path(id: space.id), class: "a__top-units" do
+              = link_to space_path(id: space.id), class: "a__top-units", data: { "turbolinks" => false } do
                 .md-top-units
                   .md-top-units__image
                     .top-units-ranking.units-ranking.units-ranking__icon{class: "units-ranking__no#{rank}"}
