@@ -2,11 +2,10 @@
 = render 'favorite_ranking'
 = render 'recommend_ranking'
 = render 'regist_yellow'
-= render partial: 'ranking', locals: { spaces: @party_spaces, title: "パーティー", back: "" }
-= render partial: 'ranking', locals: { spaces: @meeting_spaces, title: "会議・研修", back: "graybackground" }
--# = render partial: 'ranking', locals: { spaces: @stay_spaces, title: "宿泊", back: "" }
+= render partial: 'ranking', locals: { spaces: @party_spaces, title: "パーティー", purpose_key: "party", back: "" }
+= render partial: 'ranking', locals: { spaces: @meeting_spaces, title: "会議・研修", purpose_key: "meeting", back: "graybackground" }
 = render 'banner'
-= render partial: 'ranking', locals: { spaces: @photo_shoot_spaces, title: "写真撮影", back: "" }
-= render partial: 'ranking', locals: { spaces: @film_shoot_spaces, title: "ロケ撮影", back: "graybackground" }
-= render partial: 'ranking', locals: { spaces: @sports_spaces, title: "スポーツ・フィットネス", back: "" }
+= render partial: 'ranking', locals: { spaces: @photo_shoot_spaces, title: "写真撮影", purpose_key: "photo_shoot", back: "" }
+= render partial: 'ranking', locals: { spaces: @film_shoot_spaces, title: "ロケ撮影", purpose_key: "film_shoot", back: "graybackground" }
+= render partial: 'ranking', locals: { spaces: @sports_spaces, title: "スポーツ・フィットネス", purpose_key: "sports", back: "" }
 = render 'regist_banner_blue'
