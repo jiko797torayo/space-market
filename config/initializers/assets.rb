@@ -9,6 +9,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile << 'search.js'
+Rails.application.config.assets.precompile << 'space_show.js'
 Rails.application.config.assets.precompile << 'user.css'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets

@@ -425,6 +425,13 @@
           h2.space-main__headline-big.sm-hide {
             margin-bottom: 30px;
           }
+          .space-main__map {
+            width: 715px;
+            #map {
+              height: 450px;
+              width: 715px;
+            }
+          }
           .space-main__access {
             padding-top: 15px;
             padding-bottom: 3px;
