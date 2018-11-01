@@ -50,7 +50,7 @@
             %p.select-space--description--price
               %span.select-space--description--price-per
                 ¥
-                = space.plan.price_per_day
+                = number_with_delimiter(space.plan.price_per_day)
               %span /日
               %span
                 - if space.plan.reservation_approval_method == "承認なし（今すぐ予約）"
