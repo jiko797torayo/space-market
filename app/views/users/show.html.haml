@@ -14,20 +14,23 @@
             .reservation-list__title
               %p 予約一覧
           - @reservations.each do |reservation|
-            .reservation-list__contents-container
-              .reservation-list__content
-                .reservation-list__image
-                  = image_tag(reservation.space.space_image.image_files.main.first.file)
-                .reservation-list__info
-                  .reservation-list__info__date
-                    .reservation-list__info__left-text
-                      %p ご利用日:
-                    .reservation-list__info__right-text
-                      %p #{reservation.day}
-                  .reservation-list__info__space-info
-                    .reservation-list__info__space-copy
+            .user-space__contents
+              .user-space__content
+                .user-space__content__image
+                  - if reservation.space.space_image
+                    = image_tag(reservation.space.space_image.image_files.main.first.file, class: "preview")
+                  - else
+                    = image_tag("spesma3.png")
+                .user-space__content__info
+                  .user-space__content__info__space-info
+                    .user-space__content__info__space-copy
+                    - if reservation.space.description
                       %p #{reservation.space.description.catch_copy}
-
+                  .user-space__content__info__space-address
+                    .space-address__left
+                      %i.far.fa-calendar-alt
+                    .space-address__right
+                      %p #{reservation.day}
         .user-space
           .user-space__head
             .user-space__title

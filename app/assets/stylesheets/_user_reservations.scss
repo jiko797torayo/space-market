@@ -48,39 +48,8 @@
       font-weight: 600;
     }
   }
-  &__content {
-    display: flex;
-  }
-  &__image {
-    height: 270px;
-    width: 400px;
-    margin-bottom: 130px;
-    img {
-      width: 400px;
-      height: 270px;
-      object-fit: contain;
-    }
-  }
-  &__info {
-    padding-left: 40px;
-    &__date{
-      padding: 10px;
-      height: 40px;
-      display: flex;
-      p {
-        font-size: 18px;
-      }
-    }
-    &__left-text {
-      padding-right: 0px;
-      width: 100px;
-    }
-    &__right-text {
-    }
-
-    &__space-info {
-      padding: 10px;
-    }
+  .fa-calendar-alt {
+    color: $gray;
   }
 }
 
@@ -97,8 +66,6 @@
   &__content {
     display: flex;
     &__image {
-      //height: 270px;
-      //width: 400px;
       margin-bottom: 130px;
       .preview {
         width: 400px;
@@ -130,7 +97,7 @@
           font-size: 14px;
           font-weight: 500;
           padding-right: 30px;
-          .fa-map-marker-alt{
+          .fa-map-marker-alt {
             color: $gray;
           }
         }
