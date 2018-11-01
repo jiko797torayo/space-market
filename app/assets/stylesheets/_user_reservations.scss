@@ -108,10 +108,16 @@
     }
 
     &__info {
-      padding: 16px 0px 0px 40px;
+      padding: 80px 0px 0px 40px;
       position: relative;
       &__space-info {
-        padding-left: 40px;
+        padding-left: 10px;
+        .fa-star {
+          color: $yellow;
+        }
+        p {
+          font-weight: bold;
+        }
       }
       &__space-copy {
         font-size: 16px;
@@ -119,10 +125,14 @@
       &__space-address {
         display: flex;
         margin-top: 40px;
+        padding-left: 10px;
         .space-address__left {
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 500;
           padding-right: 30px;
+          .fa-map-marker-alt{
+            color: $gray;
+          }
         }
       }
       &__buttons {
