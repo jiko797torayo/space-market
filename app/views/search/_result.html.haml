@@ -9,7 +9,7 @@
         .row
           - @spaces.each.with_index(1) do |space, rank|
             .col-xs-6
-              = link_to space_path(id: space.id), class: "a__top-units" do
+              = link_to space_path(id: space.id), class: "a__top-units", data: { "turbolinks" => false } do
                 .md-top-units
                   .md-top-units__image
                     = image_tag(space.space_image.image_files.main.first.file, class: "md-top-units__image-pict")
