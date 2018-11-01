@@ -111,3 +111,7 @@
           = button_to "掲載審査", space_path(@space), method: :patch, class: "status-page__bottom__button__inner btn", id: "publish-btn", disabled: true
         - if @space.status == "published"
           .status-page__bottom__button__inner.published 掲載中です
+    .status-page__to-mypage
+      = link_to user_path(current_user) do
+        %i.fas.fa-reply
+        マイページへ戻る
