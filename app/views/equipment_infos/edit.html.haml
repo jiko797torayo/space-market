@@ -97,8 +97,8 @@
                 .form-section-title__title 地図の設定
               .form-section-title__description ドラッグ&ドロップでピンの位置を変更できます。
             .create-space-sections__from-wrapper
-              = f.text_field :latitude, value: 35.6618, class: "ant-input ant-input-wd"
-              = f.text_field :longitude, value: 139.7041, class: "ant-input ant-input-wd"
+              = f.text_field :latitude, placeholder: "緯度（例）35.6618", class: "ant-input ant-input-wd"
+              = f.text_field :longitude, placeholder: "経度（例）139.7041", class: "ant-input ant-input-wd"
               .create-space-sections__form-item-map-wrapper
                 = image_tag("koujityu.png")
           //アクセス
