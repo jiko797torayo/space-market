@@ -66,12 +66,12 @@
     }
   }
   .map-content {
-    width: 501px;
+    width: calc(100vw - 928px);
     float: right;
     position: relative;
     #map {
       height: calc(100vh - 118px);
-      width: 501px;
+      width: calc(100vw - 928px);
     }
     .select-space {
       height: 142px;
