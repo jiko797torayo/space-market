@@ -18,19 +18,19 @@
               .user-space__content
                 .user-space__content__image
                   - if reservation.space.space_image
-                    = image_tag(reservation.space.space_image.image_files.main.first.file, class: "preview")
+                    = image_tag(reservation.space.space_image.image_files.main.first.file, class: 'preview')
                   - else
-                    = image_tag("spesma3.png", class: "preview")
+                    = image_tag('spesma3.png', class: 'preview')
                 .user-space__content__info
                   .user-space__content__info__space-info
                     .user-space__content__info__space-copy
                     - if reservation.space.description
-                      %p #{reservation.space.description.catch_copy}
+                      %p #{ reservation.space.description.catch_copy }
                   .user-space__content__info__space-address
                     .space-address__left
                       %i.far.fa-calendar-alt
                     .space-address__right
-                      %p #{reservation.day}
+                      %p #{ reservation.day }
         .user-space
           .user-space__head
             .user-space__title
@@ -40,23 +40,23 @@
               .user-space__content
                 .user-space__content__image
                   - if space.space_image
-                    = image_tag(space.space_image.image_files.main.first.file, class: "preview")
+                    = image_tag(space.space_image.image_files.main.first.file, class: 'preview')
                   - else
-                    = image_tag("spesma3.png", class: "preview")
+                    = image_tag('spesma3.png', class: 'preview')
                 .user-space__content__info
                   .user-space__content__info__space-info
                     .user-space__content__info__space-copy
                     - if space.description
-                      %p #{space.description.catch_copy}
+                      %p #{ space.description.catch_copy }
                   .user-space__content__info__space-address
                     .space-address__left
                       %i.fas.fa-map-marker-alt
                     .space-address__right
-                      %p #{space.equipment_info.prefecture}#{space.equipment_info.city_name}#{space.equipment_info.street_name}
+                      %p #{ space.equipment_info.prefecture }#{ space.equipment_info.city_name }#{ space.equipment_info.street_name }
                       - if space.equipment_info.building_name
-                        #{space.equipment_info.building_name}
+                        #{ space.equipment_info.building_name }
                   .user-space__content__info__buttons
                     .space-edit
-                      = link_to "スペース情報の編集", edit_space_path(space), class: 'space-edit__button'
+                      = link_to 'スペース情報の編集', edit_space_path(space), class: 'space-edit__button'
                     .space-destroy
-                      = link_to "スペース情報の削除", space_path(space), method: :delete, class: 'space-destroy__button', data: {confirm: "本当に削除しますか？"}
+                      = link_to 'スペース情報の削除', space_path(space), method: :delete, class: 'space-destroy__button', data: { confirm: '本当に削除しますか？' }

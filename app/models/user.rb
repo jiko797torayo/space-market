@@ -7,11 +7,11 @@ class User < ApplicationRecord
 
   mount_uploader :icon, IconUploader
 
-  validates :first_name,            first_name_validation: true
-  validates :last_name,             last_name_validation: true
-  validates :email,                 email_validation: true
-  validates :password,              password_validation: true
-  validates :accepted,              accepted_validation: true
+  validates :first_name,                      first_name_validation: true
+  validates :last_name,                       last_name_validation: true
+  validates :email,                           email_validation: true
+  validates :password,                        password_validation: true
+  validates :accepted,                        accepted_validation: true
   validate  :password_confirmation_validates
 end
 
