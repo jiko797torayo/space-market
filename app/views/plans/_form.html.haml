@@ -1,0 +1,172 @@
+.main-contents-with-hint__main-wrapper
+  .main-contents-with-hint__main
+    .space-info-page__title-container
+      .space-info-page__title 5 プラン
+      .space-info-page__description スペースを貸し出す際の料金プランを設定してください。
+    %div
+      .create-space-sections__section
+        .form-section-title__container
+          .form-section-title__title-container
+            = f.label :name, '必須', class: 'form-section-title__required-label'
+            .form-section-title__title プランの名称
+          .form-section-title__description
+        .create-space-sections__from-wrapper
+          %div
+            .input-container__container
+              = f.text_field :name, placeholder: 'プランの名称', class: 'ant-input'
+            .form-item__footer-wrapper
+              %p.form-item__footer
+            - if @plan.errors[:name].any?
+              %ul.form-item__errors-wrapper
+                - @plan.errors.messages[:name].each do |msg|
+                  %li
+                    %i.fas.fa-exclamation-circle
+                    = msg
+      .create-space-sections__section
+        .form-section-title__container
+          .form-section-title__title-container
+            = f.label :about_plan, '任意', class: 'form-section-title__required-label not-required'
+            .form-section-title__title プランの説明
+          .form-section-title__description
+        .create-space-sections__from-wrapper
+          %div
+            .input-container__container
+              = f.text_area :about_plan, placeholder: 'プランの説明', class: 'ant-input ant-input-area'
+            .form-item__footer-wrapper
+              %p.form-item__footer 例）Wi-Fi、ホワイトボード完備で会議からイベントまでご利用いただけます。その他必要な備品につきましては予約リクエスト時にお問い合わせください。
+            .form-item__errors-wrapper
+      .create-space-sections__section
+        .form-section-title__container
+          .form-section-title__title-container
+            = f.label :price_per_day, '必須', class: 'form-section-title__required-label'
+            .form-section-title__title 価格
+          .form-section-title__description
+        .create-space-sections__from-wrapper
+          %ul
+            %li.price-setting-list__list-item.last-item
+              .price-setting-list__head
+                .price-setting-list__title
+                  %span.price-setting-list__title-content一日価格
+              .price-setting-list__content
+                .price-setting-list__form-wrapper
+                  %span ¥
+                  .input-container__container
+                    = f.text_field :price_per_day, placeholder: '8000', class: 'ant-input ant-input-sm'
+                    %span /日
+            - if @plan.errors[:price_per_day].any?
+              %ul.form-item__errors-wrapper
+                - @plan.errors.messages[:price_per_day].each do |msg|
+                  %li
+                    %i.fas.fa-exclamation-circle
+                    = msg
+      .create-space-sections__section
+        .form-section-title__container
+          .form-section-title__title-container
+            = f.label :rental_day, '必須', class: 'form-section-title__required-label'
+            .form-section-title__title 貸出可能な曜日・時間帯
+          .form-section-title__description 貸出可能な曜日と時間を設定してください。
+        .create-space-sections__from-wrapper
+        = f.fields_for :rental_day do |d|
+          %ul
+          = f.fields_for :rental_hour do |h|
+            %li.price-setting-list__list-item
+              .price-setting-list__form-wrapper
+                .input-container__container
+                  = h.select :start_hour, options_for_select((0..23).to_a), {}, { class: 'ant-input ant-input-sm' }
+                %span :00~
+                .input-container__container
+                  = h.select :end_hour, options_for_select((0..23).to_a), {}, { class: 'ant-input ant-input-sm' }
+                %span :00
+            %li.price-setting-list__list-item
+              .price-setting-list__head
+                .price-setting-list__title
+                  %span.price-setting-list__title-content 日曜日
+                .price-setting-list__switch
+                  %label.switch__label
+                    = d.check_box :sunday, { checked: true, class: 'switch__input' }, checked_value = '1', unchecked_value = '0'
+                    %span.switch__content
+                    %span.switch__circle
+            %li.price-setting-list__list-item
+              .price-setting-list__head
+                .price-setting-list__title
+                  %span.price-setting-list__title-content 月曜日
+                .price-setting-list__switch
+                  %label.switch__label
+                    = d.check_box :monday, { checked: true, class: 'switch__input' }, checked_value = '1', unchecked_value = '0'
+                    %span.switch__content
+                    %span.switch__circle
+            %li.price-setting-list__list-item
+              .price-setting-list__head
+                .price-setting-list__title
+                  %span.price-setting-list__title-content 火曜日
+                .price-setting-list__switch
+                  %label.switch__label
+                    = d.check_box :tuesday, { checked: true, class: 'switch__input' }, checked_value = '1', unchecked_value = '0'
+                    %span.switch__content
+                    %span.switch__circle
+            %li.price-setting-list__list-item
+              .price-setting-list__head
+                .price-setting-list__title
+                  %span.price-setting-list__title-content 水曜日
+                .price-setting-list__switch
+                  %label.switch__label
+                    = d.check_box :wednesday, { checked: true, class: 'switch__input' }, checked_value = '1', unchecked_value = '0'
+                    %span.switch__content
+                    %span.switch__circle
+            %li.price-setting-list__list-item
+              .price-setting-list__head
+                .price-setting-list__title
+                  %span.price-setting-list__title-content 木曜日
+                .price-setting-list__switch
+                  %label.switch__label
+                    = d.check_box :thursday, { checked: true, class: 'switch__input' }, checked_value = '1', unchecked_value = '0'
+                    %span.switch__content
+                    %span.switch__circle
+            %li.price-setting-list__list-item
+              .price-setting-list__head
+                .price-setting-list__title
+                  %span.price-setting-list__title-content 金曜日
+                .price-setting-list__switch
+                  %label.switch__label
+                    = d.check_box :friday, { checked: true, class: 'switch__input' }, checked_value = '1', unchecked_value = '0'
+                    %span.switch__content
+                    %span.switch__circle
+            %li.price-setting-list__list-item.last-item
+              .price-setting-list__head
+                .price-setting-list__title
+                  %span.price-setting-list__title-content 土曜日
+                .price-setting-list__switch
+                  %label.switch__label
+                    = d.check_box :saturday, { checked: true, class: 'switch__input' }, checked_value = '1', unchecked_value = '0'
+                    %span.switch__content
+                    %span.switch__circle
+      .create-space-sections__section
+        .form-section-title__container
+          .form-section-title__title-container
+            = f.label :reservation_approval_method, '必須', class: 'form-section-title__required-label'
+            .form-section-title__title 予約の承認方式
+          .form-section-title__description 予約にホストの承認が必要かどうかを設定してください。承認なし（今すぐ予約）に設定するとゲストとのやりとりが簡単になり、予約が入りやすくなります。
+        .create-space-sections__from-wrapper
+          .radio-list__container
+            .ant-radio-group
+              - Plan.reservation_approval_methods.keys.each do |method|
+                %span.radio-list__wrapper
+                  %label.ant-radio-wrapper
+                    %span.ant-radio
+                      = f.radio_button :reservation_approval_method, method.to_s, class: 'ant-radio-input'
+                      %span.ant-radio-inner                  
+                        %span #{method}
+            - if @plan.errors[:reservation_approval_method].any?
+              %ul.form-item__errors-wrapper
+                - @plan.errors.messages[:reservation_approval_method].each do |msg|
+                  %li
+                    %i.fas.fa-exclamation-circle
+                    = msg
+.float-bottom__container
+  .float-bottom__line
+  .float-bottom__content
+    - if local_assigns[:edit_flag].present?
+      = f.submit '保存', class: 'btn btn-default button-base__button-component green-btn', id: 'submit-btn'
+    -else
+      = f.hidden_field :space_id, value: @space_id
+      = f.submit '保存', class: 'btn btn-default button-base__button-component green-btn', id: 'submit-btn'
