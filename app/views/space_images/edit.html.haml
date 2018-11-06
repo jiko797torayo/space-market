@@ -1,17 +1,16 @@
 = render 'new_space/header_float'
 .main-contents-with-hint__inner
-  = form_for(@space_image, html: {class: "main-contents-with-hint__wrapper"}) do |f|
+  = form_for(@space_image, html: { class: 'main-contents-with-hint__wrapper' }) do |f|
     .main-contents-with-hint__main-wrapper
       .main-contents-with-hint__main
         .space-info-page__title-container
           .space-info-page__title 4 写真
           .space-info-page__description
         %div
-          //写真
           .create-space-sections__section
             .form-section-title__container
               .form-section-title__title-container
-                = f.label :image_files, "必須", class: "form-section-title__required-label"
+                = f.label :image_files, '必須', class: 'form-section-title__required-label'
                 .form-section-title__title 写真
               .form-section-title__description ゲストが実際に利用するスペース、設備等の画像を最低1枚追加してください。推奨サイズは1260x840です。最大5枚まで追加できます。
             .photo-form__from-wrapper
@@ -21,12 +20,12 @@
                     %i.fa.fa-plus.icon
                     %span 写真の追加・変更
                     = img.file_field :file, accept: 'image/jpeg,image/jpg,image/png'
-                    = img.hidden_field :status, value: "main"
+                    = img.hidden_field :status, value: 'main'
                 .photocard__container
                   .photocard__photo
-                    = image_tag(@main_image.file, id: "preview0")
+                    = image_tag(@main_image.file, id: 'preview0')
                   .photocard__text
-                    = img.text_area :about_file, class: "photocard__text__textarea"
+                    = img.text_area :about_file, class: 'photocard__text__textarea'
             - if flash[:alert].present?
               %ul.form-item__errors-wrapper
                 %li
@@ -35,18 +34,18 @@
           - @sub_images.each.with_index(1) do |sub, i|
             .photo-form__from-wrapper
               = f.fields_for :image_files, sub do |img|
-                .photo-form__add{ id: "add#{i}"}
+                .photo-form__add{ id: 'add#{ i }' }
                   %label.photo-form__add__mask
                     %i.fa.fa-plus.icon
                     %span 写真の追加・変更
                     = img.file_field :file, accept: 'image/jpeg,image/jpg,image/png'
-                    = img.hidden_field :status, value: "sub"
+                    = img.hidden_field :status, value: 'sub'
                 .photocard__container
                   .photocard__photo
-                    = image_tag(sub.file, id: "preview#{i}")
+                    = image_tag(sub.file, id: 'preview#{ i }')
                   .photocard__text
-                    = img.text_area :about_file, class: "photocard__text__textarea"
+                    = img.text_area :about_file, class: 'photocard__text__textarea'
     .float-bottom__container
       .float-bottom__line
       .float-bottom__content
-        = f.submit "保存", class: "btn btn-default button-base__button-component green-btn", id: "submit-btn"
+        = f.submit '保存', class: 'btn btn-default button-base__button-component green-btn', id: 'submit-btn'
