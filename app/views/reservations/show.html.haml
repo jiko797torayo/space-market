@@ -21,22 +21,22 @@
                 = image_tag(@space.space_image.image_files.main.first.file)
               .reservation-result__space-info
                 .reservation-result__message-box
-                  %p #{@space.description.catch_copy}
+                  %p #{ @space.description.catch_copy }
 
             .reservation-result__right-content
               .reservation-result__info
                 .reservation-result__info__period.border-bottom
                   %p.result-info__left 利用期間
-                  %p.result-info__right #{@reserve.day}
+                  %p.result-info__right #{ @reserve.day }
                 .reservation-result__info__plan.border-bottom
                   %p.result-info__left プラン料金
-                  %p.result-info__right ￥#{number_with_delimiter(@space.plan.price_per_day)}
+                  %p.result-info__right ￥#{ number_with_delimiter(@space.plan.price_per_day) }
                 .reservation-result__info__address.border-bottom
                   %p.result-info__left アクセス
                   %div
-                    %p.result-info__right #{@space.equipment_info.access}
+                    %p.result-info__right #{ @space.equipment_info.access }
                 .reservation-result__info__price.border-bottom
                   %p.result-info__left 料金
-                  %p.result-info__right ￥#{number_with_delimiter(@space.plan.price_per_day)}
+                  %p.result-info__right ￥#{ number_with_delimiter(@space.plan.price_per_day) }
               .reservation-result__top-btn
-                = link_to "トップページへ", root_path
+                = link_to 'トップページへ', root_path

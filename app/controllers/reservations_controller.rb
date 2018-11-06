@@ -8,15 +8,15 @@ class ReservationsController < ApplicationController
     gon.not_weekday = set_not_be_reserved_weekday(@space)
     gon.not_day = set_not_be_reserved_day(@space)
   end
+
   def create
     @reservation = Reservation.new(reserve_params)
     if @reservation.save
       ReservationMailer.send_when_create(@reservation.user, @reservation).deliver
       redirect_to action: 'show', id: @reservation.id and return
     else
-      flash[:notice] = "過去の日付は予約できません"
+      flash[:notice] = '過去の日付は予約できません'
       redirect_to action: 'new' and return
-
     end
   end
 
@@ -29,6 +29,7 @@ class ReservationsController < ApplicationController
   def set_space
     @space = Space.find(params[:space_id])
   end
+
   def reserve_params
     params.require(:reservation).permit(:user_id, :space_id, :day)
   end

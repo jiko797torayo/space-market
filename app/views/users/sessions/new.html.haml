@@ -1,11 +1,11 @@
 .breadcrumbs.link__subcolor.sm-hide
-  %ol.itemscope{ itemtype: "http://data-vocabulary.org/Breadcrumb" }
+  %ol.itemscope{ itemtype: 'http://data-vocabulary.org/Breadcrumb' }
     %li
-      %a{ href: "/", itemprop: "url" }
+      %a{ href: '/', itemprop: 'url' }
         %i.ic_home
           ホーム
     %li.underlayer
-      %span.breadcrumbs-title{ itemprop: "title" }
+      %span.breadcrumbs-title{ itemprop: 'title' }
         ログイン
 
 %section#contents.page_signin
@@ -25,7 +25,7 @@
                       外部サービスで新規登録
                     .signup-box__wrapper-signin
                       .signup-box__wrapper-fb
-                        %a.button-facebook{ href: "/i/sign_up" }
+                        %a.button-facebook{ href: '/i/sign_up' }
                           %span.signup-box__sns-button
                             Facebookで登録
                       %p.signup-box__notes-signin
@@ -36,29 +36,29 @@
                     %h2.signup-box__title
                       メールアドレスでログイン
                     .signup-box__wrapper-form.form-signin
-                      = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "signin" }) do |f|
+                      = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'signin' }) do |f|
                         = devise_error_messages!
                         .field
                           .field-input
                             = f.email_field :email
                           .field-label
-                            = f.label "メールアドレス", class: "field-label"
+                            = f.label 'メールアドレス', class: 'field-label'
                         .field
                           .field-input
-                            = f.password_field :password, autocomplete: "off"
+                            = f.password_field :password, autocomplete: 'off'
                           .field-label
-                            = f.label "パスワード", class: "field-label"
+                            = f.label 'パスワード', class: 'field-label'
                         %p
                           %i.far.fa-square
                           ログインしたままにする。
                         .actions
-                          = f.submit "ログイン", class: "btn"
-                        %a.signup-box__forget-password{ href: "/i/sign_up" }
+                          = f.submit 'ログイン', class: 'btn'
+                        %a.signup-box__forget-password{ href: '/i/sign_up' }
                           パスワードを忘れた方はこちら
           .signup-box.signup-box__existing-account
             .container-sign
               .inner
-                %a.signup-box__existing-account-title{ href: "/i/sign_up" }
+                %a.signup-box__existing-account-title{ href: '/i/sign_up' }
                   まだアカウントをお持ちでない方は
                   %span.signup-box__existing-account-linktxt
                     こちら
@@ -78,6 +78,6 @@
                       （無料）
                 .arrow
                   ＞
-                %a.btn{ href: "/i/sign_up" }
+                %a.btn{ href: '/i/sign_up' }
                   法人アカウント登録
 

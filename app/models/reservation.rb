@@ -4,6 +4,6 @@ class Reservation < ApplicationRecord
   belongs_to :space
 
 
-  validates :day, uniqueness: {scope: :space_id}, presence: true, day_validation: true
+  validates :day, uniqueness: { scope: :space_id }, presence: true, day_validation: true
 end
 
