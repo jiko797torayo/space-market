@@ -10,5 +10,6 @@ FactoryBot.define do
     access         { Faker::Lorem.sentences }
     phone_number   { Faker::PhoneNumber.phone_number.delete("-") }
     equipment_type { EquipmentInfo.equipment_types.keys.sample }
+    space_id       { Faker::Number.between(1, 999) }
   end
 end
