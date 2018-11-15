@@ -34,7 +34,7 @@
           - @sub_images.each.with_index(1) do |sub, i|
             .photo-form__from-wrapper
               = f.fields_for :image_files, sub do |img|
-                .photo-form__add{ id: 'add#{ i }' }
+                .photo-form__add{ id: "add#{ i }" }
                   %label.photo-form__add__mask
                     %i.fa.fa-plus.icon
                     %span 写真の追加・変更
@@ -42,7 +42,7 @@
                     = img.hidden_field :status, value: 'sub'
                 .photocard__container
                   .photocard__photo
-                    = image_tag(sub.file, id: 'preview#{ i }')
+                    = image_tag(sub.file, id: "preview#{ i }")
                   .photocard__text
                     = img.text_area :about_file, class: 'photocard__text__textarea'
     .float-bottom__container
