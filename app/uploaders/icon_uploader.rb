@@ -1,6 +1,6 @@
 class IconUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  storage :file
+  storage :fog
   process resize_to_fit: [200, 200]
 
   def store_dir
