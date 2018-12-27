@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   # devise_for :hosts
   devise_for :users, only: [:all],
-                               controllers: {
+                     controllers: {
                                   registrations: 'users/registrations',
-                                  sessions:      'users/sessions'
+                                  sessions: 'users/sessions'
                                 }
   root 'spaces#index'
 

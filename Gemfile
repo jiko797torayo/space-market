@@ -6,49 +6,51 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 5.0.1'
+gem 'bootstrap-sass'
+gem 'carrierwave'
+gem 'coffee-rails', '~> 4.2'
+gem 'devise'
+gem 'erb2haml'
+gem 'fog-aws'
+gem 'font-awesome-rails'
+gem 'fullcalendar-rails'
+gem 'gon'
+gem 'haml-rails'
+gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'mini_magick'
+gem 'momentjs-rails'
 gem 'mysql2', '0.3.21'
 gem 'puma', '~> 3.0'
+gem 'rails', '~> 5.0.1'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'haml-rails'
-gem 'erb2haml'
-gem 'jquery-rails'
-gem 'bootstrap-sass'
-gem 'font-awesome-rails'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'devise'
-gem 'fullcalendar-rails'
-gem 'momentjs-rails'
-gem 'kaminari'
-gem 'gon'
-gem 'fog-aws'
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
-  gem 'pry-rails'
   gem 'capistrano'
-  gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-  gem 'rspec-rails'
+  gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'selenium-webdriver'
+  gem 'pre-commit', require: false
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :production do
