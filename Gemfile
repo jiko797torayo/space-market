@@ -39,11 +39,11 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'pre-commit', require: false
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'selenium-webdriver'
-  gem 'pre-commit', require: false
 end
 
 group :development do

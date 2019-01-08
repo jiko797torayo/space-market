@@ -1,0 +1,317 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/321eeac/
+#create	spec/models/equipment_info_spec.rb	/^  describe '#create' do$/;"	d
+#new	spec/models/user_spec.rb	/^  describe '#new' do$/;"	d
+AboutFacilitiesValidationValidator	app/validators/about_facilities_validation_validator.rb	/^class AboutFacilitiesValidationValidator < ActiveModel::EachValidator$/;"	c
+AcceptedValidationValidator	app/validators/accepted_validation_validator.rb	/^class AcceptedValidationValidator < ActiveModel::EachValidator$/;"	c
+AccessValidationValidator	app/validators/access_validation_validator.rb	/^class AccessValidationValidator < ActiveModel::EachValidator$/;"	c
+AddAcceptedToUsers	db/migrate/20181015042825_add_accepted_to_users.rb	/^class AddAcceptedToUsers < ActiveRecord::Migration[5.0]$/;"	c
+AddOptionToImageFiles	db/migrate/20181020044410_add_option_to_image_files.rb	/^class AddOptionToImageFiles < ActiveRecord::Migration[5.0]$/;"	c
+AddPlanIdToRentalDays	db/migrate/20181016075243_add_plan_id_to_rental_days.rb	/^class AddPlanIdToRentalDays < ActiveRecord::Migration[5.0]$/;"	c
+AddPlanIdToRentalHours	db/migrate/20181016075430_add_plan_id_to_rental_hours.rb	/^class AddPlanIdToRentalHours < ActiveRecord::Migration[5.0]$/;"	c
+AddReservationIdToReservationHours	db/migrate/20181016072732_add_reservation_id_to_reservation_hours.rb	/^class AddReservationIdToReservationHours < ActiveRecord::Migration[5.0]$/;"	c
+AddSpaceIdToBasicInfos	db/migrate/20181016074510_add_space_id_to_basic_infos.rb	/^class AddSpaceIdToBasicInfos < ActiveRecord::Migration[5.0]$/;"	c
+AddSpaceIdToDescriptions	db/migrate/20181016074722_add_space_id_to_descriptions.rb	/^class AddSpaceIdToDescriptions < ActiveRecord::Migration[5.0]$/;"	c
+AddSpaceIdtoEquipmentInfos	db/migrate/20181016075748_add_space_idto_equipment_infos.rb	/^class AddSpaceIdtoEquipmentInfos < ActiveRecord::Migration[5.0]$/;"	c
+AddStartHourToRentalHours	db/migrate/20181017082254_add_start_hour_to_rental_hours.rb	/^class AddStartHourToRentalHours < ActiveRecord::Migration[5.0]$/;"	c
+AddStatusToSpaces	db/migrate/20181025062419_add_status_to_spaces.rb	/^class AddStatusToSpaces < ActiveRecord::Migration[5.0]$/;"	c
+AddUserIdtoSpaces	db/migrate/20181018071947_add_user_idto_spaces.rb	/^class AddUserIdtoSpaces < ActiveRecord::Migration[5.0]$/;"	c
+AnonymousFunction059bf06e0100	app/assets/javascripts/purpose-highlight.js	/^$(function(){$/;"	f
+AnonymousFunction1a11dcd80100	app/assets/javascripts/jpostal.js	/^$(document).on('turbolinks:load', function() {$/;"	f
+AnonymousFunction1a11dcd80200	app/assets/javascripts/jpostal.js	/^  $('#postal_code').on('keyup', function() {$/;"	f
+AnonymousFunction39bdd31d0100	app/assets/javascripts/side-fixed.js	/^$(document).on('turbolinks:load', function() {$/;"	f
+AnonymousFunction39bdd31d0200	app/assets/javascripts/side-fixed.js	/^  $(window).scroll(function() {$/;"	f
+AnonymousFunction39bdd31d0300	app/assets/javascripts/side-fixed.js	/^  $(window).scroll(function() {$/;"	f
+AnonymousFunction62e7cbe50100	app/assets/javascripts/breadcrumbs.js	/^$(document).on('turbolinks:load', function() {$/;"	f
+AnonymousFunction69ebc62c0100	app/assets/javascripts/edit_space.js	/^$(document).on('turbolinks:load', function() {$/;"	f
+AnonymousFunction6cc9a04f0100	app/assets/javascripts/application.js	/^$(document).on('turbolinks:load', function() {$/;"	f
+AnonymousFunction738ffb180100	app/assets/javascripts/toggle_button.js	/^$(document).on('turbolinks:load', function() {$/;"	f
+AnonymousFunction738ffb180200	app/assets/javascripts/toggle_button.js	/^  $(function() {$/;"	f	function:AnonymousFunction738ffb180100
+AnonymousFunction738ffb180300	app/assets/javascripts/toggle_button.js	/^    $('.toggle-button').on('click', function() {$/;"	f
+AnonymousFunction7b4213840100	app/assets/javascripts/init-fontawesome.js	/^$(document).on('turbolinks:load', function() {$/;"	f
+AnonymousFunctiona09759990100	app/assets/javascripts/map.js	/^  marker[i].addListener('click', function() { \/\/ マーカーをクリックしたとき$/;"	f
+AnonymousFunctiona704c4a70100	app/assets/javascripts/full_calendar.js	/^$(document).on('turbolinks:load', function() {$/;"	f
+AnonymousFunctiona704c4a70200	app/assets/javascripts/full_calendar.js	/^  $('.reserve-type__button-label').click(function() {$/;"	f
+AnonymousFunctiona704c4a70300	app/assets/javascripts/full_calendar.js	/^    $.each(gon.not_weekday, function(index, wday) {$/;"	f
+AnonymousFunctiona704c4a70400	app/assets/javascripts/full_calendar.js	/^    $.each(gon.not_day, function(index, not_day) {$/;"	f
+AnonymousFunctiona704c4a70500	app/assets/javascripts/full_calendar.js	/^    $.each(allDay, function(index, day){$/;"	f
+AnonymousFunctiona704c4a70600	app/assets/javascripts/full_calendar.js	/^    dayClick: function(date) {$/;"	f
+AnonymousFunctiona704c4a70700	app/assets/javascripts/full_calendar.js	/^    viewRender: function() {$/;"	f
+AnonymousFunctionaf63f5bc0100	app/assets/javascripts/space_images.js	/^$(document).on('turbolinks:load', function() {$/;"	f
+AnonymousFunctionaf63f5bc0200	app/assets/javascripts/space_images.js	/^  $('#space_image_image_files_attributes_0_file').on('change', function (e) {$/;"	f
+AnonymousFunctionaf63f5bc0300	app/assets/javascripts/space_images.js	/^  $('#space_image_image_files_attributes_1_file').on('change', function (e) {$/;"	f
+AnonymousFunctionaf63f5bc0400	app/assets/javascripts/space_images.js	/^  $('#space_image_image_files_attributes_2_file').on('change', function (e) {$/;"	f
+AnonymousFunctionaf63f5bc0500	app/assets/javascripts/space_images.js	/^  $('#space_image_image_files_attributes_3_file').on('change', function (e) {$/;"	f
+AnonymousFunctionaf63f5bc0600	app/assets/javascripts/space_images.js	/^  $('#space_image_image_files_attributes_4_file').on('change', function (e) {$/;"	f
+AnonymousFunctionb22d8aad0100	app/assets/javascripts/preview-image.js	/^$(document).on("turbolinks:load", function() {$/;"	f
+AnonymousFunctionb22d8aad0200	app/assets/javascripts/preview-image.js	/^  $('#user_icon').on('change', function (e) {$/;"	f
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	module:SpaceMarket
+Application name	README.md	/^## Application name$/;"	s
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c
+ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
+ApplicationSystemTestCase	test/application_system_test_case.rb	/^class ApplicationSystemTestCase < ActionDispatch::SystemTestCase$/;"	c
+BasicInfo	app/models/basic_info.rb	/^class BasicInfo < ApplicationRecord$/;"	c
+BasicInfosController	app/controllers/basic_infos_controller.rb	/^class BasicInfosController < ApplicationController$/;"	c
+CapacityValidationValidator	app/validators/capacity_validation_validator.rb	/^class CapacityValidationValidator < ActiveModel::EachValidator$/;"	c
+CatchCopyValidationValidator	app/validators/catch_copy_validation_validator.rb	/^class CatchCopyValidationValidator < ActiveModel::EachValidator$/;"	c
+ChangeDataPostalCodeToEquipmentInfos	db/migrate/20181019014736_change_data_postal_code_to_equipment_infos.rb	/^class ChangeDataPostalCodeToEquipmentInfos < ActiveRecord::Migration[5.0]$/;"	c
+ChangePrefectureToEquipmentinfos	db/migrate/20181013060123_change_prefecture_to_equipmentinfos.rb	/^class ChangePrefectureToEquipmentinfos < ActiveRecord::Migration[5.0]$/;"	c
+CityNameValidationValidator	app/validators/city_name_validation_validator.rb	/^class CityNameValidationValidator < ActiveModel::EachValidator$/;"	c
+CreateBasicInfos	db/migrate/20181016061702_create_basic_infos.rb	/^class CreateBasicInfos < ActiveRecord::Migration[5.0]$/;"	c
+CreateDescriptions	db/migrate/20181009090921_create_descriptions.rb	/^class CreateDescriptions < ActiveRecord::Migration[5.0]$/;"	c
+CreateEquipmentInfos	db/migrate/20181009074549_create_equipment_infos.rb	/^class CreateEquipmentInfos < ActiveRecord::Migration[5.0]$/;"	c
+CreateImageFiles	db/migrate/20181018035152_create_image_files.rb	/^class CreateImageFiles < ActiveRecord::Migration[5.0]$/;"	c
+CreateLikes	db/migrate/20181009065813_create_likes.rb	/^class CreateLikes < ActiveRecord::Migration[5.0]$/;"	c
+CreatePlans	db/migrate/20181009091329_create_plans.rb	/^class CreatePlans < ActiveRecord::Migration[5.0]$/;"	c
+CreatePurposes	db/migrate/20181009085927_create_purposes.rb	/^class CreatePurposes < ActiveRecord::Migration[5.0]$/;"	c
+CreateRentalDays	db/migrate/20181009091954_create_rental_days.rb	/^class CreateRentalDays < ActiveRecord::Migration[5.0]$/;"	c
+CreateRentalHours	db/migrate/20181009092223_create_rental_hours.rb	/^class CreateRentalHours < ActiveRecord::Migration[5.0]$/;"	c
+CreateReservationHours	db/migrate/20181009065426_create_reservation_hours.rb	/^class CreateReservationHours < ActiveRecord::Migration[5.0]$/;"	c
+CreateReservations	db/migrate/20181009054315_create_reservations.rb	/^class CreateReservations < ActiveRecord::Migration[5.0]$/;"	c
+CreateSpaceImages	db/migrate/20181018040116_create_space_images.rb	/^class CreateSpaceImages < ActiveRecord::Migration[5.0]$/;"	c
+CreateSpaces	db/migrate/20181009070347_create_spaces.rb	/^class CreateSpaces < ActiveRecord::Migration[5.0]$/;"	c
+Database	README.md	/^## Database$/;"	s
+DayValidationValidator	app/validators/day_validation_validator.rb	/^class DayValidationValidator < ActiveModel::EachValidator$/;"	c
+DeletePricePerHourFromPlans	db/migrate/20181020122713_delete_price_per_hour_from_plans.rb	/^class DeletePricePerHourFromPlans < ActiveRecord::Migration[5.0]$/;"	c
+Description	app/models/description.rb	/^class Description < ApplicationRecord$/;"	c
+DescriptionsController	app/controllers/descriptions_controller.rb	/^class DescriptionsController < ApplicationController$/;"	c
+Development environment	README.md	/^## Development environment$/;"	s
+DeviseCreateUsers	db/migrate/20181009053050_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration[5.0]$/;"	c
+EmailValidationValidator	app/validators/email_validation_validator.rb	/^class EmailValidationValidator < ActiveModel::EachValidator$/;"	c
+EquipmentInfo	app/models/equipment_info.rb	/^class EquipmentInfo < ApplicationRecord$/;"	c
+EquipmentInfo	spec/models/equipment_info_spec.rb	/^describe EquipmentInfo do$/;"	d
+EquipmentInfosController	app/controllers/equipment_infos_controller.rb	/^class EquipmentInfosController < ApplicationController$/;"	c
+EquipmentTypeValidationValidator	app/validators/equipment_type_validation_validator.rb	/^class EquipmentTypeValidationValidator < ActiveModel::EachValidator$/;"	c
+FileSizeValidator	lib/file_size_validator.rb	/^class FileSizeValidator < ActiveModel::EachValidator$/;"	c
+FirstNameValidationValidator	app/validators/first_name_validation_validator.rb	/^class FirstNameValidationValidator < ActiveModel::EachValidator$/;"	c
+FloorSpaceValidationValidator	app/validators/floor_space_validation_validator.rb	/^class FloorSpaceValidationValidator < ActiveModel::EachValidator$/;"	c
+Helper	lib/file_size_validator.rb	/^  class Helper$/;"	c	class:FileSizeValidator
+IconUploader	app/uploaders/icon_uploader.rb	/^class IconUploader < CarrierWave::Uploader::Base$/;"	c
+ImageFile	app/models/image_file.rb	/^class ImageFile < ApplicationRecord$/;"	c
+ImageFileUploader	app/uploaders/image_file_uploader.rb	/^class ImageFileUploader < CarrierWave::Uploader::Base$/;"	c
+LastNameValidationValidator	app/validators/last_name_validation_validator.rb	/^class LastNameValidationValidator < ActiveModel::EachValidator$/;"	c
+Like	app/models/like.rb	/^class Like < ApplicationRecord$/;"	c
+Overview	README.md	/^## Overview$/;"	s
+OverviewValidationValidator	app/validators/overview_validation_validator.rb	/^class OverviewValidationValidator < ActiveModel::EachValidator$/;"	c
+PassingKeyMethodValidationValidator	app/validators/passing_key_method_validation_validator.rb	/^class PassingKeyMethodValidationValidator < ActiveModel::EachValidator$/;"	c
+PasswordValidationValidator	app/validators/password_validation_validator.rb	/^class PasswordValidationValidator < ActiveModel::EachValidator$/;"	c
+PhoneNumberValidationValidator	app/validators/phone_number_validation_validator.rb	/^class PhoneNumberValidationValidator < ActiveModel::EachValidator$/;"	c
+Plan	app/models/plan.rb	/^class Plan < ApplicationRecord$/;"	c
+PlanNameValidationValidator	app/validators/plan_name_validation_validator.rb	/^class PlanNameValidationValidator < ActiveModel::EachValidator$/;"	c
+PlansController	app/controllers/plans_controller.rb	/^class PlansController < ApplicationController$/;"	c
+PostalCodeValidationValidator	app/validators/postal_code_validation_validator.rb	/^class PostalCodeValidationValidator < ActiveModel::EachValidator$/;"	c
+PrefectureValidationValidator	app/validators/prefecture_validation_validator.rb	/^class PrefectureValidationValidator < ActiveModel::EachValidator$/;"	c
+PriceValidationValidator	app/validators/price_validation_validator.rb	/^class PriceValidationValidator < ActiveModel::EachValidator$/;"	c
+Production environment	README.md	/^## Production environment$/;"	s
+Purpose	app/models/purpose.rb	/^class Purpose < ApplicationRecord$/;"	c
+PurposeValidationValidator	app/validators/purpose_validation_validator.rb	/^class PurposeValidationValidator < ActiveModel::Validator$/;"	c
+RegistrationsController	app/controllers/users/registrations_controller.rb	/^class Users::RegistrationsController < Devise::RegistrationsController$/;"	c	module:Users
+RemoveEquipmentIdFromSpaces	db/migrate/20181016073500_remove_equipment_id_from_spaces.rb	/^class RemoveEquipmentIdFromSpaces < ActiveRecord::Migration[5.0]$/;"	c
+RemoveOptionsToImageFiles	db/migrate/20181020072759_remove_options_to_image_files.rb	/^class RemoveOptionsToImageFiles < ActiveRecord::Migration[5.0]$/;"	c
+RemoveRentalDayFromPlans	db/migrate/20181016074948_remove_rental_day_from_plans.rb	/^class RemoveRentalDayFromPlans < ActiveRecord::Migration[5.0]$/;"	c
+RemoveReservationHourFromReservations	db/migrate/20181016072326_remove_reservation_hour_from_reservations.rb	/^class RemoveReservationHourFromReservations < ActiveRecord::Migration[5.0]$/;"	c
+RentalDay	app/models/rental_day.rb	/^class RentalDay < ApplicationRecord$/;"	c
+RentalHour	app/models/rental_hour.rb	/^class RentalHour < ApplicationRecord$/;"	c
+Reservation	app/models/reservation.rb	/^class Reservation < ApplicationRecord$/;"	c
+ReservationApprovalMethodValidationValidator	app/validators/reservation_approval_method_validation_validator.rb	/^class ReservationApprovalMethodValidationValidator < ActiveModel::EachValidator$/;"	c
+ReservationHour	app/models/reservation_hour.rb	/^class ReservationHour < ApplicationRecord$/;"	c
+ReservationMailer	app/mailers/reservation_mailer.rb	/^class ReservationMailer < ApplicationMailer$/;"	c
+ReservationsController	app/controllers/reservations_controller.rb	/^class ReservationsController < ApplicationController$/;"	c
+SearchController	app/controllers/search_controller.rb	/^class SearchController < ApplicationController$/;"	c
+SessionsController	app/controllers/users/sessions_controller.rb	/^class Users::SessionsController < Devise::SessionsController$/;"	c	module:Users
+Space	app/models/space.rb	/^class Space < ApplicationRecord$/;"	c
+SpaceImage	app/models/space_image.rb	/^class SpaceImage < ApplicationRecord$/;"	c
+SpaceImagesController	app/controllers/space_images_controller.rb	/^class SpaceImagesController < ApplicationController$/;"	c
+SpaceMarket	config/application.rb	/^module SpaceMarket$/;"	m
+SpaceStatusValidationValidator	app/validators/space_status_validation_validator.rb	/^class SpaceStatusValidationValidator < ActiveModel::Validator$/;"	c
+SpacesController	app/controllers/spaces_controller.rb	/^class SpacesController < ApplicationController$/;"	c
+StreetNameValidationValidator	app/validators/street_name_validation_validator.rb	/^class StreetNameValidationValidator < ActiveModel::EachValidator$/;"	c
+Test environment	README.md	/^## Test environment$/;"	s
+TestCase	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c	module:ActiveSupport
+The change you wanted was rejected.	public/422.html	/^      <h1>The change you wanted was rejected.<\/h1>$/;"	h
+The page you were looking for doesn't exist.	public/404.html	/^      <h1>The page you were looking for doesn't exist.<\/h1>$/;"	h
+User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c
+User	spec/models/user_spec.rb	/^describe User do$/;"	d
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+We're sorry, but something went wrong.	public/500.html	/^      <h1>We're sorry, but something went wrong.<\/h1>$/;"	h
+add_class_function	app/assets/javascripts/purpose-highlight.js	/^  var add_class_function = (function() {$/;"	f	function:AnonymousFunction059bf06e0100
+after_sign_out_path_for	app/controllers/application_controller.rb	/^  def after_sign_out_path_for(resource)$/;"	f	class:ApplicationController
+appendDay	app/assets/javascripts/full_calendar.js	/^  function appendDay(date) {$/;"	f	function:AnonymousFunctiona704c4a70100
+basic_info_params	app/controllers/basic_infos_controller.rb	/^  def basic_info_params$/;"	f	class:BasicInfosController
+can not save	spec/models/equipment_info_spec.rb	/^    context 'can not save' do$/;"	c
+can not save	spec/models/user_spec.rb	/^    context 'can not save' do$/;"	c
+can save	spec/models/equipment_info_spec.rb	/^    context 'can save' do$/;"	c
+can save	spec/models/user_spec.rb	/^    context 'can save' do$/;"	c
+change	db/migrate/20181009053050_devise_create_users.rb	/^  def change$/;"	f	class:DeviseCreateUsers
+change	db/migrate/20181009054315_create_reservations.rb	/^  def change$/;"	f	class:CreateReservations
+change	db/migrate/20181009065426_create_reservation_hours.rb	/^  def change$/;"	f	class:CreateReservationHours
+change	db/migrate/20181009065813_create_likes.rb	/^  def change$/;"	f	class:CreateLikes
+change	db/migrate/20181009070347_create_spaces.rb	/^  def change$/;"	f	class:CreateSpaces
+change	db/migrate/20181009074549_create_equipment_infos.rb	/^  def change$/;"	f	class:CreateEquipmentInfos
+change	db/migrate/20181009085927_create_purposes.rb	/^  def change$/;"	f	class:CreatePurposes
+change	db/migrate/20181009090921_create_descriptions.rb	/^  def change$/;"	f	class:CreateDescriptions
+change	db/migrate/20181009091329_create_plans.rb	/^  def change$/;"	f	class:CreatePlans
+change	db/migrate/20181009091954_create_rental_days.rb	/^  def change$/;"	f	class:CreateRentalDays
+change	db/migrate/20181009092223_create_rental_hours.rb	/^  def change$/;"	f	class:CreateRentalHours
+change	db/migrate/20181015042825_add_accepted_to_users.rb	/^  def change$/;"	f	class:AddAcceptedToUsers
+change	db/migrate/20181016061702_create_basic_infos.rb	/^  def change$/;"	f	class:CreateBasicInfos
+change	db/migrate/20181016072326_remove_reservation_hour_from_reservations.rb	/^  def change$/;"	f	class:RemoveReservationHourFromReservations
+change	db/migrate/20181016072732_add_reservation_id_to_reservation_hours.rb	/^  def change$/;"	f	class:AddReservationIdToReservationHours
+change	db/migrate/20181016073500_remove_equipment_id_from_spaces.rb	/^  def change$/;"	f	class:RemoveEquipmentIdFromSpaces
+change	db/migrate/20181016074510_add_space_id_to_basic_infos.rb	/^  def change$/;"	f	class:AddSpaceIdToBasicInfos
+change	db/migrate/20181016074722_add_space_id_to_descriptions.rb	/^  def change$/;"	f	class:AddSpaceIdToDescriptions
+change	db/migrate/20181016074948_remove_rental_day_from_plans.rb	/^  def change$/;"	f	class:RemoveRentalDayFromPlans
+change	db/migrate/20181016075243_add_plan_id_to_rental_days.rb	/^  def change$/;"	f	class:AddPlanIdToRentalDays
+change	db/migrate/20181016075430_add_plan_id_to_rental_hours.rb	/^  def change$/;"	f	class:AddPlanIdToRentalHours
+change	db/migrate/20181016075748_add_space_idto_equipment_infos.rb	/^  def change$/;"	f	class:AddSpaceIdtoEquipmentInfos
+change	db/migrate/20181017082254_add_start_hour_to_rental_hours.rb	/^  def change$/;"	f	class:AddStartHourToRentalHours
+change	db/migrate/20181018035152_create_image_files.rb	/^  def change$/;"	f	class:CreateImageFiles
+change	db/migrate/20181018040116_create_space_images.rb	/^  def change$/;"	f	class:CreateSpaceImages
+change	db/migrate/20181018071947_add_user_idto_spaces.rb	/^  def change$/;"	f	class:AddUserIdtoSpaces
+change	db/migrate/20181019014736_change_data_postal_code_to_equipment_infos.rb	/^  def change$/;"	f	class:ChangeDataPostalCodeToEquipmentInfos
+change	db/migrate/20181020044410_add_option_to_image_files.rb	/^  def change$/;"	f	class:AddOptionToImageFiles
+change	db/migrate/20181020122713_delete_price_per_hour_from_plans.rb	/^  def change$/;"	f	class:DeletePricePerHourFromPlans
+change	db/migrate/20181025062419_add_status_to_spaces.rb	/^  def change$/;"	f	class:AddStatusToSpaces
+check_current_user	app/controllers/basic_infos_controller.rb	/^  def check_current_user$/;"	f	class:BasicInfosController
+check_current_user	app/controllers/descriptions_controller.rb	/^  def check_current_user$/;"	f	class:DescriptionsController
+check_current_user	app/controllers/equipment_infos_controller.rb	/^  def check_current_user$/;"	f	class:EquipmentInfosController
+check_current_user	app/controllers/plans_controller.rb	/^  def check_current_user$/;"	f	class:PlansController
+check_current_user	app/controllers/space_images_controller.rb	/^  def check_current_user$/;"	f	class:SpaceImagesController
+check_current_user	app/controllers/spaces_controller.rb	/^  def check_current_user$/;"	f	class:SpacesController
+check_current_user	app/controllers/users_controller.rb	/^  def check_current_user$/;"	f	class:UsersController
+check_validity!	lib/file_size_validator.rb	/^  def check_validity!$/;"	f	class:FileSizeValidator
+clear_flash	app/controllers/descriptions_controller.rb	/^  def clear_flash$/;"	f	class:DescriptionsController
+clear_notice	app/controllers/spaces_controller.rb	/^  def clear_notice$/;"	f	class:SpacesController
+configure_permitted_parameters	app/controllers/application_controller.rb	/^  def configure_permitted_parameters$/;"	f	class:ApplicationController
+create	app/controllers/basic_infos_controller.rb	/^  def create$/;"	f	class:BasicInfosController
+create	app/controllers/descriptions_controller.rb	/^  def create$/;"	f	class:DescriptionsController
+create	app/controllers/equipment_infos_controller.rb	/^  def create$/;"	f	class:EquipmentInfosController
+create	app/controllers/plans_controller.rb	/^  def create$/;"	f	class:PlansController
+create	app/controllers/reservations_controller.rb	/^  def create$/;"	f	class:ReservationsController
+create	app/controllers/space_images_controller.rb	/^  def create$/;"	f	class:SpaceImagesController
+dependencies	package.json	/^  "dependencies": {}$/;"	o
+description_params	app/controllers/descriptions_controller.rb	/^  def description_params$/;"	f	class:DescriptionsController
+destroy	app/controllers/spaces_controller.rb	/^  def destroy$/;"	f	class:SpacesController
+down	db/migrate/20181013060123_change_prefecture_to_equipmentinfos.rb	/^  def down$/;"	f	class:ChangePrefectureToEquipmentinfos
+down	db/migrate/20181020072759_remove_options_to_image_files.rb	/^  def down$/;"	f	class:RemoveOptionsToImageFiles
+edit	app/controllers/basic_infos_controller.rb	/^  def edit$/;"	f	class:BasicInfosController
+edit	app/controllers/descriptions_controller.rb	/^  def edit$/;"	f	class:DescriptionsController
+edit	app/controllers/equipment_infos_controller.rb	/^  def edit$/;"	f	class:EquipmentInfosController
+edit	app/controllers/plans_controller.rb	/^  def edit$/;"	f	class:PlansController
+edit	app/controllers/space_images_controller.rb	/^  def edit$/;"	f	class:SpaceImagesController
+edit	app/controllers/spaces_controller.rb	/^  def edit$/;"	f	class:SpacesController
+equipment_info_params	app/controllers/equipment_infos_controller.rb	/^  def equipment_info_params$/;"	f	class:EquipmentInfosController
+event	app/assets/javascripts/purpose-highlight.js	/^    var others = { 'film_shoot': 'ロケ撮影' , 'studio': '展示会', 'performance': '演奏'/;"	p	class:AnonymousFunction059bf06e0100.add_class_function.others
+extension_white_list	app/uploaders/image_file_uploader.rb	/^  def extension_white_list$/;"	f	class:ImageFileUploader
+film_shoot	app/assets/javascripts/purpose-highlight.js	/^    var others = { 'film_shoot': 'ロケ撮影' , 'studio': '展示会', 'performance': '演奏'/;"	p	class:AnonymousFunction059bf06e0100.add_class_function.others
+help	lib/file_size_validator.rb	/^  def help$/;"	f	class:FileSizeValidator
+index	app/controllers/search_controller.rb	/^  def index$/;"	f	class:SearchController
+index	app/controllers/spaces_controller.rb	/^  def index$/;"	f	class:SpacesController
+initMap	app/assets/javascripts/map.js	/^function initMap() {$/;"	f
+initialize	lib/file_size_validator.rb	/^  def initialize(options)$/;"	f	class:FileSizeValidator
+keepChecked	app/assets/javascripts/full_calendar.js	/^  function keepChecked(){$/;"	f	function:AnonymousFunctiona704c4a70100
+loadScript	app/assets/javascripts/map.js	/^function loadScript(url){$/;"	f
+loadScript	app/assets/javascripts/twitter_widgets.js	/^function loadScript(url){$/;"	f
+marker	app/assets/javascripts/map.js	/^var marker = [];$/;"	v
+markerData	app/assets/javascripts/map.js	/^var markerData = gon.markerData;$/;"	v
+markerEvent	app/assets/javascripts/map.js	/^function markerEvent(i) {$/;"	f
+name	package.json	/^  "name": "space-market",$/;"	s
+new	app/controllers/basic_infos_controller.rb	/^  def new$/;"	f	class:BasicInfosController
+new	app/controllers/descriptions_controller.rb	/^  def new$/;"	f	class:DescriptionsController
+new	app/controllers/equipment_infos_controller.rb	/^  def new$/;"	f	class:EquipmentInfosController
+new	app/controllers/plans_controller.rb	/^  def new$/;"	f	class:PlansController
+new	app/controllers/reservations_controller.rb	/^  def new$/;"	f	class:ReservationsController
+new	app/controllers/space_images_controller.rb	/^  def new$/;"	f	class:SpaceImagesController
+new	app/controllers/users/registrations_controller.rb	/^  def new$/;"	f	class:RegistrationsController
+next_page	app/controllers/basic_infos_controller.rb	/^  def next_page$/;"	f	class:BasicInfosController
+next_page	app/controllers/descriptions_controller.rb	/^  def next_page$/;"	f	class:DescriptionsController
+next_page	app/controllers/equipment_infos_controller.rb	/^  def next_page$/;"	f	class:EquipmentInfosController
+next_page	app/controllers/space_images_controller.rb	/^  def next_page$/;"	f	class:SpaceImagesController
+not_day	app/assets/javascripts/full_calendar.js	/^  function not_day() {$/;"	f	function:AnonymousFunctiona704c4a70100
+not_wday	app/assets/javascripts/full_calendar.js	/^  function not_wday(){$/;"	f	function:AnonymousFunctiona704c4a70100
+office	app/assets/javascripts/purpose-highlight.js	/^    var others = { 'film_shoot': 'ロケ撮影' , 'studio': '展示会', 'performance': '演奏'/;"	p	class:AnonymousFunction059bf06e0100.add_class_function.others
+onload	app/assets/javascripts/preview-image.js	/^    reader.onload = function (e) {$/;"	f	function:reader
+onload	app/assets/javascripts/space_images.js	/^      reader.onload = function (e) {$/;"	f	function:reader
+other	app/assets/javascripts/purpose-highlight.js	/^    var others = { 'film_shoot': 'ロケ撮影' , 'studio': '展示会', 'performance': '演奏'/;"	p	class:AnonymousFunction059bf06e0100.add_class_function.others
+others	app/assets/javascripts/purpose-highlight.js	/^    var others = { 'film_shoot': 'ロケ撮影' , 'studio': '展示会', 'performance': '演奏'/;"	c	class:AnonymousFunction059bf06e0100.add_class_function
+password_confirmation_validates	app/models/user.rb	/^def password_confirmation_validates$/;"	f
+pastDay	app/assets/javascripts/full_calendar.js	/^  function pastDay(){$/;"	f	function:AnonymousFunctiona704c4a70100
+performance	app/assets/javascripts/purpose-highlight.js	/^    var others = { 'film_shoot': 'ロケ撮影' , 'studio': '展示会', 'performance': '演奏'/;"	p	class:AnonymousFunction059bf06e0100.add_class_function.others
+plan_params	app/controllers/plans_controller.rb	/^  def plan_params$/;"	f	class:PlansController
+private	package.json	/^  "private": true,$/;"	b
+reject_sub_images	app/models/space_image.rb	/^  def reject_sub_images(attributed)$/;"	f	class:SpaceImage
+removeForm	app/assets/javascripts/full_calendar.js	/^  function removeForm() {$/;"	f	function:AnonymousFunctiona704c4a70100
+render_404	app/controllers/application_controller.rb	/^  def render_404$/;"	f	class:ApplicationController
+reserve_params	app/controllers/reservations_controller.rb	/^  def reserve_params$/;"	f	class:ReservationsController
+search	app/controllers/search_controller.rb	/^  def search$/;"	f	class:SearchController
+send_when_create	app/mailers/reservation_mailer.rb	/^  def send_when_create(user, reservation)$/;"	f	class:ReservationMailer
+setToday	app/assets/javascripts/full_calendar.js	/^  function setToday() {$/;"	f	function:AnonymousFunctiona704c4a70100
+set_basic_info	app/controllers/basic_infos_controller.rb	/^  def set_basic_info$/;"	f	class:BasicInfosController
+set_description	app/controllers/descriptions_controller.rb	/^  def set_description$/;"	f	class:DescriptionsController
+set_equipment_info	app/controllers/equipment_infos_controller.rb	/^  def set_equipment_info$/;"	f	class:EquipmentInfosController
+set_not_be_reserved_day	app/controllers/reservations_controller.rb	/^  def set_not_be_reserved_day(space)$/;"	f	class:ReservationsController
+set_not_be_reserved_weekday	app/controllers/reservations_controller.rb	/^  def set_not_be_reserved_weekday(space)$/;"	f	class:ReservationsController
+set_plan	app/controllers/plans_controller.rb	/^  def set_plan$/;"	f	class:PlansController
+set_publish_button	app/assets/javascripts/edit_space.js	/^  function set_publish_button() {$/;"	f	function:AnonymousFunction69ebc62c0100
+set_space	app/controllers/equipment_infos_controller.rb	/^  def set_space$/;"	f	class:EquipmentInfosController
+set_space	app/controllers/reservations_controller.rb	/^  def set_space$/;"	f	class:ReservationsController
+set_space	app/controllers/spaces_controller.rb	/^  def set_space$/;"	f	class:SpacesController
+set_space_id	app/controllers/basic_infos_controller.rb	/^  def set_space_id$/;"	f	class:BasicInfosController
+set_space_id	app/controllers/descriptions_controller.rb	/^  def set_space_id$/;"	f	class:DescriptionsController
+set_space_id	app/controllers/plans_controller.rb	/^  def set_space_id$/;"	f	class:PlansController
+set_space_id	app/controllers/space_images_controller.rb	/^  def set_space_id$/;"	f	class:SpaceImagesController
+set_space_image	app/controllers/space_images_controller.rb	/^  def set_space_image$/;"	f	class:SpaceImagesController
+set_weekday	app/controllers/reservations_controller.rb	/^  def set_weekday(week, rental_weekday)$/;"	f	class:ReservationsController
+show	app/controllers/reservations_controller.rb	/^  def show$/;"	f	class:ReservationsController
+show	app/controllers/spaces_controller.rb	/^  def show$/;"	f	class:SpacesController
+show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+size_range	app/uploaders/image_file_uploader.rb	/^  def size_range$/;"	f	class:ImageFileUploader
+space_image_params	app/controllers/space_images_controller.rb	/^  def space_image_params$/;"	f	class:SpaceImagesController
+sports	app/assets/javascripts/purpose-highlight.js	/^    var others = { 'film_shoot': 'ロケ撮影' , 'studio': '展示会', 'performance': '演奏'/;"	p	class:AnonymousFunction059bf06e0100.add_class_function.others
+store_dir	app/uploaders/icon_uploader.rb	/^  def store_dir$/;"	f	class:IconUploader
+store_dir	app/uploaders/image_file_uploader.rb	/^  def store_dir$/;"	f	class:ImageFileUploader
+studio	app/assets/javascripts/purpose-highlight.js	/^    var others = { 'film_shoot': 'ロケ撮影' , 'studio': '展示会', 'performance': '演奏'/;"	p	class:AnonymousFunction059bf06e0100.add_class_function.others
+system!	bin/setup	/^def system!(*args)$/;"	f
+system!	bin/update	/^def system!(*args)$/;"	f
+up	db/migrate/20181013060123_change_prefecture_to_equipmentinfos.rb	/^  def up$/;"	f	class:ChangePrefectureToEquipmentinfos
+up	db/migrate/20181020072759_remove_options_to_image_files.rb	/^  def up$/;"	f	class:RemoveOptionsToImageFiles
+update	app/controllers/basic_infos_controller.rb	/^  def update$/;"	f	class:BasicInfosController
+update	app/controllers/descriptions_controller.rb	/^  def update$/;"	f	class:DescriptionsController
+update	app/controllers/equipment_infos_controller.rb	/^  def update$/;"	f	class:EquipmentInfosController
+update	app/controllers/plans_controller.rb	/^  def update$/;"	f	class:PlansController
+update	app/controllers/space_images_controller.rb	/^  def update$/;"	f	class:SpaceImagesController
+update	app/controllers/spaces_controller.rb	/^  def update$/;"	f	class:SpacesController
+validate	app/validators/purpose_validation_validator.rb	/^  def validate(record)$/;"	f	class:PurposeValidationValidator
+validate	app/validators/space_status_validation_validator.rb	/^  def validate(record)$/;"	f	class:SpaceStatusValidationValidator
+validate_each	app/validators/about_facilities_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:AboutFacilitiesValidationValidator
+validate_each	app/validators/accepted_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:AcceptedValidationValidator
+validate_each	app/validators/access_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:AccessValidationValidator
+validate_each	app/validators/capacity_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:CapacityValidationValidator
+validate_each	app/validators/catch_copy_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:CatchCopyValidationValidator
+validate_each	app/validators/city_name_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:CityNameValidationValidator
+validate_each	app/validators/day_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:DayValidationValidator
+validate_each	app/validators/email_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:EmailValidationValidator
+validate_each	app/validators/equipment_type_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:EquipmentTypeValidationValidator
+validate_each	app/validators/first_name_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:FirstNameValidationValidator
+validate_each	app/validators/floor_space_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:FloorSpaceValidationValidator
+validate_each	app/validators/last_name_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:LastNameValidationValidator
+validate_each	app/validators/overview_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:OverviewValidationValidator
+validate_each	app/validators/passing_key_method_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:PassingKeyMethodValidationValidator
+validate_each	app/validators/password_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:PasswordValidationValidator
+validate_each	app/validators/phone_number_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:PhoneNumberValidationValidator
+validate_each	app/validators/plan_name_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:PlanNameValidationValidator
+validate_each	app/validators/postal_code_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:PostalCodeValidationValidator
+validate_each	app/validators/prefecture_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:PrefectureValidationValidator
+validate_each	app/validators/price_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:PriceValidationValidator
+validate_each	app/validators/reservation_approval_method_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:ReservationApprovalMethodValidationValidator
+validate_each	app/validators/street_name_validation_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:StreetNameValidationValidator
+validate_each	lib/file_size_validator.rb	/^  def validate_each(record, attribute, value)$/;"	f	class:FileSizeValidator
+wedding	app/assets/javascripts/purpose-highlight.js	/^    var others = { 'film_shoot': 'ロケ撮影' , 'studio': '展示会', 'performance': '演奏'/;"	p	class:AnonymousFunction059bf06e0100.add_class_function.others
+when click 保存して戻る	spec/features/equipment_infos_spec.rb	/^  context 'when click 保存して戻る' do$/;"	c
+when click 保存して進む	spec/features/equipment_infos_spec.rb	/^  context 'when click 保存して進む' do$/;"	c

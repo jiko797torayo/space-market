@@ -4,7 +4,7 @@ class BasicInfosController < ApplicationController
   before_action :authenticate_user!
   before_action :check_current_user, only: [:edit, :update]
   before_action :set_basic_info, only: [:edit, :update]
-  
+
   def new
     @space_id = params[:space_id]
     @basic_info = BasicInfo.new
@@ -18,6 +18,7 @@ class BasicInfosController < ApplicationController
     else
       set_space_id
       render :new
+
     end
   end
 
